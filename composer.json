@@ -1,0 +1,27 @@
+{
+    "name": "serverfireteam/panel",
+    "description": "",
+    "authors": [
+        {
+            "name": "user",
+            "email": "siavash@serverfire.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "illuminate/support": "4.2.*"
+    },
+    "require-dev": {               
+        "vespakoen/menu": "dev-master"
+    },
+    "autoload": {
+        "classmap": [
+            "src/controllers",
+            "src/views"
+        ],
+        "psr-0": {
+            "serverfireteam\\panel": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
