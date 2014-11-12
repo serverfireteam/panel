@@ -1,4 +1,4 @@
-<?php namespace Sadra\Pack1;
+<?php namespace Serverfireteam\Panel;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\AliasLoader;
