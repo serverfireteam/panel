@@ -20,7 +20,7 @@
             "src/views"
         ],
         "psr-0": {
-            "serverfireteam\\panel": "src/"
+            "Serverfireteam\\Panel": "src/"
         }
     },
     "minimum-stability": "stable"
