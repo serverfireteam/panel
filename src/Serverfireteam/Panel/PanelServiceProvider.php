@@ -4,7 +4,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Route;
 
-class Pack1ServiceProvider extends ServiceProvider {
+class PanelServiceProvider extends ServiceProvider {
 
 	/**
 	 * Indicates if loading of the provider is deferred.
@@ -26,7 +26,7 @@ class Pack1ServiceProvider extends ServiceProvider {
         public function boot(){
                      
             
-            $this->package('sadra/pack1');                                  
+            $this->package('serverfireteam/panel');                                  
             
             Route::get('/panel2/{entity}/all', function($entity){
                 $controller = \App::make('Sadra\\Pack1\\'.$entity.'Controller');
@@ -44,7 +44,7 @@ class Pack1ServiceProvider extends ServiceProvider {
               
             include __DIR__."/../../routes.php";
 
-            AliasLoader::getInstance()->alias('Sadra', 'Sadra\Pack1\Sadra');
+            AliasLoader::getInstance()->alias('Serverfireteam', 'Serverfireteam\Panel\Serverfireteam');
         }
 
         /**
