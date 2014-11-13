@@ -25,7 +25,7 @@ class CrudController extends \Controller {
        // $this->entity = $params['entity'];
                       
         $base_path = base_path();
-        $base_path .= "\\workbench\\sadra\\pack1\\src\\views";
+        $base_path .= "\\vendor\\serverfireteam\\panel\\src\\views";
      
         
         \View::addLocation($base_path);        
