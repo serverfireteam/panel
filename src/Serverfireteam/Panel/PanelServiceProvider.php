@@ -21,6 +21,11 @@ class PanelServiceProvider extends ServiceProvider {
 	public function register()
 	{
 		//
+            $this->app->register('Zofe\Rapyd\RapydServiceProvider');
+            
+            $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+           
+
 	}
         
         public function boot(){
