@@ -10,9 +10,7 @@ class PanelServiceProvider extends ServiceProvider
         
     public function register()
     {
-        $this->app->register('Zofe\Rapyd\RapydServiceProvider');
-            
-        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+        $this->app->register('Zofe\Rapyd\RapydServiceProvider');            
     }
         
     public function boot()
