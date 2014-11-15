@@ -30,14 +30,14 @@ class CrudController extends \Controller
         
         \View::addLocation($base_path);
         \View::addNamespace('panelViews', $base_path);
-    }    
+    }
 
     
     public function all($entity)
     {
                                 
                           
-        //$this->addStylesToGrid();                     
+        //$this->addStylesToGrid();
                    
     }
     
@@ -56,14 +56,14 @@ class CrudController extends \Controller
         $this->grid->orderBy('id', 'desc');
         $this->grid->paginate(10);
 
-        $this->grid->row(function ($row){
-           if ($row->cell('id')->value == 20) {
-               $row->style("background-color:#CCFF66");
-           } elseif ($row->cell('id')->value > 15) {
-               $row->cell('title')->style("font-weight:bold");
-               $row->style("color:#f00");
-           }
-        });        
+        $this->grid->row(function ($row) {
+            if ($row->cell('id')->value == 20) {
+                $row->style("background-color:#CCFF66");
+            } elseif ($row->cell('id')->value > 15) {
+                $row->cell('title')->style("font-weight:bold");
+                $row->style("color:#f00");
+            }
+        });
     }
 
     public function returnView()
@@ -74,9 +74,10 @@ class CrudController extends \Controller
         ));
     }
     
-    public function returnEditView(){
-         return \View::make('panelViews::edit' , array(
-             'edit' => $this->edit            
-        )); 
-    }        
+    public function returnEditView()
+    {
+         return \View::make('panelViews::edit', array(
+             'edit' => $this->edit
+        ));
+    }
 }
