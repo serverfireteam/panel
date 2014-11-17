@@ -16,18 +16,26 @@ class PanelServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->package('serverfireteam/panel');
-            
-        Route::get('/panel2/{entity}/all', function ($entity) {
+        
+        
+        $base_path = base_path();
+        $base_path .= "\\vendor\\serverfireteam\\panel\\src\\views";
+        
+        \View::addLocation($base_path);
+        \View::addNamespace('panelViews', $base_path);  
+        
+        Route::get('/panel/{entity}/all', function ($entity) {
             $controller = \App::make('Sadra\\Pack1\\'.$entity.'Controller');
             return $controller->callAction('all', array('entity' => $entity));
         });
     
-        Route::any('/panel2/{entity}/edit', function ($entity) {
+        Route::any('/panel/{entity}/edit', function ($entity) {
             $controller = \App::make('Sadra\\Pack1\\'.$entity.'Controller');
             return $controller->callAction('edit', array('entity' => $entity));
         });
            
-                                                 
+
+        
         include __DIR__."/../../routes.php";
 
         AliasLoader::getInstance()->alias('Serverfireteam', 'Serverfireteam\Panel\Serverfireteam');

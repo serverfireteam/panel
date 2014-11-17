@@ -12,7 +12,7 @@ login
                         </div>
                         <div class="panel-body">
                             <div class="logo-holder">
-                                <img src="img/serverfire-logo2.png" />
+                                <img src="{{asset("packages/serverfireteam/panel/img/logo.png")}}" />
                             </div>
                             <form role="form">
                                 <fieldset>

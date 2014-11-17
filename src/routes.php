@@ -7,27 +7,9 @@
  */
 
 Route::get('/panel', function () {
-    return 'Hello World Inside Sadra!!';
+  return View::make('panelViews::dashboard');
 });
-
-
-
-Route::get('/panel/gridtest2', function (){
-   
-    $grid = DataGrid::source('users');  //same source types of DataSet
-
-    $grid->add('email', 'email', true);
-    $grid->add('username', 'username', true);
-       
-    $configs = Config::get('config.crudItems');
-  
-    foreach ($configs as $key => $value) {
-        Menu::handler('main')->add($key, $value);
-    }
-    
-    Menu::handler('main')->add('home2', 'Homepag22e2');
-   
-    return View::make('pack1::gridtest2', array(
-        'grid' => $grid,
-    ));
+        
+Route::get('/panel/login', function () {
+   return View::make('panelViews::login');
 });
