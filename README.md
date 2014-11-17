@@ -1,11 +1,11 @@
-panel
+Serverfireteam Panel Package .
 =====
 
-This package provides an easily configurable admin panel for Laravel 4.2 applications 
+This package provides an easily configurable admin panel for Laravel 4.2 applications with croud and UI and more .
 
 Installtions
 ====
-Note: if you see any error in any of steps you should first fix it or report it for us in https://github.com/serverfireteam/panel/issues/new
+Note: if you see any error in any of steps you should first fix it or report at [github](https://github.com/serverfireteam/panel/issues/new)
 
 
 1. First you need have a laravel 4.2 project ready to use . 
