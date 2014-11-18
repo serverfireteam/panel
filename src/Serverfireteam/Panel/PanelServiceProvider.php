@@ -22,11 +22,12 @@ class PanelServiceProvider extends ServiceProvider
         
         \View::addLocation($base_path);
         \View::addNamespace('panelViews', $base_path);  
-        
+        $testModel = Admin::get();
+die(var_dump($testModel));
         // Change auth model when in panel
         if (\Request::is('panel*'))
         {
-            \Config::set('auth.model', 'Panel');
+           // \Config::set('auth.model', 'Serverfireteam\Panel\Admin');
             \Route::filter('auth', function()
             {
                 if (\Auth::guest()){
