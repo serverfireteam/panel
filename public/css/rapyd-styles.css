@@ -11,27 +11,6 @@ and open the template in the editor.
 @charset "utf-8";
 
 
-/* font body */
-body {
-    font-family: "Lucida Grande", "Lucida Sans Unicode", "Bitstream Vera Sans",sans-serif;
-    font-size: 14px;
-}
-
-/* font title */
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: Bitter, serif;
-}
-h1, .h1 {
-    font-size: 28px;   
-}
-h2, .h2 {
-    font-size: 22px;
-}
-
-.container {
-  width: auto;
-  max-width: 960px;
-}
 
 
 .photo {
@@ -173,7 +152,3 @@ span.label {
 #site-title a span.b { color: #EEEEEE;}
 #site-title a span.r { color: #CC0000;}
 
-
-pre code {
-    font-family: Monaco,Consolas,"Courier New",monospace;
-    font-size: 0.9em;
