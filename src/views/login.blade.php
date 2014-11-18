@@ -14,7 +14,7 @@ login
                             <div class="logo-holder">
                                 <img src="{{asset("packages/serverfireteam/panel/img/logo.png")}}" />
                             </div>
-                            <form role="form">
+                            {{ Form::open(array('url' => 'panel/login')) }}
                                 <fieldset>
                                     <div class="form-group">
                                         <input class="form-control" placeholder="UserName" name="email" type="text" autofocus>
@@ -28,9 +28,9 @@ login
                                         </label>
                                     </div>
                                     <!-- Change this to a button or input when using this as a form -->
-                                    <a href="index.html" class="btn btn-lg btn-success btn-block">Login</a>
+                                    <input type="submit"  class="btn btn-lg btn-success btn-block" value="Login">
                                 </fieldset>
-                            </form>
+                            {{ Form::close() }}
                         </div>
                     </div>
                 </div>

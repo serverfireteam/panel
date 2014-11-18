@@ -24,6 +24,17 @@ class PanelServiceProvider extends ServiceProvider
         \View::addLocation($base_path);
         \View::addNamespace('panelViews', $base_path);  
         
+        // Change auth model when in panel
+        if (\Request::is('panel*'))
+        {
+            \Config::set('auth.model', 'Panel');
+            \Route::filter('auth', function()
+            {
+                if (\Auth::guest()){
+                        return \Redirect::to('panel/login')->with('message', 'Login Failed');
+                }
+            });
+        }
         Route::get('/panel/{entity}/all', function ($entity) {
             $controller = \App::make('Sadra\\Pack1\\'.$entity.'Controller');
             return $controller->callAction('all', array('entity' => $entity));
