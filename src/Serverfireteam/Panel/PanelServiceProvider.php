@@ -17,13 +17,13 @@ class PanelServiceProvider extends ServiceProvider
     {
         $this->package('serverfireteam/panel');
             
-        Route::get('/panel2/{entity}/all', function ($entity) {
-            $controller = \App::make('Sadra\\Pack1\\'.$entity.'Controller');
+        Route::get('/panel/{entity}/all', function ($entity) {
+            $controller = \App::make('Serverfireteam\\Panel\\'.$entity.'Controller');
             return $controller->callAction('all', array('entity' => $entity));
         });
     
         Route::any('/panel2/{entity}/edit', function ($entity) {
-            $controller = \App::make('Sadra\\Pack1\\'.$entity.'Controller');
+            $controller = \App::make('Serverfireteam\\Panel\\'.$entity.'Controller');
             return $controller->callAction('edit', array('entity' => $entity));
         });
            
