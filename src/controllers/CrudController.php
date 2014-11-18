@@ -1,5 +1,5 @@
 <?php
-namespace Sadra\Pack1;
+namespace Serverfireteam\Panel;
 
 use \Illuminate\Routing\Controllers; 
 /*  
