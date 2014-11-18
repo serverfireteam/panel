@@ -5,29 +5,43 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-Route::get('/panel', function () {
-    return 'Hello World Inside Sadra!!';
-});
-
-
-
-Route::get('/panel/gridtest2', function (){
-   
-    $grid = DataGrid::source('users');  //same source types of DataSet
-
-    $grid->add('email', 'email', true);
-    $grid->add('username', 'username', true);
-       
-    $configs = Config::get('config.crudItems');
-  
-    foreach ($configs as $key => $value) {
-        Menu::handler('main')->add($key, $value);
-    }
+Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
+{
     
-    Menu::handler('main')->add('home2', 'Homepag22e2');
-   
-    return View::make('pack1::gridtest2', array(
-        'grid' => $grid,
-    ));
+		// main page for the admin section (app/views/admin/dashboard.blade.php)
+		Route::get('/', function()
+		{
+			return View::make('panelViews::dashboard');
+		});
+
+});
+/*
+Route::get('/panel', function () {
+  return View::make('panelViews::dashboard');
+});
+ */      
+Route::get('/panel/login', function () {
+   return View::make('panelViews::login');
+});
+Route::post('panel/login',function(){
+    $userdata = array(
+            'email' 	=> Input::get('email'),
+            'password' 	=> Input::get('password')
+    );
+
+    // attempt to do the login
+    if (Auth::attempt($userdata)) {
+
+            // validation successful!
+            // redirect them to the secure section or whatever
+            // return Redirect::to('secure');
+            // for now we'll just echo success (even though echoing in a controller is bad)
+            return Redirect::to('dashboard');
+
+    } else {	 	
+
+            // validation not successful, send back to form	
+            return Redirect::to('login');
+
+    }
 });

@@ -25,11 +25,6 @@ class CrudController extends \Controller
         $this->entity = 'users';
        // $this->entity = $params['entity'];
                       
-        $base_path = base_path();
-        $base_path .= "\\vendor\\serverfireteam\\panel\\src\\views";
-        
-        \View::addLocation($base_path);
-        \View::addNamespace('panelViews', $base_path);
     }
 
     

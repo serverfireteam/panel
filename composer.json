@@ -20,7 +20,8 @@
     "autoload": {
         "classmap": [
             "src/controllers",
-            "src/views"
+            "src/views",
+            "src/models"
         ],
         "psr-0": {
             "Serverfireteam\\Panel": "src/"
