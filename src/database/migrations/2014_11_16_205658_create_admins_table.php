@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Serverfireteam\Panel\Admin;
 
 class CreateAdminsTable extends Migration {
 
@@ -34,6 +35,13 @@ class CreateAdminsTable extends Migration {
 			$table->index('activation_code');
 			$table->index('reset_password_code');
 		});
+                
+                
+                Admin::create(array(
+                    'email' => 'admin',
+                    'password' =>  Hash::make('12345')
+                ));
+                
 	}
 
 	/**

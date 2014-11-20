@@ -22,33 +22,9 @@ class PanelServiceProvider extends ServiceProvider
         
         \View::addLocation($base_path);
         \View::addNamespace('panelViews', $base_path);  
-        $testModel = Admin::get();
-die(var_dump($testModel));
-        // Change auth model when in panel
-        if (\Request::is('panel*'))
-        {
-           // \Config::set('auth.model', 'Serverfireteam\Panel\Admin');
-            \Route::filter('auth', function()
-            {
-                if (\Auth::guest()){
-                        return \Redirect::to('panel/login')->with('message', 'Login Failed');
-                }
-            });
-        }
-
-  
-        Route::get('/panel/{entity}/all', function ($entity) {
-            $controller = \App::make('Serverfireteam\\Panel\\'.$entity.'Controller');
-            return $controller->callAction('all', array('entity' => $entity));
-        });
-    
-        Route::any('/panel2/{entity}/edit', function ($entity) {
-            $controller = \App::make('Serverfireteam\\Panel\\'.$entity.'Controller');
-
-            return $controller->callAction('edit', array('entity' => $entity));
-        });
-           
-
+        $testModel = new Admin();
+     //die(var_dump($testModel));
+        // Change auth model when in panel      
         
         include __DIR__."/../../routes.php";
 

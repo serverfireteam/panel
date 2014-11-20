@@ -21,15 +21,12 @@ class UsersController extends CrudController{
         $this->filter->submit('search');
         $this->filter->reset('reset');
         $this->filter->build();
-        
-        
+                
         $this->grid = \DataGrid::source($this->filter);
         $this->grid->add('id','ID', true)->style("width:100px");
         $this->grid->add('name','Name');
         $this->addStylesToGrid();           
-        
-       
-        
+                       
         return $this->returnView();
     }
            
