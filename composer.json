@@ -25,6 +25,5 @@
         "psr-0": {
             "Serverfireteam\\Panel": "src/"
         }
-    },
-    "minimum-stability": "stable"
+    }
 }
