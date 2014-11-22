@@ -11,13 +11,12 @@
     "require": {
         "php": ">=5.4.0",
         "zofe/rapyd": "1.3.*",
-        "illuminate/support": "4.2.*",
-         "vespakoen/menu": "dev-master",
+        "illuminate/support": "4.2.*"        
+
+    },
+    "require-dev": {                      
         "sebastian/phpcpd": "*",
         "squizlabs/php_codesniffer": "1.*"
-    },
-    "require-dev": {               
-       
     },
     "autoload": {
         "classmap": [
