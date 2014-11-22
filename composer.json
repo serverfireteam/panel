@@ -14,7 +14,8 @@
         "illuminate/support": "4.2.*"        
 
     },
-    "require-dev": {                      
+    "require-dev": {               
+        "vespakoen/menu": "dev-master",
         "sebastian/phpcpd": "*",
         "squizlabs/php_codesniffer": "1.*"
     },
