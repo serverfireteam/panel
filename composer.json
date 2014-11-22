@@ -16,10 +16,7 @@
         "squizlabs/php_codesniffer": "1.*",
         "vespakoen/menu": "dev-master"   
     },
-    "require-dev": {               
-        "vespakoen/menu": "dev-master"      
-    },
-    "autoload": {
+       "autoload": {
         "classmap": [
             "src/controllers",
             "src/views",
