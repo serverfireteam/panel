@@ -13,7 +13,8 @@
         "zofe/rapyd": "1.3.*",
         "sebastian/phpcpd": "*",
         "illuminate/support": "4.2.*",
-        "squizlabs/php_codesniffer": "1.*"        
+        "squizlabs/php_codesniffer": "1.*",
+        "vespakoen/menu": "dev-master"   
     },
     "require-dev": {               
         "vespakoen/menu": "dev-master"      
