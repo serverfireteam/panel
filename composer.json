@@ -15,7 +15,9 @@
 
     },
     "require-dev": {               
-        "vespakoen/menu": "dev-master"
+        "vespakoen/menu": "dev-master",
+        "sebastian/phpcpd": "*",
+        "squizlabs/php_codesniffer": "1.*"
     },
     "autoload": {
         "classmap": [
