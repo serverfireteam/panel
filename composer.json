@@ -11,9 +11,11 @@
     "require": {
         "php": ">=5.4.0",
         "zofe/rapyd": "1.3.*",
-         "vespakoen/menu": "dev-master",
         "illuminate/support": "4.2.*"        
 
+    },
+    "require-dev": {               
+        "vespakoen/menu": "dev-master"
     },
     "autoload": {
         "classmap": [
