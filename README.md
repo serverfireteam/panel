@@ -20,16 +20,23 @@ Note: if you see any error in any of steps you should first fix it or report at 
 }
 ```
 
+3. Add the ServiceProvider of the package to the list of providers in the file config/app.php
 
-3. Run the install command which will migrate database and publishes configs, views and assets.  
-
-```bash
-php artisan ServerfireteamPanel:install
+```php
+'providers' => array(
+    'Serverfireteam\Panel\PanelServiceProvider'
+)
 ```
 
-4. Go to your domain.com/panel and you can login with , user : admin , password : 12345
+4. Run the install command which will migrate database and publishes configs, views and assets.  
+
+```bash
+php artisan asset:publish "serverfireteam/panel"
+```
+
+5. Go to your domain.com/public/panel and you can login with , user : admin , password : 12345
 
 
 
-Thank you for using over package 
+Thank you for using our package 
 
