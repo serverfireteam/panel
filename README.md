@@ -22,7 +22,7 @@ Note: if you see any error in any of steps you should first fix it or report at 
 
 3. Add the ServiceProvider of the package to the list of providers in the file config/app.php
 
-```json
+```php
 'providers' => array(
     'Serverfireteam\Panel\PanelServiceProvider'
 )
