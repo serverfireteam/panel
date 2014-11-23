@@ -24,7 +24,7 @@ Note: if you see any error in any of steps you should first fix it or report at 
 3. Run the install command which will migrate database and publishes configs, views and assets.  
 
 ```bash
-php artisan ServerfireteamPanel:install
+php artisan asset:publish "serverfireteam/panel"
 ```
 
 4. Go to your domain.com/panel and you can login with , user : admin , password : 12345
