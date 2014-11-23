@@ -14,7 +14,7 @@
         "sebastian/phpcpd": "*",
         "illuminate/support": "4.2.*",
         "squizlabs/php_codesniffer": "1.*",
-        "vespakoen/menu": "dev-master"   
+        "vespakoen/menu": "2.0.15"   
     },
        "autoload": {
         "classmap": [
