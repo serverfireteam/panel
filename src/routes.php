@@ -73,7 +73,7 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
 
     // attempt to do the login
     if (Auth::attempt($userdata)) {                   
-        return Redirect::to('/');
+        return Redirect::to('panel');
     } else {	 	
         // validation not successful, send back to form	
         return Redirect::to('panel/login');
