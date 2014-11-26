@@ -19,6 +19,8 @@ dashboard
 
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
+                      {{ Menu::handler('left-menu') }}
+                      <!--
                     <ul class="nav" id="side-menu">
                         
                         <li>
@@ -34,7 +36,7 @@ dashboard
                                     <a href="morris.html">Morris.js Charts</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
+                            <!-- /.nav-second-level 
                         </li>
                         <li>
                             <a href="tables.html"><i class="fa fa-table fa-fw"></i> Tables</a>
@@ -61,7 +63,7 @@ dashboard
                                     <a href="grid.html">Grid</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
+                            
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
@@ -88,10 +90,10 @@ dashboard
                                             <a href="#">Third Level Item</a>
                                         </li>
                                     </ul>
-                                    <!-- /.nav-third-level -->
+                                   
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
+                           
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
@@ -103,11 +105,11 @@ dashboard
                                     <a href="login.html">Login Page</a>
                                 </li>
                             </ul>
-                            <!-- /.nav-second-level -->
+                            <!-- /.sidebar-collapse -->
                         </li>
                     </ul>
                 </div>
-                <!-- /.sidebar-collapse -->
+               
             </div>
             <!-- /.navbar-static-side -->
         </nav>

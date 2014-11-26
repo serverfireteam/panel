@@ -29,7 +29,7 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
         
          Route::get('/{entity}/all', function ($entity) {
              try{
-                  $controller = \App::make($entity.'Controller');
+                  $controller = \App::make('Serverfireteam\\Panel\\'.$entity.'Controller');
              }catch(Exception $ex){
                  echo $ex;
                  exit();

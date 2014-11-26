@@ -10,7 +10,9 @@ class PanelServiceProvider extends ServiceProvider
         
     public function register()
     {
-        $this->app->register('Zofe\Rapyd\RapydServiceProvider');            
+        $this->app->register('Zofe\Rapyd\RapydServiceProvider');  
+        $this->app->register('Menu\MenuServiceProvider');
+        AliasLoader::getInstance()->alias("Menu",'Menu\Menu');
     }
         
     public function boot()
@@ -24,7 +26,14 @@ class PanelServiceProvider extends ServiceProvider
         \View::addNamespace('panelViews', $base_path);  
         $testModel = new Admin();
      //die(var_dump($testModel));
-        // Change auth model when in panel      
+        // Change auth model when in panel   
+        $leftItems = \Config::get('config.crudItems');
+               
+        foreach ( $leftItems as $key => $value ){
+            echo 'key is '. $key . ' value is '. $value;
+            \Menu::handler('left-menu')->add('panel/'.$value.'/all' , $key);
+        }
+       
         
         include __DIR__."/../../routes.php";
 
