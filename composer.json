@@ -1,0 +1,29 @@
+{
+    "name": "serverfireteam/panel",
+    "description": "This package provides an easily configurable admin panel for Laravel 4 applications",
+    "keywords": ["Laravel", "Panel", "Crud", "Nice Design","Admin Panel"],
+    "authors": [
+        {
+            "name": "user",
+            "email": "siavash@serverfire.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "zofe/rapyd": "1.3.*",
+        "sebastian/phpcpd": "*",
+        "illuminate/support": "4.2.*",
+        "squizlabs/php_codesniffer": "1.*",
+        "vespakoen/menu": "2.0.15"   
+    },
+       "autoload": {
+        "classmap": [
+            "src/controllers",
+            "src/views",
+            "src/models"
+        ],
+        "psr-0": {
+            "Serverfireteam\\Panel": "src/"
+        }
+    }
+}
