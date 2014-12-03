@@ -28,6 +28,8 @@ Note: if you see any error in any of steps you should first fix it or report at 
 )
 ```
 
+4. Create a file in folder app/config of your project, name it config.php 
+
 4. Run the install command which will migrate database and publishes configs, views and assets.  
 
 ```bash

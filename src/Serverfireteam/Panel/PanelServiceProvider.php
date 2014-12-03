@@ -28,12 +28,14 @@ class PanelServiceProvider extends ServiceProvider
      //die(var_dump($testModel));
         // Change auth model when in panel   
         $leftItems = \Config::get('config.crudItems');
-               
+        
+        $crudItemCounter = 0;       
         foreach ( $leftItems as $key => $value ){
-            echo 'key is '. $key . ' value is '. $value;
             \Menu::handler('left-menu')->add('panel/'.$value.'/all' , $key);
         }
-       
+        
+         \Menu::handler('left-menu')->addClass('nav');
+         
         
         include __DIR__."/../../routes.php";
 

@@ -47,8 +47,7 @@ class CrudController extends \Controller
     {
         
         $this->grid->edit('edit', 'Edit', 'show|modify');
-        $this->grid->link('edit', "New Article", "TR");
-        $this->grid->orderBy('id', 'desc');
+        $this->grid->orderBy('id', 'desc');     
         $this->grid->paginate(10);
 
         $this->grid->row(function ($row) {

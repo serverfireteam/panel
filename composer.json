@@ -9,14 +9,16 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0",
-        "zofe/rapyd": "1.3.*",
+        "php": ">=5.4.0",        
         "sebastian/phpcpd": "*",
         "illuminate/support": "4.2.*",
         "squizlabs/php_codesniffer": "1.*",
         "vespakoen/menu": "2.0.15"   
     },
-       "autoload": {
+    "require-dev" : {
+        "serverfireteam/rapyd": "dev-master"
+    },
+    "autoload": {
         "classmap": [
             "src/controllers",
             "src/views",
@@ -25,5 +27,12 @@
         "psr-0": {
             "Serverfireteam\\Panel": "src/"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/serverfireteam/rapyd-laravel/"
+        }
+    ]
+    
 }
