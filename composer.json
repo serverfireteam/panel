@@ -13,10 +13,8 @@
         "sebastian/phpcpd": "*",
         "illuminate/support": "4.2.*",
         "squizlabs/php_codesniffer": "1.*",
-        "vespakoen/menu": "2.0.15"   
-    },
-    "require-dev" : {
-        "serverfireteam/rapyd": "dev-master"
+        "vespakoen/menu": "2.0.15",
+        "zofe/rapyd": "1.3.23"
     },
     "autoload": {
         "classmap": [
@@ -29,10 +27,10 @@
         }
     },
     "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/serverfireteam/rapyd-laravel/"
-        }
+       {
+            "type":"git",
+            "url": "https://github.com/xsxhamid/Laraphrases"
+       }
     ]
     
 }
