@@ -39,7 +39,7 @@ php artisan asset:publish "serverfireteam/panel"
 5. Go to the root of your project and run this command in the to set up the database
 
 ```bash
-php artisan migrate --path="vendor\serverfireteam\panel\src\database\migrations"
+php artisan migrate --path="vendor/serverfireteam/panel/src/database/migrations"
 ```
 
 6. Go to your domain.com/public/panel and you can login with , user : admin , password : 12345

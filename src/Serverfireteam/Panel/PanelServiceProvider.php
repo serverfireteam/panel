@@ -20,7 +20,7 @@ class PanelServiceProvider extends ServiceProvider
         $this->package('serverfireteam/panel');
 
         $base_path = base_path();
-        $base_path .= "\\vendor\\serverfireteam\\panel\\src\\views";
+        $base_path .= "/vendor/serverfireteam/panel/src/views";
         
         \View::addLocation($base_path);
         \View::addNamespace('panelViews', $base_path);  
