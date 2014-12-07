@@ -59,8 +59,11 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
          * 
          */
         
-        
-       
+        Route::get('/edit',
+                array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit'));
+
+         Route::post('/edit',
+                array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));                
 });
 
  Route::post('/panel/login',function(){

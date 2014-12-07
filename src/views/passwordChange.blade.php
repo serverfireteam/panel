@@ -1,13 +1,23 @@
+@extends('panelViews::mainTemplate')
+@section('page-wrapper')
+
 @if(Session::has('message'))
     <div class="alert-box success">
         <h2>{{ Session::get('message') }}</h2>
     </div>
 @endif
 
+<div class="row">
+    <div class="col-xs-4" >
 <form action="{{ action('Serverfireteam\Panel\RemindersController@postChangePassword') }}" method="POST">    
-    <input type="email" name="email">
-   Current: <input type="password" name="current_password"><br />
-   Password: <input type="password" name="password"><br />
-   Re-Type PAssword: <input type="password" name="password_confirmation"><br />
-    <input type="submit" value="Reset Password">
+    <label>Email Address:</label> <input class="form-control" type="email" name="email"><br />
+    <label>Current Password:</label> <input class="form-control" type="password" name="current_password"><br />
+    <label>Password:</label> <input  class="form-control" type="password" name="password"><br />
+    <label>Re-Type PAssword:</label> <input class="form-control" type="password" name="password_confirmation"><br />
+    <input class="btn btn-default" type="submit" value="Reset Password">
 </form>
+        </div>    
+</div>
+    
+@stop   
+

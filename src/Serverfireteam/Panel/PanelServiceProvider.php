@@ -25,17 +25,21 @@ class PanelServiceProvider extends ServiceProvider
         \View::addLocation($base_path);
         \View::addNamespace('panelViews', $base_path);  
         $testModel = new Admin();
-     //die(var_dump($testModel));
+        //die(var_dump($testModel));
         // Change auth model when in panel   
-        $leftItems = \Config::get('config.crudItems');
+       //  $leftItems = \Config::get('config.crudItems');
         
-        $crudItemCounter = 0;       
-        foreach ( $leftItems as $key => $value ){
-            \Menu::handler('left-menu')->add('panel/'.$value.'/all' , $key);
+        /*
+        if ( isset($leftItems) && $leftItems != null ){
+            foreach ( $leftItems as $key => $value ){
+                \Menu::handler('left-menu')->add('panel/'.$value.'/all' , $key);
+            }
         }
         
          \Menu::handler('left-menu')->addClass('nav');
          
+         * 
+         */
         
         include __DIR__."/../../routes.php";
 

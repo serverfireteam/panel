@@ -18,8 +18,14 @@ dashboard
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">                    
-                        {{ Menu::handler('left-menu') }}                   
+                <div class="sidebar-nav navbar-collapse">        
+                    <ul class="nav" id="side-menu">
+                         @foreach (  \Config::get('config.crudItems') as $key => $value )                
+                            <li>
+                                <a  href="panel/{{{$value}}}/all"><i class="fa fa-dashboard fa-fw"></i> {{{$key}}}</a>
+                            </li>
+                         @endforeach
+                    </ul>     
                       <!--
                     <ul class="nav" id="side-menu">
                         
