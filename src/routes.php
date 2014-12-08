@@ -1,5 +1,7 @@
 <?php
 
+
+use Serverfireteam\Panel\libs;
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -24,6 +26,7 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
 		// main page for the admin section (app/views/admin/dashboard.blade.php)
         Route::get('/', function()
         {
+
             return View::make('panelViews::dashboard');
         });
         
@@ -59,6 +62,7 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
          * 
          */
         
+
         Route::get('/edit',
                 array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit'));
 
@@ -68,6 +72,15 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
 
  Route::post('/panel/login',function(){
      
+
+        
+       
+});
+
+ Route::post('/panel/login',function(){
+ 
+    \Config::set('auth.model', 'Serverfireteam\Panel\Admin');
+
     $userdata = array(
             'email' 	=> Input::get('email'),
             'password' 	=> Input::get('password')
@@ -81,6 +94,7 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
         return Redirect::to('panel/login');
     }
 });
+
 
 Route::get('/panel/logout', function (){
            
@@ -101,6 +115,7 @@ Route::get('/panel/reset', array('uses' => 'Serverfireteam\Panel\RemindersContro
 Route::get('/panel/remind',  array('uses' => 'Serverfireteam\Panel\RemindersController@getRemind'));
 
 Route::post('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersController@postRemind')); 
+
 /*
 Route::get('/panel', function () {
   return View::make('panelViews::dashboard');

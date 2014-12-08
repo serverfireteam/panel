@@ -17,6 +17,7 @@
         "zofe/rapyd": "1.3.23"
     },
     "autoload": {
+
         "classmap": [
             "src/controllers",
             "src/views",

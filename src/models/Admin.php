@@ -6,7 +6,9 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
+
 class Admin extends \Eloquent implements UserInterface, RemindableInterface{
+
 	/**
 	 * The database table used by the model.
 	 *
@@ -40,6 +42,7 @@ class Admin extends \Eloquent implements UserInterface, RemindableInterface{
         public function getReminderEmail(){
              return \Auth::user()->email;
         }
+
 
         public function getRememberTokenName(){
             return $this->rememberTokenName;
