@@ -19,11 +19,13 @@ class CrudController extends \Controller
     public $edit;
     public $filter;
     
-    public function __construct()
+     public function __construct()
     {
          
         $this->entity = 'users';
        // $this->entity = $params['entity'];
+        $routeParamters = \Route::current()->parameters();      
+        $this->setEntity($routeParamters['entity']);
                       
     }
 
@@ -41,8 +43,15 @@ class CrudController extends \Controller
         
     }
 
-    
 
+    public function getEntity(){
+        return $this->entity;
+    }
+
+     public function setEntity($entity){
+        $this->entity = $entity;
+    }
+    
     public function addStylesToGrid()
     {
         
