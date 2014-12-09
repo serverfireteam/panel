@@ -19,6 +19,8 @@ Note: if you see any error in any of steps you should first fix it or report at 
         },
     }
     ```
+and run the composer update command, the package and its dependencies will be installed
+
 
 3.  Add the ServiceProvider of the package to the list of providers in the file config/app.php
 
