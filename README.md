@@ -12,35 +12,35 @@ Note: if you see any error in any of steps you should first fix it or report at 
 
 2.  Add package to require-dev 
 
-```json
-{
-    "require-dev": {
-        "serverfireteam/panel": "dev-master"
-    },
-}
-```
+    ```json
+    {
+        "require-dev": {
+            "serverfireteam/panel": "dev-master"
+        },
+    }
+    ```
 
 3.  Add the ServiceProvider of the package to the list of providers in the file config/app.php
 
-```php
-'providers' => array(
-    'Serverfireteam\Panel\PanelServiceProvider'
-)
-```
+    ```php
+    'providers' => array(
+        'Serverfireteam\Panel\PanelServiceProvider'
+    )
+    ```
 
 4. Create a file in folder app/config of your project, name it config.php 
 
 4. Run the install command which will migrate database and publishes configs, views and assets.  
 
-```bash
-php artisan asset:publish "serverfireteam/panel"
-```
+    ```bash
+    php artisan asset:publish "serverfireteam/panel"
+    ```
 
 5. Go to the root of your project and run this command in the to set up the database
 
-```bash
-php artisan migrate --path="vendor\serverfireteam\panel\src\database\migrations"
-```
+    ```bash
+    php artisan migrate --path="vendor\serverfireteam\panel\src\database\migrations"
+    ```
 
 6. Go to your domain.com/public/panel and you can login with , user : admin , password : 12345
 
