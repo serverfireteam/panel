@@ -10,7 +10,7 @@ Note: if you see any error in any of steps you should first fix it or report at 
 
 1. First you need have a laravel 4.2 project ready to use . 
 
-2. Add package to require-dev 
+2.  Add package to require-dev 
 
 ```json
 {
@@ -20,7 +20,7 @@ Note: if you see any error in any of steps you should first fix it or report at 
 }
 ```
 
-3. Add the ServiceProvider of the package to the list of providers in the file config/app.php
+3.  Add the ServiceProvider of the package to the list of providers in the file config/app.php
 
 ```php
 'providers' => array(
