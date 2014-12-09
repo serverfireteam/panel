@@ -73,10 +73,16 @@ class CrudController extends \Controller
 
     public function returnView()
     {
-         return \View::make('panelViews::all', array(
+        $configFile = \Config::get('config.crudItems');
+        
+        if ( !isset($configFile) || $configFile == null ){
+             return \View::make('panelViews::noConfig');
+        } else {
+            return \View::make('panelViews::all', array(
              'grid' => $this->grid,
              'filter' => $this->filter
-        ));
+            ));   
+        }                      
     }
     
     public function returnEditView()

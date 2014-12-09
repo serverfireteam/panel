@@ -34,8 +34,7 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
              try{
                   $controller = \App::make($entity.'Controller');
              }catch(Exception $ex){
-                 echo $ex;
-                 exit();
+                 return View::make('panelViews::noController');
              }
             return $controller->callAction('all', array('entity' => $entity));
         });
