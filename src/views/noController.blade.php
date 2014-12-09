@@ -4,6 +4,12 @@ dashboard
 @stop
 @section('body')
 
-   No Controller Has Been Set for This Model
+
+@if(Session::has('message'))
+    <div class="alert-box success">
+        <h2>{{ Session::get('message') }}</h2>
+    </div>
+@endif
+   
 
 @stop

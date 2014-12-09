@@ -29,7 +29,5 @@ class MainController extends \Controller{
         $edit->add('categories.name','Categories','tags');
 
         return $edit->view('rapyd::demo.edit', compact('edit'));
-
-    }
-    
+    }    
 }
