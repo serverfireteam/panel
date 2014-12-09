@@ -25,11 +25,11 @@ dashboard
                 <div class="sidebar-nav navbar-collapse">        
                     <ul class="nav" id="side-menu">
                             <li>
-                                {{link_to('panel', 'Dashboard')}}<i class="fa fa-dashboard fa-fw"></i>
+                                {{link_to('panel', 'Dashboard')}}
                             </li>
                          @foreach (  \Config::get('config.crudItems') as $key => $value )                
                             <li>
-                                <a  href="panel/{{{$value}}}/all"><i class="fa fa-dashboard fa-fw"></i> {{{$key}}}</a>
+                                <a class="" href="panel/{{{$value}}}/all"> {{{$key}}}</a>
                             </li>
                          @endforeach
                     </ul>     
@@ -48,8 +48,24 @@ dashboard
             <!-- Menu Bar -->
             <div class="row">
                 <div class="col-xs-12 text-a top-icon-bar">
-                    <a href="#"<span class="icon  ic-cog"></span></a>
-                    <span class="icon ic-switch"></span>
+                    <div class="btn-group" role="group" aria-label="...">
+                        <div class="btn-group" role="group">
+                            <a  type="button" class="btn btn-default dropdown-toggle main-link" data-toggle="dropdown" aria-expanded="false">
+                                settings 
+                                <span class="caret fl-right"></span>
+                            </a>
+                          <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{url('panel/edit')}}"><span class="icon  ic-cog "></span> Profile Edit </a></li>
+                            <li><a href="{{url('panel/changePassword')}}"><span class="icon ic-cog"></span> Reset Password </a></li>
+                          </ul>
+                        </div>
+                        <a href="{{url('panel/logout')}}" type="button" class="btn btn-default main-link">logout <span class="icon  ic-switch fl-right"></span></a>
+                      </div>
+                    
+<!--                    <a href="{{url('panel/logout')}}" > logout <span class="icon  ic-cog"></span></a>
+                    <a href="#" > settings <span class="icon ic-switch"></span></a>-->
+                    
+                    
                 </div>
             </div>
             
