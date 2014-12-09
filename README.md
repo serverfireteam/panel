@@ -30,13 +30,13 @@ Note: if you see any error in any of steps you should first fix it or report at 
 
 4. Create a file in folder app/config of your project, name it config.php 
 
-4. Run the install command which will migrate database and publishes configs, views and assets.  
+4. Run the following command in order to publishe configs, views and assets.  
 
     ```bash
     php artisan asset:publish "serverfireteam/panel"
     ```
 
-5. Go to the root of your project and run this command in the to set up the database
+5. Go to the root of your project and run this command in order to set up the database
 
     ```bash
     php artisan migrate --path="vendor\serverfireteam\panel\src\database\migrations"
