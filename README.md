@@ -30,8 +30,6 @@ and run the composer update command, the package and its dependencies will be in
     )
     ```
 
-4. Create a file in folder app/config of your project, name it config.php 
-
 4. Run the following command in order to publishe configs, views and assets.  
 
     ```bash
