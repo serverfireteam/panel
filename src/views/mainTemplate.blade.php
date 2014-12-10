@@ -27,9 +27,14 @@ dashboard
                             <li>
                                 {{link_to('panel', 'Dashboard')}}
                             </li>
+                            
                          @foreach (  \Config::get('config.crudItems') as $key => $value )                
                             <li>
+<<<<<<< HEAD
                                 <a class="" href="panel/{{{$value}}}/all"> {{{$key}}}</a>
+=======
+                                 <a  href="{{ url('panel/'.$value.'/all') }}"><i class="fa fa-dashboard fa-fw"></i> {{{$key}}}</a>
+>>>>>>> origin/master
                             </li>
                          @endforeach
                     </ul>     

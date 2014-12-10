@@ -19,11 +19,11 @@ class CrudController extends \Controller
     public $edit;
     public $filter;
     
-    public function __construct()
-    {
-         
-        $this->entity = 'users';
+     public function __construct()
+    {         
        // $this->entity = $params['entity'];
+        $routeParamters = \Route::current()->parameters();      
+        $this->setEntity($routeParamters['entity']);
                       
     }
 
@@ -41,8 +41,15 @@ class CrudController extends \Controller
         
     }
 
-    
 
+    public function getEntity(){
+        return $this->entity;
+    }
+
+     public function setEntity($entity){
+        $this->entity = $entity;
+    }
+    
     public function addStylesToGrid()
     {
         
@@ -64,16 +71,36 @@ class CrudController extends \Controller
 
     public function returnView()
     {
-         return \View::make('panelViews::all', array(
+        $configFile = \Config::get('config.crudItems');
+                
+        if ( !isset($configFile) || $configFile == null ){   
+            throw new Exception('Config File Has Not Been Properly Set Yet');                                                      
+        } else if( !in_array($this->entity, $configFile)){
+            throw new Exception('This Controller is not set in Config file yet!');                                                                            
+        } else {        
+            return \View::make('panelViews::all', array(
              'grid' => $this->grid,
              'filter' => $this->filter
-        ));
+            ));   
+        }                      
     }
     
     public function returnEditView()
     {
-         return \View::make('panelViews::edit', array(
+         $configFile = \Config::get('config.crudItems');
+                
+        if ( !isset($configFile) || $configFile == null ){                      
+            return \View::make('panelViews::configError', array(
+                 'message' => 'Config File Has Not Been Properly Set Yet'
+            ));             
+        } else if( !in_array($this->entity, $configFile)){
+             return \View::make('panelViews::configError', array(
+                 'message' => 'This Controller is not set in Config file yet!'
+            ));            
+        } else {        
+           return \View::make('panelViews::edit', array(
              'edit' => $this->edit
-        ));
+            )); 
+        }           
     }
 }

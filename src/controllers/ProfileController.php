@@ -5,7 +5,7 @@ class ProfileController extends \Controller {
 
 
     public function getEdit(){
-        $admin = Admin::find(\Auth::user()->id); 
+        $admin = Admin::find(\Auth::user()->id);         
         return \View::make('editProfile')->with('admin',$admin);
     }
     

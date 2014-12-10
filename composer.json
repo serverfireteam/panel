@@ -30,7 +30,7 @@
     "repositories": [
        {
             "type":"git",
-            "url": "https://github.com/xsxhamid/Laraphrases"
+            "url": "https://github.com/serverfireteam/rapyd-laravel"
        }
     ]
     
