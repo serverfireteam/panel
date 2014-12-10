@@ -75,9 +75,7 @@ dashboard
         </div>
             <!-- /.row -->
             <div class="row">
-                <!-- /.col-lg-8 -->
-                
-                <!-- /.col-lg-4 -->
+                Thank you for creating with Serverfireteam/panel
             </div>
             <!-- /.row -->
         </div>
