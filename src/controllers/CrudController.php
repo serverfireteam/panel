@@ -46,9 +46,10 @@ class CrudController extends \Controller
     public function addStylesToGrid()
     {
         
-        $this->grid->edit('edit', 'Edit', 'show|modify');
-        $this->grid->link('edit', "New Article", "TR");
-        $this->grid->orderBy('id', 'desc');
+
+        $this->grid->edit('edit', 'Edit', 'show|modify|delete');
+
+        $this->grid->orderBy('id', 'desc');     
         $this->grid->paginate(10);
 
         $this->grid->row(function ($row) {

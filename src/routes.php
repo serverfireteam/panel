@@ -1,5 +1,7 @@
 <?php
 
+
+use Serverfireteam\Panel\libs;
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -24,12 +26,13 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
 		// main page for the admin section (app/views/admin/dashboard.blade.php)
         Route::get('/', function()
         {
+
             return View::make('panelViews::dashboard');
         });
         
          Route::get('/{entity}/all', function ($entity) {
              try{
-                  $controller = \App::make('Serverfireteam\\Panel\\'.$entity.'Controller');
+                  $controller = \App::make($entity.'Controller');
              }catch(Exception $ex){
                  echo $ex;
                  exit();
@@ -59,6 +62,17 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
          * 
          */
         
+
+        Route::get('/edit',
+                array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit'));
+
+         Route::post('/edit',
+                array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));                
+});
+
+ Route::post('/panel/login',function(){
+     
+
         
        
 });
@@ -66,6 +80,7 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
  Route::post('/panel/login',function(){
  
     \Config::set('auth.model', 'Serverfireteam\Panel\Admin');
+
     $userdata = array(
             'email' 	=> Input::get('email'),
             'password' 	=> Input::get('password')
@@ -80,7 +95,27 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
     }
 });
 
- 
+
+Route::get('/panel/logout', function (){
+           
+   Auth::logout(); 
+    
+   return Redirect::to('panel/login');
+});
+
+
+Route::get('/panel/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@getChangePassword'));
+
+Route::post('/panel/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@postChangePassword'));
+
+Route::post('/panel/reset', array('uses' => 'Serverfireteam\Panel\RemindersController@postReset'));
+
+Route::get('/panel/reset', array('uses' => 'Serverfireteam\Panel\RemindersController@getReset'));
+
+Route::get('/panel/remind',  array('uses' => 'Serverfireteam\Panel\RemindersController@getRemind'));
+
+Route::post('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersController@postRemind')); 
+
 /*
 Route::get('/panel', function () {
   return View::make('panelViews::dashboard');

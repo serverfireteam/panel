@@ -3,6 +3,7 @@
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Route;
+use Serverfireteam\Panel\libs;
 
 class PanelServiceProvider extends ServiceProvider
 {
@@ -25,19 +26,8 @@ class PanelServiceProvider extends ServiceProvider
         \View::addLocation($base_path);
         \View::addNamespace('panelViews', $base_path);  
         $testModel = new Admin();
-        //die(var_dump($testModel));
-
-        // Change auth model when in panel
-        $leftItems = \Config::get('config.crudItems');
-
-	if (!empty($leftItems)) {
-	        foreach ($leftItems as $key => $value) {
-			echo 'key is '. $key . ' value is '. $value;
-			\Menu::handler('left-menu')->add('panel/'.$value.'/all' , $key);
-		}
-        }
-
         include __DIR__."/../../routes.php";
+
 
         AliasLoader::getInstance()->alias('Serverfireteam', 'Serverfireteam\Panel\Serverfireteam');
     }
