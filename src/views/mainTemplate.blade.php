@@ -73,11 +73,6 @@ dashboard
             @yield('page-wrapper')
             
         </div>
-            <!-- /.row -->
-            <div class="row">
-                Thank you for creating with Serverfireteam/panel
-            </div>
-            <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
 
