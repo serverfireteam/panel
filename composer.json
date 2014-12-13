@@ -29,7 +29,7 @@
             "Serverfireteam\\Panel": "src/"
         }
     },
-    "minimum-stability": "dev-master",
+    "minimum-stability": "dev",
     "repositories": [
        {
             "type":"git",
