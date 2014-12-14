@@ -13,8 +13,9 @@
         "sebastian/phpcpd": "*",
         "illuminate/support": "4.2.*",
         "squizlabs/php_codesniffer": "1.*",
-        "vespakoen/menu": "2.0.15",
-        "serverfireteam/rapyd-laravel" : "*"
+        "vespakoen/menu": "2.0.15"
+    },"require-dev" : {
+        "serverfireteam/rapyd-laravel" : "dev-master"
     },
     "autoload": {
 
