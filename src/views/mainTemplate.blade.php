@@ -30,7 +30,7 @@ dashboard
                             
                          @foreach (  \Config::get('config.crudItems') as $key => $value )                
                             <li>
-                                <a  href="{{ url('panel/'.$value.'/all') }}" class="{{ (Request::url() === url('panel/'.$value.'/all')) ? 'active' : '' }}"><i class="fa fa-dashboard fa-fw"></i> {{{$key}}} <span class="badge pull-right">{{$value::all()->count()}}</span></a>
+                                <a  href="{{ url('panel/'.$value.'/all') }}" class="{{ (Request::url() === url('panel/'.$value.'/all')) ? 'active' : '' }}"><i class="fa fa-edit fa-fw"></i> {{{$key}}} <span class="badge pull-right">{{$value::all()->count()}}</span></a>
                             </li>
                          @endforeach
                     </ul>     
