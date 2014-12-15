@@ -25,12 +25,12 @@ dashboard
                 <div class="sidebar-nav navbar-collapse">        
                     <ul class="nav" id="side-menu">
                             <li>
-                                {{link_to('panel', 'Dashboard')}}
+                                <a  href="{{ url('panel') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
                             
                          @foreach (  \Config::get('config.crudItems') as $key => $value )                
                             <li>
-                                 <a  href="{{ url('panel/'.$value.'/all') }}"><i class="fa fa-dashboard fa-fw"></i> {{{$key}}}</a>
+                                <a  href="{{ url('panel/'.$value.'/all') }}"><i class="fa fa-dashboard fa-fw"></i> {{{$key}}} <span class="badge pull-right">{{$value::all()->count()}}</span></a>
                             </li>
                          @endforeach
                     </ul>     
