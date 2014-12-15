@@ -101,7 +101,7 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
         return Redirect::to('panel');
     } else {	 	
         // validation not successful, send back to form	
-        return Redirect::to('panel/login');
+        return Redirect::to('panel/login')->with('message', 'Either Password or username is not correct!!');
     }
 });
 

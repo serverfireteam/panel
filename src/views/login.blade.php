@@ -11,6 +11,11 @@ login
                             <h3 class="panel-title">Please Sign In</h3>
                         </div>
                         <div class="panel-body">
+							@if(Session::has('message'))
+                                <div class="alert-box success">
+                                    <h2>{{ Session::get('message') }}</h2>
+                                </div>
+                            @endif
                             <div class="logo-holder">
                                 <img src="{{asset("packages/serverfireteam/panel/img/logo.png")}}" />
                             </div>
