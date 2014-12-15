@@ -31,12 +31,12 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
          Route::get('/{entity}/all', function ($entity) {
              try{
                   $controller = \App::make($entity.'Controller');
-             }catch(Exception $ex){
-                throw new Exception('No Controller Has Been Set for This Model ');               
+             }catch(\Exception $ex){
+                throw new \Exception('No Controller Has Been Set for This Model ');               
              }
                                     
             if (!method_exists($controller, 'all')){                
-                throw new Exception('Controller does not implement the CrudController methods!');               
+                throw new \Exception('Controller does not implement the CrudController methods!');               
             } else {
                 return $controller->callAction('all', array('entity' => $entity));
             }
@@ -54,11 +54,11 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
         Route::any('/{entity}/edit', function ($entity) {           
              try{
                 $controller = \App::make($entity.'Controller');
-            }catch(Exception $ex){    
-                throw new Exception('No Controller Has Been Set for This Model!');                               
+            }catch(\Exception $ex){    
+                throw new \Exception('No Controller Has Been Set for This Model!');                               
              }
             if (!method_exists($controller, 'edit')){
-                throw new Exception('Controller does not implement the CrudController methods!');                                               
+                throw new \Exception('Controller does not implement the CrudController methods!');                                               
             } else {
                 return $controller->callAction('edit', array('entity' => $entity));
             }

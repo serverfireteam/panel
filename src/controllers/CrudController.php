@@ -65,9 +65,9 @@ class CrudController extends \Controller
         $configFile = \Config::get('config.crudItems');
                 
         if ( !isset($configFile) || $configFile == null ){   
-            throw new Exception('Config File Has Not Been Properly Set Yet');                                                      
+            throw new \Exception('Config File Has Not Been Properly Set Yet');                                                      
         } else if( !in_array($this->entity, $configFile)){
-            throw new Exception('This Controller is not set in Config file yet!');                                                                            
+            throw new \Exception('This Controller is not set in Config file yet!');                                                                            
         } else {        
             return \View::make('panelViews::all', array(
              'grid' => $this->grid,
