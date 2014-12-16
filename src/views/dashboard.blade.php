@@ -11,7 +11,7 @@
             <!-- /.row -->
             <div class="row box-holder">
                 
-
+				@if( $configSet == true )
                 @foreach (Serverfireteam\Panel\libs\dashboard::create() as $box)
                 <div class="col-lg-3 col-md-6">
                     <div class="panel ">
@@ -40,7 +40,7 @@
                 </div>
 
                 @endforeach
-                
+                @endif
 
                 
             </div>

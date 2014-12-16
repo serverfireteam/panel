@@ -25,8 +25,15 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
         // main page for the admin section (app/views/admin/dashboard.blade.php)
         Route::get('/', function()
         {
-            return View::make('panelViews::dashboard');
-        });
+			$config = \Config::get('config.crudItems');
+             if ( !isset($config)){
+                  return View::make('panelViews::dashboard')
+                          ->with('configSet', false);
+             } else {
+                 return View::make('panelViews::dashboard')
+                         ->with('configSet', true);
+             }        
+		});
         
          Route::get('/{entity}/all', function ($entity) {
              try{
