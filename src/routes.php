@@ -14,7 +14,7 @@ use Serverfireteam\Panel\libs;
     \Route::filter('auth', function()
     {                
         if (\Auth::guest()){                    
-             return \Redirect::to('/panel/login')->with('message', 'Login Failed');
+             return \Redirect::to('/panel/login')->with('message', 'Please Sign In');
         }
     });
 }
@@ -25,15 +25,17 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
         // main page for the admin section (app/views/admin/dashboard.blade.php)
         Route::get('/', function()
         {
-            return View::make('panelViews::dashboard');
+
+            return View::make('panelViews::dashboard')
+                    ->with('configSet');      
         });
         
-         Route::get('/{entity}/all', function ($entity) {
-             try{
-                  $controller = \App::make($entity.'Controller');
-             }catch(\Exception $ex){
+        Route::get('/{entity}/all', function ($entity) {
+            try{
+                $controller = \App::make($entity.'Controller');
+            }catch(\Exception $ex){
                 throw new \Exception('No Controller Has Been Set for This Model ');               
-             }
+            }
                                     
             if (!method_exists($controller, 'all')){                
                 throw new \Exception('Controller does not implement the CrudController methods!');               
@@ -81,13 +83,6 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
 });
 
  Route::post('/panel/login',function(){
-     
-
-        
-       
-});
-
- Route::post('/panel/login',function(){
  
     \Config::set('auth.model', 'Serverfireteam\Panel\Admin');
 
@@ -101,7 +96,7 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
         return Redirect::to('panel');
     } else {	 	
         // validation not successful, send back to form	
-        return Redirect::to('panel/login');
+        return Redirect::to('panel/login')->with('message', 'Either Password or username is not correct!!');
     }
 });
 
@@ -132,7 +127,12 @@ Route::get('/panel', function () {
 });
  */      
 Route::get('/panel/login', function () {
-   return View::make('panelViews::login');
+    if(Session::has('message')){
+        $message = Session::get('message');
+    }else{
+        $message = 'Please Sign In';
+    }
+   return View::make('panelViews::login')->with('message', $message);
 });
 
 
