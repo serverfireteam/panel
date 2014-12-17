@@ -21,23 +21,25 @@ use Serverfireteam\Panel\libs;
 
 
 Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
-{
-    
-		// main page for the admin section (app/views/admin/dashboard.blade.php)
+{    
+        // main page for the admin section (app/views/admin/dashboard.blade.php)
         Route::get('/', function()
         {
-
             return View::make('panelViews::dashboard');
         });
         
          Route::get('/{entity}/all', function ($entity) {
              try{
                   $controller = \App::make($entity.'Controller');
-             }catch(Exception $ex){
-                 echo $ex;
-                 exit();
+             }catch(\Exception $ex){
+                throw new \Exception('No Controller Has Been Set for This Model ');               
              }
-            return $controller->callAction('all', array('entity' => $entity));
+                                    
+            if (!method_exists($controller, 'all')){                
+                throw new \Exception('Controller does not implement the CrudController methods!');               
+            } else {
+                return $controller->callAction('all', array('entity' => $entity));
+            }
         });
 
         /*
@@ -49,9 +51,17 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
          * 
          */
         
-        Route::any('/{entity}/edit', function ($entity) {
-            $controller = \App::make($entity.'Controller');
-            return $controller->callAction('edit', array('entity' => $entity));
+        Route::any('/{entity}/edit', function ($entity) {           
+             try{
+                $controller = \App::make($entity.'Controller');
+            }catch(\Exception $ex){    
+                throw new \Exception('No Controller Has Been Set for This Model!');                               
+             }
+            if (!method_exists($controller, 'edit')){
+                throw new \Exception('Controller does not implement the CrudController methods!');                                               
+            } else {
+                return $controller->callAction('edit', array('entity' => $entity));
+            }
         });
         
         /*

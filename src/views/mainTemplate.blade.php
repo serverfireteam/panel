@@ -21,14 +21,15 @@ dashboard
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">        
+                <div class="sidebar-nav navbar-collapse">   
                     <ul class="nav" id="side-menu">
                             <li>
-                                {{link_to('panel', 'Dashboard',(empty(Request::segment(2)))?array('class'=>'active'):array())}}
+                                <a  href="{{ url('panel') }}" class="{{ (Request::url() === url('panel')) ? 'active' : '' }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
+                            
                          @foreach (  \Config::get('config.crudItems') as $key => $value )                
                             <li>
-                                {{link_to('panel/'.$value.'/all', $key,(Request::segment(2)==$value)?array('class'=>'active'):array())  }}
+                                <a  href="{{ url('panel/'.$value.'/all') }}" class="{{ (Request::segment(2)==$value)?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$key}}} <span class="badge pull-right">{{$value::all()->count()}}</span></a>
                             </li>
                          @endforeach
                     </ul>     
@@ -71,13 +72,6 @@ dashboard
             @yield('page-wrapper')
             
         </div>
-            <!-- /.row -->
-            <div class="row">
-                <!-- /.col-lg-8 -->
-                
-                <!-- /.col-lg-4 -->
-            </div>
-            <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
 
