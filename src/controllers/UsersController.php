@@ -2,16 +2,19 @@
 namespace Serverfireteam\Panel;
 
 use \Illuminate\Routing\Controllers;
+
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-class UsersController extends CrudController{
+class UsersController extends CrudController
+{
     
     
-    public  function all($entity){
+    public function all($entity)
+    {
         
         parent::all($entity);
        
@@ -23,30 +26,24 @@ class UsersController extends CrudController{
         $this->filter->build();
                 
         $this->grid = \DataGrid::source($this->filter);
-        $this->grid->add('id','ID', true)->style("width:100px");
-        $this->grid->add('name','Name');
-        $this->addStylesToGrid();           
+        $this->grid->add('id', 'ID', true)->style("width:100px");
+        $this->grid->add('name', 'Name');
+        $this->addStylesToGrid();
                        
         return $this->returnView();
     }
-           
-    
-    
-    
-    public function edit($entity){
-        
+                       
+    public function edit($entity)
+    {
         parent::edit($entity);
               
         $this->edit = \DataEdit::source(new \User());
         
         $this->edit->label('Edit User');
-        $this->edit->link("rapyd-demo/filter","Articles", "TR")->back();
-        $this->edit->add('name','Name', 'text')->rule('required|min:5');
-        $this->edit->add('username','userame', 'text')->rule('required|min:5');
+        $this->edit->link("rapyd-demo/filter", "Articles", "TR")->back();
+        $this->edit->add('name', 'Name', 'text')->rule('required|min:5');
+        $this->edit->add('username', 'userame', 'text')->rule('required|min:5');
       
         return $this->returnEditView();
     }
-   
-    
-
 }
