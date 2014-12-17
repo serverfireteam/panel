@@ -11,10 +11,9 @@ dashboard
         <h1> LOADING </h1>
     </div>
 
-
     <div id="wrapper">
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-static-top fadeInRight" role="navigation" style="margin-bottom: 0">
             
             <!-- /.navbar-header -->
 
@@ -25,11 +24,11 @@ dashboard
                 <div class="sidebar-nav navbar-collapse">        
                     <ul class="nav" id="side-menu">
                             <li>
-                                {{link_to('panel', 'Dashboard')}}
+                                {{link_to('panel', 'Dashboard',(empty(Request::segment(2)))?array('class'=>'active'):array())}}
                             </li>
                          @foreach (  \Config::get('config.crudItems') as $key => $value )                
                             <li>
-                                <a class="" href="panel/{{{$value}}}/all"> {{{$key}}}</a>
+                                {{link_to('panel/'.$value.'/all', $key,(Request::segment(2)==$value)?array('class'=>'active'):array())  }}
                             </li>
                          @endforeach
                     </ul>     

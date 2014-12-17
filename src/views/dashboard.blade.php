@@ -5,6 +5,7 @@
 
                 <div class="col-lg-12 dashboard-title">
                     <h1 class="page-header">Dashboard</h1>
+                    <div class="icon-bg ic-layers"></div>
                 </div>
                             
             </div>
