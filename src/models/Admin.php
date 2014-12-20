@@ -6,54 +6,56 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
+class Admin extends \Eloquent implements UserInterface, RemindableInterface
+{
+    /**
+     * The database table used by the model.
+     *
+     * @var string
+     */
+    protected $table = 'admins';
 
-class Admin extends \Eloquent implements UserInterface, RemindableInterface{
+    public function getAuthIdentifier()
+    {
+        return $this->getKey();
+    }
 
-	/**
-	 * The database table used by the model.
-	 *
-	 * @var string
-	 */
-	protected $table = 'admins';
-        
-         public function getAuthIdentifier()
-        {
-            return $this->getKey();
-        }
+    /**
+     * Get the password for the user.
+     *
+     * @return string
+     */
+    public function getAuthPassword()
+    {
+        return $this->password;
+    }
 
-        /**
-         * Get the password for the user.
-         *
-         * @return string
-         */
-        public function getAuthPassword()
-        {
-            return $this->password;
-        }
-        
-        public function getRememberToken(){
-            return $this->rememberToken;
-        }
-        
-        public function  setRememberToken($value){
-             $this->rememberToken =  $value;
-        }
+    public function getRememberToken()
+    {
+        return $this->rememberToken;
+    }
 
-        public function getReminderEmail(){
-             return \Auth::user()->email;
-        }
+    public function setRememberToken($value)
+    {
+        $this->rememberToken =  $value;
+    }
+
+    public function getReminderEmail()
+    {
+         return \Auth::user()->email;
+    }
 
 
-        public function getRememberTokenName(){
-            return $this->rememberTokenName;
-        }
-        
-        protected $fillable = array('first_name', 'last_name', 'email', 'password');
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = array('password', 'remember_token');
+    public function getRememberTokenName()
+    {
+        return $this->rememberTokenName;
+    }
 
+    protected $fillable = array('first_name', 'last_name', 'email', 'password');
+    /**
+     * The attributes excluded from the model's JSON form.
+     *
+     * @var array
+     */
+    protected $hidden = array('password', 'remember_token');
 }
