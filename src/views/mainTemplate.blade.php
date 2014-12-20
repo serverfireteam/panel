@@ -11,10 +11,9 @@ dashboard
         <h1> LOADING </h1>
     </div>
 
-
     <div id="wrapper">
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav class="navbar navbar-default navbar-static-top fadeInRight" role="navigation" style="margin-bottom: 0">
             
             <!-- /.navbar-header -->
 
@@ -28,11 +27,11 @@ dashboard
                                 <a  href="{{ url('panel') }}" class="{{ (Request::url() === url('panel')) ? 'active' : '' }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
                          @if(is_array(\Config::get('config.crudItems')))
-                            @foreach (\Config::get('config.crudItems') as $key => $value )                
-                               <li>
-                                   <a  href="{{ url('panel/'.$value.'/all') }}" class="{{ (Request::url() === url('panel/'.$value.'/all')) ? 'active' : '' }}"><i class="fa fa-edit fa-fw"></i> {{{$key}}} <span class="badge pull-right">{{$value::all()->count()}}</span></a>
-                               </li>
-                            @endforeach
+                             @foreach (  \Config::get('config.crudItems') as $key => $value )                
+                                <li>
+                                    <a  href="{{ url('panel/'.$value.'/all') }}" class="{{ (Request::segment(2)==$value)?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$key}}} <span class="badge pull-right">{{$value::all()->count()}}</span></a>
+                                </li>
+                             @endforeach
                          @endif
                     </ul>     
                       
