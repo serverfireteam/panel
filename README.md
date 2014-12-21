@@ -63,7 +63,7 @@ and run the composer update command, the package and its dependencies will be in
 
 
     ```bash
-    php artisan migrate --path="vendor\serverfireteam\panel\src\database\migrations"
+    php artisan migrate --path="vendor/serverfireteam/panel/src/database/migrations"
     ```
 
 6. Go to your domain.com/public/panel and you can login with , user : admin , password : 12345
