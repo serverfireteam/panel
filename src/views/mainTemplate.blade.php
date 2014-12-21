@@ -22,18 +22,17 @@ dashboard
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">   
+                <div class="sidebar-nav navbar-collapse">        
                     <ul class="nav" id="side-menu">
                             <li>
-                                <a  href="{{ url('panel') }}" class="{{ (Request::url() === url('panel')) ? 'active' : '' }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                                {{link_to('panel', 'Dashboard')}}<i class="fa fa-dashboard fa-fw"></i>
                             </li>
-                         @if( $configSet == true)   
+                            
                          @foreach (  \Config::get('config.crudItems') as $key => $value )                
                             <li>
-                                <a  href="{{ url('panel/'.$value.'/all') }}" class="{{ (Request::url() === url('panel/'.$value.'/all')) ? 'active' : '' }}"><i class="fa fa-edit fa-fw"></i> {{{$key}}} <span class="badge pull-right">{{$value::all()->count()}}</span></a>
+                                 <a  href="{{ url('panel/'.$value.'/all') }}"><i class="fa fa-dashboard fa-fw"></i> {{{$key}}}</a>
                             </li>
                          @endforeach
-						 @endif
                     </ul>     
                       
                         </li>
@@ -50,30 +49,21 @@ dashboard
             <!-- Menu Bar -->
             <div class="row">
                 <div class="col-xs-12 text-a top-icon-bar">
-                    <div class="btn-group" role="group" aria-label="...">
-                        <div class="btn-group" role="group">
-                            <a  type="button" class="btn btn-default dropdown-toggle main-link" data-toggle="dropdown" aria-expanded="false">
-                                settings 
-                                <span class="caret fl-right"></span>
-                            </a>
-                          <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{url('panel/edit')}}"><span class="icon  ic-cog "></span> Profile Edit </a></li>
-                            <li><a href="{{url('panel/changePassword')}}"><span class="icon ic-cog"></span> Reset Password </a></li>
-                          </ul>
-                        </div>
-                        <a href="{{url('panel/logout')}}" type="button" class="btn btn-default main-link">logout <span class="icon  ic-switch fl-right"></span></a>
-                      </div>
-                    
-<!--                    <a href="{{url('panel/logout')}}" > logout <span class="icon  ic-cog"></span></a>
-                    <a href="#" > settings <span class="icon ic-switch"></span></a>-->
-                    
-                    
+                    <a href="#"<span class="icon  ic-cog"></span></a>
+                    <span class="icon ic-switch"></span>
                 </div>
             </div>
             
             @yield('page-wrapper')
             
         </div>
+            <!-- /.row -->
+            <div class="row">
+                <!-- /.col-lg-8 -->
+                
+                <!-- /.col-lg-4 -->
+            </div>
+            <!-- /.row -->
         </div>
         <!-- /#page-wrapper -->
 
