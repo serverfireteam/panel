@@ -42,20 +42,20 @@
     <script src="{{asset("packages\serverfireteam\panel\js/bootstrap.min.js")}}"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="{{asset("packages\serverfireteam\panel\js/plugins/metisMenu/metisMenu.min.js")}}"></script>
+    <script src="{{asset("packages\serverfireteam\panel\js\plugins\metisMenu\metisMenu.min.js")}}"></script>
 
  
 
     <!-- Custom Theme JavaScript -->
-    <script src="{{asset("packages\serverfireteam\panel\js/sb-admin-2.js")}}"></script>
+    <script src="{{asset("packages\serverfireteam\panel\js\sb-admin-2.js")}}"></script>
 
-    <script src="http://www.rapyd.com/packages/zofe/rapyd/assets/redactor/jquery.browser.min.js"></script>
-    <script src="http://www.rapyd.com/packages/zofe/rapyd/assets/redactor/redactor.min.js"></script>
-    <script src="http://www.rapyd.com/packages/zofe/rapyd/assets/datepicker/bootstrap-datepicker.js"></script>
-    <script src="http://www.rapyd.com/packages/zofe/rapyd/assets/datepicker/locales/bootstrap-datepicker.it.js"></script>
-    <script src="http://www.rapyd.com/packages/zofe/rapyd/assets/autocomplete/typeahead.bundle.min.js"></script>
-    <script src="http://www.rapyd.com/packages/zofe/rapyd/assets/template/handlebars.js"></script>
-    <script src="http://www.rapyd.com/packages/zofe/rapyd/assets/autocomplete/bootstrap-tagsinput.min.js"></script>
+    <script src="{{asset("packages\serverfireteam\\rapyd-laravel\\redactor\jquery.browser.min.js")}}"></script>
+    <script src="{{asset("packages\serverfireteam\\rapyd-laravel\\redactor\\redactor.min.js")}}"></script>
+    <script src="{{asset("packages\serverfireteam\\rapyd-laravel\\datepicker\bootstrap-datepicker.js")}}"></script>
+    <script src="{{asset("packages\serverfireteam\\rapyd-laravel\datepicker\locales\bootstrap-datepicker.it.js")}}"></script>
+    <script src="{{asset("packages\serverfireteam\\rapyd-laravel\autocomplete\\typeahead.bundle.min.js")}}"></script>
+    <script src="{{asset("packages\serverfireteam\\rapyd-laravel\\template\handlebars.js")}}"></script>
+    <script src="{{asset("packages\serverfireteam\\rapyd-laravel\autocomplete\bootstrap-tagsinput.min.js")}}"></script>
 
     {{ Rapyd::scripts() }}
 </body>
