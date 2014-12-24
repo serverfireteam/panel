@@ -1,6 +1,13 @@
 @extends('panelViews::mainTemplate')
 @section('page-wrapper')
 
-    <p>{{ $edit }}</p>
-    
-@stop    
+
+    <h1>DataEdit</h1>
+    <p>
+
+        {{ $edit }}
+        
+        
+    </p>
+@stop
+

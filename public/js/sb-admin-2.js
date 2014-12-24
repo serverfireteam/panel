@@ -26,11 +26,8 @@ $(function() {
     })
 })
 $(document ).ready(function(){
-    
 setTimeout(function(){
-     $('.loading').fadeOut('normal'); 
-     $('.box-holder,.table').addClass('animated fadeInRight');
-     $('.dashboard-title').addClass('animated fadeInUp');
+     $('.loading').fadeOut('normal');
 },1000);
    
 })

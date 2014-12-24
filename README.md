@@ -29,6 +29,7 @@ We have a [Trello](https://trello.com/b/RDZ6HdK9/framework) board for project , 
 Note: if you problem in any of steps you should first try to fix it after that it report at [github](https://github.com/serverfireteam/panel/issues/new)
 
 
+
 1. First you need have a laravel 4.2 project ready to use . 
 
 2.  Add package to require-dev 
@@ -58,9 +59,7 @@ and run the composer update command, the package and its dependencies will be in
     php artisan asset:publish "zofe/rapyd"
     ```
 
-
 5. Go to the root of your project and run this command in order to set up the database
-
 
     ```bash
     php artisan migrate --path="vendor/serverfireteam/panel/src/database/migrations"
