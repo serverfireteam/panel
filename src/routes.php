@@ -94,6 +94,9 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
     }
 });
 
+Route::get('/panel/password/reset/{token}', function ($token){
+    return View::make('panelViews::passwordReset')->with('token', $token);
+});
 
 Route::get('/panel/logout', function (){
            

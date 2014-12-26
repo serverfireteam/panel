@@ -10,7 +10,13 @@ class RemindersController extends \Controller {
 	 */
 	public function getRemind()
 	{
-            return \View::make('panelViews::passwordReminder');
+            if (\Session::has('message')){
+                $message = \Session::get('message');
+            }else{
+                $message = 'Please Enter Email Address';
+            }
+            return \View::make('panelViews::passwordReminder')
+                    ->with('message', $message);
 	}
 
 	/**
@@ -21,13 +27,15 @@ class RemindersController extends \Controller {
 	public function postRemind()
 	{            
             \Config::set('auth.model', 'Serverfireteam\Panel\Admin');  
+            \Config::set('auth.reminder.email', 'panelViews::resetPassword');
+
             switch ($response = \Password::remind(\Input::only('email')))
             {
                     case \Password::INVALID_USER:
-                            return Redirect::back()->with('error', Lang::get($response));
+                            return \Redirect::back()->with('message', \Lang::get($response));
 
                     case \Password::REMINDER_SENT:
-                            return Redirect::back()->with('status', Lang::get($response));
+                            return \Redirect::back()->with('message', \Lang::get($response));
             }
 	}
 
@@ -41,7 +49,37 @@ class RemindersController extends \Controller {
 	{	
             return \View::make('panelViews::passwordReset');
 	}
-               
+        
+        public function postReset()
+        {
+           \Config::set('auth.model', 'Serverfireteam\Panel\Admin');    
+
+            $credentials = \Input::only(
+               'email', 'password', 'password_confirmation', 'token'
+            );
+            
+            echo '<pre>';
+            var_dump($credentials);
+           
+            
+            $response = \Password::reset($credentials, function($user, $password)
+            {
+                $user->password = \Hash::make($password);
+                $user->save();
+            });
+           
+            switch ($response)
+            {
+                case \Password::INVALID_PASSWORD:
+                case \Password::INVALID_TOKEN:
+                case \Password::INVALID_USER:
+                    return \Redirect::back()->with('error', \Lang::get($response));
+
+                case \Password::PASSWORD_RESET:
+                    return \Redirect::to('/');
+            }
+        }
+
         public function getChangePassword(){
             
             return \View::make('panelViews::passwordChange');
@@ -72,39 +110,5 @@ class RemindersController extends \Controller {
             }                                    
         }
         
-        /**
-	 * Handle a POST request to reset a user's password.
-	 *
-	 * @return Response
-	 */
-	public function postReset()
-	{
-               \Config::set('auth.model', 'Serverfireteam\Panel\Admin');    
-              
-               $user = Admin::find(\Auth::user()->id);                              
-              
-            
-		$credentials = Input::only(
-			'email', 'password', 'password_confirmation'
-                );
-
-		$response = Password::reset($credentials, function($user, $password)
-		{
-			$user->password = Hash::make($password);
-
-			$user->save();
-		});
-
-		switch ($response)
-		{
-			case Password::INVALID_PASSWORD:
-			case Password::INVALID_TOKEN:
-			case Password::INVALID_USER:
-				return Redirect::back()->with('error', Lang::get($response));
-
-			case Password::PASSWORD_RESET:
-				return Redirect::to('/');
-		}
-	}
-
+       
 }
