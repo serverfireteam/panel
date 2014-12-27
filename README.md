@@ -17,9 +17,13 @@ This package provides an easily configurable admin panel for Laravel 4.2 applica
 - **Powerful**, Loign , Admin setting , forget password, all you need for admin panel
 
 ## Screen shot 
-![dashboard of panel](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/dashboard.png)
-![List of Categories](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/all_categories.png)
-![Edit Category ](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/edit_category.png)
+![login](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/login.png)
+![loading](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/loading.png)
+![loading](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/loading.png)
+![dashboard of panel](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/dashboard_full.png)
+This is custome crud with few line .
+![List of Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/pages.png)
+![Edit Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/editpages.png)
 
 ##RoadMap
 We are going to develope this package every days and new idea are wellcome .
