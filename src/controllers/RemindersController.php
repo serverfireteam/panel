@@ -26,11 +26,15 @@ class RemindersController extends \Controller {
 	 */
 	public function postRemind()
 	{            
+           
+            
             \Config::set('auth.model', 'Serverfireteam\Panel\Admin');  
             \Config::set('auth.reminder.email', 'panelViews::resetPassword');
 
+            
             switch ($response = \Password::remind(\Input::only('email')))
             {
+                
                     case \Password::INVALID_USER:
                             return \Redirect::back()->with('message', \Lang::get($response));
 
@@ -71,12 +75,14 @@ class RemindersController extends \Controller {
             switch ($response)
             {
                 case \Password::INVALID_PASSWORD:
+                    return \Redirect::back()->with('error', \Lang::get($response));
                 case \Password::INVALID_TOKEN:
+                    return \Redirect::back()->with('error', \Lang::get($response));
                 case \Password::INVALID_USER:
                     return \Redirect::back()->with('error', \Lang::get($response));
 
                 case \Password::PASSWORD_RESET:
-                    return \Redirect::to('/');
+                    return \Redirect::to('/panel')->with('message', 'Password Successfully Rested!! Please Log in');
             }
         }
 
@@ -99,7 +105,7 @@ class RemindersController extends \Controller {
                 if ($new_password['password'] == $retype_password['password_confirmation'] ){                
                     $user->password = \Hash::make($new_password['password']);
                     $user->save();
-                    return \Redirect::to('/panel/changePassword')->with('message', 'Successfully Changed Your PAssword!!');;                    
+                    return \Redirect::to('/panel/changePassword')->with('message', 'Successfully Changed Your Password!!');;                    
                 }else{
                     return \Redirect::to('/panel/changePassword')
                             ->with('message', 'Passwords not matched!!');

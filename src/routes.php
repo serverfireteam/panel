@@ -13,9 +13,13 @@ use Serverfireteam\Panel\libs;
     \Config::set('auth.model', 'Serverfireteam\Panel\Admin');
     \Route::filter('auth', function()
     {                
-        if (\Auth::guest()){                    
-             return \Redirect::to('/panel/login')->with('message', 'Please Sign In');
-
+        if (\Auth::guest()){   
+            if (\Session::has('message')){
+                $message = \Session::get('message');
+            }else{
+                $message = 'Please Enter Email Address';
+            }
+            return \Redirect::to('/panel/login')->with('message', $message);
         }
     });
 }

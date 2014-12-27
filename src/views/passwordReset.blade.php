@@ -8,6 +8,12 @@ login
                 <div class="col-md-4 col-md-offset-4">
                     <div class="login-panel panel panel-default">
                         <div class="panel-heading">
+                            
+                            @if(Session::has('error'))
+                                <div class="alert-box success">
+                                    <h2>{{ Session::get('error') }}</h2>
+                                </div>
+                            @endif
                             <h3 class="panel-title">Enter New Password</h3>  
                         </div>
                         <div class="panel-body">
