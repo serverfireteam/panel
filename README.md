@@ -25,6 +25,11 @@ This is custome crud with few line .
 ![List of Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/pages.png)
 ![Edit Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/editpages.png)
 
+## Demo 
+You can check the ![live demo here](http://demo.serverfire.net/panel)
+User: admin
+pass: 12345 
+
 ##RoadMap
 We are going to develope this package every days and new idea are wellcome .
 We have a [Trello](https://trello.com/b/RDZ6HdK9/framework) board for project , you can check it and send your feedback . 
