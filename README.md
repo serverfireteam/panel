@@ -1,6 +1,5 @@
 #Serverfireteam Panel Package .
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/serverfireteam/panel/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/serverfireteam/panel/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/serverfireteam/panel/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/serverfireteam/panel/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/serverfireteam/panel/badges/build.png?b=master)](https://scrutinizer-ci.com/g/serverfireteam/panel/build-status/master)
 
 
