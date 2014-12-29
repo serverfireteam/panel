@@ -26,7 +26,7 @@ class CreateAdminsTable extends Migration {
 			$table->string('persist_code')->nullable();
 			$table->string('reset_password_code')->nullable();
 
-                        $table->string('rememberToken', 100)->nullable();
+                        $table->string('remember_token', 100)->nullable();
 
 			$table->string('first_name')->nullable();
 			$table->string('last_name')->nullable();

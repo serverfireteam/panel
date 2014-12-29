@@ -32,11 +32,11 @@ class Admin extends \Eloquent implements UserInterface, RemindableInterface{
         }
         
         public function getRememberToken(){
-            return $this->rememberToken;
+            return $this->remember_token;
         }
         
         public function  setRememberToken($value){
-             $this->rememberToken =  $value;
+             $this->remember_token =  $value;
         }
 
         public function getReminderEmail(){  
@@ -46,7 +46,7 @@ class Admin extends \Eloquent implements UserInterface, RemindableInterface{
 
 
         public function getRememberTokenName(){
-            return $this->rememberTokenName;
+            return $this->remember_token_name;
         }
         
         protected $fillable = array('first_name', 'last_name', 'email', 'password');
