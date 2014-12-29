@@ -17,7 +17,7 @@ class dashboard
                     'addUrl'=>'panel/'.$value.'/edit',
                      );
              else
-                 throw new Exception('Model name doesnt match config.crudItems in '.$value);
+                 throw new \Exception('Model name doesnt match config.crudItems in '.$value);
          }
          
          return $dashboard;

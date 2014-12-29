@@ -1,9 +1,44 @@
+@extends('panelViews::master')
+@section('bodyClass')
+login
+@stop
+@section('body')
+    <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="login-panel panel panel-default">
+                        <div class="panel-heading">
+                            
+                            @if(Session::has('error'))
+                                <div class="alert-box success">
+                                    <h2>{{ Session::get('error') }}</h2>
+                                </div>
+                            @endif
+                            <h3 class="panel-title">Enter New Password</h3>  
+                        </div>
+                        <div class="panel-body">
+                            <div class="logo-holder">
+                                <img src="{{asset("packages/serverfireteam/panel/img/logo.png")}}" />
+                            </div>
+                            <form action="{{ action('Serverfireteam\Panel\RemindersController@postReset') }}" method="POST">
+                                <fieldset>
+                                     <input type="hidden" name="token" value="{{ $token }}">   
+                                 <div class="form-group">
+                                        <input class="form-control" placeholder="email" name="email" type="text" autofocus>
+                                    </div>
+                                    <div class="form-group">
+                                        <input class="form-control" placeholder="New Password" name="password" type="password" value="">
+                                    </div>
+                                     <div class="form-group">
+                                        <input class="form-control" placeholder="Retype Password" name="password_confirmation" type="password" value="">
+                                    </div>
+                                   <input type="submit"  class="btn btn-lg btn-success btn-block" value="Reset Password">
+                                </fieldset>    
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+@stop
 
-
-<form action="{{ action('Serverfireteam\Panel\RemindersController@postReset') }}" method="POST">    
-    <input type="hidden" name="token" value="{{ $token }}">
-    <input type="email" name="email">
-    <input type="password" name="password">
-    <input type="password" name="password_confirmation">
-    <input type="submit" value="Reset Password">
-</form>

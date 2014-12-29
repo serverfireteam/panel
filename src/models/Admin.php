@@ -1,7 +1,7 @@
 <?php
 namespace Serverfireteam\Panel;
 
-use Illuminate\Auth\UserTrait;
+use Illumiate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
@@ -32,20 +32,21 @@ class Admin extends \Eloquent implements UserInterface, RemindableInterface{
         }
         
         public function getRememberToken(){
-            return $this->rememberToken;
+            return $this->remember_token;
         }
         
         public function  setRememberToken($value){
-             $this->rememberToken =  $value;
+             $this->remember_token =  $value;
         }
 
-        public function getReminderEmail(){
-             return \Auth::user()->email;
+        public function getReminderEmail(){  
+            $email = \Input::only('email');
+            return $email['email'];            
         }
 
 
         public function getRememberTokenName(){
-            return $this->rememberTokenName;
+            return $this->remember_token_name;
         }
         
         protected $fillable = array('first_name', 'last_name', 'email', 'password');

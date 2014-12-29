@@ -13,9 +13,13 @@ use Serverfireteam\Panel\libs;
     \Config::set('auth.model', 'Serverfireteam\Panel\Admin');
     \Route::filter('auth', function()
     {                
-        if (\Auth::guest()){                    
-             return \Redirect::to('/panel/login')->with('message', 'Please Sign In');
-
+        if (\Auth::guest()){   
+            if (\Session::has('message')){
+                $message = \Session::get('message');
+            }else{
+                $message = 'Please Enter Email Address';
+            }
+            return \Redirect::to('/panel/login')->with('message', $message);
         }
     });
 }
@@ -94,6 +98,9 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
     }
 });
 
+Route::get('/panel/password/reset/{token}', function ($token){
+    return View::make('panelViews::passwordReset')->with('token', $token);
+});
 
 Route::get('/panel/logout', function (){
            
