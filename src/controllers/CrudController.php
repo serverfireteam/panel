@@ -58,6 +58,15 @@ class CrudController extends \Controller
 
         $this->grid->orderBy('id', 'desc');     
         $this->grid->paginate(10);
+
+        $this->grid->row(function ($row) {
+            if ($row->cell('id')->value == 20) {
+                $row->style("background-color:#CCFF66");
+            } elseif ($row->cell('id')->value > 15) {
+                $row->cell('title')->style("font-weight:bold");
+                $row->style("color:#f00");
+            }
+        });
     }
 
     public function returnView()
@@ -65,9 +74,9 @@ class CrudController extends \Controller
         $configFile = \Config::get('config.crudItems');
                 
         if ( !isset($configFile) || $configFile == null ){   
-            throw new \Exception('Config File Has Not Been Properly Set Yet');                                                      
+            throw new Exception('Config File Has Not Been Properly Set Yet');                                                      
         } else if( !in_array($this->entity, $configFile)){
-            throw new \Exception('This Controller is not set in Config file yet!');                                                                            
+            throw new Exception('This Controller is not set in Config file yet!');                                                                            
         } else {        
             return \View::make('panelViews::all', array(
              'grid' => $this->grid,
@@ -78,7 +87,7 @@ class CrudController extends \Controller
     
     public function returnEditView()
     {
-         $configFile = \Config::get('config.crudItems');
+        $configFile = \Config::get('config.crudItems');
                 
         if ( !isset($configFile) || $configFile == null ){                      
             return \View::make('panelViews::configError', array(

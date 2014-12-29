@@ -3,7 +3,7 @@
 
             <div class="row">
 
-                <div class="col-lg-12 dashboard-title">
+                <div class="col-lg-12">
                     <h1 class="page-header">Dashboard</h1>
                     <div class="icon-bg ic-layers"></div>
                 </div>
@@ -11,37 +11,36 @@
             </div>
             <!-- /.row -->
             <div class="row box-holder">
-                
+                @if(is_array(\Config::get('config.crudItems')))
+                    @foreach (Serverfireteam\Panel\libs\dashboard::create() as $box)
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel ">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3 title">
+                                        {{$box['title']}}
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div class="huge">{{$box['count']}}</div>
+                                        <div></div>
 
-                @foreach (Serverfireteam\Panel\libs\dashboard::create() as $box)
-                <div class="col-lg-3 col-md-6">
-                    <div class="panel ">
-                        <div class="panel-heading">
-                            <div class="row">
-                                <div class="col-xs-3 title">
-                                    {{$box['title']}}
-                                </div>
-                                <div class="col-xs-9 text-right">
-                                    <div class="huge">{{$box['count']}}</div>
-                                    <div></div>
-
+                                    </div>
                                 </div>
                             </div>
+                            <a href="#">
+                                <div class="panel-footer">
+
+                                    <a href='{{$box['showListUrl']}}' class="pull-left">Show List <i class="icon ic-chevron-right"></i></a>
+                                    <div class="pull-right"> <a class="add " href="{{$box['addUrl']}}"> Add  </a></div>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
                         </div>
-                        <a href="#">
-                            <div class="panel-footer">
-
-                                <a href='{{$box['showListUrl']}}' class="pull-left">Show List <i class="icon ic-chevron-right"></i></a>
-                                <div class="pull-right"> <a class="add " href="{{$box['addUrl']}}"> Add  </a></div>
-
-                                <div class="clearfix"></div>
-                            </div>
-                        </a>
                     </div>
-                </div>
+                    @endforeach
+                @endif
 
-                @endforeach
-                
 
                 
             </div>

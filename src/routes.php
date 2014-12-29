@@ -14,10 +14,13 @@ use Serverfireteam\Panel\libs;
     \Route::filter('auth', function()
     {                
         if (\Auth::guest()){                    
-             return \Redirect::to('/panel/login')->with('message', 'Login Failed');
+             return \Redirect::to('/panel/login')->with('message', 'Please Sign In');
+
         }
     });
 }
+
+
 
 
 Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
@@ -31,12 +34,12 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
          Route::get('/{entity}/all', function ($entity) {
              try{
                   $controller = \App::make($entity.'Controller');
-             }catch(\Exception $ex){
-                throw new \Exception('No Controller Has Been Set for This Model ');               
+             }catch(Exception $ex){
+                throw new Exception('No Controller Has Been Set for This Model ');               
              }
                                     
             if (!method_exists($controller, 'all')){                
-                throw new \Exception('Controller does not implement the CrudController methods!');               
+                throw new Exception('Controller does not implement the CrudController methods!');               
             } else {
                 return $controller->callAction('all', array('entity' => $entity));
             }
@@ -45,6 +48,7 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
         /*
         Route::get('/{entity}/all', function ($entity) {
             $controller = \App::make('Serverfireteam\\Panel\\'.$entity.'Controller');
+
             return $controller->callAction('all', array('entity' => $entity));
         });
     
@@ -54,38 +58,22 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
         Route::any('/{entity}/edit', function ($entity) {           
              try{
                 $controller = \App::make($entity.'Controller');
-            }catch(\Exception $ex){    
-                throw new \Exception('No Controller Has Been Set for This Model!');                               
+            }catch(Exception $ex){    
+                throw new Exception('No Controller Has Been Set for This Model!');                               
              }
             if (!method_exists($controller, 'edit')){
-                throw new \Exception('Controller does not implement the CrudController methods!');                                               
+                throw new Exception('Controller does not implement the CrudController methods!');                                               
             } else {
                 return $controller->callAction('edit', array('entity' => $entity));
             }
         });
         
-        /*
-        Route::any('/{entity}/edit', function ($entity) {
-            $controller = \App::make('Serverfireteam\\Panel\\'.$entity.'Controller');
-            return $controller->callAction('edit', array('entity' => $entity));
-        });
-         * 
-         */
-        
-
-        Route::get('/edit',
-                array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit'));
-
-         Route::post('/edit',
+        Route::post('/edit',
                 array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));                
 });
 
- Route::post('/panel/login',function(){
-     
 
-        
-       
-});
+
 
  Route::post('/panel/login',function(){
  
@@ -101,7 +89,8 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
         return Redirect::to('panel');
     } else {	 	
         // validation not successful, send back to form	
-        return Redirect::to('panel/login');
+        return Redirect::to('panel/login')->with('message', 'Either Password or username is not correct!!');
+
     }
 });
 
@@ -132,7 +121,12 @@ Route::get('/panel', function () {
 });
  */      
 Route::get('/panel/login', function () {
-   return View::make('panelViews::login');
+    if(Session::has('message')){
+        $message = Session::get('message');
+    }else{
+        $message = 'Please Sign In';
+    }
+   return View::make('panelViews::login')->with('message', $message);
 });
 
 
