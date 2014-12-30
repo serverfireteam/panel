@@ -26,8 +26,10 @@ $(function() {
     })
 })
 $(document ).ready(function(){
-setTimeout(function(){
-     $('.loading').fadeOut('normal');
-},1000);
+    
+     $('.loading').fadeOut('normal'); 
+     $('.box-holder,.table').addClass('animated fadeInRight');
+     $('.dashboard-title').addClass('animated fadeInUp');
+
    
 })
