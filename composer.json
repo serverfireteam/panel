@@ -21,7 +21,8 @@
         "classmap": [
             "src/controllers",
             "src/views",
-            "src/models"
+            "src/models",
+            "src/database/migrations"
         ],
         "psr-0": {
             "Serverfireteam\\Panel": "src/"
