@@ -18,14 +18,13 @@ This package provides an easily configurable admin panel for Laravel 4.2 applica
 ## Screen shot 
 ![login](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/login.png)
 ![loading](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/loading.png)
-![loading](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/loading.png)
-![dashboard of panel](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/dashboard_full.png)
+![dashboard of panel](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/Dashboard_full.png)
 This is custome crud with few line .
 ![List of Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/pages.png)
 ![Edit Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/editpages.png)
 
 ## Demo 
-You can check the ![live demo here](http://demo.serverfire.net/panel)
+You can check the [live demo here](http://demo.serverfire.net/panel)
 User: admin
 pass: 12345 
 
