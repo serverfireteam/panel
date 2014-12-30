@@ -87,7 +87,7 @@ class CrudController extends \Controller
     
     public function returnEditView()
     {
-         $configFile = \Config::get('config.crudItems');
+        $configFile = \Config::get('config.crudItems');
                 
         if ( !isset($configFile) || $configFile == null ){                      
             return \View::make('panelViews::configError', array(
