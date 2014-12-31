@@ -35,43 +35,19 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
             return View::make('panelViews::dashboard');
         });
         
-         Route::get('/{entity}/all', function ($entity) {
-             try{
-                  $controller = \App::make($entity.'Controller');
-             }catch(Exception $ex){
+        Route::get('/{entity}/{methods}', function ($entity,$methods) {
+            try{
+                $controller = \App::make($entity.'Controller');
+            }catch(Exception $ex){
                 throw new Exception('No Controller Has Been Set for This Model ');               
-             }
+            }
                                     
-            if (!method_exists($controller, 'all')){                
+            if (!method_exists($controller, $methods)){                
                 throw new Exception('Controller does not implement the CrudController methods!');               
             } else {
-                return $controller->callAction('all', array('entity' => $entity));
+                return $controller->callAction($methods, array('entity' => $entity));
             }
-        });
-
-        /*
-        Route::get('/{entity}/all', function ($entity) {
-            $controller = \App::make('Serverfireteam\\Panel\\'.$entity.'Controller');
-
-            return $controller->callAction('all', array('entity' => $entity));
-        });
-    
-         * 
-         */
-        
-        Route::any('/{entity}/edit', function ($entity) {           
-             try{
-                $controller = \App::make($entity.'Controller');
-            }catch(Exception $ex){    
-                throw new Exception('No Controller Has Been Set for This Model!');                               
-             }
-            if (!method_exists($controller, 'edit')){
-                throw new Exception('Controller does not implement the CrudController methods!');                                               
-            } else {
-                return $controller->callAction('edit', array('entity' => $entity));
-            }
-        });
-        
+        });        
         Route::post('/edit',
                 array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));  
         
