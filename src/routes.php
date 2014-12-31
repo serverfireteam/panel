@@ -73,7 +73,10 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
         });
         
         Route::post('/edit',
-                array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));                
+                array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));  
+        
+        Route::get('/panel/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@getChangePassword'));
+        Route::post('/panel/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@postChangePassword'));
 });
 
 
@@ -108,11 +111,6 @@ Route::get('/panel/logout', function (){
     
    return Redirect::to('panel/login');
 });
-
-
-Route::get('/panel/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@getChangePassword'));
-
-Route::post('/panel/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@postChangePassword'));
 
 Route::post('/panel/reset', array('uses' => 'Serverfireteam\Panel\RemindersController@postReset'));
 
