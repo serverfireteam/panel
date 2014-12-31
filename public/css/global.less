@@ -1,3 +1,18 @@
+body{
+    background-color:@color-1;
+}
+.sidebar .sidebar-nav.navbar-collapse li a
+{
+    color : rgba(255,255,255,.9);
+}
+.navbar  .badge {
+  color: @badge-color;
+  border:1px solid #999;
+  background-color: transparent;
+
+}
+
+
 .panel{
     border-width: 1px;
     border-style: solid ;
@@ -33,6 +48,7 @@
            }
            color: #fff; 
            background-color: @body-bg;
+           border:1px solid darken(@body-bg,30%);
            text-decoration: none;
         }
     }
@@ -64,6 +80,20 @@
     }
 }
 
+/*-------------- dashboard --------------------*/
+.dashboard-title
+{
+    position: relative;
+    .icon-bg
+    {
+        font-size:70px;
+        color: #f4f4f4;
+        position: absolute;
+        top:25px;
+        left:0px;
+        z-index: -1;
+    }
+}
 
 /*-------------- zofe rapyd => crud --------------------*/
 .table
@@ -76,11 +106,42 @@
             -webkit-transform: scale(1.2,1.2);
         }
     }
-.icomoon
+    .icomoon
+    {
+        font-size: 22px;
+        text-decoration: none;
+        transition:all ease 250ms;
+
+    }
+    tr{
+        transition:all ease  250ms;
+    }
+    tr:nth-child(even) {background: #f5f5f5}
+    tr:hover{
+        border-color:#777;
+    }
+}
+
+.btn
 {
-    font-size: 22px;
-    text-decoration: none;
-    transition:all ease 250ms;
-    
+   transition: all ease 250ms;
 }
-}
+
+
+
+
+ /* Smartphones (portrait) ----------- */
+ /* @screen-xs  is Deprecated  as of v3.0.1 Bootstrap ----------- */
+ @media(max-width:767px){
+     .loading h1
+     {
+         margin:-47% auto;
+     }
+     .btn-resp-sidebar
+     {
+         float: left;
+        top: 25px;
+        left: 8px;
+     }
+ }
+
