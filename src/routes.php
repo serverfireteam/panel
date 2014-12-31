@@ -102,12 +102,9 @@ Route::get('/panel', function () {
 });
  */      
 Route::get('/panel/login', function () {
-    if(Session::has('message')){
-        $message = Session::get('message');
-    }else{
-        $message = 'Please Sign In';
-    }
-   return View::make('panelViews::login')->with('message', $message);
+    
+    $message = (Session::has('message') ? Session::get('message') : 'Please Sign In');
+    return View::make('panelViews::login')->with('message', $message);
 });
 
 
