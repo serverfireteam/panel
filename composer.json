@@ -1,7 +1,7 @@
 {
     "name": "serverfireteam/panel",
     "description": "This package provides an easily configurable admin panel for Laravel 4 applications",
-    "keywords": ["Laravel", "Panel", "Crud", "Nice Design","Admin Panel"],
+    "keywords": ["Laravel", "Panel", "Crud", "Nice Design","Admin Panel","CMS"],
     "authors": [
         {
             "name": "user",
