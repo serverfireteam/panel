@@ -66,9 +66,8 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
             'email' 	=> Input::get('email'),
             'password' 	=> Input::get('password')
     );
-
     // attempt to do the login
-    if (Auth::attempt($userdata)) {                   
+    if (Auth::attempt($userdata,filter_var(Input::get('remember'), FILTER_VALIDATE_BOOLEAN))) {                   
         return Redirect::to('panel');
     } else {	 	
         // validation not successful, send back to form	
