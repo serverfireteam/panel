@@ -35,7 +35,7 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
             return View::make('panelViews::dashboard');
         });
         
-        Route::get('/{entity}/{methods}', function ($entity,$methods) {
+        Route::any('/{entity}/{methods}', function ($entity,$methods) {
             try{
                 $controller = \App::make($entity.'Controller');
             }catch(Exception $ex){
