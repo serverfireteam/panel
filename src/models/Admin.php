@@ -15,8 +15,10 @@ class Admin extends \Eloquent implements UserInterface, RemindableInterface{
 	 * @var string
 	 */
 	protected $table = 'admins';
-        
-         public function getAuthIdentifier()
+        protected $remember_token_name      = 'remember_token';
+
+
+        public function getAuthIdentifier()
         {
             return $this->getKey();
         }

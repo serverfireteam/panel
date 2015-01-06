@@ -13,7 +13,7 @@ class CreateAdminsTable extends Migration {
 	 */
 	public function up()
 	{
-            Schema::create('admins', function($table)
+        Schema::create('admins', function($table)
 		{
 			$table->increments('id');
 			$table->string('email');
@@ -38,12 +38,10 @@ class CreateAdminsTable extends Migration {
 			$table->index('activation_code');
 			$table->index('reset_password_code');
 		});
-                
-                
-                Admin::create(array(
-                    'email' => 'admin',
-                    'password' =>  Hash::make('12345')
-                ));
+        Admin::create(array(
+            'email' => 'admin@change.me',
+            'password' =>  Hash::make('12345')
+        ));
                 
 	}
 
