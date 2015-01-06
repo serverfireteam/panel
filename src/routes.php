@@ -56,10 +56,12 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
             }
         });        
         Route::post('/edit',
-                array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));  
+                array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));                  
+        Route::get('/edit',
+                array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit')); 
         
-        Route::get('/panel/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@getChangePassword'));
-        Route::post('/panel/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@postChangePassword'));
+        Route::get('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@getChangePassword'));
+        Route::post('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@postChangePassword'));
 });
 
 
@@ -101,12 +103,7 @@ Route::get('/panel/reset', array('uses' => 'Serverfireteam\Panel\RemindersContro
 Route::get('/panel/remind',  array('uses' => 'Serverfireteam\Panel\RemindersController@getRemind'));
 
 Route::post('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersController@postRemind')); 
-
-/*
-Route::get('/panel', function () {
-  return View::make('panelViews::dashboard');
-});
- */      
+  
 Route::get('/panel/login', function () {
     
     $message = (Session::has('message') ? Session::get('message') : 'Please Sign In');
