@@ -31,13 +31,13 @@ pass: 12345
 ##RoadMap
 We are going to develope this package every days and new idea are wellcome .
 We have a [Trello](https://trello.com/b/RDZ6HdK9/framework) board for project , you can check it and send your feedback . 
+Fllow us [@serverfireteam](http://twitter.com/serverfireteam) .
 
 ##Installtions
-Note: if you problem in any of steps you should first try to fix it after that it report at [github](https://github.com/serverfireteam/panel/issues/new)
+Note: if you  face any problem in steps you  report at [github](https://github.com/serverfireteam/panel/issues/new)
 
 
-
-1. First you need have a laravel 4.2 project ready to use . 
+1. First you need a laravel 4.2 project ready to use . 
 
 2.  Add package to require-dev 
 
