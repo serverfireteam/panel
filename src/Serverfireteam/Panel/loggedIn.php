@@ -1,4 +1,4 @@
-<?php namespace Serverfireteam\Panel\libs;
+<?php namespace Serverfireteam\Panel;
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
