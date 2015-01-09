@@ -34,7 +34,7 @@ We have a [Trello](https://trello.com/b/RDZ6HdK9/framework) board for project , 
 Fllow us [@serverfireteam](http://twitter.com/serverfireteam) .
 
 ##Installtions
-Note: if you  face any problem in steps you  report at [github](https://github.com/serverfireteam/panel/issues/new)
+Note: if you  face any problem in steps you please report it at [github](https://github.com/serverfireteam/panel/issues/new)
 
 
 1. First you need a laravel 4.2 project ready to use . 
