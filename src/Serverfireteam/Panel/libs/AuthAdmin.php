@@ -1,7 +1,7 @@
-<?php namespace Serverfireteam\Panel;
+<?php namespace Serverfireteam\Panel\libs;
 
 
-class loggedIn{
+class AuthAdmin{
 
 
 	public function checkLoggedIn(){
