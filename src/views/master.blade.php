@@ -43,6 +43,12 @@
 
     <!-- Metis Menu Plugin JavaScript -->
     <script src="{{asset("packages/serverfireteam/panel/js/plugins/metisMenu/metisMenu.min.js")}}"></script>
+    <script type="text/javascript" src="{{asset("packages/serverfireteam/panel/js/plugins/tinymce/tinymce.min.js")}}" ></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea"
+        });
+    </script>
 
  
 
