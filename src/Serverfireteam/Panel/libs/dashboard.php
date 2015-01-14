@@ -6,7 +6,7 @@ class dashboard
     
     public static function create()
     {
-        $config = \Config::get('config.crudItems');
+        $config = \Config::get('panel::config.crudItems');
         $dashboard = array();
         //Make Dashboard Items
         foreach ( $config as $key => $value ){

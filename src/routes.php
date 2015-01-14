@@ -36,7 +36,8 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
         });
         
         Route::any('/{entity}/{methods}', function ($entity,$methods) {
-            $panel_path = \Config::get('config.controllers');
+            $panel_path = \Config::get('panel::config.controllers');
+            
             if ( isset($panel_path) ){
                $controller_path = $panel_path.'\\'.$entity.'Controller';                
             } else {

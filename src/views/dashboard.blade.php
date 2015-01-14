@@ -11,7 +11,7 @@
             </div>
             <!-- /.row -->
             <div class="row box-holder">
-                @if(is_array(\Config::get('config.crudItems')))
+                @if(is_array(\Config::get('panel::config.crudItems')))
                     @foreach (Serverfireteam\Panel\libs\dashboard::create() as $box)
                     <div class="col-lg-3 col-md-6">
                         <div class="panel ">

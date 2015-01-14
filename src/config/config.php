@@ -7,10 +7,16 @@
  */
 return array(
     
-    'crudItems' => array(
-        "users" => 'Users'
-    )
-    
+     'crudItems' => array(
+       // "users" => 'Users',
+        "Projects" => "Project",
+        "Companies" => "Company",
+        "CaseStudy" => "CaseStudy",
+        "Page" => "Page",
+        "Blog" => "Blog" ,
+        "Feedbacks" => "Feedback"
+    ),
+    'controllers' => 'App\Controllers\panel'
     
     
 );
