@@ -7,11 +7,9 @@
  */
 return array(
     
-    'crudItems' => array(
-        "users" => 'Users'
+     'crudItems' => array(
+      
     )
-    
-    
     
 );
     

@@ -1,7 +1,8 @@
 {
     "name": "serverfireteam/panel",
     "description": "This package provides an easily configurable admin panel for Laravel 4 applications",
-    "keywords": ["Laravel", "Panel", "Crud", "Nice Design","Admin Panel"],
+    "keywords": ["Laravel", "Panel", "Crud", "Nice Design","Admin Panel","CMS","administrator", "admin", "backend"],
+    "license": "MIT",
     "authors": [
         {
             "name": "user",
@@ -14,14 +15,15 @@
         "illuminate/support": "4.2.*",
         "squizlabs/php_codesniffer": "1.*",
         "vespakoen/menu": "2.0.15",
-        "serverfireteam/rapyd-laravel" : "1.3.25"
+        "serverfireteam/rapyd-laravel" : "1.3.*"
     },
     "autoload": {
 
         "classmap": [
             "src/controllers",
             "src/views",
-            "src/models"
+            "src/models",
+            "src/database/migrations"
         ],
         "psr-0": {
             "Serverfireteam\\Panel": "src/"

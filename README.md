@@ -1,6 +1,5 @@
 #Serverfireteam Panel Package .
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/serverfireteam/panel/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/serverfireteam/panel/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/serverfireteam/panel/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/serverfireteam/panel/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/serverfireteam/panel/badges/build.png?b=master)](https://scrutinizer-ci.com/g/serverfireteam/panel/build-status/master)
 
 
@@ -19,27 +18,26 @@ This package provides an easily configurable admin panel for Laravel 4.2 applica
 ## Screen shot 
 ![login](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/login.png)
 ![loading](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/loading.png)
-![loading](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/loading.png)
-![dashboard of panel](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/dashboard_full.png)
+![dashboard of panel](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/Dashboard_full.png)
 This is custome crud with few line .
 ![List of Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/pages.png)
 ![Edit Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/editpages.png)
 
 ## Demo 
-You can check the ![live demo here](http://demo.serverfire.net/panel)
+You can check the [live demo here](http://demo.serverfire.net/panel)
 User: admin
 pass: 12345 
 
 ##RoadMap
 We are going to develope this package every days and new idea are wellcome .
 We have a [Trello](https://trello.com/b/RDZ6HdK9/framework) board for project , you can check it and send your feedback . 
+Fllow us [@serverfireteam](http://twitter.com/serverfireteam) .
 
 ##Installtions
-Note: if you problem in any of steps you should first try to fix it after that it report at [github](https://github.com/serverfireteam/panel/issues/new)
+Note: if you  face any problem in steps you please report it at [github](https://github.com/serverfireteam/panel/issues/new)
 
 
-
-1. First you need have a laravel 4.2 project ready to use . 
+1. First you need a laravel 4.2 project ready to use . 
 
 2.  Add package to require-dev 
 
@@ -66,6 +64,7 @@ and run the composer update command, the package and its dependencies will be in
     ```bash
     php artisan asset:publish "serverfireteam/panel"
     php artisan asset:publish "serverfireteam/rapyd-laravel"
+    php artisan config:publish "serverfireteam/panel"
     ```
 
 5. Go to the root of your project and run this command in order to set up the database
@@ -74,7 +73,7 @@ and run the composer update command, the package and its dependencies will be in
     php artisan migrate --path="vendor/serverfireteam/panel/src/database/migrations"
     ```
 
-6. Go to your domain.com/public/panel and you can login with , user : admin , password : 12345
+6. Go to your domain.com/public/panel and you can login with , user : admin@change.me , password : 12345
 
 
 ## Learn to add crud 

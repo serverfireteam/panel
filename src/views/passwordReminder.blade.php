@@ -4,12 +4,20 @@
 login
 @stop
 @section('body')
+
+
+
     <div class="container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
+                    
+                    <div class="mes-box">
+                        {{ ($mesType=='error')?'<div class="error-box"><span class="ic-caution"></span> '.$message.'</div>':'' }}  
+                        {{ ($mesType=='info')?'<div class="info-box">'.$message.'</div>':'' }} 
+                    </div>
                     <div class="login-panel panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">{{ $message }}</h3>  
+                            {{ ($mesType=='message')?'<h3 class="panel-title">'.$message.'</h3>':'' }} 
                         </div>
                         <div class="panel-body">
                             <div class="logo-holder">

@@ -71,7 +71,7 @@ class CrudController extends \Controller
 
     public function returnView()
     {
-        $configFile = \Config::get('config.crudItems');
+        $configFile = \Config::get('panel::config.crudItems');
                 
         if ( !isset($configFile) || $configFile == null ){   
             throw new Exception('Config File Has Not Been Properly Set Yet');                                                      
@@ -87,7 +87,7 @@ class CrudController extends \Controller
     
     public function returnEditView()
     {
-        $configFile = \Config::get('config.crudItems');
+        $configFile = \Config::get('panel::config.crudItems');
                 
         if ( !isset($configFile) || $configFile == null ){                      
             return \View::make('panelViews::configError', array(

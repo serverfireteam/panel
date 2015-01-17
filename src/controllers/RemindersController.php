@@ -16,7 +16,8 @@ class RemindersController extends \Controller {
                 $message = 'Please Enter Email Address';
             }
             return \View::make('panelViews::passwordReminder')
-                    ->with('message', $message);
+                    ->with('message', $message)
+                    ->with('mesType', \Session::get('mesType'));
 	}
 
 	/**
@@ -36,10 +37,10 @@ class RemindersController extends \Controller {
             {
                 
                     case \Password::INVALID_USER:
-                            return \Redirect::back()->with('message', \Lang::get($response));
+                            return \Redirect::back()->with('message', \Lang::get($response))->with('mesType','error');
 
                     case \Password::REMINDER_SENT:
-                            return \Redirect::back()->with('message', \Lang::get($response));
+                            return \Redirect::back()->with('message', \Lang::get($response))->with('mesType','error');
             }
 	}
 
@@ -54,67 +55,69 @@ class RemindersController extends \Controller {
             return \View::make('panelViews::passwordReset');
 	}
         
-        public function postReset()
+    public function postReset()
+    {
+       \Config::set('auth.model', 'Serverfireteam\Panel\Admin');    
+
+        $credentials = \Input::only(
+           'email', 'password', 'password_confirmation', 'token'
+        );
+        
+        //echo '<pre>';
+        //var_dump($credentials);
+       
+        
+        $response = \Password::reset($credentials, function($user, $password)
         {
-           \Config::set('auth.model', 'Serverfireteam\Panel\Admin');    
+            $user->password = \Hash::make($password);
+            $user->save();
+        });
+       
+        switch ($response)
+        {
+            case \Password::INVALID_PASSWORD:
+                return \Redirect::back()->with('error', \Lang::get($response));
+            case \Password::INVALID_TOKEN:
+                return \Redirect::back()->with('error', \Lang::get($response));
+            case \Password::INVALID_USER:
+                return \Redirect::back()->with('error', \Lang::get($response));
 
-            $credentials = \Input::only(
-               'email', 'password', 'password_confirmation', 'token'
-            );
-            
-            echo '<pre>';
-            var_dump($credentials);
-           
-            
-            $response = \Password::reset($credentials, function($user, $password)
-            {
-                $user->password = \Hash::make($password);
-                $user->save();
-            });
-           
-            switch ($response)
-            {
-                case \Password::INVALID_PASSWORD:
-                    return \Redirect::back()->with('error', \Lang::get($response));
-                case \Password::INVALID_TOKEN:
-                    return \Redirect::back()->with('error', \Lang::get($response));
-                case \Password::INVALID_USER:
-                    return \Redirect::back()->with('error', \Lang::get($response));
-
-                case \Password::PASSWORD_RESET:
-                    return \Redirect::to('/panel')->with('message', 'Password Successfully Rested!! Please Log in');
-            }
+            case \Password::PASSWORD_RESET:
+                return \Redirect::to('/panel')->with('message', 'Password Successfully Rested!! Please Log in');
         }
+    }
 
-        public function getChangePassword(){
-            
-            return \View::make('panelViews::passwordChange');
-        }
+    public function getChangePassword(){
+        
+        return \View::make('panelViews::passwordChange');
+    }
 
                 
-        public function postChangePassword(){
-            
-            \Config::set('auth.model', 'Serverfireteam\Panel\Admin');    
-              
-            $user = Admin::find(\Auth::user()->id); 
-            $password = \Input::only('current_password');
-            $new_password = \Input::only('password');
-            $retype_password = \Input::only('password_confirmation');
-            $user_password = \Auth::user()->password;          
-            if (\Hash::check($password['current_password'], $user_password)) {
-                if ($new_password['password'] == $retype_password['password_confirmation'] ){                
-                    $user->password = \Hash::make($new_password['password']);
-                    $user->save();
-                    return \Redirect::to('/panel/changePassword')->with('message', 'Successfully Changed Your Password!!');;                    
-                }else{
-                    return \Redirect::to('/panel/changePassword')
-                            ->with('message', 'Passwords not matched!!');
-                }
+    public function postChangePassword(){
+        
+        \Config::set('auth.model', 'Serverfireteam\Panel\Admin');    
+          
+        $user = Admin::find(\Auth::user()->id); 
+        $password = \Input::only('current_password');
+        $new_password = \Input::only('password');
+        $retype_password = \Input::only('password_confirmation');
+        $user_password = \Auth::user()->password;          
+        if (\Hash::check($password['current_password'], $user_password)) {
+            if ($new_password['password'] == $retype_password['password_confirmation'] ){                
+                $user->password = \Hash::make($new_password['password']);
+                $user->save();
+                return \Redirect::to('/panel/changePassword')->with('message', 'Successfully Changed Your Password!!');;                    
             }else{
-                 return \Redirect::to('/panel/changePassword')
-                         ->with('message', 'Password is not correct!!');;
-            }                                    
-        }
+                return \Redirect::to('/panel/changePassword')
+                        ->with('message', 'Passwords not matched!!')
+                        ->with('mesType', 'error');
+            }
+        }else{
+             return \Redirect::to('/panel/changePassword')
+                     ->with('message', 'Password is not correct!!')
+                     ->with('mesType', 'error');
+        }                                    
+    }
         
        
 }

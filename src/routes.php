@@ -19,7 +19,7 @@ use Serverfireteam\Panel\libs;
             }else{
                 $message = 'Please Enter Email Address';
             }
-            return \Redirect::to('/panel/login')->with('message', $message);
+            return \Redirect::to('/panel/login')->with('message', $message)->with('mesType', 'message');
         }
     });
 }
@@ -35,45 +35,34 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
             return View::make('panelViews::dashboard');
         });
         
-         Route::get('/{entity}/all', function ($entity) {
-             try{
-                  $controller = \App::make($entity.'Controller');
-             }catch(Exception $ex){
+        Route::any('/{entity}/{methods}', function ($entity,$methods) {
+            $panel_path = \Config::get('panel::config.controllers');
+            
+            if ( isset($panel_path) ){
+               $controller_path = $panel_path.'\\'.$entity.'Controller';                
+            } else {
+                $controller_path = $entity.'Controller'; 
+            }           
+           
+            try{
+                $controller = \App::make($controller_path);                
+            }catch(Exception $ex){
                 throw new Exception('No Controller Has Been Set for This Model ');               
-             }
+            }
                                     
-            if (!method_exists($controller, 'all')){                
+            if (!method_exists($controller, $methods)){                
                 throw new Exception('Controller does not implement the CrudController methods!');               
             } else {
-                return $controller->callAction('all', array('entity' => $entity));
+                return $controller->callAction($methods, array('entity' => $entity));
             }
-        });
-
-        /*
-        Route::get('/{entity}/all', function ($entity) {
-            $controller = \App::make('Serverfireteam\\Panel\\'.$entity.'Controller');
-
-            return $controller->callAction('all', array('entity' => $entity));
-        });
-    
-         * 
-         */
-        
-        Route::any('/{entity}/edit', function ($entity) {           
-             try{
-                $controller = \App::make($entity.'Controller');
-            }catch(Exception $ex){    
-                throw new Exception('No Controller Has Been Set for This Model!');                               
-             }
-            if (!method_exists($controller, 'edit')){
-                throw new Exception('Controller does not implement the CrudController methods!');                                               
-            } else {
-                return $controller->callAction('edit', array('entity' => $entity));
-            }
-        });
-        
+        });        
         Route::post('/edit',
-                array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));                
+                array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));                  
+        Route::get('/edit',
+                array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit')); 
+        
+        Route::get('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@getChangePassword'));
+        Route::post('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@postChangePassword'));
 });
 
 
@@ -87,13 +76,12 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
             'email' 	=> Input::get('email'),
             'password' 	=> Input::get('password')
     );
-
     // attempt to do the login
-    if (Auth::attempt($userdata)) {                   
+    if (Auth::attempt($userdata,filter_var(Input::get('remember'), FILTER_VALIDATE_BOOLEAN))) {                   
         return Redirect::to('panel');
     } else {	 	
         // validation not successful, send back to form	
-        return Redirect::to('panel/login')->with('message', 'Either Password or username is not correct!!');
+        return Redirect::to('panel/login')->with('mesType','error')->with('message', 'Either Password or username is not correct!!');
 
     }
 });
@@ -109,11 +97,6 @@ Route::get('/panel/logout', function (){
    return Redirect::to('panel/login');
 });
 
-
-Route::get('/panel/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@getChangePassword'));
-
-Route::post('/panel/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@postChangePassword'));
-
 Route::post('/panel/reset', array('uses' => 'Serverfireteam\Panel\RemindersController@postReset'));
 
 Route::get('/panel/reset', array('uses' => 'Serverfireteam\Panel\RemindersController@getReset'));
@@ -121,19 +104,12 @@ Route::get('/panel/reset', array('uses' => 'Serverfireteam\Panel\RemindersContro
 Route::get('/panel/remind',  array('uses' => 'Serverfireteam\Panel\RemindersController@getRemind'));
 
 Route::post('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersController@postRemind')); 
-
-/*
-Route::get('/panel', function () {
-  return View::make('panelViews::dashboard');
-});
- */      
+  
 Route::get('/panel/login', function () {
-    if(Session::has('message')){
-        $message = Session::get('message');
-    }else{
-        $message = 'Please Sign In';
-    }
-   return View::make('panelViews::login')->with('message', $message);
+    
+    $message = (Session::has('message') ? Session::get('message') : 'Please Sign In');
+    $mesType = (Session::has('mesType') ? Session::get('mesType') : 'message');
+    return View::make('panelViews::login')->with('message', $message)->with('mesType', $mesType);
 });
 
 
