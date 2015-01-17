@@ -64,6 +64,7 @@ and run the composer update command, the package and its dependencies will be in
     ```bash
     php artisan asset:publish "serverfireteam/panel"
     php artisan asset:publish "serverfireteam/rapyd-laravel"
+    php artisan config:publish "serverfireteam/panel"
     ```
 
 5. Go to the root of your project and run this command in order to set up the database
