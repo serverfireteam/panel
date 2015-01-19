@@ -110,6 +110,7 @@ Route::get('/panel/login', function () {
     $message = (Session::has('message') ? Session::get('message') : 'Please Sign In');
     $mesType = (Session::has('mesType') ? Session::get('mesType') : 'message');
     return View::make('panelViews::login')->with('message', $message)->with('mesType', $mesType);
+
 });
 
 
