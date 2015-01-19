@@ -8,8 +8,9 @@
 return array(
     
      'crudItems' => array(
-      
-    )
+       
+    ),
+    
     
 );
     
