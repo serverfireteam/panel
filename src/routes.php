@@ -32,8 +32,7 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
         // main page for the admin section (app/views/admin/dashboard.blade.php)
         Route::get('/', function()
         {
-            $grav_url = "http://www.gravatar.com/avatar/" . md5( strtolower( trim( Auth::user()->email ) ) ) . "?d=mm&s=128";
-            return View::make('panelViews::dashboard')->with('grav_url',$grav_url);
+            return View::make('panelViews::dashboard');
         });
         
         Route::any('/{entity}/{methods}', function ($entity,$methods) {

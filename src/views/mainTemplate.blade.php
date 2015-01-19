@@ -31,7 +31,7 @@ dashboard
 
             <div class="navbar-default sidebar " role="navigation">
                 <div class="sidebar-nav navbar-collapse collapse " id="bs-example-navbar-collapse-1">
-                    <div class="grav center"><img src="{{$grav_url}}" ><a href="https://www.gravatar.com"><span>change</span></a></div>
+                    <div class="grav center"><img src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( Auth::user()->email ) ) )}}?d=mm&s=128" ><a href="https://www.gravatar.com"><span>change</span></a></div>
                     <ul class="nav" id="side-menu">
                             <li>
                                 <a  href="{{ url('panel') }}" class="{{ (Request::url() === url('panel')) ? 'active' : '' }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
