@@ -12,8 +12,8 @@ login
                 <div class="col-md-4 col-md-offset-4">
                     
                     <div class="mes-box">
-                        {{ ($mesType=='error')?'<div class="error-box"><span class="ic-caution"></span> '.$message.'</div>':'' }}  
-                        {{ ($mesType=='info')?'<div class="info-box">'.$message.'</div>':'' }} 
+                         @if($mesType=='error')<div class="error-box animated fadeInDown"><span class="ic-caution"></span> {{$message}}</div>@endif  
+                         @if($mesType=='info') <div class="info-box animated fadeInDown"><span class="ic-info"></span> {{$message}}</div>@endif
                     </div>
                     <div class="login-panel panel panel-default">
                         <div class="panel-heading">

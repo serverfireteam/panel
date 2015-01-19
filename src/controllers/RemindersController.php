@@ -40,7 +40,7 @@ class RemindersController extends \Controller {
                             return \Redirect::back()->with('message', \Lang::get($response))->with('mesType','error');
 
                     case \Password::REMINDER_SENT:
-                            return \Redirect::back()->with('message', \Lang::get($response))->with('mesType','error');
+                            return \Redirect::back()->with('message', \Lang::get($response))->with('mesType','info');
             }
 	}
 
@@ -76,14 +76,14 @@ class RemindersController extends \Controller {
         switch ($response)
         {
             case \Password::INVALID_PASSWORD:
-                return \Redirect::back()->with('error', \Lang::get($response));
+                return \Redirect::back()->with('message', \Lang::get($response))->with('mesType','error');
             case \Password::INVALID_TOKEN:
-                return \Redirect::back()->with('error', \Lang::get($response));
+                return \Redirect::back()->with('message', \Lang::get($response))->with('mesType','error');
             case \Password::INVALID_USER:
-                return \Redirect::back()->with('error', \Lang::get($response));
+                return \Redirect::back()->with('message', \Lang::get($response))->with('mesType','error');
 
             case \Password::PASSWORD_RESET:
-                return \Redirect::to('/panel')->with('message', 'Password Successfully Rested!! Please Log in');
+                return \Redirect::to('/panel')->with('message', 'Password Successfully Rested!! Please Log in')->with('mesType','info');
         }
     }
 
