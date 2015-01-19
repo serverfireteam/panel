@@ -31,7 +31,8 @@ pass: 12345
 ##RoadMap
 We are going to develope this package every days and new idea are wellcome .
 We have a [Trello](https://trello.com/b/RDZ6HdK9/framework) board for project , you can check it and send your feedback . 
-Fllow us [@serverfireteam](http://twitter.com/serverfireteam) .
+Fllow us in twitter [@serverfireteam](http://twitter.com/serverfireteam) .
+
 
 ##Installtions
 Note: if you  face any problem in steps you please report it at [github](https://github.com/serverfireteam/panel/issues/new)
@@ -64,6 +65,7 @@ and run the composer update command, the package and its dependencies will be in
     ```bash
     php artisan asset:publish "serverfireteam/panel"
     php artisan asset:publish "serverfireteam/rapyd-laravel"
+    php artisan config:publish "serverfireteam/panel"
     ```
 
 5. Go to the root of your project and run this command in order to set up the database

@@ -24,6 +24,55 @@ body{
 {
     font-size: 45px;
 }
+.grav
+{
+    text-align:center;
+    transition:all ease 250ms;
+    width:110px;
+    margin:10px auto;
+    position:relative;
+    border-radius: 250px;
+    box-shadow:0px 1px 1px rgba(0,0,0,1);
+    img{
+        width:110px;
+        border-radius: 250px;
+        border:7px solid rgba(255,255,255,.2); 
+    }
+    a{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        color: transparent;
+        z-index: 4100;
+        width: 110px;
+        height: 110px;
+        display: block;
+        border-radius: 251px;
+        padding: 39px 20px;
+        font-size: 17px;
+        transition:all ease 250ms;
+        span{
+            display:none;
+        }
+    }
+    &:hover a{
+        background-color: rgba(255,255,255,.4);
+        color: #363636;
+        span{
+            display:block;
+            background-color: @color-1;
+            color:#fff;
+            padding:5px;
+             border-radius: 251px;
+             box-shadow:0px 3px 1px rgba(0,0,0,.5);
+             border-bottom:1px solid darken(@color-1,60%);
+             text-shadow: 1px 0px 1px #000;
+        }
+    }
+    
+}
+
+
 .top-icon-bar{
     text-align: right;
     padding:7px;

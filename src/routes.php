@@ -19,7 +19,7 @@ use Serverfireteam\Panel\libs;
             }else{
                 $message = 'Please Enter Email Address';
             }
-            return \Redirect::to('/panel/login')->with('message', $message);
+            return \Redirect::to('/panel/login')->with('message', $message)->with('mesType', 'message');
         }
     });
 }
@@ -46,6 +46,7 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
 });
 
 
+
 Route::post('/panel/login', array('uses' => 'Serverfireteam\Panel\AuthController@postLogin'));
 
 Route::get('/panel/password/reset/{token}', function ($token){
@@ -62,6 +63,7 @@ Route::get('/panel/remind',  array('uses' => 'Serverfireteam\Panel\RemindersCont
 
 Route::post('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersController@postRemind')); 
   
+
 Route::get('/panel/login',  array('uses' => 'Serverfireteam\Panel\AuthController@getLogin'));
 
 
