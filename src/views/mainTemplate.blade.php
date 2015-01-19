@@ -30,7 +30,8 @@ dashboard
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar " role="navigation">
-                <div class="sidebar-nav navbar-collapse collapse " id="bs-example-navbar-collapse-1">   
+                <div class="sidebar-nav navbar-collapse collapse " id="bs-example-navbar-collapse-1">
+                    <div class="grav center"><img src="{{$grav_url}}" ><a href="https://www.gravatar.com"><span>change</span></a></div>
                     <ul class="nav" id="side-menu">
                             <li>
                                 <a  href="{{ url('panel') }}" class="{{ (Request::url() === url('panel')) ? 'active' : '' }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
