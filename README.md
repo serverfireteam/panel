@@ -45,7 +45,7 @@ Note: if you  face any problem in steps you please report it at [github](https:/
     ```json
     {
         "require-dev": {
-            "serverfireteam/panel": "dev-master"
+            "serverfireteam/panel": "1.1.*"
         },
     }
     ```
