@@ -52,11 +52,11 @@ class Admin extends \Eloquent implements UserInterface, RemindableInterface{
         }
         
         protected $fillable = array('first_name', 'last_name', 'email', 'password');
-		/**
-		 * The attributes excluded from the model's JSON form.
-		 *
-		 * @var array
-		 */
-		protected $hidden = array('password', 'remember_token');
+	/**
+	 * The attributes excluded from the model's JSON form.
+	 *
+	 * @var array
+	 */
+	protected $hidden = array('password', 'remember_token');
 
 }

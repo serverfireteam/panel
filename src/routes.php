@@ -29,6 +29,7 @@ use Serverfireteam\Panel\libs;
 
 Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
 {    
+
     // main page for the admin section (app/views/admin/dashboard.blade.php)
     Route::get('/', function()
     {
@@ -36,10 +37,8 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
     });
 
     Route::any('/{entity}/{methods}',  array('uses' => 'Serverfireteam\Panel\MainController@entityUrl'));        
-    Route::post('/edit',
-            array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));                  
-    Route::get('/edit',
-            array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit')); 
+    Route::post('/edit',array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));                  
+    Route::get('/edit',array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit')); 
 
     Route::get('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@getChangePassword'));
     Route::post('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@postChangePassword'));
@@ -63,6 +62,7 @@ Route::get('/panel/remind',  array('uses' => 'Serverfireteam\Panel\RemindersCont
 
 Route::post('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersController@postRemind')); 
   
+
 
 Route::get('/panel/login',  array('uses' => 'Serverfireteam\Panel\AuthController@getLogin'));
 

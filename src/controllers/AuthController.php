@@ -29,7 +29,8 @@ class AuthController extends \Controller {
     public function getLogin(){
         
         $message = (\Session::has('message') ? \Session::get('message') : 'Please Sign In');
-        return \View::make('panelViews::login')->with('message', $message);        
+        $mesType = (\Session::has('mesType') ? \Session::get('mesType') : 'message');
+        return \View::make('panelViews::login')->with('message', $message)->with('mesType', $mesType);;        
     }
     
     public function doLogout(){
