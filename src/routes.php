@@ -37,10 +37,8 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
     });
 
     Route::any('/{entity}/{methods}',  array('uses' => 'Serverfireteam\Panel\MainController@entityUrl'));        
-    Route::post('/edit',
-            array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));                  
-    Route::get('/edit',
-            array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit')); 
+    Route::post('/edit',array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));                  
+    Route::get('/edit',array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit')); 
 
     Route::get('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@getChangePassword'));
     Route::post('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@postChangePassword'));
