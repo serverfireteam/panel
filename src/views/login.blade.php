@@ -12,14 +12,14 @@ login
                     @if($mesType=='info') <div class="info-box animated fadeInDown">{{$message}}</div>@endif
                     </div>
                     
-                    <div class="login-panel panel panel-default">
+                    <div class="login-panel panel panel-default animated fadeInDown">
                      
                         <div class="panel-heading">
                             @if($mesType=='message') <h3 class="panel-title">{{$message}}</h3>  @endif
                         </div>
                         <div class="panel-body">
                             <div class="logo-holder">
-                                <img src="{{asset("packages/serverfireteam/panel/img/logo.png")}}" />
+                                <img src="{{asset(Config::get('panel::config.logo'))}}" />
                             </div>
                             {{ Form::open(array('url' => 'panel/login')) }}
                                 <fieldset>

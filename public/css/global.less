@@ -12,10 +12,40 @@ body{
 
 }
 
+    .powered-by
+    {
+        position:absolute;
+        bottom:5px;
+        width:210px;
+        text-align: center;
+        transition: all ease 250ms;
+        a{
+            text-align: center;
+            color: rgba(255,255,255,.4);
+            width: 300px;
+        }
+        .col{color:#f26101}
+        &:hover{
+            transform:scale(1.1,1.1);
+            a{color: rgba(255,255,255,1);}
+            text-shadow: 0px 0px 5px rgba(255,255,255,.4);
+        }
+    }
 
 .panel{
     border-width: 1px;
     border-style: solid ;
+    box-shadow:2px 3px 1px rgba(0,0,0,0.11);
+    border-radius: 2px;
+    .panel-heading{
+        border-radius: 2px;
+    }
+    .panel-footer
+    {
+        a:hover{
+            text-decoration:none;
+        }
+    }
 }
 .panel .title{
     font-size:35px;
@@ -75,7 +105,7 @@ body{
     text-align:center;
     margin: 15px 2px;
 }
-.visit-site
+.visit-site 
 {
     display:block;
     text-align:center;
@@ -86,11 +116,11 @@ body{
     padding:7px;
     transition:all ease-out 250ms;
     color :rgba(255,255,255,.9);
-    text-decoration: none;
+    text-decoration: none; 
     &:hover{
         background:#fff;
         color:@color-1;
-        
+        text-decoration: none; 
     }
 }
 
@@ -152,17 +182,17 @@ body{
 }
 
 /*-------------- dashboard --------------------*/
-.dashboard-title
+.dashboard
 {
     position: relative;
     .icon-bg
     {
-        font-size:70px;
-        color: #f4f4f4;
+        font-size: 64px;
         position: absolute;
-        top:25px;
-        left:0px;
-        z-index: -1;
+        top: 31px;
+        left: 5px;
+        z-index: 0;
+        opacity: .1;
     }
 }
 
@@ -181,7 +211,8 @@ body{
     {
         font-size: 22px;
         text-decoration: none;
-        transition:all ease 250ms;
+        transition:all  ease 250ms;
+        
 
     }
     tr{

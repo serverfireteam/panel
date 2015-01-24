@@ -42,7 +42,6 @@
                 @endif
 
 
-                
             </div>
 <script>
     $(function(){

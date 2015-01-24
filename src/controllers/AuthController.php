@@ -22,7 +22,7 @@ class AuthController extends \Controller {
             return \Redirect::to('panel');
         } else {	 	
             // validation not successful, send back to form	
-            return \Redirect::to('panel/login')->with('message', 'Either Password or username is not correct!!');
+            return \Redirect::to('panel/login')->with('message', 'Either Password or username is not correct!!')->with('mesType','error');
         }        
     }
     
@@ -30,7 +30,7 @@ class AuthController extends \Controller {
         
         $message = (\Session::has('message') ? \Session::get('message') : 'Please Sign In');
         $mesType = (\Session::has('mesType') ? \Session::get('mesType') : 'message');
-        return \View::make('panelViews::login')->with('message', $message)->with('mesType', $mesType);;        
+        return \View::make('panelViews::login')->with('message', $message)->with('mesType', $mesType);     
     }
     
     public function doLogout(){

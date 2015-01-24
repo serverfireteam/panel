@@ -50,10 +50,11 @@ dashboard
                     </ul>
                 </div>
                
+             
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-
+        <div class="powered-by"><a href="https://github.com/serverfireteam/panel">Powered By ServerFire Team</a></div> 
         <div id="page-wrapper">
             
 

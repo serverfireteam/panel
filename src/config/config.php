@@ -10,7 +10,7 @@ return array(
      'crudItems' => array(
        
     ),
-    
+    'logo'=>'packages/serverfireteam/panel/img/logo.png' // logo of Panel 
     
 );
     
