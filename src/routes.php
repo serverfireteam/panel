@@ -67,4 +67,14 @@ Route::post('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersCont
 Route::get('/panel/login',  array('uses' => 'Serverfireteam\Panel\AuthController@getLogin'));
 
 
+App::error(function($exception, $code)
+{
+    switch ($code)
+    {
+        case 404:
+            return Response::view('panelViews::404', array(), 404);
+    }
+});
+
+
  
