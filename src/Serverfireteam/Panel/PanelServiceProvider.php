@@ -12,8 +12,6 @@ class PanelServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register('Zofe\Rapyd\RapydServiceProvider');  
-        $this->app->register('Menu\MenuServiceProvider');
-        AliasLoader::getInstance()->alias("Menu",'Menu\Menu');
     }
         
     public function boot()
