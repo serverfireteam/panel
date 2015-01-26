@@ -37,11 +37,11 @@ Note: if you  face any problem in steps you please report it at [github](https:/
 
 1. First you need a laravel 4.2 project ready to use . 
 
-2.  Add package to require-dev 
+2.  Add package to require
 
     ```json
     {
-        "require-dev": {
+        "require": {
             "serverfireteam/panel": "1.1.*"
         },
     }
