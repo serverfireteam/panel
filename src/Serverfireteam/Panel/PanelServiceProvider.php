@@ -11,7 +11,16 @@ class PanelServiceProvider extends ServiceProvider
         
     public function register()
     {
-        $this->app->register('Zofe\Rapyd\RapydServiceProvider');  
+        $this->app->register('Zofe\Rapyd\RapydServiceProvider');
+        
+        include __DIR__."/commands/ServerfireteamCommand.php";
+        $this->app['panel::install'] = $this->app->share(function($app)
+        {
+            return new \Serverfireteam\Panel\Commands\panelCommand();
+        });
+
+        $this->commands('panel::install');
+        
     }
         
     public function boot()
@@ -39,4 +48,6 @@ class PanelServiceProvider extends ServiceProvider
     {
         return array();
     }
+    
+    
 }

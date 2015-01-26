@@ -68,7 +68,7 @@ dashboard
                                 <span class="caret fl-right"></span>
                             </a>
                           <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{url('panel/edit')}}"><span class="icon  ic-cog "></span>{{ Lang::get('panel::fields.ProfileEdit') }}</a></li>
+                            <li><a href="{{url('panel/edit')}}"><span class="icon  ic-users "></span>{{ Lang::get('panel::fields.ProfileEdit') }}</a></li>
                             <li><a href="{{url('panel/changePassword')}}"><span class="icon ic-cog"></span>{{ Lang::get('panel::fields.ResetPassword') }}</a></li>
                           </ul>
                         </div>
