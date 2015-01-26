@@ -16,22 +16,20 @@ This package provides an easily configurable admin panel for Laravel 4.2 applica
 - **Powerful**, Loign , Admin setting , forget password, all you need for admin panel
 
 ## Screen shot 
-![login](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/login.png)
-![loading](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/loading.png)
-![dashboard of panel](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/Dashboard_full.png)
-This is custome crud with few line .
-![List of Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/pages.png)
-![Edit Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/editpages.png)
+![login](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-login.jpg)
+![dashboard of panel](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-dashboard.jpg)
+
+- This is custome crud with few line .
+
+![List of Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-crud.jpg)
+![Edit Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-crud-edit.jpg)
 
 ## Demo 
-You can check the [live demo here](http://demo.serverfire.net/panel)
+You can check the [live demo here](http://demo.serverfire.net/panel) .
 User: admin
-pass: 12345 
+Pass: 12345 
 
-##RoadMap
-We are going to develope this package every days and new idea are wellcome .
-We have a [Trello](https://trello.com/b/RDZ6HdK9/framework) board for project , you can check it and send your feedback . 
-Fllow us in twitter[@serverfireteam](http://twitter.com/serverfireteam) .
+
 
 ##Installtions
 Note: if you  face any problem in steps you please report it at [github](https://github.com/serverfireteam/panel/issues/new)
@@ -80,4 +78,9 @@ and run the composer update command, the package and its dependencies will be in
 We have [WIKI](https://github.com/serverfireteam/panel/wiki) for how to do thing .
 
 Thank you for using our package 
+
+##RoadMap
+We are going to develope this package every days and new idea are wellcome .
+We have a [Trello](https://trello.com/b/RDZ6HdK9/framework) board for project , you can check it and send your feedback . 
+Fllow us in twitter[@serverfireteam](http://twitter.com/serverfireteam) .
 
