@@ -16,22 +16,21 @@ This package provides an easily configurable admin panel for Laravel 4.2 applica
 - **Powerful**, Loign , Admin setting , forget password, all you need for admin panel
 
 ## Screen shot 
-![login](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/login.png)
-![loading](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/loading.png)
-![dashboard of panel](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/Dashboard_full.png)
-This is custome crud with few line .
-![List of Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/pages.png)
-![Edit Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/editpages.png)
+![login](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-login.jpg)
+![dashboard of panel](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-dashboard.jpg)
+
+- This is custome crud with few line .
+
+![List of Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-crud.jpg)
+![Edit Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-crud-edit.jpg)
 
 ## Demo 
-You can check the [live demo here](http://demo.serverfire.net/panel)
-User: admin
-pass: 12345 
+You can check the [live demo here](http://demo.serverfire.net/panel) .
 
-##RoadMap
-We are going to develope this package every days and new idea are wellcome .
-We have a [Trello](https://trello.com/b/RDZ6HdK9/framework) board for project , you can check it and send your feedback . 
-Fllow us in twitter[@serverfireteam](http://twitter.com/serverfireteam) .
+* User: admin
+* Pass: 12345 
+
+
 
 ##Installtions
 Note: if you  face any problem in steps you please report it at [github](https://github.com/serverfireteam/panel/issues/new)
@@ -39,11 +38,11 @@ Note: if you  face any problem in steps you please report it at [github](https:/
 
 1. First you need a laravel 4.2 project ready to use . 
 
-2.  Add package to require-dev 
+2.  Add package to require
 
     ```json
     {
-        "require-dev": {
+        "require": {
             "serverfireteam/panel": "1.1.*"
         },
     }
@@ -62,22 +61,22 @@ and run the composer update command, the package and its dependencies will be in
 4. Run the following command in order to publishe configs, views and assets.  
 
     ```bash
-    php artisan asset:publish "serverfireteam/panel"
-    php artisan asset:publish "serverfireteam/rapyd-laravel"
-    php artisan config:publish "serverfireteam/panel"
+    php artisan panel:install
     ```
 
-5. Go to the root of your project and run this command in order to set up the database
+5. Go to your domain.com/public/panel and you can login with 
 
-    ```bash
-    php artisan migrate --path="vendor/serverfireteam/panel/src/database/migrations"
-    ```
-
-6. Go to your domain.com/public/panel and you can login with , user : admin@change.me , password : 12345
+* user : admin@change.me
+* password : 12345
 
 
 ## Learn to add crud 
 We have [WIKI](https://github.com/serverfireteam/panel/wiki) for how to do thing .
 
 Thank you for using our package 
+
+##RoadMap
+We are going to develope this package every days and new idea are wellcome .
+We have a [Trello](https://trello.com/b/RDZ6HdK9/framework) board for project , you can check it and send your feedback . 
+Fllow us in twitter[@serverfireteam](http://twitter.com/serverfireteam) .
 
