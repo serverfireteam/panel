@@ -26,9 +26,8 @@ This package provides an easily configurable admin panel for Laravel 4.2 applica
 
 ## Demo 
 You can check the [live demo here](http://demo.serverfire.net/panel) .
-
-* User: admin
-* Pass: 12345 
+User: admin
+Pass: 12345 
 
 
 
@@ -61,13 +60,18 @@ and run the composer update command, the package and its dependencies will be in
 4. Run the following command in order to publishe configs, views and assets.  
 
     ```bash
-    php artisan panel:install
+    php artisan asset:publish "serverfireteam/panel"
+    php artisan asset:publish "serverfireteam/rapyd-laravel"
+    php artisan config:publish "serverfireteam/panel"
     ```
 
-5. Go to your domain.com/public/panel and you can login with 
+5. Go to the root of your project and run this command in order to set up the database
 
-* user : admin@change.me
-* password : 12345
+    ```bash
+    php artisan migrate --path="vendor/serverfireteam/panel/src/database/migrations"
+    ```
+
+6. Go to your domain.com/public/panel and you can login with , user : admin@change.me , password : 12345
 
 
 ## Learn to add crud 
