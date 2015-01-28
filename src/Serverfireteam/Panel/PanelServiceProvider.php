@@ -24,7 +24,7 @@ class PanelServiceProvider extends ServiceProvider
     }
         
     public function boot()
-    {
+    {        
         $this->package('serverfireteam/panel');
 
         $base_path  = base_path();

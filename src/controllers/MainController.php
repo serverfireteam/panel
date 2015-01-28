@@ -10,6 +10,7 @@ namespace Serverfireteam\Panel;
 class MainController extends \Controller {
 
     public function entityUrl($entity, $methods){
+      
         $panel_path = \Config::get('panel::config.controllers');
 
         if ( isset($panel_path) ){

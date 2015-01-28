@@ -103,4 +103,9 @@ class CrudController extends \Controller
             )); 
         }           
     }
+    
+     public function finalizeFilter(){
+        $this->filter->submit(\Lang::get('panel::fields.search'));
+        $this->filter->reset(\Lang::get('panel::fields.reset'));
+    }
 }
