@@ -55,7 +55,7 @@ class panelCommand extends Command {
         $this->info('Panel         Asset  is published..............[ok]');
         $this->info('');
         
-        $this->call('migrate', array('--package' => 'orkhan/laraphrases'));
+        $this->call('migrate', array('--path' => 'vendor/serverfireteam/panel/src/database/migrations'));
         $this->info('Panel         has been migrated!...............[ok]');
         $this->info('');
         
