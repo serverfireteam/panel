@@ -21,7 +21,7 @@ class MainController extends \Controller {
 
         try{
             $controller = \App::make($controller_path);                
-        }catch(Exception $ex){
+        }catch(\Exception $ex){
             throw new \Exception('No Controller Has Been Set for This Model ');               
         }
 

@@ -23,7 +23,6 @@ class panelCommand extends Command {
 	/**
 	 * Create a new command instance.
 	 *
-	 * @return void
 	 */
 	public function __construct()
 	{
@@ -33,7 +32,6 @@ class panelCommand extends Command {
 	/**
 	 * Execute the console command.
 	 *
-	 * @return mixed
 	 */
 	public function fire()
 	{

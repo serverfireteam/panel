@@ -14,7 +14,7 @@ class PanelServiceProvider extends ServiceProvider
         $this->app->register('Zofe\Rapyd\RapydServiceProvider');
         
         include __DIR__."/Commands/ServerfireteamCommand.php";
-        $this->app['panel::install'] = $this->app->share(function($app)
+        $this->app['panel::install'] = $this->app->share(function()
         {
             return new \Serverfireteam\Panel\Commands\panelCommand();
         });
