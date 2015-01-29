@@ -32,7 +32,7 @@ Pass: 12345
 
 
 ##Installtions
-Note: if you  face any problem in steps you please report it at [github](https://github.com/serverfireteam/panel/issues/new)
+Note: if you  face any problem in steps you should report it at [github](https://github.com/serverfireteam/panel/issues/new)
 
 
 1. First you need a laravel 4.2 project ready to use . 
