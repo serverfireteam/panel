@@ -73,10 +73,19 @@ and run the composer update command, the package and its dependencies will be in
 ## Learn to add crud 
 We have [WIKI](https://github.com/serverfireteam/panel/wiki) for how to do thing .
 
-Thank you for using our package 
+#Contribution guidelines 
+Fork  it , add the link of your fork to you composer.json , edit it and send it for us . 
+
+#Credits 
+[SB-admin](http://startbootstrap.com/template-overviews/sb-admin/) for admin themeplate .
+a forked of [rapyd](http://rapyd.com) for crud system .
+
+
 
 ##RoadMap
 We are going to develope this package every days and new idea are wellcome .
 We have a [Trello](https://trello.com/b/RDZ6HdK9/framework) board for project , you can check it and send your feedback . 
 Fllow us in twitter[@serverfireteam](http://twitter.com/serverfireteam) .
+
+Thank you for using our package 
 
