@@ -29,17 +29,17 @@ use Serverfireteam\Panel\libs;
 
 Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
 {    
-   
+
     // main page for the admin section (app/views/admin/dashboard.blade.php)
     Route::get('/', function()
     {
         return View::make('panelViews::dashboard');
     });
 
-    
-    Route::any('/{entity}/{methods}',  array('uses' => 'Serverfireteam\Panel\MainController@entityUrl'));        
-    Route::post('/edit',array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));                  
-    Route::get('/edit',array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit')); 
+    Route::any('/{entity}/{methods}',  array('uses' => 'Serverfireteam\Panel\MainController@entityUrl'));
+    Route::any('/{entity}/export/{type}',  array('uses' => 'Serverfireteam\Panel\ExportController@index'));
+    Route::post('/edit',array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));
+    Route::get('/edit',array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit'));
 
     Route::get('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@getChangePassword'));
     Route::post('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@postChangePassword'));

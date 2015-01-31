@@ -5,6 +5,8 @@
 
 {{ $filter }}
 
+<a href="{{ url('panel/'.$current_entity.'/export/excel') }}">Export As Excel</a>
+
 {{ $grid }}
 
 @stop   
