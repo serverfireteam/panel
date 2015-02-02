@@ -16,7 +16,7 @@ This package provides an easily configurable admin panel for Laravel 4.2 applica
 - **Clean Admin**, Base on bootstrap 3 , sb-admin-2 
 - **Dashboard**, It show how many record you have in every models you added in menu 
 - **Preconfigured**, It have defult user and models you needs
-- **Powerful**, Loign , Admin setting , forget password, all you need for admin panel
+- **Powerful**, Login , Admin setting , forget password, all you need for admin panel
 
 ## Screen shot 
 ![login](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-login.jpg)
