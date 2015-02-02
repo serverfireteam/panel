@@ -79,8 +79,9 @@ class CrudController extends \Controller
             throw new Exception('This Controller is not set in Config file yet!');                                                                            
         } else {        
             return \View::make('panelViews::all', array(
-             'grid' => $this->grid,
-             'filter' => $this->filter
+             'grid' 	      => $this->grid,
+             'filter' 	      => $this->filter,
+	     'current_entity' => $this->entity
             ));   
         }                      
     }

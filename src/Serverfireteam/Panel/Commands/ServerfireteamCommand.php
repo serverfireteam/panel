@@ -23,7 +23,6 @@ class panelCommand extends Command {
 	/**
 	 * Create a new command instance.
 	 *
-	 * @return void
 	 */
 	public function __construct()
 	{
@@ -33,7 +32,6 @@ class panelCommand extends Command {
 	/**
 	 * Execute the console command.
 	 *
-	 * @return mixed
 	 */
 	public function fire()
 	{
@@ -55,7 +53,7 @@ class panelCommand extends Command {
         $this->info('Panel         Asset  is published..............[ok]');
         $this->info('');
         
-        $this->call('migrate', array('--package' => 'orkhan/laraphrases'));
+        $this->call('migrate', array('--path' => 'vendor/serverfireteam/panel/src/database/migrations'));
         $this->info('Panel         has been migrated!...............[ok]');
         $this->info('');
         
