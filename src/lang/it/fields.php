@@ -1,0 +1,30 @@
+<?php
+
+return array(
+    'settings' => 'Settaggi',
+    'logout' => 'Esci',
+    'ProfileEdit' => 'Modifica il profilo',
+    'ResetPassword' => 'Resetta la Password',
+    'Add' => 'Aggiungi',
+    'search' => 'Ricerca',
+    'reset' => 'Inizializza',
+    'enterEmail' => 'Inserire l\'indirizzo Email',
+    'signIn' => 'Registrati',
+    'forgetPassword' => 'Password dimenticata',
+    'rememberMe' => 'Ricordami',
+    'login' => 'Collegati',
+    'sendReminder' => 'Invia un Avviso',
+    'passwordNotCorrect' => 'Nome utente o password errati!!',
+    'FirstName' => 'Nome',
+    'LastName' => 'Cognome',
+    'updateProfile' => 'Aggiorna il profilo',
+    'currentPassword' => 'Password attuale',
+    'password' => 'Password',
+    'rePassword' => 'Reinserisci la Password',
+    'resetPassword' => 'Inizializza la Password',
+    'dashboard' => 'Pannello di controllo',
+    'visiteSite' => 'Visita il Sito',
+    'change' => 'cambia',
+    'showList' => 'Mostra la Lista',
+    
+);
