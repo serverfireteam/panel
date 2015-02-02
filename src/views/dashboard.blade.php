@@ -31,8 +31,8 @@
                             <a href="#">
                                 <div class="panel-footer">
 
-                                    <a href='{{$box['showListUrl']}}' class="pull-left">Show List <i class="icon ic-chevron-right"></i></a>
-                                    <div class="pull-right"> <a class="add " href="{{$box['addUrl']}}"> Add  </a></div>
+                                     <a href='{{$box['showListUrl']}}' class="pull-left">{{ \Lang::get('panel::fields.showList') }} <i class="icon ic-chevron-right"></i></a>
+                                    <div class="pull-right"> <a class="add " href="{{$box['addUrl']}}">{{ \Lang::get('panel::fields.Add') }}  </a></div>
 
                                     <div class="clearfix"></div>
                                 </div>
