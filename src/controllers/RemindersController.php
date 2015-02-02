@@ -13,7 +13,7 @@ class RemindersController extends \Controller {
             if (\Session::has('message')){
                 $message = \Session::get('message');
             }else{
-                $message = 'Please Enter Email Address';
+                $message =  \Lang::get('panel::fields.enterEmail'); 
             }
             return \View::make('panelViews::passwordReminder')
                     ->with('message', $message)
