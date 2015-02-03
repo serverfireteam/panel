@@ -17,7 +17,7 @@ use Serverfireteam\Panel\libs;
             if (\Session::has('message')){
                 $message = \Session::get('message');
             }else{
-                $message = 'Please Enter Email Address';
+                $message = \Lang::get('panel::fields.enterEmail');
             }
             return \Redirect::to('/panel/login')->with('message', $message)->with('mesType', 'message');
         }
