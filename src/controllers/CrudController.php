@@ -81,7 +81,8 @@ class CrudController extends \Controller
             return \View::make('panelViews::all', array(
              'grid' 	      => $this->grid,
              'filter' 	      => $this->filter,
-	     'current_entity' => $this->entity
+	     'current_entity' => $this->entity,
+	     'import_message' => (\Session::has('import_message')) ? \Session::get('import_message') : ''
             ));   
         }                      
     }

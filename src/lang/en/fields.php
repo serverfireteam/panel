@@ -24,6 +24,13 @@ return array(
     'resetPassword' => 'Reset Password',
     'dashboard' => 'Dashboard',
     'visiteSite' => 'Visit Site',
-    'change' => 'change'
-    
+    'change' => 'change',
+    'showList' => 'Show List',
+    'exportAsExcel' => 'Export As Excel',
+    'importData' => 'Import Data',
+    'deletePreviousData' => 'Delete Previous Data',
+    'keepOverwriteData' => 'Keep Previous Data and Overwrite Matching Keys',
+    'keepNotOverwriteData' => 'Keep Previous Data and Don\'t Overwrite Matching Keys',
+    'close' => 'Close',
+    'importDataSuccess' => 'Data is imported successfully.'
 );

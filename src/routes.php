@@ -39,10 +39,11 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
   
     Route::get('/createUser', array('uses' => 'Serverfireteam\Panel\UsersController@getCreateUser'));
     Route::post('/createUser', array('uses' => 'Serverfireteam\Panel\UsersController@postCreateUser'));
-    Route::any('/{entity}/{methods}',  array('uses' => 'Serverfireteam\Panel\MainController@entityUrl'));
-    Route::any('/{entity}/export/{type}',  array('uses' => 'Serverfireteam\Panel\ExportController@index'));
-    Route::post('/edit',array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));
-    Route::get('/edit',array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit'));
+    Route::any('/{entity}/export/{type}', array('uses' => 'Serverfireteam\Panel\ExportImportController@export'));
+    Route::post('/{entity}/import', array('uses' => 'Serverfireteam\Panel\ExportImportController@import'));
+    Route::any('/{entity}/{methods}', array('uses' => 'Serverfireteam\Panel\MainController@entityUrl'));
+    Route::post('/edit', array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));
+    Route::get('/edit', array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit'));
     Route::get('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@getChangePassword'));
     Route::post('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@postChangePassword'));
 });

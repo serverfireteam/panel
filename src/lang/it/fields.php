@@ -26,5 +26,11 @@ return array(
     'visiteSite' => 'Visita il Sito',
     'change' => 'cambia',
     'showList' => 'Mostra la Lista',
-    
+    'exportAsExcel' => 'Export As Excel',
+    'importData' => 'Import Data',
+    'deletePreviousData' => 'Delete Previous Data',
+    'keepOverwriteData' => 'Keep Previous Data and Overwrite Matching Keys',
+    'keepNotOverwriteData' => 'Keep Previous Data and Don\'t Overwrite Matching Keys',
+    'close' => 'Close',
+    'importDataSuccess' => 'Data is imported successfully.'
 );
