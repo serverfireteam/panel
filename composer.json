@@ -23,11 +23,9 @@
     ],
     "require": {
         "php": ">=5.4.0",        
-        "sebastian/phpcpd": "*",
         "illuminate/support": "5.0.*",
-        "squizlabs/php_codesniffer": "1.*",
         "serverfireteam/rapyd-laravel" : "1.3.*",
-        "maatwebsite/excel": "~1.2.1"
+        "maatwebsite/excel": "~2.0.0"
     },
     "autoload": {
 
