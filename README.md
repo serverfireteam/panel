@@ -85,7 +85,7 @@ A forked repo of [rapyd](http://rapyd.com) for crud system.
 ##RoadMap
 We are going to develop this package every day and new ideas are welcome.
 We have a [Trello](https://trello.com/b/RDZ6HdK9/framework) board for project, you can check it and send your feedbacks. 
-Fllow us in twitter[@serverfireteam](http://twitter.com/serverfireteam) .
+Follow us in twitter[@serverfireteam](http://twitter.com/serverfireteam) .
 
 Thank you for using our package 
 
