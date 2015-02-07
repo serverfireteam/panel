@@ -34,7 +34,7 @@ Pass: 12345
 
 
 
-##Installtions
+##Installations
 Note: if you face any problem in any of the steps you should report it at [github](https://github.com/serverfireteam/panel/issues/new)
 
 
