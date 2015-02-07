@@ -30,7 +30,7 @@ login
                                     </div>
                                     
                                     <!-- Change this to a button or input when using this as a form -->
-                                    <input type="submit"  class="btn btn-lg btn-success btn-block" value="Send Reminder">
+                                    <input type="submit"  class="btn btn-lg btn-success btn-block" value="{{ \Lang::get('panel::fields.sendReminder') }}">
                                 </fieldset>
                             </form>
                         </div>

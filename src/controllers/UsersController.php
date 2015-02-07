@@ -8,7 +8,7 @@ use \Illuminate\Routing\Controllers;
  * and open the template in the editor.
  */
 
-class UsersController extends CrudController{
+class UsersController extends \Controller{
     
     
     public  function all($entity){
@@ -47,6 +47,11 @@ class UsersController extends CrudController{
         return $this->returnEditView();
     }
    
-    
+    public function getCreateUser(){
+        return \View::make('panelViews::createUser');
+    }
 
+    public function postCreateUser(){
+        
+    }
 }

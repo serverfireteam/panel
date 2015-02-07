@@ -4,13 +4,14 @@
             <div class="row">
 
                 <div class="col-lg-12">
-                    <h1 class="page-header">Dashboard</h1>
+                    <h1 class="page-header">{{ \Lang::get('panel::fields.dashboard') }}</h1>
                     <div class="icon-bg ic-layers"></div>
                 </div>
                             
             </div>
             <!-- /.row -->
             <div class="row box-holder">
+                
                 @if(is_array(\Config::get('panel::config.crudItems')))
                     @foreach (Serverfireteam\Panel\libs\dashboard::create() as $box)
                     <div class="col-lg-3 col-md-6">
@@ -30,8 +31,8 @@
                             <a href="#">
                                 <div class="panel-footer">
 
-                                    <a href='{{$box['showListUrl']}}' class="pull-left">Show List <i class="icon ic-chevron-right"></i></a>
-                                    <div class="pull-right"> <a class="add " href="{{$box['addUrl']}}"> Add  </a></div>
+                                     <a href='{{$box['showListUrl']}}' class="pull-left">{{ \Lang::get('panel::fields.showList') }} <i class="icon ic-chevron-right"></i></a>
+                                    <div class="pull-right"> <a class="add " href="{{$box['addUrl']}}">{{ \Lang::get('panel::fields.Add') }}  </a></div>
 
                                     <div class="clearfix"></div>
                                 </div>

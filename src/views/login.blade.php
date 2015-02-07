@@ -31,14 +31,15 @@ login
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                            <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                            <input name="remember" type="checkbox" value="Remember Me">
+                                            {{ \Lang::get('panel::fields.rememberMe') }}
                                         </label>
                                         <label class="pull-right">
-                                            <a href="remind"> Forgot Password</a>
+                                            <a href="remind"> {{ \Lang::get('panel::fields.forgetPassword') }} </a>
                                         </label>
                                     </div>
                                     <!-- Change this to a button or input when using this as a form -->
-                                    <input type="submit"  class="btn btn-lg btn-success btn-block" value="Login">
+                                    <input type="submit"  class="btn btn-lg btn-success btn-block" value="{{ \Lang::get('panel::fields.login') }} ">
                                 </fieldset>
                             {{ Form::close() }}
                         </div>

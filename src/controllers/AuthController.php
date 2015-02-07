@@ -22,13 +22,13 @@ class AuthController extends \Controller {
             return \Redirect::to('panel');
         } else {	 	
             // validation not successful, send back to form	
-            return \Redirect::to('panel/login')->with('message', 'Either Password or username is not correct!!')->with('mesType','error');
+            return \Redirect::to('panel/login')->with('message', \Lang::get('panel::fields.passwordNotCorrect') )->with('mesType','error');
         }        
     }
     
     public function getLogin(){
         
-        $message = (\Session::has('message') ? \Session::get('message') : 'Please Sign In');
+        $message = (\Session::has('message') ? \Session::get('message') : \Lang::get('panel::fields.signIn')) ;
         $mesType = (\Session::has('mesType') ? \Session::get('mesType') : 'message');
         return \View::make('panelViews::login')->with('message', $message)->with('mesType', $mesType);     
     }
