@@ -8,7 +8,7 @@ use Serverfireteam\Panel\libs;
  * and open the template in the editor.
  */
 
- if (\Request::is('panel*'))
+if (\Request::is('panel*'))
 {
     \Config::set('auth.model', 'Serverfireteam\Panel\Admin');
     \Route::filter('auth', function()
@@ -71,6 +71,8 @@ Route::post('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersCont
 Route::get('/panel/login',  array('uses' => 'Serverfireteam\Panel\AuthController@getLogin'));
 
 
+/*
+bug with laravel 5
 App::error(function($exception, $code)
 {
     switch ($code)
@@ -78,7 +80,7 @@ App::error(function($exception, $code)
         case 404:
             return Response::view('panelViews::404', array(), 404);
     }
-});
+});*/
 
 
  

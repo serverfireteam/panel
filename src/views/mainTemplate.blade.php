@@ -39,9 +39,10 @@ dashboard
                                 <a  href="{{ url('panel') }}" class="{{ (Request::url() === url('panel')) ? 'active' : '' }}"><i class="fa fa-dashboard fa-fw"></i> {{ \Lang::get('panel::fields.dashboard') }}</a>
                             </li>
                             
-                         @foreach (  \Config::get('panel::config.crudItems') as $key => $value )                
+                         @foreach(\Config::get('panel.crudItems') as $key => $value )
+                            {!! $model = "\App\\".$value !!}                
                             <li>
-                                <a  href="{{ url('panel/'.$value.'/all') }}" class="{{ (Request::segment(2)==$value)?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$key}}} <span class="badge pull-right">{{$value::all()->count()}}</span></a>
+                                <a  href="{{ url('panel/'.$value.'/all') }}" class="{{ (Request::segment(2)==$value)?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$key}}} <span class="badge pull-right">{!!$model::all()->count()!!}</span></a>
                             </li>
                          @endforeach
                     </ul>     

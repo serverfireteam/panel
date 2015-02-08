@@ -40,16 +40,16 @@ class panelCommand extends Command {
         $this->info('            [ ServerFireTeam Panel ]       ');
         $this->info('               ------------------');
         
-        $this->call('asset:publish', array('package' => 'serverfireteam/rapyd-laravel'));
+      //  $this->call('asset:publish', array('package' => 'serverfireteam/rapyd-laravel'));
         $this->info('Rapyd-laravel Asset  is published..............[ok]');
         $this->info('');
         
         
-        $this->call('config:publish', array('package' => 'serverfireteam/panel'));
+      //  $this->call('config:publish', array('package' => 'serverfireteam/panel'));
 		$this->info('Panle         Config is published..............[ok]');
         $this->info('');
         
-        $this->call('asset:publish', array('package' => 'serverfireteam/panel'));
+     //   $this->call('asset:publish', array('package' => 'serverfireteam/panel'));
         $this->info('Panel         Asset  is published..............[ok]');
         $this->info('');
         

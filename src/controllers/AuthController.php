@@ -2,7 +2,9 @@
 
 namespace Serverfireteam\Panel;
 
-class AuthController extends \Controller {
+use App\Http\Controllers\Controller;
+
+class AuthController extends Controller {
 
 	/**
 	 * Display the password reminder view.

@@ -63,7 +63,7 @@
     <script src="{{asset("packages/serverfireteam/rapyd-laravel/assets/template/handlebars.js")}}"></script>
     <script src="{{asset("packages/serverfireteam/rapyd-laravel/assets/autocomplete/bootstrap-tagsinput.min.js")}}"></script>
 
-    {{ Rapyd::scripts() }}
+
 </body>
 
 </html>

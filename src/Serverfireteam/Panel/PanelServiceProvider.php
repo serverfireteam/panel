@@ -12,7 +12,7 @@ class PanelServiceProvider extends ServiceProvider
     public function register()
     {
         // register  zofe\rapyd
-        $this->app->register('Zofe\Rapyd\RapydServiceProvider');
+       // $this->app->register('Zofe\Rapyd\RapydServiceProvider');
         // 'Maatwebsite\Excel\ExcelServiceProvider'
         $this->app->register('Maatwebsite\Excel\ExcelServiceProvider');
         include __DIR__."/Commands/ServerfireteamCommand.php";
@@ -23,11 +23,14 @@ class PanelServiceProvider extends ServiceProvider
 
         $this->commands('panel::install');
         
+
+        $this->publishes([
+            __DIR__.'/config/panel.php' => config_path('panel.php'),
+        ]);
     }
         
     public function boot()
     {        
-        $this->package('serverfireteam/panel');
 
         $base_path  = base_path();
         $base_path .= "/vendor/serverfireteam/panel/src/views";

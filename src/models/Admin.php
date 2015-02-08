@@ -1,14 +1,15 @@
 <?php
 namespace Serverfireteam\Panel;
 
-use Illumiate\Auth\UserTrait;
-use Illuminate\Auth\UserInterface;
-use Illuminate\Auth\Reminders\RemindableTrait;
-use Illuminate\Auth\Reminders\RemindableInterface;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
+class Admin extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
-class Admin extends \Eloquent implements UserInterface, RemindableInterface{
-
+    use Authenticatable, CanResetPassword;
 	/**
 	 * The database table used by the model.
 	 *
@@ -18,38 +19,38 @@ class Admin extends \Eloquent implements UserInterface, RemindableInterface{
         protected $remember_token_name      = 'remember_token';
 
 
-        public function getAuthIdentifier()
-        {
-            return $this->getKey();
-        }
+    public function getAuthIdentifier()
+    {
+        return $this->getKey();
+    }
 
-        /**
-         * Get the password for the user.
-         *
-         * @return string
-         */
-        public function getAuthPassword()
-        {
-            return $this->password;
-        }
-        
-        public function getRememberToken(){
-            return $this->remember_token;
-        }
-        
-        public function  setRememberToken($value){
-             $this->remember_token =  $value;
-        }
+    /**
+     * Get the password for the user.
+     *
+     * @return string
+     */
+    public function getAuthPassword()
+    {
+        return $this->password;
+    }
+    
+    public function getRememberToken(){
+        return $this->remember_token;
+    }
+    
+    public function  setRememberToken($value){
+         $this->remember_token =  $value;
+    }
 
-        public function getReminderEmail(){  
-            $email = \Input::only('email');
-            return $email['email'];            
-        }
+    public function getReminderEmail(){  
+        $email = \Input::only('email');
+        return $email['email'];            
+    }
 
 
-        public function getRememberTokenName(){
-            return $this->remember_token_name;
-        }
+    public function getRememberTokenName(){
+        return $this->remember_token_name;
+    }
         
         protected $fillable = array('first_name', 'last_name', 'email', 'password');
 	/**

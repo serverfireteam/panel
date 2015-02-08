@@ -6,10 +6,13 @@ class dashboard
     
     public static function create()
     {
-        $config = \Config::get('panel::config.crudItems');
+        $config = \Config::get('panel.crudItems');
         $dashboard = array();
         //Make Dashboard Items
         foreach ( $config as $key => $value ){
+
+            $value =  "\App\\" . $value; 
+
             if(class_exists($value))
                 $dashboard[] = array(
                     'title'=>$key,
