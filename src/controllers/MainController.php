@@ -7,18 +7,18 @@
  */
 namespace Serverfireteam\Panel;
 
-class MainController extends \Controller {
+
+class MainController extends \App\Http\Controllers\Controller {
 
     public function entityUrl($entity, $methods){
       
-        $panel_path = \Config::get('panel::config.controllers');
+        $panel_path = \Config::get('panel.controllers');
 
         if ( isset($panel_path) ){
-           $controller_path = $panel_path.'\\'.$entity.'Controller';                
+           $controller_path = '\\'.$panel_path.'\\'.$entity.'Controller';                
         } else {
             $controller_path = $entity.'Controller'; 
         }           
-
         try{
             $controller = \App::make($controller_path);                
         }catch(\Exception $ex){

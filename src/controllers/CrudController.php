@@ -1,7 +1,7 @@
 <?php
 namespace Serverfireteam\Panel;
 
-use App\Http\Controllers\Controller;
+
 /*  
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
  */
 
 
-class CrudController extends \Controller
+class CrudController extends \App\Http\Controllers\Controller
 {
 
     
