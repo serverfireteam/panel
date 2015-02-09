@@ -12,8 +12,8 @@ class PanelServiceProvider extends ServiceProvider
     public function register()
     {
         // register  zofe\rapyd
-       // $this->app->register('Zofe\Rapyd\RapydServiceProvider');
-        // 'Maatwebsite\Excel\ExcelServiceProvider'
+        $this->app->register('Zofe\Rapyd\RapydServiceProvider');
+       // 'Maatwebsite\Excel\ExcelServiceProvider'
         $this->app->register('Maatwebsite\Excel\ExcelServiceProvider');
         include __DIR__."/Commands/ServerfireteamCommand.php";
         $this->app['panel::install'] = $this->app->share(function()
