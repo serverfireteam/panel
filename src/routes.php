@@ -17,7 +17,7 @@ use Serverfireteam\Panel\libs;
             if (\Session::has('message')){
                 $message = \Session::get('message');
             }else{
-                $message = \Lang::get('panel::fields.enterEmail');
+                $message = 'Please Enter Email Address';
             }
             return \Redirect::to('/panel/login')->with('message', $message)->with('mesType', 'message');
         }
@@ -36,14 +36,11 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
         return View::make('panelViews::dashboard');
     });
 
-  
-    Route::get('/createUser', array('uses' => 'Serverfireteam\Panel\UsersController@getCreateUser'));
-    Route::post('/createUser', array('uses' => 'Serverfireteam\Panel\UsersController@postCreateUser'));
-    Route::any('/{entity}/export/{type}', array('uses' => 'Serverfireteam\Panel\ExportImportController@export'));
-    Route::post('/{entity}/import', array('uses' => 'Serverfireteam\Panel\ExportImportController@import'));
-    Route::any('/{entity}/{methods}', array('uses' => 'Serverfireteam\Panel\MainController@entityUrl'));
-    Route::post('/edit', array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));
-    Route::get('/edit', array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit'));
+    Route::any('/{entity}/{methods}',  array('uses' => 'Serverfireteam\Panel\MainController@entityUrl'));
+    Route::any('/{entity}/export/{type}',  array('uses' => 'Serverfireteam\Panel\ExportController@index'));
+    Route::post('/edit',array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));
+    Route::get('/edit',array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit'));
+
     Route::get('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@getChangePassword'));
     Route::post('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@postChangePassword'));
 });
