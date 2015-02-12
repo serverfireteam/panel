@@ -14,6 +14,9 @@ class PanelServiceProvider extends ServiceProvider
     {
         // register  zofe\rapyd
         $this->app->register('Zofe\Rapyd\RapydServiceProvider');
+        // register html service provider 
+        $this->app->register('Illuminate\Html\HtmlServiceProvider');
+
        // 'Maatwebsite\Excel\ExcelServiceProvider'
         $this->app->register('Maatwebsite\Excel\ExcelServiceProvider');
         include __DIR__."/Commands/ServerfireteamCommand.php";
@@ -23,8 +26,9 @@ class PanelServiceProvider extends ServiceProvider
         });
 
         $this->commands('panel::install');
-        
-
+        $this->publishes([
+            __DIR__ . '/../../../public' => public_path('packages/serverfireteam/panel')
+        ]);
         $this->publishes([
             __DIR__.'/config/panel.php' => config_path('panel.php'),
         ]);
