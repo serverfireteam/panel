@@ -8,7 +8,7 @@
 
 **Serverfireteam/panel** is a modern Laravel Admin package. 
 
-This package provides an easily configurable admin panel for Laravel 4.2 applications with crud and UI and more .
+This package provides an easily configurable admin panel for Laravel applications with crud and UI and more .
 
 ## Main features
 
@@ -34,11 +34,11 @@ Pass: 12345
 
 
 
-##Installations
+##Installations for laravel 4
 Note: if you face any problem in any of the steps you should report it at [github](https://github.com/serverfireteam/panel/issues/new)
+Note : we are working on laravel 5 version in laravel5 bransh of repo 
 
-
-1. First you need a laravel 4.2 project ready to use . 
+1. First you need a laravel  project ready to use . 
 
 2.  Add package to require
 
