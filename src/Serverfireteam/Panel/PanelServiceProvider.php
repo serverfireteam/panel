@@ -3,6 +3,7 @@
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Translation;
 use Serverfireteam\Panel\libs;
 
 class PanelServiceProvider extends ServiceProvider
@@ -40,6 +41,7 @@ class PanelServiceProvider extends ServiceProvider
         $testModel = new Admin();
         include __DIR__."/../../routes.php";
 
+	$this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/panel/src/lang', 'panel');
 
         AliasLoader::getInstance()->alias('Serverfireteam', 'Serverfireteam\Panel\Serverfireteam');
     }
