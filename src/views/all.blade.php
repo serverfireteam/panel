@@ -18,6 +18,7 @@
                                 <h4 class="modal-title" id="import_modal_label">{!! \Lang::get('panel::fields.importData') !!}</h4>
                         </div>
 			<form method="post" action="{!! url('panel/'.$current_entity.'/import') !!}" enctype="multipart/form-data">
+				<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
 	                        <div class="modal-body">
 					<div><input type="file" name="import_file" /></div>
 					<br />

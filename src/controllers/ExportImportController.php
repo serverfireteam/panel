@@ -7,11 +7,14 @@
  */
 namespace Serverfireteam\Panel;
 
-class ExportImportController extends \Controller {
+use App\Http\Controllers\Controller;
+
+class ExportImportController extends Controller {
 
     public function export($entity, $fileType) {
 
-	$data = $entity::get();
+	$className = '\App\\' . $entity;
+	$data      = $className::get();
 	if (strcmp($fileType, "excel") == 0) {
 		$excel = \App::make('Excel');
 		\Excel::create($entity, function($excel) use ($data) {
@@ -24,10 +27,11 @@ class ExportImportController extends \Controller {
 
     public function import($entity) {
 
-	$model   = new $entity;
-	$table   = $model->getTable();
-	$columns = \Schema::getColumnListing($table);
-	$key	 = $model->getKeyName();
+	$className = '\App\\' . $entity;
+	$model     = new $className;
+	$table     = $model->getTable();
+	$columns   = \Schema::getColumnListing($table);
+	$key	   = $model->getKeyName();
 
 	$status = \Input::get('status');
 
