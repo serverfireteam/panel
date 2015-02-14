@@ -3,7 +3,6 @@
 namespace Serverfireteam\Panel;
 
 use App\Http\Controllers\Controller;
-
 class AuthController extends Controller {
 
 	/**
@@ -29,7 +28,6 @@ class AuthController extends Controller {
     }
     
     public function getLogin(){
-        
         $message = (\Session::has('message') ? \Session::get('message') : \Lang::get('panel::fields.signIn')) ;
         $mesType = (\Session::has('mesType') ? \Session::get('mesType') : 'message');
         return \View::make('panelViews::login')->with('message', $message)->with('mesType', $mesType);     

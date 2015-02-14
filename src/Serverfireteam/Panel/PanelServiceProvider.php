@@ -19,6 +19,15 @@ class PanelServiceProvider extends ServiceProvider
 
        // 'Maatwebsite\Excel\ExcelServiceProvider'
         $this->app->register('Maatwebsite\Excel\ExcelServiceProvider');
+
+
+        /*
+         * Create aliases for the dependency.
+         */
+        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+        $loader->alias('Form', 'Illuminate\Html\FormFacade');
+        $loader->alias('Html', 'Illuminate\Html\HtmlFacade');
+        
         include __DIR__."/Commands/ServerfireteamCommand.php";
         $this->app['panel::install'] = $this->app->share(function()
         {
@@ -46,7 +55,6 @@ class PanelServiceProvider extends ServiceProvider
         include __DIR__."/../../routes.php";
 
 	$this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/panel/src/lang', 'panel');
-	$this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/rapyd-laravel/src/lang', 'rapyd');
 
         AliasLoader::getInstance()->alias('Serverfireteam', 'Serverfireteam\Panel\Serverfireteam');
     }
