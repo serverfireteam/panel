@@ -1,7 +1,7 @@
 <?php
 namespace Serverfireteam\Panel;
 
-class RemindersController extends \Controller {
+class RemindersController extends \App\Http\Controllers\Controller {
 
 	/**
 	 * Display the password reminder view.
@@ -44,16 +44,17 @@ class RemindersController extends \Controller {
             }
 	}
 
-	/**
-	 * Display the password reset view for the given token.
-	 *
-	 * @param  string  $token
-	 * @return Response
-	 */
-	public function getReset($token = null)
-	{	
-            return \View::make('panelViews::passwordReset');
-	}
+    /**
+     * Display the password reset view for the given token.
+     *
+     * @param  string  $token
+     * @return Response
+     */
+    public function getReset($token = null)
+    {	
+         
+        return \View::make('panelViews::passwordReset');
+    }
         
     public function postReset()
     {
@@ -87,11 +88,13 @@ class RemindersController extends \Controller {
         }
     }
 
-    public function getChangePassword(){
+    
+    public function getChangePassword(){                
         
         return \View::make('panelViews::passwordChange');
     }
 
+    
                 
     public function postChangePassword(){
         

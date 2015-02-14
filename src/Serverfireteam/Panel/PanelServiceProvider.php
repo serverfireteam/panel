@@ -3,6 +3,7 @@
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Translation;
 use Serverfireteam\Panel\libs;
 
 class PanelServiceProvider extends ServiceProvider
@@ -13,8 +14,20 @@ class PanelServiceProvider extends ServiceProvider
     {
         // register  zofe\rapyd
         $this->app->register('Zofe\Rapyd\RapydServiceProvider');
+        // register html service provider 
+        $this->app->register('Illuminate\Html\HtmlServiceProvider');
+
        // 'Maatwebsite\Excel\ExcelServiceProvider'
         $this->app->register('Maatwebsite\Excel\ExcelServiceProvider');
+
+
+        /*
+         * Create aliases for the dependency.
+         */
+        $loader = \Illuminate\Foundation\AliasLoader::getInstance();
+        $loader->alias('Form', 'Illuminate\Html\FormFacade');
+        $loader->alias('Html', 'Illuminate\Html\HtmlFacade');
+        
         include __DIR__."/Commands/ServerfireteamCommand.php";
         $this->app['panel::install'] = $this->app->share(function()
         {
@@ -22,8 +35,9 @@ class PanelServiceProvider extends ServiceProvider
         });
 
         $this->commands('panel::install');
-        
-
+        $this->publishes([
+            __DIR__ . '/../../../public' => public_path('packages/serverfireteam/panel')
+        ]);
         $this->publishes([
             __DIR__.'/config/panel.php' => config_path('panel.php'),
         ]);
@@ -37,9 +51,10 @@ class PanelServiceProvider extends ServiceProvider
 
         \View::addLocation($base_path);
         \View::addNamespace('panelViews', $base_path);  
-        $testModel = new Admin();
+        
         include __DIR__."/../../routes.php";
 
+	$this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/panel/src/lang', 'panel');
 
         AliasLoader::getInstance()->alias('Serverfireteam', 'Serverfireteam\Panel\Serverfireteam');
     }

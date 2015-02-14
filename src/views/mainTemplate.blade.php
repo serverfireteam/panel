@@ -40,7 +40,7 @@ dashboard
                             </li>
                             
                          @foreach(\Config::get('panel.crudItems') as $key => $value )
-                            {!! $model = "\App\\".$value !!}                
+			    {{--*/ $model = "\App\\".$value /*--}}
                             <li>
                                 <a  href="{{ url('panel/'.$value.'/all') }}" class="{{ (Request::segment(2)==$value)?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$key}}} <span class="badge pull-right">{!!$model::all()->count()!!}</span></a>
                             </li>

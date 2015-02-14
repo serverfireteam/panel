@@ -1,7 +1,7 @@
 <?php
 namespace Serverfireteam\Panel;
 
-class ProfileController extends \Controller {
+class ProfileController extends \App\Http\Controllers\Controller {
 
 
     public function getEdit(){
