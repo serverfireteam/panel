@@ -27,7 +27,8 @@ class PanelServiceProvider extends ServiceProvider
         $loader = \Illuminate\Foundation\AliasLoader::getInstance();
         $loader->alias('Form', 'Illuminate\Html\FormFacade');
         $loader->alias('Html', 'Illuminate\Html\HtmlFacade');
-        
+        $loader->alias('Excel', 'Maatwebsite\Excel\Facades\Excel');
+
         include __DIR__."/Commands/ServerfireteamCommand.php";
         $this->app['panel::install'] = $this->app->share(function()
         {
