@@ -8,8 +8,11 @@ use Serverfireteam\Panel\libs;
  * and open the template in the editor.
  */
 
+
+
 if (\Request::is('panel*'))
 {
+    
     \Config::set('auth.model', 'Serverfireteam\Panel\Admin');
     \Route::filter('auth', function()
     {                
@@ -22,6 +25,7 @@ if (\Request::is('panel*'))
             return \Redirect::to('/panel/login')->with('message', $message)->with('mesType', 'message');
         }
     });
+    
 }
 
 
@@ -36,7 +40,7 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
         return View::make('panelViews::dashboard');
     });
 
-  
+   
     Route::get('/createUser', array('uses' => 'Serverfireteam\Panel\UsersController@getCreateUser'));
     Route::post('/createUser', array('uses' => 'Serverfireteam\Panel\UsersController@postCreateUser'));
     Route::any('/{entity}/export/{type}', array('uses' => 'Serverfireteam\Panel\ExportImportController@export'));
@@ -44,10 +48,12 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
     Route::any('/{entity}/{methods}', array('uses' => 'Serverfireteam\Panel\MainController@entityUrl'));
     Route::post('/edit', array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));
     Route::get('/edit', array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit'));
+    
+  
     Route::get('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@getChangePassword'));
+    
     Route::post('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@postChangePassword'));
 });
-
 
 
 Route::post('/panel/login', array('uses' => 'Serverfireteam\Panel\AuthController@postLogin'));
@@ -55,6 +61,8 @@ Route::post('/panel/login', array('uses' => 'Serverfireteam\Panel\AuthController
 Route::get('/panel/password/reset/{token}', function ($token){
     return View::make('panelViews::passwordReset')->with('token', $token);
 });
+
+
 
 Route::get('/panel/logout', array('uses' => 'Serverfireteam\Panel\AuthController@doLogout'));
 
@@ -66,7 +74,6 @@ Route::get('/panel/remind',  array('uses' => 'Serverfireteam\Panel\RemindersCont
 
 Route::post('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersController@postRemind')); 
   
-
 
 Route::get('/panel/login',  array('uses' => 'Serverfireteam\Panel\AuthController@getLogin'));
 

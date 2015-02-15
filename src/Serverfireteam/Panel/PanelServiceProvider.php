@@ -33,8 +33,16 @@ class PanelServiceProvider extends ServiceProvider
         {
             return new \Serverfireteam\Panel\Commands\panelCommand();
         });
+        
+        include __DIR__."/Commands/CrudCommand.php";
+        $this->app['panel::crud'] = $this->app->share(function()
+        {
+            return new \Serverfireteam\Panel\Commands\CrudCommand();
+        });
 
         $this->commands('panel::install');
+
+        $this->commands('panel::crud');
         $this->publishes([
             __DIR__ . '/../../../public' => public_path('packages/serverfireteam/panel')
         ]);
@@ -51,7 +59,7 @@ class PanelServiceProvider extends ServiceProvider
 
         \View::addLocation($base_path);
         \View::addNamespace('panelViews', $base_path);  
-        
+        $testModel = new Admin();
         include __DIR__."/../../routes.php";
 
 	$this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/panel/src/lang', 'panel');

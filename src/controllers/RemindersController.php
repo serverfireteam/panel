@@ -1,7 +1,9 @@
 <?php
 namespace Serverfireteam\Panel;
 
-class RemindersController extends \App\Http\Controllers\Controller {
+use \App\Http\Controllers\Controller;
+
+class RemindersController extends Controller {
 
 	/**
 	 * Display the password reminder view.
@@ -44,17 +46,16 @@ class RemindersController extends \App\Http\Controllers\Controller {
             }
 	}
 
-    /**
-     * Display the password reset view for the given token.
-     *
-     * @param  string  $token
-     * @return Response
-     */
-    public function getReset($token = null)
-    {	
-         
-        return \View::make('panelViews::passwordReset');
-    }
+	/**
+	 * Display the password reset view for the given token.
+	 *
+	 * @param  string  $token
+	 * @return Response
+	 */
+	public function getReset($token = null)
+	{	
+            return \View::make('panelViews::passwordReset');
+	}
         
     public function postReset()
     {
@@ -64,8 +65,6 @@ class RemindersController extends \App\Http\Controllers\Controller {
            'email', 'password', 'password_confirmation', 'token'
         );
         
-        //echo '<pre>';
-        //var_dump($credentials);
        
         
         $response = \Password::reset($credentials, function($user, $password)
@@ -88,23 +87,25 @@ class RemindersController extends \App\Http\Controllers\Controller {
         }
     }
 
-    
-    public function getChangePassword(){                
+    public function getChangePassword(){
         
         return \View::make('panelViews::passwordChange');
     }
 
-    
                 
-    public function postChangePassword(){
+    public function postChangePassword(){      
         
-        \Config::set('auth.model', 'Serverfireteam\Panel\Admin');    
+        
+        \Config::set('auth.model', '\Serverfireteam\Panel\Admin');    
           
         $user = Admin::find(\Auth::user()->id); 
         $password = \Input::only('current_password');
         $new_password = \Input::only('password');
         $retype_password = \Input::only('password_confirmation');
         $user_password = \Auth::user()->password;          
+        
+        
+        
         if (\Hash::check($password['current_password'], $user_password)) {
             if ($new_password['password'] == $retype_password['password_confirmation'] ){                
                 $user->password = \Hash::make($new_password['password']);
