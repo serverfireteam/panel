@@ -53,7 +53,7 @@ class ExportImportController extends Controller {
 			foreach ($rows as $row) {
 				if (!empty($row[$key])) {
 					$exists = $model->where($key, '=', $row[$key])->count();
-					if ($status != 2 && !$exists) {
+					if (!$exists) {
 						$values = array();
 						foreach ($columns as $col) {
 							if ($col != $key) {
