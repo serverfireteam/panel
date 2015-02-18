@@ -17,7 +17,7 @@ class MainController extends \App\Http\Controllers\Controller {
         if ( isset($panel_path) ){
            $controller_path = '\\'.$panel_path.'\\'.$entity.'Controller';                
         } else {
-            $controller_path = $entity.'Controller'; 
+            $controller_path = 'App\Http\Controllers\\'.$entity.'Controller'; 
         }           
         try{
             $controller = \App::make($controller_path);                

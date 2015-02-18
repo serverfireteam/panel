@@ -5,6 +5,7 @@ use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Translation;
 use Serverfireteam\Panel\libs;
+use Illuminate\Filesystem\Filesystem;
 
 class PanelServiceProvider extends ServiceProvider
 {
@@ -40,7 +41,28 @@ class PanelServiceProvider extends ServiceProvider
         {
             return new \Serverfireteam\Panel\Commands\CrudCommand();
         });
+        
+        
+        include __DIR__."/Commands/CreateModelCommand.php";
+        $this->app['panel::createmodel'] = $this->app->share(function()
+        {
+           $fileSystem = new Filesystem(); 
+           
+           return new \Serverfireteam\Panel\Commands\CreateModelCommand($fileSystem);
+        });
+        
+        include __DIR__."/Commands/CreateControllerCommand.php";
+        $this->app['panel::createcontroller'] = $this->app->share(function()
+        {
+           $fileSystem = new Filesystem(); 
+           
+           return new \Serverfireteam\Panel\Commands\CreateControllerPanelCommand($fileSystem);
+        });
 
+        $this->commands('panel::createmodel');
+        
+         $this->commands('panel::createcontroller');
+         
         $this->commands('panel::install');
 
         $this->commands('panel::crud');

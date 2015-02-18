@@ -116,7 +116,7 @@ class RemindersController extends Controller {
                         ->with('message', 'Passwords not matched!!')
                         ->with('mesType', 'error');
             }
-        }else{
+        } else {
              return \Redirect::to('/panel/changePassword')
                      ->with('message', 'Password is not correct!!')
                      ->with('mesType', 'error');

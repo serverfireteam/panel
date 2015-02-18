@@ -39,9 +39,16 @@ class CrudCommand extends Command {
             $this->info('            [ Wellcome to ServerFireTeam Panel Installations ]       ');
 
             $crudName = $this->argument('name');
+            
+            $this->call('panel:createmodel', ['name' => $crudName]);
+            
+            $this->call('panel:createcontroller', ['name' => $crudName.'Controller']);
+            //$createControllerClass = new CreateControllerController($crudName);
+            
+            
+            
 
-
-            $this->call('make:controller', ['name' => $crudName.'Controller']);
+            //$this->call('make:controller', ['name' => $crudName.'Controller']);
         
 	}
 
