@@ -32,5 +32,6 @@ return array(
     'keepOverwriteData' => 'Keep Previous Data and Overwrite Matching Keys',
     'keepNotOverwriteData' => 'Keep Previous Data and Don\'t Overwrite Matching Keys',
     'close' => 'Close',
-    'importDataSuccess' => 'Data is imported successfully.'
+    'importDataSuccess' => 'Data is imported successfully.',
+    'importDataFailure' => 'Data import failed, please check the validation of data.'
 );

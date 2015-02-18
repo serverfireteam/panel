@@ -1,10 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 namespace Serverfireteam\Panel;
 
 use App\Http\Controllers\Controller;
@@ -33,6 +28,14 @@ class ExportImportController extends Controller {
 	$columns   = \Schema::getColumnListing($table);
 	$key	   = $model->getKeyName();
 
+	$notNullColumnNames = array();
+	$notNullColumnsList = \DB::select(\DB::raw("SHOW COLUMNS FROM `" . $table . "` where `Null` = 'no'"));
+	if (!empty($notNullColumnsList)) {
+		foreach ($notNullColumnsList as $notNullColumn) {
+			$notNullColumnNames[] = $notNullColumn->Field;
+		}
+	}
+
 	$status = \Input::get('status');
 
 	$filePath = null;
@@ -40,33 +43,48 @@ class ExportImportController extends Controller {
 		$filePath = \Input::file('import_file')->getRealPath();
 	}
 
+	$failed	= false;
 	if ($filePath) {
 
-		if ($status == 1) {
-			$model->truncate();
-		}
-
-		\Excel::load($filePath, function($reader) use ($model, $columns, $key, $status) {
+		\Excel::load($filePath, function($reader) use ($model, $columns, $key, $status, $notNullColumnNames, &$failed) {
 			$rows        = $reader->toArray();
 			$newData     = array();
 			$updatedData = array();
+
+			// Check validation of values
 			foreach ($rows as $row) {
-				if (!empty($row[$key])) {
-					$exists = $model->where($key, '=', $row[$key])->count();
-					if (!$exists) {
-						$values = array();
-						foreach ($columns as $col) {
-							if ($col != $key) {
+				foreach ($notNullColumnNames as $notNullColumn) {
+					if (empty($row[$notNullColumn])) {
+						$failed = true;
+						break;
+					}
+				}
+			}
+
+			if (!$failed) {
+
+				if ($status == 1) {
+					$model->truncate();
+				}
+
+				foreach ($rows as $row) {
+					if (!empty($row[$key])) {
+						$exists = $model->where($key, '=', $row[$key])->count();
+						if (!$exists) {
+							$values = array();
+							foreach ($columns as $col) {
+								if ($col != $key) {
+									$values[$col] = $row[$col];
+								}
+							}
+							$newData[] = $values;
+						} else if ($status == 2 && $exists) {
+							$values = array();
+							foreach ($columns as $col) {
 								$values[$col] = $row[$col];
 							}
+							$updatedData[] = $values;
 						}
-						$newData[] = $values;
-					} else if ($status == 2 && $exists) {
-						$values = array();
-						foreach ($columns as $col) {
-							$values[$col] = $row[$col];
-						}
-						$updatedData[] = $values;
 					}
 				}
 			}
@@ -87,6 +105,8 @@ class ExportImportController extends Controller {
 		});
 	}
 
-	return \Redirect::to('panel/' . $entity . '/all')->with('import_message', \Lang::get('panel::fields.importDataSuccess'));
+	$importMessage = ($failed == true) ? \Lang::get('panel::fields.importDataFailure') : \Lang::get('panel::fields.importDataSuccess');
+
+	return \Redirect::to('panel/' . $entity . '/all')->with('import_message', $importMessage);
     }
 }
