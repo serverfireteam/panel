@@ -8,14 +8,14 @@
 
 **Serverfireteam/panel** is a modern Laravel Admin package. 
 
-This package provides an easily configurable admin panel for Laravel 5 applications with a CRUD system, UI and more .
+This package provides an easily configurable admin panel for Laravel 5 and Laravel 4.2 applications with a CRUD system, UI and more.
 
 ## Main features
 
 - **Crud**, With just few lines of code, you'll have Add, Edit, Delete and Search actions for your models.
 - **Clean Admin**, Based on bootstrap 3 and sb-admin-2 
-- **Dashboard**, It shows how many records you have in every model added in menu 
-- **Preconfigured**, It has default users and models you need
+- **Dashboard**, It shows how many records you have in every model added in menu.
+- **Preconfigured**, It has default users and models you need.
 - **Powerful**, It offers a Login section, Admin settings, forgot password and all other features you need for admin panel.
 
 ## Screen shot 
@@ -38,9 +38,9 @@ Pass: 12345
 Note: if you face any problem in any of the steps you should report it at [github](https://github.com/serverfireteam/panel/issues/new)
 
 
-1. First you need to create a laravel 5 project.
+1. First you need to create a laravel 5 (or laravel 4.2) project.
 
-2. Add our package to require section of composer :
+2. Add our package to require section of composer (Since we haven't released the laravel 5 version yet, for laravel 5 replace "1.1.*" with "dev-laravel5") :
 
     ```json
     {
