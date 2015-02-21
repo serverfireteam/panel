@@ -5,6 +5,9 @@ dashboard
 @section('body')
 
 
+<?php $urls = array('1' => 'Admin',
+                      '2' => 'Link'); ?>
+
 
     <div class="loading">
         <div class="rnd-box"><div class="inner-box"></div></div>
@@ -40,10 +43,17 @@ dashboard
                             </li>
                             
                          @foreach(\Config::get('panel.crudItems') as $key => $value )
+                         <?php  if ( in_array($value, $urls)){ ?>
+                          {{--*/ $model = "Serverfireteam\Panel\\".$value /*--}}
+                            <li>
+                                <a  href="{{ url('panel/'.$value.'/all') }}" class="{{ (Request::segment(2)==$value)?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$key}}} <span class="badge pull-right">{!!$model::all()->count()!!}</span></a>
+                            </li>
+                         <?php } else { ?>
 			    {{--*/ $model = "\App\\".$value /*--}}
                             <li>
                                 <a  href="{{ url('panel/'.$value.'/all') }}" class="{{ (Request::segment(2)==$value)?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$key}}} <span class="badge pull-right">{!!$model::all()->count()!!}</span></a>
                             </li>
+                         <?php } ?>   
                          @endforeach
                     </ul>     
                       
