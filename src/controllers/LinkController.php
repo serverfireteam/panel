@@ -40,7 +40,6 @@ class LinkController extends CrudController{
 
         $this->edit->label('Edit Admin');
         $this->edit->link("rapyd-demo/filter","Articles", "TR")->back();
-        $this->edit->add('email','Email', 'text')->rule('required|min:5');
         $this->edit->add('display','Display', 'text');
         $this->edit->add('url','link', 'text');
         return $this->returnEditView();

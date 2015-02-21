@@ -12,7 +12,7 @@
             <!-- /.row -->
             <div class="row box-holder">
                 
-                @if(is_array(\Config::get('panel.crudItems')))
+                @if(is_array(\Serverfireteam\Panel\Link::returnUrls()))
                     @foreach (Serverfireteam\Panel\libs\dashboard::create() as $box)
                     <div class="col-lg-3 col-md-6">
                         <div class="panel ">

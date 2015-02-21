@@ -71,12 +71,12 @@ class CrudController extends \App\Http\Controllers\Controller
 
     public function returnView()
     {
-        $configFile = \Config::get('panel.crudItems');
-                
-        if ( !isset($configFile) || $configFile == null ){   
-            throw new \Exception('Config File Has Not Been Properly Set Yet');                                                      
-        } else if( !in_array($this->entity, $configFile)){
-            throw new \Exception('This Controller is not set in Config file yet!');                                                                            
+        $configs = \Serverfireteam\Panel\Link::returnUrls();
+               
+        if ( !isset($configs) || $configs == null ){   
+            throw new \Exception('NO URL is set for yet');                                                      
+        } else if( !in_array($this->entity, $configs)){
+            throw new \Exception('This url is not set yet!');                                                                            
         } else {        
             return \View::make('panelViews::all', array(
              'grid' 	      => $this->grid,
@@ -89,13 +89,13 @@ class CrudController extends \App\Http\Controllers\Controller
     
     public function returnEditView()
     {
-        $configFile = \Config::get('panel.crudItems');
+        $configs = \Serverfireteam\Panel\Link::returnUrls();
                 
-        if ( !isset($configFile) || $configFile == null ){                      
-            throw new Exception('Config File Has Not Been Properly Set Yet');   
-        } else if( !in_array($this->entity, $configFile)){
-            throw new Exception('This Controller is not set in Config file yet!');              
-        } else {        
+        if ( !isset($configs) || $configs == null ){   
+            throw new \Exception('NO URL is set for yet');                                                      
+        } else if( !in_array($this->entity, $configs)){
+            throw new \Exception('This url is set yet !');                                                                            
+        }  else {        
            return \View::make('panelViews::edit', array(
              'edit' => $this->edit
             )); 
@@ -106,4 +106,6 @@ class CrudController extends \App\Http\Controllers\Controller
         $this->filter->submit(\Lang::get('panel::fields.search'));
         $this->filter->reset(\Lang::get('panel::fields.reset'));
     }
+    
+    
 }

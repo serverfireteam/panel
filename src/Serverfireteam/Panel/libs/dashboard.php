@@ -10,34 +10,27 @@ class dashboard
         $urls = array('1' => 'Admin',
               '2' => 'Link'); 
         
-        $config    = \Config::get('panel.crudItems');
+        $config    = \Serverfireteam\Panel\Link::all();
         $dashboard = array();
 
         // Make Dashboard Items
-        foreach ($config as $key => $value) {
+        foreach ($config as $key => $value) {                        
 
-	    $modelName = $value;
+	    $modelName = $value['url'];           
             if ( in_array($modelName, $urls)){
-               $value = "Serverfireteam\Panel\\".$modelName;
+               $model = "Serverfireteam\Panel\\".$modelName;
             }else{
-               $value = "\App\\" . $modelName;
+               $model = "\App\\" . $modelName;
             }
 
             //if (class_exists($value)) {
-                $dashboard[] = array(
-                    'title'	  => $key,
-                    'count'	  => $value::all()->count(),
-                    'showListUrl' => 'panel/' . $modelName . '/all',
-                    'addUrl'	  => 'panel/' . $modelName . '/edit',
-                   
-                     );
-                
-          /*      
-            } else {
-                throw new \Exception('Model name does not match config.crudItems in ' . $value);
-	    }
-             * 
-             */
+            $dashboard[] = array(
+                'title'	  => $value['display'],
+                'count'	  => $model::all()->count(),
+                'showListUrl' => 'panel/' . $modelName . '/all',
+                'addUrl'	  => 'panel/' . $modelName . '/edit',
+
+            );                          
         }
 
 	return $dashboard;

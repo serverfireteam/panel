@@ -42,16 +42,20 @@ dashboard
                                 <a  href="{{ url('panel') }}" class="{{ (Request::url() === url('panel')) ? 'active' : '' }}"><i class="fa fa-dashboard fa-fw"></i> {{ \Lang::get('panel::fields.dashboard') }}</a>
                             </li>
                             
-                         @foreach(\Config::get('panel.crudItems') as $key => $value )
-                         <?php  if ( in_array($value, $urls)){ ?>
-                          {{--*/ $model = "Serverfireteam\Panel\\".$value /*--}}
+                            
+                         <?php $links  = \Serverfireteam\Panel\Link::all(); ?>   
+                        
+                         @foreach($links as $key => $value )
+                         
+                         <?php  if ( in_array($value['url'], $urls)){ ?>
+                          {{--*/ $model = "Serverfireteam\Panel\\".$value['url'] /*--}}
                             <li>
-                                <a  href="{{ url('panel/'.$value.'/all') }}" class="{{ (Request::segment(2)==$value)?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$key}}} <span class="badge pull-right">{!!$model::all()->count()!!}</span></a>
+                                <a  href="{{ url('panel/'.$value['url'].'/all') }}" class="{{ (Request::segment(2)==$value['url'])?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$value['display']}}} <span class="badge pull-right">{!!$model::all()->count()!!}</span></a>
                             </li>
                          <?php } else { ?>
-			    {{--*/ $model = "\App\\".$value /*--}}
+			    {{--*/ $model = "\App\\".$value['url'] /*--}}
                             <li>
-                                <a  href="{{ url('panel/'.$value.'/all') }}" class="{{ (Request::segment(2)==$value)?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$key}}} <span class="badge pull-right">{!!$model::all()->count()!!}</span></a>
+                                <a  href="{{ url('panel/'.$value['url'].'/all') }}" class="{{ (Request::segment(2)==$value['url'])?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$value['display']}}} <span class="badge pull-right">{!!$model::all()->count()!!}</span></a>
                             </li>
                          <?php } ?>   
                          @endforeach

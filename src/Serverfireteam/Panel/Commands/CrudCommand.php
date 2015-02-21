@@ -45,7 +45,10 @@ class CrudCommand extends Command {
             $this->call('panel:createcontroller', ['name' => $crudName.'Controller']);
             //$createControllerClass = new CreateControllerController($crudName);
             
-            
+            $link = new \Serverfireteam\Panel\Link();
+            $link->url = $crudName;
+            $link->display = $crudName . 's';
+            $link->save();
             
 
             //$this->call('make:controller', ['name' => $crudName.'Controller']);

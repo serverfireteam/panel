@@ -2,6 +2,7 @@
 
 use {{rootNamespace}}Http\Requests;
 use {{rootNamespace}}Http\Controllers\Controller;
+use \Serverfireteam\Panel\CrudController;
 
 use Illuminate\Http\Request;
 
