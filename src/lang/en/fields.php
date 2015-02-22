@@ -10,7 +10,7 @@ return array(
     'reset' => 'Reset',
     'enterEmail' => 'Please Enter Email Address',
     'signIn' => 'Please Sign In',
-    'forgetPassword' => 'Forget Password',
+    'forgetPassword' => 'Forgot Password',
     'rememberMe' => 'Remember Me',
     'login' => 'Login',
     'sendReminder' => 'Send Reminder',
