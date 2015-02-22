@@ -17,4 +17,6 @@ class Link extends Model {
         return $urls;
     }
 
+    protected $fillable = array('url', 'display');
+
 }
