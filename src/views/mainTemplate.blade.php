@@ -43,21 +43,21 @@ dashboard
                             </li>
                             
                             
-                         <?php $links  = \Serverfireteam\Panel\Link::all(); ?>   
+                         {{--*/ $links  = \Serverfireteam\Panel\Link::all(); /*--}}   
                         
                          @foreach($links as $key => $value )
                          
-                         <?php  if ( in_array($value['url'], $urls)){ ?>
+                         @if ( in_array($value['url'], $urls))
                           {{--*/ $model = "Serverfireteam\Panel\\".$value['url'] /*--}}
                             <li>
                                 <a  href="{{ url('panel/'.$value['url'].'/all') }}" class="{{ (Request::segment(2)==$value['url'])?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$value['display']}}} <span class="badge pull-right">{!!$model::all()->count()!!}</span></a>
                             </li>
-                         <?php } else { ?>
+                         @else
 			    {{--*/ $model = "\App\\".$value['url'] /*--}}
                             <li>
                                 <a  href="{{ url('panel/'.$value['url'].'/all') }}" class="{{ (Request::segment(2)==$value['url'])?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$value['display']}}} <span class="badge pull-right">{!!$model::all()->count()!!}</span></a>
                             </li>
-                         <?php } ?>   
+                         @endif
                          @endforeach
                     </ul>     
                       
