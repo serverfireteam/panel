@@ -23,7 +23,8 @@ login
                             <div class="logo-holder">
                                 <img src="{{asset("packages/serverfireteam/panel/img/logo.png")}}" />
                             </div>
-                            <form action="{{ action('Serverfireteam\Panel\RemindersController@postRemind') }}" method="POST">
+                            <form action="{!! url('panel/remind') !!}" method="POST">
+				<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
                                 <fieldset>
                                     <div class="form-group">
                                         <input class="form-control" placeholder="email" name="email" type="email" autofocus>
