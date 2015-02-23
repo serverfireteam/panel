@@ -33,5 +33,6 @@ return array(
     'keepNotOverwriteData' => 'Keep Previous Data and Don\'t Overwrite Matching Keys',
     'close' => 'Close',
     'importDataSuccess' => 'Data is imported successfully.',
-    'importDataFailure' => 'Data import failed, please check the validation of data.'
+    'importDataFailure' => 'Data import failed, please check the validation of data.',
+    'successfullReset' => 'Your password has been reset successfully!'
 );
