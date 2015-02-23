@@ -32,7 +32,7 @@ class LinkController extends CrudController{
         return $this->returnView();
     }
     
-    public function  edit($entity){
+    public function  edit($entity){                        
         
         parent::edit($entity);
 

@@ -7,8 +7,7 @@ class dashboard
     
     public static function create()
     {
-        $urls = array('1' => 'Admin',
-              '2' => 'Link'); 
+        $urls = \Config::get('panel.panelControllers');
         
         $config    = \Serverfireteam\Panel\Link::all();
         $dashboard = array();

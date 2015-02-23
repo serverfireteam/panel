@@ -1,5 +1,4 @@
 <?php
-
 /* 
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -7,15 +6,7 @@
  */
 return array(
     
-    'crudItems' => array(
-       
-    ),
-    'panelControllers' => array(
-       'Admin', 'Link'  
-    ),
-    'logo'=>'packages/serverfireteam/panel/img/logo.png' // logo of Panel 
-    
+    'controllers' => array(
+       'Admin' , 'Link' 
+    ),    
 );
-    
-    
-

@@ -7,6 +7,7 @@ namespace Serverfireteam\Panel;
  * and open the template in the editor.
  */
 use Serverfireteam\Panel\CrudController;
+use \Illuminate\Http\Request;
 /**
  * Description of PagePanel
  *
@@ -33,6 +34,12 @@ class AdminController extends CrudController{
     
     public function  edit($entity){
         
+        if (\Request::input('password') != null )
+        {
+            $new_input = array('password' => \Hash::make(\Request::input('password'))); 
+            \Request::merge($new_input);
+        }
+        
         parent::edit($entity);
 
         $this->edit = \DataEdit::source(new Admin());
@@ -42,6 +49,7 @@ class AdminController extends CrudController{
         $this->edit->add('email','Email', 'text')->rule('required|min:5');
         $this->edit->add('first_name','firstname', 'text');
         $this->edit->add('last_name','lastname', 'text');
+        $this->edit->add('password', 'password', 'password')->rule('required');     
         return $this->returnEditView();
     }
 }

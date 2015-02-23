@@ -7,15 +7,14 @@
  */
 namespace Serverfireteam\Panel;
 
+use \Serverfireteam\Panel\libs\PanelElements;
 
 class MainController extends \App\Http\Controllers\Controller {
 
     public function entityUrl($entity, $methods){
-              
-        
-        $urls = array('1' => 'Admin',
-                      '2' => 'Link');
-        
+                            
+        $urls = \Config::get('panel.panelControllers');
+       
         if ( in_array($entity, $urls)){
             $controller_path = 'Serverfireteam\Panel\\'.$entity.'Controller';
         } else {           

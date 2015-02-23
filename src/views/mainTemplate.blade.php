@@ -5,10 +5,10 @@ dashboard
 @section('body')
 
 
-<?php $urls = array('1' => 'Admin',
-                      '2' => 'Link'); ?>
-
-
+{{--*/     
+     $urls = \Config::get('panel.panelControllers');
+ /*--}}         
+       
     <div class="loading">
         <div class="rnd-box"><div class="inner-box"></div></div>
         <h1> LOADING </h1>

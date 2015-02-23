@@ -9,12 +9,12 @@ class Link extends Model {
     
     public static function returnUrls(){
         $configs = Link::all();
-        $urls = array();
+        $allUrls = array();
         
         foreach ( $configs as $config ){
-            $urls[] = $config['url'];                        
+            $allUrls[] = $config['url'];                        
         }
-        return $urls;
+        return $allUrls;
     }
 
     protected $fillable = array('url', 'display');

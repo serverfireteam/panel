@@ -34,7 +34,7 @@ class UsersController extends \Controller{
     
     
     public function edit($entity){
-        
+                
         parent::edit($entity);
               
         $this->edit = \DataEdit::source(new \User());
@@ -43,7 +43,6 @@ class UsersController extends \Controller{
         $this->edit->link("rapyd-demo/filter","Articles", "TR")->back();
         $this->edit->add('name','Name', 'text')->rule('required|min:5');
         $this->edit->add('username','userame', 'text')->rule('required|min:5');
-      
         return $this->returnEditView();
     }
    
