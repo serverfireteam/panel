@@ -16,6 +16,12 @@ class Link extends Model {
         }
         return $allUrls;
     }
+    
+    public function getAndSave($url, $display){
+        $this->url = $url;
+        $this->display = $display;
+        $this->save();
+    }
 
     protected $fillable = array('url', 'display');
 

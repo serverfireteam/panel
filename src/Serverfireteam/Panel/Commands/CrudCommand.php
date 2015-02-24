@@ -36,22 +36,22 @@ class CrudCommand extends Command {
 	public function fire()
 	{
        
-            $this->info('            [ Wellcome to ServerFireTeam Panel Installations ]       ');
+            $this->info('            [ ServerFireTeam Panel Crud Generator ]       ');
 
             $crudName = $this->argument('name');
             
             $this->call('panel:createmodel', ['name' => $crudName]);
             
             $this->call('panel:createcontroller', ['name' => $crudName.'Controller']);
-            //$createControllerClass = new CreateControllerController($crudName);
             
             $link = new \Serverfireteam\Panel\Link();
-            $link->url = $crudName;
-            $link->display = $crudName . 's';
+            $link->getAndSave($crudName, $crudName . 's');
             $link->save();
             
-
-            //$this->call('make:controller', ['name' => $crudName.'Controller']);
+            if ( !\Schema::hasTable($crudName) ){
+                $this->info('    The Table Corresponding to this Model does not exist in Database!!       ');
+                $this->info('                    Please Create this table         ');
+            }
         
 	}
 
