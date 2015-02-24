@@ -34,5 +34,5 @@ return array(
     'close' => 'Փակել',
     'importDataSuccess' => 'Տվյալները հաջողութեամբ Ներմուծվել են:',
     'importDataFailure' => 'Տվյալների ներմուծումը ձախողվեց, խնդրում ենք ստուգել տվյալների վավերացումը:',
-    'successfullReset' => 'Your password has been reset successfully!'
+    'successfullReset' => 'Ձեր գաղտնաբառը հաջողությամբ վերականգնվել է:'
 );
