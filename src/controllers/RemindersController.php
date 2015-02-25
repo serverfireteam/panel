@@ -84,7 +84,13 @@ class RemindersController extends Controller {
 	}
 
 	public function getChangePassword() {
-	        return \View::make('panelViews::passwordChange');
+
+		$demo = false;
+		if (\Config::get('panel.demo') == true) {
+			$demo = true;
+		}
+
+	        return \View::make('panelViews::passwordChange')->with('demo_status', $demo);
 	}
 
 	public function postChangePassword() {
