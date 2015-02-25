@@ -29,7 +29,7 @@ This package provides an easily configurable admin panel for Laravel 5 and Larav
 
 ## Demo 
 You can check the [live demo here](http://demo.serverfire.net/panel) .
-User: admin
+User: admin@change.me
 Pass: 12345 
 
 
