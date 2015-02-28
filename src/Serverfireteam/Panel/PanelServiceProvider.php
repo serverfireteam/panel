@@ -80,8 +80,12 @@ class PanelServiceProvider extends ServiceProvider
         $base_path  = base_path();
         $base_path .= "/vendor/serverfireteam/panel/src/views";
 
-        \View::addLocation($base_path);
-        \View::addNamespace('panelViews', $base_path);  
+        
+        $this->loadViewsFrom(__DIR__.'/../../views', 'panelViews');
+        $this->publishes([
+            __DIR__.'/../../views' => base_path('resources/views/vendor/panelViews'),
+        ]);
+        
         $testModel = new Admin();
         include __DIR__."/../../routes.php";
 
