@@ -1,6 +1,6 @@
 @extends('panelViews::mainTemplate')
 @section('page-wrapper')
-
+        
             <div class="row">
 
                 <div class="col-lg-12">

@@ -165,9 +165,50 @@ body{
 .dropdown-menu>li>a{
     vertical-align: top;padding: 3px 7px;
     span{padding:5px;}
-} 
+}
+    
+   
+}
+#side-menu a
+{
+    overflow: hidden;
+}
+.sidebar-nav
+{
+    .items-bar
+    {
+        padding: 11px 5px;
+        text-align: right;
+        float: right;
+        display: inline-block;
+        transition: all ease 250ms;
+        transform: translateX(220px);
+        -webkit-transform: translateX(220px);
+        vertical-align: top;
+        a{
+            text-decoration: none;
+        }
+    }
+}
+#side-menu{
+    overflow: hidden;
+    a{display: inline-block;}
+    a:first{display: block}
+    .badge{
+        float: right;
+        margin: 11px; 
+    }
+
+li:hover{ 
+    .items-bar{
+        transform: translateX(0px);
+        -webkit-transform: translateX(0px);
+    }
+}
     
 }
+
+
 .panel-footer
 {
     .add{

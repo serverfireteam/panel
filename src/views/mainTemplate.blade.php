@@ -38,8 +38,8 @@ dashboard
                       <div class="user-info">{{Auth::user()->first_name.' '.Auth::user()->last_name}}</div>
                       <a class="visit-site" href="{{$app['url']->to('/')}}">{{ \Lang::get('panel::fields.visiteSite') }}  </a>
                     <ul class="nav" id="side-menu">
-                            <li>
-                                <a  href="{{ url('panel') }}" class="{{ (Request::url() === url('panel')) ? 'active' : '' }}"><i class="fa fa-dashboard fa-fw"></i> {{ \Lang::get('panel::fields.dashboard') }}</a>
+                            <li class="{{ (Request::url() === url('panel')) ? 'active' : '' }}">
+                                <a  href="{{ url('panel') }}" ><i class="fa fa-dashboard fa-fw"></i> {{ \Lang::get('panel::fields.dashboard') }}</a>
                             </li>
                             
                             
@@ -49,13 +49,14 @@ dashboard
                          
                          @if ( in_array($value['url'], $urls))
                           {{--*/ $model = "Serverfireteam\Panel\\".$value['url'] /*--}}
-                            <li>
-                                <a  href="{{ url('panel/'.$value['url'].'/all') }}" class="{{ (Request::segment(2)==$value['url'])?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$value['display']}}} <span class="badge pull-right">{!!$model::all()->count()!!}</span></a>
+                            <li class="{{ (Request::segment(2)==$value['url'])?'active':'' }}">
+                                <a  href="{{ url('panel/'.$value['url'].'/all') }}" class="{{ (Request::segment(2)==$value['url'])?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$value['display']}}}  </a>   <span class="badge pull-right">{!!$model::all()->count()!!}</span> <div class="items-bar"> <a href="{{ url('panel/'.$value['url'].'/edit') }}" class="">add</a> <a href="{{ url('panel/'.$value['url'].'/all') }}"> list </a>  </div>    
+                                     
                             </li>
                          @else
 			    {{--*/ $model = "\App\\".$value['url'] /*--}}
-                            <li>
-                                <a  href="{{ url('panel/'.$value['url'].'/all') }}" class="{{ (Request::segment(2)==$value['url'])?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$value['display']}}} <span class="badge pull-right">{!!$model::all()->count()!!}</span></a>
+                            <li class="{{ (Request::segment(2)==$value['url'])?'active':'' }}">
+                                <a  href="{{ url('panel/'.$value['url'].'/all') }}" ><i class="fa fa-edit fa-fw"></i> {{{$value['display']}}} <span class="badge pull-right">{!!$model::all()->count()!!}</span></a>
                             </li>
                          @endif
                          @endforeach
