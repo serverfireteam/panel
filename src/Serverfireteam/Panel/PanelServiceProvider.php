@@ -61,7 +61,7 @@ class PanelServiceProvider extends ServiceProvider
 
         $this->commands('panel::createmodel');
         
-         $this->commands('panel::createcontroller');
+        $this->commands('panel::createcontroller');
          
         $this->commands('panel::install');
 
@@ -77,19 +77,15 @@ class PanelServiceProvider extends ServiceProvider
     public function boot()
     {        
 
-        $base_path  = base_path();
-        $base_path .= "/vendor/serverfireteam/panel/src/views";
-
-        
+     
         $this->loadViewsFrom(__DIR__.'/../../views', 'panelViews');
         $this->publishes([
             __DIR__.'/../../views' => base_path('resources/views/vendor/panelViews'),
         ]);
         
-        $testModel = new Admin();
         include __DIR__."/../../routes.php";
 
-	$this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/panel/src/lang', 'panel');
+	    $this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/panel/src/lang', 'panel');
         $this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/rapyd-laravel/lang', 'rapyd');
 
         AliasLoader::getInstance()->alias('Serverfireteam', 'Serverfireteam\Panel\Serverfireteam');
