@@ -2,9 +2,6 @@
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\AliasLoader;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Translation;
-use Serverfireteam\Panel\libs;
 use Illuminate\Filesystem\Filesystem;
 
 class PanelServiceProvider extends ServiceProvider
