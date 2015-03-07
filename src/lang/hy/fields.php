@@ -5,6 +5,7 @@ return array(
     'logout' => 'Ելք',
     'ProfileEdit' => 'Խմբագրել Անձնագիրը',
     'ResetPassword' => 'Վերականգնել Գաղտնաբառը',
+    'ChangePassword' => 'Վերականգնել Գաղտնաբառը',
     'Add' => 'Ավելացնել',
     'search' => 'Փնտրել',
     'reset' => 'Վերականգնել',

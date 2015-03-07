@@ -5,6 +5,7 @@ return array(
     'logout' => 'Log out',
     'ProfileEdit' => 'Profile Edit',
     'ResetPassword' => 'Reset Password',
+    'ChangePassword' => 'Change Password',
     'Add' => 'ADD',
     'search' => 'Search',
     'reset' => 'Reset',
