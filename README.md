@@ -34,10 +34,8 @@ Pass: 12345
 
 
 
-##Installations for laravel 4
+##Installations 
 Note: if you face any problem in any of the steps you should report it at [github](https://github.com/serverfireteam/panel/issues/new)
-
-Note : we are working on laravel 5 version in laravel5 bransh of repo 
 
 1. First you need to create a laravel 5 (or laravel 4.2) project.
 
