@@ -18,22 +18,22 @@ class CrudController extends \App\Http\Controllers\Controller
     public $set;
     public $edit;
     public $filter;
-    
-     public function __construct()
+    protected $lang;
+
+    public function __construct(\Lang $lang)
     {         
        // $this->entity = $params['entity'];
-        $routeParamters = \Route::current()->parameters();      
-        $this->setEntity($routeParamters['entity']);
-                      
+        $route = \App::make('route');
+        $this->lang = $lang;
+        $this->route = $route;
+        $routeParamters = $route::current()->parameters();      
+        $this->setEntity($routeParamters['entity']);                      
     }
 
     
     public function all($entity)
-    {
-                                
-                          
-        //$this->addStylesToGrid();
-                   
+    {                                                          
+        //$this->addStylesToGrid();                   
     }
     
     public function edit($entity)
@@ -103,8 +103,9 @@ class CrudController extends \App\Http\Controllers\Controller
     }
     
      public function finalizeFilter(){
-        $this->filter->submit(\Lang::get('panel::fields.search'));
-        $this->filter->reset(\Lang::get('panel::fields.reset'));
+        $lang = \App::make('lang');
+        $this->filter->submit($this->lang->get('panel::fields.search'));
+        $this->filter->reset($this->lang->get('panel::fields.reset'));
     }
     
     
