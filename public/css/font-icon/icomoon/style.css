@@ -1,15 +1,15 @@
 @font-face {
 	font-family: 'icomoon';
-	src:url('fonts/icomoon.eot?-ijk7d6');
-	src:url('fonts/icomoon.eot?#iefix-ijk7d6') format('embedded-opentype'),
-		url('fonts/icomoon.woff?-ijk7d6') format('woff'),
-		url('fonts/icomoon.ttf?-ijk7d6') format('truetype'),
-		url('fonts/icomoon.svg?-ijk7d6#icomoon') format('svg');
+	src:url('fonts/icomoon.eot?-untgjq');
+	src:url('fonts/icomoon.eot?#iefix-untgjq') format('embedded-opentype'),
+		url('fonts/icomoon.woff?-untgjq') format('woff'),
+		url('fonts/icomoon.ttf?-untgjq') format('truetype'),
+		url('fonts/icomoon.svg?-untgjq#icomoon') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
 
-[class^="ic-"], [class*=" ic-"] {
+[class^="icon-"], [class*=" icon-"] {
 	font-family: 'icomoon';
 	speak: none;
 	font-style: normal;
@@ -23,219 +23,207 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.ic-mobile:before {
+.icon-mobile:before {
 	content: "\e000";
 }
 
-.ic-pc:before {
+.icon-pc:before {
 	content: "\e001";
 }
 
-.ic-desktop:before {
+.icon-desktop:before {
 	content: "\e002";
 }
 
-.ic-phones2:before {
+.icon-phones2:before {
 	content: "\e004";
 }
 
-.ic-megaphone:before {
+.icon-megaphone:before {
 	content: "\e021";
 }
 
-.ic-streetsign:before {
+.icon-streetsign:before {
 	content: "\e029";
 }
 
-.ic-lightbulb2:before {
+.icon-lightbulb2:before {
 	content: "\e031";
 }
 
-.ic-magnifying-glass:before {
+.icon-magnifying-glass:before {
 	content: "\e037";
 }
 
-.ic-linegraph:before {
+.icon-linegraph:before {
 	content: "\e039";
 }
 
-.ic-caution:before {
+.icon-caution:before {
 	content: "\e03d";
 }
 
-.ic-globe:before {
+.icon-globe:before {
 	content: "\e045";
 }
 
-.ic-piechart:before {
+.icon-piechart:before {
 	content: "\e050";
 }
 
-.ic-browser:before {
+.icon-browser:before {
 	content: "\e00c";
 }
 
-.ic-presentation:before {
+.icon-presentation:before {
 	content: "\e00e";
 }
 
-.ic-wallet:before {
+.icon-wallet:before {
 	content: "\e016";
 }
 
-.ic-bargraph:before {
+.icon-bargraph:before {
 	content: "\e018";
 }
 
-.ic-map:before {
+.icon-map:before {
 	content: "\e025";
 }
 
-.ic-puzzle:before {
+.icon-puzzle:before {
 	content: "\e026";
 }
 
-.ic-envelope:before {
+.icon-envelope:before {
 	content: "\e028";
 }
 
-.ic-lightbulb:before {
+.icon-lightbulb:before {
 	content: "\e030";
 }
 
-.ic-beaker:before {
+.icon-beaker:before {
 	content: "\e03c";
 }
 
-.ic-fire:before {
+.icon-fire:before {
 	content: "\e607";
 }
 
-.ic-layers:before {
-	content: "\e032";
-}
-
-.ic-lines:before {
+.icon-lines:before {
 	content: "\e608";
 }
 
-.ic-display:before {
+.icon-display:before {
 	content: "\e956";
 }
 
-.ic-mobile2:before {
+.icon-mobile2:before {
 	content: "\e959";
 }
 
-.ic-stats-dots:before {
+.icon-stats-dots:before {
 	content: "\e99b";
 }
 
-.ic-stats-bars:before {
+.icon-stats-bars:before {
 	content: "\e99c";
 }
 
-.ic-stats-bars2:before {
+.icon-stats-bars2:before {
 	content: "\e99d";
 }
 
-.ic-lab:before {
+.icon-lab:before {
 	content: "\e9aa";
 }
 
-.ic-sphere:before {
+.icon-sphere:before {
 	content: "\e9c9";
 }
 
-.ic-info:before {
+.icon-info:before {
 	content: "\ea0c";
 }
 
-.ic-radio-unchecked:before {
+.icon-radio-unchecked:before {
 	content: "\ea56";
 }
 
-.ic-embed:before {
+.icon-embed:before {
 	content: "\ea7f";
 }
 
-.ic-flame:before {
+.icon-flame:before {
 	content: "\f0d2";
 }
 
-.ic-fire2:before {
+.icon-fire2:before {
 	content: "\e606";
 }
 
-.ic-close:before {
+.icon-close:before {
 	content: "\e603";
 }
 
-.ic-close2:before {
+.icon-close2:before {
 	content: "\e604";
 }
 
-.ic-shlist:before {
-	content: "\e609";
-}
-
-.ic-menu:before {
-	content: "\e9bd";
-}
-
-.ic-air-play:before {
+.icon-air-play:before {
 	content: "\e017";
 }
 
-.ic-shuffle:before {
+.icon-shuffle:before {
 	content: "\e057";
 }
 
-.ic-box:before {
+.icon-box:before {
 	content: "\e079";
 }
 
-.ic-star:before {
+.icon-star:before {
 	content: "\e093";
 }
 
-.ic-plus:before {
+.icon-plus:before {
 	content: "\e114";
 }
 
-.ic-ellipsis:before {
+.icon-ellipsis:before {
 	content: "\e129";
 }
 
-.ic-chevron-right:before {
+.icon-chevron-right:before {
 	content: "\e600";
 }
 
-.ic-chevron-left:before {
+.icon-chevron-left:before {
 	content: "\e601";
 }
 
-.ic-phone-outline:before {
+.icon-phone-outline:before {
 	content: "\e602";
 }
 
-.ic-rewind:before {
+.icon-rewind:before {
 	content: "\e051";
 }
 
-.ic-fast-forward:before {
+.icon-fast-forward:before {
 	content: "\e055";
 }
 
-.ic-arrow-up:before {
+.icon-arrow-up:before {
 	content: "\e096";
 }
 
-.ic-arrow-down:before {
+.icon-arrow-down:before {
 	content: "\e097";
 }
 
-.ic-cross:before {
+.icon-cross:before {
 	content: "\e605";
 }
 

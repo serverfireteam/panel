@@ -47,69 +47,66 @@ class ExportImportController extends Controller {
 	if ($filePath) {
 
 		\Excel::load($filePath, function($reader) use ($model, $columns, $key, $status, $notNullColumnNames, &$failed) {
-			$this->importDataToDB($reader, $model, $columns, $key, $status, $notNullColumnNames, $failed);
+			$rows        = $reader->toArray();
+			$newData     = array();
+			$updatedData = array();
+
+			// Check validation of values
+			foreach ($rows as $row) {
+				foreach ($notNullColumnNames as $notNullColumn) {
+					if (empty($row[$notNullColumn])) {
+						$failed = true;
+						break;
+					}
+				}
+			}
+
+			if (!$failed) {
+
+				if ($status == 1) {
+					$model->truncate();
+				}
+
+				foreach ($rows as $row) {
+					if (!empty($row[$key])) {
+						$exists = $model->where($key, '=', $row[$key])->count();
+						if (!$exists) {
+							$values = array();
+							foreach ($columns as $col) {
+								if ($col != $key) {
+									$values[$col] = $row[$col];
+								}
+							}
+							$newData[] = $values;
+						} else if ($status == 2 && $exists) {
+							$values = array();
+							foreach ($columns as $col) {
+								$values[$col] = $row[$col];
+							}
+							$updatedData[] = $values;
+						}
+					}
+				}
+			}
+
+			// insert data into table
+			if (!empty($newData)) {
+				$model->insert($newData);
+			}
+
+			// update available data
+			if (!empty($updatedData)) {
+				foreach ($updatedData as $data) {
+					$keyValue = $data[$key];
+					unset($data[$key]);
+					$model->where($key, $keyValue)->update($data);
+				}
+			}
 		});
 	}
 
 	$importMessage = ($failed == true) ? \Lang::get('panel::fields.importDataFailure') : \Lang::get('panel::fields.importDataSuccess');
 
 	return \Redirect::to('panel/' . $entity . '/all')->with('import_message', $importMessage);
-    }
-
-    public function importDataToDB($reader, $model, $columns, $key, $status, $notNullColumnNames, $failed) {
-
-	$rows        = $reader->toArray();
-	$newData     = array();
-	$updatedData = array();
-
-	// Check validation of values
-	foreach ($rows as $row) {
-		foreach ($notNullColumnNames as $notNullColumn) {
-			if (empty($row[$notNullColumn])) {
-				$failed = true;
-				break;
-			}
-		}
-	}
-
-	if (!$failed) {
-		if ($status == 1) {
-			$model->truncate();
-		}
-		foreach ($rows as $row) {
-			if (!empty($row[$key])) {
-				$exists = $model->where($key, '=', $row[$key])->count();
-				if (!$exists) {
-					$values = array();
-					foreach ($columns as $col) {
-						if ($col != $key) {
-							$values[$col] = $row[$col];
-						}
-					}
-					$newData[] = $values;
-				} else if ($status == 2 && $exists) {
-					$values = array();
-					foreach ($columns as $col) {
-						$values[$col] = $row[$col];
-					}
-					$updatedData[] = $values;
-				}
-			}
-		}
-	}
-
-	// insert data into table
-	if (!empty($newData)) {
-		$model->insert($newData);
-	}
-
-	// update available data
-	if (!empty($updatedData)) {
-		foreach ($updatedData as $data) {
-			$keyValue = $data[$key];
-			unset($data[$key]);
-			$model->where($key, $keyValue)->update($data);
-		}
-	}
     }
 }
