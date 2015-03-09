@@ -19,6 +19,7 @@ This package provides an easily configurable admin panel for Laravel 5 and Larav
 - **Powerful**, It offers a Login section, Admin settings, forgot password and all other features you need for admin panel.
 
 ## Screen shot 
+
 ![login](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-login.jpg)
 ![dashboard of panel](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-dashboard.jpg)
 
@@ -35,6 +36,7 @@ Pass: 12345
 
 
 ##Installations for laravel 4
+
 Note: if you face any problem in any of the steps you should report it at [github](https://github.com/serverfireteam/panel/issues/new)
 
 Note : we are working on laravel 5 version in laravel5 bransh of repo 
@@ -89,7 +91,7 @@ A forked repo of [rapyd](http://rapyd.com) for CRUD system.
 ##RoadMap
 We are going to develop this package every day and new ideas are welcome.
 We have a [Trello](https://trello.com/b/RDZ6HdK9/framework) board for project, you can check it and send your feedbacks. 
-Follow us on twitter[@serverfireteam](http://twitter.com/serverfireteam) .
+Follow us on twitter [@serverfireteam](http://twitter.com/serverfireteam) .
 
 Thank you for using our package 
 
