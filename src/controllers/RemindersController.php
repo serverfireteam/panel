@@ -4,25 +4,30 @@ namespace Serverfireteam\Panel;
 use \App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\PasswordBroker as PasswordBrokerContract;
 
+/*******
+ * The RemindersControler handle the users Password reminding activities
+ * 
+ *******/
 class RemindersController extends Controller {
 
-	/**
-	 * Display the password reminder view.
-	 *
-	 * @return Response
-	 */
-	public function getRemind()
-	{
-            if (\Session::has('message')) {
-                $message = \Session::get('message');
-            } else {
-                $message = \Lang::get('panel::fields.enterEmail');
-            }
+    
+    /**
+     * Display the password reminder view.
+     *
+     * @return Response
+     */
+    public function getRemind()
+    {
+        if (\Session::has('message')) {
+            $message = \Session::get('message');
+        } else {
+            $message = \Lang::get('panel::fields.enterEmail');
+        }
 
-            return \View::make('panelViews::passwordReminder')
-                    ->with('message', $message)
-                    ->with('mesType', \Session::get('mesType'));
-	}
+        return \View::make('panelViews::passwordReminder')
+                ->with('message', $message)
+                ->with('mesType', \Session::get('mesType'));
+    }
 
 	/**
 	 * Handle a POST request to remind a user of their password.
@@ -31,6 +36,7 @@ class RemindersController extends Controller {
 	 */
 	public function postRemind()
 	{
+            \App::make('route');
             \Config::set('auth.model', 		'Serverfireteam\Panel\Admin');
             \Config::set('auth.password.email', 'panelViews::resetPassword');
 
@@ -83,40 +89,50 @@ class RemindersController extends Controller {
 	        }
 	}
 
+        /********
+         * The function displays the password
+         * change view
+         ********/
 	public function getChangePassword() {
 
-		$demo = false;
-		if (\Config::get('panel.demo') == true) {
-			$demo = true;
-		}
+            $demo = false;
+            if (\Config::get('panel.demo') == true) {
+                    $demo = true;
+            }
 
-	        return \View::make('panelViews::passwordChange')->with('demo_status', $demo);
+            return \View::make('panelViews::passwordChange')->with('demo_status', $demo);
 	}
 
+         /********
+         * After User enter the new password 
+         * this function handles the resetting the
+         * the password
+         ********/
 	public function postChangePassword() {
 
-        	\Config::set('auth.model', '\Serverfireteam\Panel\Admin');
+            \Config::set('auth.model', '\Serverfireteam\Panel\Admin');
 
-	        $user 		 = Admin::find(\Auth::user()->id);
-	        $password 	 = \Input::only('current_password');
-	        $new_password    = \Input::only('password');
-	        $retype_password = \Input::only('password_confirmation');
-	        $user_password   = \Auth::user()->password;
+            $user 		 = Admin::find(\Auth::user()->id);
+            $password 	 = \Input::only('current_password');
+            $new_password    = \Input::only('password');
+            $retype_password = \Input::only('password_confirmation');
+            $user_password   = \Auth::user()->password;
 
-	        if (\Hash::check($password['current_password'], $user_password)) {
-			if ($new_password['password'] == $retype_password['password_confirmation']) {
-		                $user->password = \Hash::make($new_password['password']);
-		                $user->save();
-		                return \Redirect::to('/panel/changePassword')->with('message', 'Successfully Changed Your Password!!');
-		        } else {
-		                return \Redirect::to('/panel/changePassword')
-			                        ->with('message', 'Passwords not matched!!')
-			                        ->with('mesType', 'error');
-		        }
-		} else {
-			return \Redirect::to('/panel/changePassword')
-			                     ->with('message', 'Password is not correct!!')
-			                     ->with('mesType', 'error');
-	        }
+            //Check to see if user enters current password correctly
+            if (\Hash::check($password['current_password'], $user_password)) {
+                if ($new_password['password'] == $retype_password['password_confirmation']) {
+                        $user->password = \Hash::make($new_password['password']);
+                        $user->save();
+                        return \Redirect::to('/panel/changePassword')->with('message', 'Successfully Changed Your Password!!');
+                } else {
+                        return \Redirect::to('/panel/changePassword')
+                                        ->with('message', 'Passwords not matched!!')
+                                        ->with('mesType', 'error');
+                }
+            } else {
+                return \Redirect::to('/panel/changePassword')
+                                     ->with('message', 'Password is not correct!!')
+                                     ->with('mesType', 'error');
+            }
 	}
 }
