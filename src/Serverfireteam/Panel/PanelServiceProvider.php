@@ -35,13 +35,13 @@ class PanelServiceProvider extends ServiceProvider
         include __DIR__."/Commands/ServerfireteamCommand.php";
         $this->app['panel::install'] = $this->app->share(function()
         {
-            return new panelCommand();
+            return new \Serverfireteam\Panel\Commands\panelCommand();
         });
         
         include __DIR__."/Commands/CrudCommand.php";
         $this->app['panel::crud'] = $this->app->share(function()
         {
-            return new CrudCommand();
+            return new \Serverfireteam\Panel\Commands\CrudCommand();
         });
         
         
@@ -50,7 +50,7 @@ class PanelServiceProvider extends ServiceProvider
         {
            $fileSystem = new Filesystem(); 
            
-           return new CreateModelCommand($fileSystem);
+           return new \Serverfireteam\Panel\Commands\CreateModelCommand($fileSystem);
         });
         
         include __DIR__."/Commands/CreateControllerCommand.php";
@@ -58,7 +58,7 @@ class PanelServiceProvider extends ServiceProvider
         {
            $fileSystem = new Filesystem(); 
            
-           return new CreateControllerPanelCommand($fileSystem);
+           return new \Serverfireteam\Panel\Commands\CreateControllerPanelCommand($fileSystem);
         });
 
         $this->commands('panel::createmodel');
@@ -87,7 +87,7 @@ class PanelServiceProvider extends ServiceProvider
         
         include __DIR__."/../../routes.php";
 
-        $this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/panel/src/lang', 'panel');
+	$this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/panel/src/lang', 'panel');
         $this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/rapyd-laravel/lang', 'rapyd');
 
         AliasLoader::getInstance()->alias('Serverfireteam', 'Serverfireteam\Panel\Serverfireteam');

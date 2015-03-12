@@ -29,21 +29,20 @@ class RemindersController extends Controller {
                 ->with('mesType', \Session::get('mesType'));
     }
 
-
-    /**
-     * Handle a POST request to remind a user of their password.
-     *
-     * @return Response
-     */
-    public function postRemind()
-    {
+	/**
+	 * Handle a POST request to remind a user of their password.
+	 *
+	 * @return Response
+	 */
+	public function postRemind()
+	{
             \App::make('route');
-            \Config::set('auth.model',      'Serverfireteam\Panel\Admin');
+            \Config::set('auth.model', 		'Serverfireteam\Panel\Admin');
             \Config::set('auth.password.email', 'panelViews::resetPassword');
 
-        $response = \Password::sendResetLink(\Input::only('email'), function($message) {
-        $message->subject('Password Reminder');
-        });
+	    $response = \Password::sendResetLink(\Input::only('email'), function($message) {
+		$message->subject('Password Reminder');
+	    });
 
             switch ($response) {
                     case PasswordBrokerContract::INVALID_USER:
@@ -52,22 +51,21 @@ class RemindersController extends Controller {
                     case PasswordBrokerContract::RESET_LINK_SENT:
                             return \Redirect::back()->with('message', \Lang::get($response))->with('mesType', 'info');
             }
-    }
+	}
 
-    /**
-     * Display the password reset view for the given token.
-     *
-     * @param  string  $token
-     * @return Response
-     */
-    public function getReset($token = null)
-    {
-            return \View::make('panelViews::passwordReset');
-    }
+	/**
+	 * Display the password reset view for the given token.
+	 *
+	 * @param  string  $token
+	 * @return Response
+	 */
+	public function getReset($token = null)
+	{
+        	return \View::make('panelViews::passwordReset');
+	}
 
         public function postReset()
         {
-<<<<<<< HEAD
 		\Config::set('auth.model', 'Serverfireteam\Panel\Admin');
 
 	        $credentials = \Input::only(
@@ -90,40 +88,12 @@ class RemindersController extends Controller {
 		                return \Redirect::to('/panel')->with('message', \Lang::get('panel::fields.successfullReset'))->with('mesType','info');
 	        }
 	}
-=======
-        \Config::set('auth.model', 'Serverfireteam\Panel\Admin');
-
-            $credentials = \Input::only(
-                'email', 'password', 'password_confirmation', 'token'
-            );
-
-            $response = \Password::reset($credentials, function($user, $password) {
-            $user->password = \Hash::make($password);
-                $user->save();
-            });
-
-            switch ($response) {
-            case PasswordBrokerContract::INVALID_PASSWORD:
-                        return \Redirect::back()->with('message', \Lang::get($response))->with('mesType','error');
-                case PasswordBrokerContract::INVALID_TOKEN:
-                        return \Redirect::back()->with('message', \Lang::get($response))->with('mesType','error');
-                    case PasswordBrokerContract::INVALID_USER:
-                        return \Redirect::back()->with('message', \Lang::get($response))->with('mesType','error');
-                case PasswordBrokerContract::PASSWORD_RESET:
-                        return \Redirect::to('/panel')->with('message', \Lang::get('panel::fields.successfullReset'))->with('mesType','info');
-            }
-    }
->>>>>>> origin/master
 
         /********
          * The function displays the password
          * change view
          ********/
-<<<<<<< HEAD
 	public function getChangePassword() {
-=======
-    public function getChangePassword() {
->>>>>>> origin/master
 
             $demo = false;
             if (\Config::get('panel.demo') == true) {
@@ -131,32 +101,19 @@ class RemindersController extends Controller {
             }
 
             return \View::make('panelViews::passwordChange')->with('demo_status', $demo);
-<<<<<<< HEAD
 	}
-=======
-    }
->>>>>>> origin/master
 
          /********
          * After User enter the new password 
          * this function handles the resetting the
          * the password
          ********/
-<<<<<<< HEAD
 	public function postChangePassword() {
 
             \Config::set('auth.model', '\Serverfireteam\Panel\Admin');
 
             $user 		 = Admin::find(\Auth::user()->id);
             $password 	 = \Input::only('current_password');
-=======
-    public function postChangePassword() {
-
-            \Config::set('auth.model', '\Serverfireteam\Panel\Admin');
-
-            $user        = Admin::find(\Auth::user()->id);
-            $password    = \Input::only('current_password');
->>>>>>> origin/master
             $new_password    = \Input::only('password');
             $retype_password = \Input::only('password_confirmation');
             $user_password   = \Auth::user()->password;
@@ -177,9 +134,5 @@ class RemindersController extends Controller {
                                      ->with('message', 'Password is not correct!!')
                                      ->with('mesType', 'error');
             }
-<<<<<<< HEAD
 	}
-=======
-    }
->>>>>>> origin/master
 }
