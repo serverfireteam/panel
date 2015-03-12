@@ -30,12 +30,17 @@ class CrudController extends \App\Http\Controllers\Controller
         $this->setEntity($routeParamters['entity']);                      
     }
 
-    
+    /**
+    * @param string $entity name of the entity
+    */
     public function all($entity)
     {                                                          
         //$this->addStylesToGrid();                   
     }
     
+    /**
+    * @param string $entity name of the entity
+    */
     public function edit($entity)
     {
         

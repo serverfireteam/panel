@@ -29,7 +29,7 @@ class CreateControllerPanelCommand extends GeneratorCommand {
 	/**
 	 * Get the stub file for the generator.
 	 *
-	 * @return string
+	 * @return string Returns the stub file for generating the Controller
 	 */
 	protected function getStub()
 	{
@@ -38,14 +38,14 @@ class CreateControllerPanelCommand extends GeneratorCommand {
                     return __DIR__.'/stubs/controller.plain.stub';
             }
 
-            return base_path().'\vendor\serverfireteam\panel\src\Serverfireteam\Panel\stubs\panelController.stub';
+            return base_path().'/vendor/serverfireteam/panel/src/Serverfireteam/Panel/stubs/panelController.stub';
 	}
 
 	/**
 	 * Get the default namespace for the class.
 	 *
 	 * @param  string  $rootNamespace
-	 * @return string
+	 * @return string The namespace of the panel's controllers
 	 */
 	protected function getDefaultNamespace($rootNamespace)
 	{
@@ -55,6 +55,27 @@ class CreateControllerPanelCommand extends GeneratorCommand {
             } else {                
                 return $rootNamespace.'\Http\Controllers';
             }            
+	}
+        
+        /**
+	 * Execute the console command.
+	 *
+	 * @return void
+	 */
+	public function fire()
+	{
+            $name = $this->parseName($this->getNameInput()) . 'Controller';
+
+            if ($this->files->exists($path = $this->getPath($name)))
+            {
+                    return $this->error($this->type.' already exists!');
+            }
+
+            $this->makeDirectory($path);
+
+            $this->files->put($path, $this->buildClass($name));
+
+            $this->info($this->type.' created successfully.');
 	}
 
 	/**
