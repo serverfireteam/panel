@@ -16,10 +16,10 @@ class MainController extends \App\Http\Controllers\Controller {
 
         \Config::get('panel.panelControllers');
         
-        $urls = Link::returnUrls();
-
+        $urls = Link::getMainUrls();        
+               
         if ( in_array($entity, $urls)){
-            $controller_path = 'Serverfireteam\Panel\\'.$entity.'Controller';
+            $controller_path = 'Serverfireteam\Panel\\'.$entity.'Controller';            
         } else {           
             $panel_path = \Config::get('panel.controllers');
             if ( isset($panel_path) ){               

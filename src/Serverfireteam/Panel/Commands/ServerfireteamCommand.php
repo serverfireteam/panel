@@ -9,14 +9,14 @@ class panelCommand extends Command {
 	/**
 	 * The console command name.
 	 *
-	 * @var string
+	 * @var string holds the name of the command
 	 */
 	protected $name = 'panel:install';
 
 	/**
 	 * The console command description.
 	 *
-	 * @var string
+	 * @var string holds the description of the command
 	 */
 	protected $description = 'Installs  Panel  migrations, configs, views and assets.';
 
@@ -36,12 +36,13 @@ class panelCommand extends Command {
 	public function fire()
 	{
        
-        $this->info('            [ Wellcome to ServerFireTeam Panel Installations ]       ');
-        
-        $this->call('vendor:publish');
-        
-        $this->call('migrate', array('--path' => 'vendor/serverfireteam/panel/src/database/migrations'));
-        
+            $this->info('            [ Wellcome to ServerFireTeam Panel Installations ]       ');
+
+            $this->call('vendor:publish');
+
+            $this->call('migrate', array('--path' => 'vendor/serverfireteam/panel/src/database/migrations'));
+            
+            $this->call('db:seed', array('--class' => '\Serverfireteam\Panel\LinkSeeder'));
 	}
 
 	/**

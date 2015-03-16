@@ -17,6 +17,18 @@ class Link extends Model {
         return $allUrls;
     }
     
+    public static function getMainUrls(){
+        $configs = Link::where('main', '=', true)->get();
+        $mainUrls = array();
+        
+        foreach ( $configs as $config ){
+            $mainUrls[] = $config['url'];                        
+        }
+        return $mainUrls;
+    }
+    
+    //where('url', '=', 'Admin')->take(1)->get()
+    
     public function getAndSave($url, $display){
         $this->url = $url;
         $this->display = $display;

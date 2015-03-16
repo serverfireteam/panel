@@ -6,17 +6,15 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class CrudCommand extends Command {
 
-	/**
-	 * The console command name.
+	/**	 
 	 *
-	 * @var string
-	 */
+	 * @var string 
+	 */ 
 	protected $name = 'panel:crud';
 
-	/**
-	 * The console command description.
+	/**	 
 	 *
-	 * @var string
+	 * @var string the statement before installation starts
 	 */
 	protected $description = 'Installs  Panel  migrations, configs, views and assets.';
 

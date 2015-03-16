@@ -5,9 +5,11 @@ namespace Serverfireteam\Panel\libs;
 class dashboard
 {    
     
+    public static $urls; 
+    
     public static function create()
     {
-        $urls = \Config::get('panel.panelControllers');
+        self::$urls = \Config::get('panel.panelControllers');
         
         $config    = \Serverfireteam\Panel\Link::all();
         $dashboard = array();
@@ -16,9 +18,9 @@ class dashboard
         foreach ($config as $key => $value) {                        
 
 	    $modelName = $value['url'];           
-            if ( in_array($modelName, $urls)){
+            if ( in_array($modelName, self::$urls)) {
                $model = "Serverfireteam\Panel\\".$modelName;
-            }else{
+            } else {
                $model = "\App\\" . $modelName;
             }
 
@@ -28,8 +30,7 @@ class dashboard
                 'count'	  => $model::all()->count(),
                 'showListUrl' => 'panel/' . $modelName . '/all',
                 'addUrl'	  => 'panel/' . $modelName . '/edit',
-
-            );                          
+            );   
         }
 
 	return $dashboard;

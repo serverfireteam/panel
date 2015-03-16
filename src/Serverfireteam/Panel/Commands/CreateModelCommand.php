@@ -6,25 +6,23 @@ use Symfony\Component\Console\Input\InputOption;
 class CreateModelCommand extends GeneratorCommand {
 
 	/**
-	 * The console command name.
 	 *
-	 * @var string
+	 * @var string the console command name
 	 */
 	protected $name = 'panel:createmodel';
         
        
 
-	/**
-	 * The console command description.
+	/**	 
 	 *
-	 * @var string
+	 * @var string the console command dscription
 	 */
 	protected $description = 'Create a new Controller model class';
 
 	/**
 	 * The type of class being generated.
 	 *
-	 * @var string
+	 * @var string indicates the type which used for GeneratorCommand
 	 */
 	protected $type = 'Model';
 

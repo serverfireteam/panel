@@ -5,17 +5,15 @@ use Symfony\Component\Console\Input\InputOption;
 
 class CreateControllerPanelCommand extends GeneratorCommand {
 
-	/**
-	 * The console command name.
+	/**	
 	 *
-	 * @var string
+	 * @var string contains the command name
 	 */
 	protected $name = 'panel:createcontroller';
 
-	/**
-	 * The console command description.
+	/**	
 	 *
-	 * @var string
+	 * @var string contains the description of command
 	 */
 	protected $description = 'Create a new resource controller class';
 

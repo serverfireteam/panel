@@ -16,13 +16,13 @@ class CreateUrlTable extends Migration {
              {
                      $table->increments('id');
                      $table->string('display');
-                     $table->string('url');                     
+                     $table->string('url');
                      $table->timestamps();
                      // We'll need to ensure that MySQL uses the InnoDB engine to
                      // support the indexes, other engines aren't affected.
                      $table->engine = 'InnoDB';                     
-             });
-             Serverfireteam\Panel\Link::create(array(
+            });
+            Serverfireteam\Panel\Link::create(array(
                 'display' => 'Links',
                 'url' =>  'Link'
             ));
