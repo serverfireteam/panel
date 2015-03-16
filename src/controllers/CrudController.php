@@ -63,15 +63,7 @@ class CrudController extends \App\Http\Controllers\Controller
 
         $this->grid->orderBy('id', 'desc');     
         $this->grid->paginate(10);
-
-        $this->grid->row(function ($row) {
-            if ($row->cell('id')->value == 20) {
-                $row->style("background-color:#CCFF66");
-            } elseif ($row->cell('id')->value > 15) {
-                $row->cell('title')->style("font-weight:bold");
-                $row->style("color:#f00");
-            }
-        });
+        
     }
 
     public function returnView()
