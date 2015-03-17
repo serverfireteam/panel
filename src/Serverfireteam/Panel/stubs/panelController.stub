@@ -1,0 +1,25 @@
+<?php namespace {{namespace}};
+
+use {{rootNamespace}}Http\Requests;
+use {{rootNamespace}}Http\Controllers\Controller;
+use \Serverfireteam\Panel\CrudController;
+
+use Illuminate\Http\Request;
+
+class {{class}} extends CrudController{
+
+    public function all($entity){
+        parent::all($entity); 
+
+                 
+        return $this->returnView();
+    }
+    
+    public function  edit($entity){
+        
+        parent::edit($entity);
+
+       
+        return $this->returnEditView();
+    }    
+}

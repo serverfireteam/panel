@@ -3,7 +3,11 @@
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Translation;
 use Serverfireteam\Panel\libs;
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Foundation;
+use Serverfireteam\Panel\Commands;
 
 class PanelServiceProvider extends ServiceProvider
 {
@@ -13,30 +17,78 @@ class PanelServiceProvider extends ServiceProvider
     {
         // register  zofe\rapyd
         $this->app->register('Zofe\Rapyd\RapydServiceProvider');
-        // 'Maatwebsite\Excel\ExcelServiceProvider'
-        $this->app->register('Maatwebsite\Excel\ExcelServiceProvider');
+        // register html service provider 
+        $this->app->register('Illuminate\Html\HtmlServiceProvider');
+
+       // 'Maatwebsite\Excel\ExcelServiceProvider'
+        $this->app->register('Maatwebsite\Excel\ExcelServiceProvider');        
+        
+        
+        /*
+         * Create aliases for the dependency.
+         */
+        $loader = AliasLoader::getInstance();
+        $loader->alias('Form', 'Illuminate\Html\FormFacade');
+        $loader->alias('Html', 'Illuminate\Html\HtmlFacade');
+        $loader->alias('Excel', 'Maatwebsite\Excel\Facades\Excel');
+
         include __DIR__."/Commands/ServerfireteamCommand.php";
         $this->app['panel::install'] = $this->app->share(function()
         {
             return new \Serverfireteam\Panel\Commands\panelCommand();
         });
-
-        $this->commands('panel::install');
         
+        include __DIR__."/Commands/CrudCommand.php";
+        $this->app['panel::crud'] = $this->app->share(function()
+        {
+            return new \Serverfireteam\Panel\Commands\CrudCommand();
+        });
+        
+        
+        include __DIR__."/Commands/CreateModelCommand.php";
+        $this->app['panel::createmodel'] = $this->app->share(function()
+        {
+           $fileSystem = new Filesystem(); 
+           
+           return new \Serverfireteam\Panel\Commands\CreateModelCommand($fileSystem);
+        });
+        
+        include __DIR__."/Commands/CreateControllerCommand.php";
+        $this->app['panel::createcontroller'] = $this->app->share(function()
+        {
+           $fileSystem = new Filesystem(); 
+           
+           return new \Serverfireteam\Panel\Commands\CreateControllerPanelCommand($fileSystem);
+        });
+
+        $this->commands('panel::createmodel');
+        
+        $this->commands('panel::createcontroller');
+         
+        $this->commands('panel::install');
+
+        $this->commands('panel::crud');
+        $this->publishes([
+            __DIR__ . '/../../../public' => public_path('packages/serverfireteam/panel')
+        ]);
+        $this->publishes([
+            __DIR__.'/config/panel.php' => config_path('panel.php'),
+        ]);
     }
         
     public function boot()
     {        
-        $this->package('serverfireteam/panel');
 
-        $base_path  = base_path();
-        $base_path .= "/vendor/serverfireteam/panel/src/views";
-
-        \View::addLocation($base_path);
-        \View::addNamespace('panelViews', $base_path);  
-        $testModel = new Admin();
+     
+        $this->loadViewsFrom(__DIR__.'/../../views', 'panelViews');
+        $this->publishes([
+            __DIR__.'/../../views' => base_path('resources/views/vendor/panelViews'),
+        ]);
+        
         include __DIR__."/../../routes.php";
 
+	$this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/panel/src/lang', 'panel');
+        $this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/rapyd-laravel/lang', 'rapyd');
 
         AliasLoader::getInstance()->alias('Serverfireteam', 'Serverfireteam\Panel\Serverfireteam');
     }

@@ -1,7 +1,7 @@
 @extends('panelViews::mainTemplate')
 @section('page-wrapper')
     <p>
-        {{ $edit }}
+        {!! $edit !!}
     </p>
 @stop
 

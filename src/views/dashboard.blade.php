@@ -1,6 +1,6 @@
 @extends('panelViews::mainTemplate')
 @section('page-wrapper')
-
+        
             <div class="row">
 
                 <div class="col-lg-12">
@@ -11,7 +11,12 @@
             </div>
             <!-- /.row -->
             <div class="row box-holder">
+<<<<<<< HEAD
                 @if(is_array(\Config::get('panel::config.crudItems')))
+=======
+                
+                @if(is_array(\Serverfireteam\Panel\Link::returnUrls()))
+>>>>>>> origin/master
                     @foreach (Serverfireteam\Panel\libs\dashboard::create() as $box)
                     <div class="col-lg-3 col-md-6">
                         <div class="panel ">

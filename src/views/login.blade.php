@@ -9,7 +9,7 @@ login
                     
                     <div class="mes-box ">
                     @if($mesType=='error')<div class="error-box animated fadeInDown"><span class="ic-caution"></span> {{$message}}</div>@endif  
-                    @if($mesType=='info') <div class="info-box animated fadeInDown">{{$message}}</div>@endif
+                    @if($mesType=='info') <div class="info-box animated fadeInDown">{!!$message!!}</div>@endif
                     </div>
                     
                     <div class="login-panel panel panel-default animated fadeInDown">
@@ -19,9 +19,9 @@ login
                         </div>
                         <div class="panel-body">
                             <div class="logo-holder">
-                                <img src="{{asset(Config::get('panel::config.logo'))}}" />
+                                <img src="{{asset(Config::get('panel.logo'))}}" />
                             </div>
-                            {{ Form::open(array('url' => 'panel/login')) }}
+                            {!! Form::open(array('url' => 'panel/login')) !!}
                                 <fieldset>
                                     <div class="form-group">
                                         <input class="form-control" placeholder="UserName" name="email" type="text" autofocus>
@@ -40,7 +40,7 @@ login
                                     <!-- Change this to a button or input when using this as a form -->
                                     <input type="submit"  class="btn btn-lg btn-success btn-block" value="Login">
                                 </fieldset>
-                            {{ Form::close() }}
+                            {!! Form::close() !!}
                         </div>
                     </div>
                 </div>

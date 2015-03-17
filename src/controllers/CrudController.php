@@ -1,7 +1,7 @@
 <?php
 namespace Serverfireteam\Panel;
 
-use \Illuminate\Routing\Controllers; 
+
 /*  
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,7 +9,7 @@ use \Illuminate\Routing\Controllers;
  */
 
 
-class CrudController extends \Controller
+class CrudController extends \App\Http\Controllers\Controller
 {
 
     
@@ -18,24 +18,29 @@ class CrudController extends \Controller
     public $set;
     public $edit;
     public $filter;
-    
-     public function __construct()
+    protected $lang;
+
+    public function __construct(\Lang $lang)
     {         
        // $this->entity = $params['entity'];
-        $routeParamters = \Route::current()->parameters();      
-        $this->setEntity($routeParamters['entity']);
-                      
+        $route = \App::make('route');
+        $this->lang = $lang;
+        $this->route = $route;
+        $routeParamters = $route::current()->parameters();      
+        $this->setEntity($routeParamters['entity']);                      
     }
 
-    
+    /**
+    * @param string $entity name of the entity
+    */
     public function all($entity)
-    {
-                                
-                          
-        //$this->addStylesToGrid();
-                   
+    {                                                          
+        //$this->addStylesToGrid();                   
     }
     
+    /**
+    * @param string $entity name of the entity
+    */
     public function edit($entity)
     {
         
@@ -58,25 +63,17 @@ class CrudController extends \Controller
 
         $this->grid->orderBy('id', 'desc');     
         $this->grid->paginate(10);
-
-        $this->grid->row(function ($row) {
-            if ($row->cell('id')->value == 20) {
-                $row->style("background-color:#CCFF66");
-            } elseif ($row->cell('id')->value > 15) {
-                $row->cell('title')->style("font-weight:bold");
-                $row->style("color:#f00");
-            }
-        });
+        
     }
 
     public function returnView()
     {
-        $configFile = \Config::get('panel::config.crudItems');
-                
-        if ( !isset($configFile) || $configFile == null ){   
-            throw new Exception('Config File Has Not Been Properly Set Yet');                                                      
-        } else if( !in_array($this->entity, $configFile)){
-            throw new Exception('This Controller is not set in Config file yet!');                                                                            
+        $configs = \Serverfireteam\Panel\Link::returnUrls();
+               
+        if ( !isset($configs) || $configs == null ){   
+            throw new \Exception('NO URL is set for yet');                                                      
+        } else if( !in_array($this->entity, $configs)){
+            throw new \Exception('This url is not set yet!');                                                                            
         } else {        
             return \View::make('panelViews::all', array(
              'grid' 	      => $this->grid,
@@ -88,17 +85,13 @@ class CrudController extends \Controller
     
     public function returnEditView()
     {
-        $configFile = \Config::get('panel::config.crudItems');
+        $configs = \Serverfireteam\Panel\Link::returnUrls();
                 
-        if ( !isset($configFile) || $configFile == null ){                      
-            return \View::make('panelViews::configError', array(
-                 'message' => 'Config File Has Not Been Properly Set Yet'
-            ));             
-        } else if( !in_array($this->entity, $configFile)){
-             return \View::make('panelViews::configError', array(
-                 'message' => 'This Controller is not set in Config file yet!'
-            ));            
-        } else {        
+        if ( !isset($configs) || $configs == null ){   
+            throw new \Exception('NO URL is set for yet');                                                      
+        } else if( !in_array($this->entity, $configs)){
+            throw new \Exception('This url is set yet !');                                                                            
+        }  else {        
            return \View::make('panelViews::edit', array(
              'edit' => $this->edit
             )); 
@@ -106,7 +99,10 @@ class CrudController extends \Controller
     }
     
      public function finalizeFilter(){
-        $this->filter->submit(\Lang::get('panel::fields.search'));
-        $this->filter->reset(\Lang::get('panel::fields.reset'));
+        $lang = \App::make('lang');
+        $this->filter->submit($this->lang->get('panel::fields.search'));
+        $this->filter->reset($this->lang->get('panel::fields.reset'));
     }
+    
+    
 }

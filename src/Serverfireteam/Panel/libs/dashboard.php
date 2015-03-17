@@ -1,31 +1,38 @@
 <?php
 namespace Serverfireteam\Panel\libs;
 
+
 class dashboard
-{
+{    
+    
+    public static $urls; 
     
     public static function create()
     {
-        $config = \Config::get('panel::config.crudItems');
+        self::$urls = \Config::get('panel.panelControllers');
+        
+        $config    = \Serverfireteam\Panel\Link::all();
         $dashboard = array();
-        //Make Dashboard Items
-        foreach ( $config as $key => $value ){
-            if(class_exists($value))
-                $dashboard[] = array(
-                    'title'=>$key,
-                    'count'=> $value::all()->count(),
-                    'showListUrl'=>'panel/'.$value.'/all',
-                    'addUrl'=>'panel/'.$value.'/edit',
-                     );
-            else
-                throw new \Exception('Model name doesnt match config.crudItems in '.$value);
-        }
-         
-         return $dashboard;
-    }
-    
-   
-    
-    
-}
 
+        // Make Dashboard Items
+        foreach ($config as $key => $value) {                        
+
+	    $modelName = $value['url'];           
+            if ( in_array($modelName, self::$urls)) {
+               $model = "Serverfireteam\Panel\\".$modelName;
+            } else {
+               $model = "\App\\" . $modelName;
+            }
+
+            //if (class_exists($value)) {
+            $dashboard[] = array(
+                'title'	  => $value['display'],
+                'count'	  => $model::all()->count(),
+                'showListUrl' => 'panel/' . $modelName . '/all',
+                'addUrl'	  => 'panel/' . $modelName . '/edit',
+            );   
+        }
+
+	return $dashboard;
+    }
+}

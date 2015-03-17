@@ -8,8 +8,11 @@ use Serverfireteam\Panel\libs;
  * and open the template in the editor.
  */
 
- if (\Request::is('panel*'))
+
+
+if (\Request::is('panel*'))
 {
+    
     \Config::set('auth.model', 'Serverfireteam\Panel\Admin');
     \Route::filter('auth', function()
     {                
@@ -22,6 +25,7 @@ use Serverfireteam\Panel\libs;
             return \Redirect::to('/panel/login')->with('message', $message)->with('mesType', 'message');
         }
     });
+    
 }
 
 
@@ -36,15 +40,28 @@ Route::group(array('prefix' => 'panel' ,'before' => 'auth'), function()
         return View::make('panelViews::dashboard');
     });
 
+<<<<<<< HEAD
     Route::any('/{entity}/{methods}',  array('uses' => 'Serverfireteam\Panel\MainController@entityUrl'));
     Route::any('/{entity}/export/{type}',  array('uses' => 'Serverfireteam\Panel\ExportController@index'));
     Route::post('/edit',array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));
     Route::get('/edit',array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit'));
 
+=======
+   
+    Route::get('/createUser', array('uses' => 'Serverfireteam\Panel\UsersController@getCreateUser'));
+    Route::post('/createUser', array('uses' => 'Serverfireteam\Panel\UsersController@postCreateUser'));
+    Route::any('/{entity}/export/{type}', array('uses' => 'Serverfireteam\Panel\ExportImportController@export'));
+    Route::post('/{entity}/import', array('uses' => 'Serverfireteam\Panel\ExportImportController@import'));
+    Route::any('/{entity}/{methods}', array('uses' => 'Serverfireteam\Panel\MainController@entityUrl'));
+    Route::post('/edit', array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));
+    Route::get('/edit', array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit'));
+    
+  
+>>>>>>> origin/master
     Route::get('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@getChangePassword'));
+    
     Route::post('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@postChangePassword'));
 });
-
 
 
 Route::post('/panel/login', array('uses' => 'Serverfireteam\Panel\AuthController@postLogin'));
@@ -52,6 +69,8 @@ Route::post('/panel/login', array('uses' => 'Serverfireteam\Panel\AuthController
 Route::get('/panel/password/reset/{token}', function ($token){
     return View::make('panelViews::passwordReset')->with('token', $token);
 });
+
+
 
 Route::get('/panel/logout', array('uses' => 'Serverfireteam\Panel\AuthController@doLogout'));
 
@@ -64,10 +83,11 @@ Route::get('/panel/remind',  array('uses' => 'Serverfireteam\Panel\RemindersCont
 Route::post('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersController@postRemind')); 
   
 
-
 Route::get('/panel/login',  array('uses' => 'Serverfireteam\Panel\AuthController@getLogin'));
 
 
+/*
+bug with laravel 5
 App::error(function($exception, $code)
 {
     switch ($code)
@@ -75,7 +95,7 @@ App::error(function($exception, $code)
         case 404:
             return Response::view('panelViews::404', array(), 404);
     }
-});
+});*/
 
 
  

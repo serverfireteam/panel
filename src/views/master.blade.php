@@ -3,6 +3,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="shortcut icon" href="{{asset('packages/serverfireteam/panel/favicon.ico')}}" type="image/x-icon">
+    <link rel="icon" href="{{asset('packages/serverfireteam/panel/favicon.ico')}}" type="image/x-icon">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -80,18 +83,14 @@
     <script src="{{asset("packages/serverfireteam/rapyd-laravel/assets/template/handlebars.js")}}"></script>
     <script src="{{asset("packages/serverfireteam/rapyd-laravel/assets/autocomplete/bootstrap-tagsinput.min.js")}}"></script>
     <script src="{{asset("packages/serverfireteam/rapyd-laravel/assets/colorpicker/js/bootstrap-colorpicker.min.js")}}"></script>
+<<<<<<< HEAD
     
+=======
+>>>>>>> origin/master
 
-    {{ Rapyd::scripts() }}
+    
+    {!! Rapyd::scripts() !!} 
+    
 </body>
 
 </html>
-
-<?php
-
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
