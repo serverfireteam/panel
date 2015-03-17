@@ -64,7 +64,7 @@ body{
     border-radius: 250px;
     box-shadow:0px 1px 1px rgba(0,0,0,1);
     img{
-        width:110px;
+        width:110px; 
         border-radius: 250px;
         border:7px solid rgba(255,255,255,.2); 
     }
@@ -177,6 +177,7 @@ body{
 {
     .items-bar
     {
+        position: absolute;
         padding: 11px 5px;
         text-align: right;
         float: right;
@@ -192,11 +193,13 @@ body{
 }
 #side-menu{
     overflow: hidden;
-    a{display: inline-block;}
+    a{display: inline-block; max-width: 120px;}
     a:first{display: block}
     .badge{
         float: right;
-        margin: 11px; 
+        margin: 11px;
+        position: absolute;
+        right: 0px;
     }
 
 li:hover{ 

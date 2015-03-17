@@ -22,6 +22,7 @@ return array(
     'password' => 'Password',
     'rePassword' => 'Re-Type Password',
     'resetPassword' => 'Reset Password',
+    'ChangePassword' => 'Change Password',
     'dashboard' => 'Dashboard',
     'visiteSite' => 'Visit Site',
     'change' => 'change',

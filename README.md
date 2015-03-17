@@ -32,15 +32,14 @@ Pass: 12345
 
 
 
-##Installations for laravel 4
+##Installations 
 Note: if you face any problem in any of the steps you should report it at [github](https://github.com/serverfireteam/panel/issues/new)
-
-Note : we are working on laravel 5 version in laravel5 bransh of repo 
 
 1. First you need to create a laravel 5 (or laravel 4.2) project.
 
-2. Add our package to require section of composer (Since we haven't released the laravel 5 version yet, for laravel 5 replace "1.1.*" with "dev-laravel5") :
+2. Add our package to require section of composer 
 
+    Laravel 4 :    
     ```json
     {
         "require": {
@@ -48,6 +47,15 @@ Note : we are working on laravel 5 version in laravel5 bransh of repo
         },
     }
     ```
+    Laravel 5 :
+    ```json
+    {
+        "require": {
+            "serverfireteam/panel": "1.2.*"
+        },
+    }
+    ```
+
 And run the composer update command, the package and its dependencies will be installed.
 
 

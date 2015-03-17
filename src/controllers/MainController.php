@@ -14,8 +14,6 @@ class MainController extends \App\Http\Controllers\Controller {
     
     public function entityUrl($entity, $methods){
 
-        \Config::get('panel.panelControllers');
-        
         $urls = Link::getMainUrls();        
                
         if ( in_array($entity, $urls)){
