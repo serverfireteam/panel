@@ -1,8 +1,10 @@
 <?php
 
 namespace Serverfireteam\Panel;
+
 use Illuminate\Support\Facades\Session as session;
-use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
+
 class AuthController extends Controller {
 
     /**

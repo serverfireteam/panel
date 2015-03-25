@@ -1,8 +1,8 @@
 <?php
 namespace Serverfireteam\Panel;
 
-use \App\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\PasswordBroker as PasswordBrokerContract;
+use Illuminate\Routing\Controller;
 
 /*******
  * The RemindersControler handle the users Password reminding activities

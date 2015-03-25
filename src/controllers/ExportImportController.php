@@ -2,7 +2,7 @@
 
 namespace Serverfireteam\Panel;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 
 class ExportImportController extends Controller {
 

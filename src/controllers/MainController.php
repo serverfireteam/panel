@@ -8,8 +8,9 @@
 namespace Serverfireteam\Panel;
 
 use \Serverfireteam\Panel\libs\PanelElements;
+use Illuminate\Routing\Controller;
 
-class MainController extends \App\Http\Controllers\Controller {
+class MainController extends Controller {
 
     
     public function entityUrl($entity, $methods){

@@ -1,7 +1,7 @@
 <?php
 namespace Serverfireteam\Panel;
 
-use \App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 
 class ProfileController extends Controller {
 
