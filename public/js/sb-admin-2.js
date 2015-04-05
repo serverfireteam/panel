@@ -28,8 +28,8 @@ $(function() {
 $(document ).ready(function(){
     
      $('.loading').fadeOut('normal'); 
-     $('.box-holder,.table').addClass('animated fadeInRight');
-     $('.dashboard-title').addClass('animated fadeInUp');
+    // $('.box-holder,.table').addClass('animated fadeInRight');
+   //  $('.dashboard-title').addClass('animated fadeInUp');
 
    
 })
