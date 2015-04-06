@@ -2,9 +2,9 @@
 @extends('panelViews::mainTemplate')
 @section('page-wrapper')
 
-@if(Session::has('message'))
+@if (!empty($message))
     <div class="alert-box success">
-        <h2>{{ Session::get('message') }}</h2>
+        <h2>{{ $message }}</h2>
     </div>
 @endif
 
