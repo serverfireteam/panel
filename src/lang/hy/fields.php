@@ -36,5 +36,5 @@ return array(
     'importDataSuccess' => 'Տվյալները հաջողութեամբ Ներմուծվել են:',
     'importDataFailure' => 'Տվյալների ներմուծումը ձախողվեց, խնդրում ենք ստուգել տվյալների վավերացումը:',
     'successfullReset' => 'Ձեր գաղտնաբառը հաջողությամբ վերականգնվել է:',
-    'successfullEditProfile' => 'Your profile is edited successfully.'
+    'successfullEditProfile' => 'Ձեր անձնագիրը հաջողությամբ խմբագրվել է:'
 );
