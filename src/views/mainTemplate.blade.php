@@ -37,30 +37,32 @@ dashboard
                       <div class="grav center"><img src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( Auth::user()->email ) ) )}}?d=mm&s=128" ><a href="https://www.gravatar.com"><span> {{ \Lang::get('panel::fields.change') }}</span></a></div>
                       <div class="user-info">{{Auth::user()->first_name.' '.Auth::user()->last_name}}</div>
                       <a class="visit-site" href="{{$app['url']->to('/')}}">{{ \Lang::get('panel::fields.visiteSite') }}  </a>
-                    <ul class="nav" id="side-menu">
-                            <li class="{{ (Request::url() === url('panel')) ? 'active' : '' }}">
-                                <a  href="{{ url('panel') }}" ><i class="fa fa-dashboard fa-fw"></i> {{ \Lang::get('panel::fields.dashboard') }}</a>
-                            </li>
-                            
-                            
-                         {{--*/ $links  = \Serverfireteam\Panel\Link::all(); /*--}}   
-                        
-                         @foreach($links as $key => $value )
-                         
-                         @if ( in_array($value['url'], $urls))
-                          {{--*/ $model = "Serverfireteam\Panel\\".$value['url'] /*--}}
-                            <li class="{{ (Request::segment(2)==$value['url'])?'active':'' }}">
-                                <a  href="{{ url('panel/'.$value['url'].'/all') }}" class="{{ (Request::segment(2)==$value['url'])?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$value['display']}}}  </a>   <span class="badge pull-right">{!!$model::all()->count()!!}</span> <div class="items-bar"> <a href="{{ url('panel/'.$value['url'].'/edit') }}" class="">add</a> <a href="{{ url('panel/'.$value['url'].'/all') }}"> list </a>  </div>    
-                                     
-                            </li>
-                         @else
-			    {{--*/ $model = "\App\\".$value['url'] /*--}}
-                            <li class="{{ (Request::segment(2)==$value['url'])?'active':'' }}">
-                                <a  href="{{ url('panel/'.$value['url'].'/all') }}" ><i class="fa fa-edit fa-fw"></i> {{{$value['display']}}} <span class="badge pull-right">{!!$model::all()->count()!!}</span></a>
-                            </li>
-                         @endif
-                         @endforeach
-                    </ul>     
+                      <ul class="nav" id="side-menu">
+                              <li class="{{ (Request::url() === url('panel')) ? 'active' : '' }}">
+                                  <a  href="{{ url('panel') }}" ><i class="fa fa-dashboard fa-fw"></i> {{ \Lang::get('panel::fields.dashboard') }}</a>
+                              </li>
+                              
+                              
+                               {{--*/ $links  = \Serverfireteam\Panel\Link::all(); /*--}}   
+                              
+                               @foreach($links as $key => $value )
+                               
+                               @if ( in_array($value['url'], $urls))
+                                {{--*/ $model = "Serverfireteam\Panel\\".$value['url'] /*--}}
+                                  <li >
+                                      <a  href="{{ url('panel/'.$value['url'].'/all') }}" class=" s-link {{ (Request::segment(2)==$value['url'])?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$value['display']}}}  </a>   <span class="badge pull-right">{!!$model::all()->count()!!}</span> <div class="items-bar"> <a href="{{ url('panel/'.$value['url'].'/edit') }}" class="ic-plus" title="Add"></a> <a  title="List" class="ic-lines" href="{{ url('panel/'.$value['url'].'/all') }}">  </a>  </div>    
+                                           
+                                  </li>
+                               @else
+      			    {{--*/  $appHelper = new \Serverfireteam\Panel\libs\AppHelper(); /*--}}
+                                
+                            {{--*/  $model = $appHelper->getNameSpace().$value['url'] /*--}}
+                                  <li class="s-link {{ (Request::segment(2)==$value['url'])?'active':'' }}">
+                                      <a  href="{{ url('panel/'.$value['url'].'/all') }}" class="{{ (Request::segment(2)==$value['url'])?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$value['display']}}}  </a>   <span class="badge pull-right">{!!$model::all()->count()!!}</span> <div class="items-bar"> <a href="{{ url('panel/'.$value['url'].'/edit') }}" class="ic-plus" title="Add" ></a> <a  title="List" class="ic-lines" href="{{ url('panel/'.$value['url'].'/all') }}" >  </a>  </div>        
+                                  </li>
+                               @endif
+                               @endforeach
+                      </ul>     
                       
                         </li>
                     </ul>

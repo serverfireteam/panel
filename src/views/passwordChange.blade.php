@@ -21,7 +21,7 @@
 				<label>{{ \Lang::get('panel::fields.rePassword') }}</label>
 				<input class="form-control" type="password" name="password_confirmation"><br />
 				<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
-				<input class="btn btn-default" type="submit" value="{{ \Lang::get('panel::fields.resetPassword') }}">
+				<input class="btn btn-default" type="submit" value="{{ \Lang::get('panel::fields.ChangePassword') }}">
 			</form>
 		</div>
 	</div>

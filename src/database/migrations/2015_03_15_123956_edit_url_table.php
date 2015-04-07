@@ -14,7 +14,7 @@ class EditUrlTable extends Migration {
 	{
             Schema::table('links', function($table)
             {
-                $table->boolean('main');
+                $table->boolean('main')->nullable();
             });
 	}
 

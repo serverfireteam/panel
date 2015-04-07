@@ -8,8 +8,9 @@ namespace Serverfireteam\Panel;
  * and open the template in the editor.
  */
 
+use Illuminate\Routing\Controller;
 
-class CrudController extends \App\Http\Controllers\Controller
+class CrudController extends Controller
 {
 
     

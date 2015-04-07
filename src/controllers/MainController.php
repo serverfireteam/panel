@@ -8,14 +8,14 @@
 namespace Serverfireteam\Panel;
 
 use \Serverfireteam\Panel\libs\PanelElements;
+use Illuminate\Routing\Controller;
 
-class MainController extends \App\Http\Controllers\Controller {
+class MainController extends Controller {
 
     
     public function entityUrl($entity, $methods){
 
-        \Config::get('panel.panelControllers');
-        
+        $appHelper = new libs\AppHelper(); 
         $urls = Link::getMainUrls();        
                
         if ( in_array($entity, $urls)){
@@ -25,7 +25,7 @@ class MainController extends \App\Http\Controllers\Controller {
             if ( isset($panel_path) ){               
                $controller_path = '\\'.$panel_path.'\\'.$entity.'Controller';                
             } else {
-                $controller_path = 'App\Http\Controllers\\'.$entity.'Controller';            
+                $controller_path = $appHelper->getNameSpace().'Http\Controllers\\'.$entity.'Controller';            
             }                        
         }     
                

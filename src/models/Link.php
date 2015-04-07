@@ -34,6 +34,7 @@ class Link extends Model {
         $this->display = $display;
         $this->save();
     }
+       
 
     protected $fillable = array('url', 'display');
 

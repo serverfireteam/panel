@@ -22,6 +22,7 @@ return array(
     'password' => 'Գաղտնաբառ',
     'rePassword' => 'Կրկնել Գաղտնաբառը',
     'resetPassword' => 'Վերականգնել Գաղտնաբառը',
+    'ChangePassword' => 'Վերականգնել Գաղտնաբառը',
     'dashboard' => 'Վահանակ',
     'visiteSite' => 'Այցելել Կայքը',
     'change' => 'Փոխել',

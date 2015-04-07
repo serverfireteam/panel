@@ -24,9 +24,15 @@ login
                             {!! Form::open(array('url' => 'panel/login')) !!}
                                 <fieldset>
                                     <div class="form-group">
+					@if (\Config::get('panel.demo') == true)
+						<p><i>Demo Username: admin@change.me</i></p>
+					@endif
                                         <input class="form-control" placeholder="UserName" name="email" type="text" autofocus>
                                     </div>
                                     <div class="form-group">
+					@if (\Config::get('panel.demo') == true)
+						<p><i>Demo Password: 12345</i></p>
+					@endif
                                         <input class="form-control" placeholder="Password" name="password" type="password" value="">
                                     </div>
                                     <div class="checkbox">

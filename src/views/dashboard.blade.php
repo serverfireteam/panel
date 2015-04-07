@@ -28,7 +28,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <a href="#">
                                 <div class="panel-footer">
 
                                      <a href='{{$box['showListUrl']}}' class="pull-left">{{ \Lang::get('panel::fields.showList') }} <i class="icon ic-chevron-right"></i></a>
@@ -36,7 +35,6 @@
 
                                     <div class="clearfix"></div>
                                 </div>
-                            </a>
                         </div>
                     </div>
                     @endforeach

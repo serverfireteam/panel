@@ -38,10 +38,17 @@ class LinkController extends CrudController{
 
         $this->edit = \DataEdit::source(new Link());
 
+        Link::creating(function($link)
+        {
+            //dd(__DIR__);
+            $appHelper = new libs\AppHelper();
+            return ( class_exists( $appHelper->getNameSpace() . $link['url'] ));            
+        });
+        
         $this->edit->label('Edit Admin');
-        $this->edit->link("rapyd-demo/filter","Articles", "TR")->back();
-        $this->edit->add('display','Display', 'text');
-        $this->edit->add('url','link', 'text');
+        $this->edit->link("rapyd-demo/filter", "Articles", "TR")->back();
+        $this->edit->add('display', 'Display', 'text');
+        $this->edit->add('url', 'link', 'text');
         return $this->returnEditView();
     }
 }

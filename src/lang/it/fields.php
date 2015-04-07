@@ -22,6 +22,7 @@ return array(
     'password' => 'Password',
     'rePassword' => 'Reinserisci la Password',
     'resetPassword' => 'Inizializza la Password',
+    'ChangePassword' => 'Resetta la Password',
     'dashboard' => 'Pannello di controllo',
     'visiteSite' => 'Visita il Sito',
     'change' => 'cambia',
