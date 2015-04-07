@@ -15,7 +15,7 @@
     <link media="all" type="text/css" rel="stylesheet" href="{{asset("packages/zofe/rapyd/assets/autocomplete/autocomplete.css")}}">
     <link media="all" type="text/css" rel="stylesheet" href="{{asset("packages/zofe/rapyd/assets/autocomplete/bootstrap-tagsinput.css")}}">
     <link media="all" type="text/css" rel="stylesheet" href="{{asset("packages/zofe/rapyd/assets/colorpicker/css/bootstrap-colorpicker.min.css")}}">
-
+    <link media="all" type="text/css" rel="stylesheet" href="{{asset("packages/serverfireteam/rapyd-laravel/assets/colorpicker/css/bootstrap-colorpicker.min.css")}}" >
 
     <title>@yield('title')</title>
     <!-- compiled styles -->
@@ -82,6 +82,7 @@
     <script src="{{asset("packages/zofe/rapyd/assets/template/handlebars.js")}}"></script>
     <script src="{{asset("packages/zofe/rapyd/assets/autocomplete/bootstrap-tagsinput.min.js")}}"></script>
     <script src="{{asset("packages/zofe/rapyd/assets/colorpicker/js/bootstrap-colorpicker.min.js")}}"></script>
+    <script src="{{asset("packages/serverfireteam/rapyd-laravel/assets/colorpicker/js/bootstrap-colorpicker.min.js")}}"></script>
 
     
     {!! Rapyd::scripts() !!} 

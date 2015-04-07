@@ -15,7 +15,9 @@ class MainController extends Controller {
     
     public function entityUrl($entity, $methods){
 
+
         $appHelper = new libs\AppHelper(); 
+
         $urls = Link::getMainUrls();        
                
         if ( in_array($entity, $urls)){

@@ -33,7 +33,8 @@
             "src/controllers",
             "src/views",
             "src/models",
-            "src/database/migrations"
+            "src/database/migrations",
+  	    "src/Serverfireteam/Panel/Commands"
         ],
         "psr-0": {
             "Serverfireteam\\Panel": "src/"

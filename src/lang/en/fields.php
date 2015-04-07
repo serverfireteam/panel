@@ -35,5 +35,6 @@ return array(
     'close' => 'Close',
     'importDataSuccess' => 'Data is imported successfully.',
     'importDataFailure' => 'Data import failed, please check the validation of data.',
-    'successfullReset' => 'Your password has been reset successfully!'
+    'successfullReset' => 'Your password has been reset successfully!',
+    'successfullEditProfile' => 'Your profile is edited successfully.'
 );

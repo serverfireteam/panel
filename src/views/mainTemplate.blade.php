@@ -10,8 +10,14 @@ dashboard
  /*--}}         
        
     <div class="loading">
-        <div class="rnd-box"><div class="inner-box"></div></div>
         <h1> LOADING </h1>
+        <div class="spinner">
+          <div class="rect1"></div>
+          <div class="rect2"></div>
+          <div class="rect3"></div>
+          <div class="rect4"></div>
+          <div class="rect5"></div>
+        </div>
     </div>
 
     <div id="wrapper">
@@ -54,10 +60,11 @@ dashboard
                                            
                                   </li>
                                @else
+
       			    {{--*/  $appHelper = new \Serverfireteam\Panel\libs\AppHelper(); /*--}}
                                 
-                            {{--*/  $model = $appHelper->getNameSpace().$value['url'] /*--}}
-                                  <li class="s-link {{ (Request::segment(2)==$value['url'])?'active':'' }}">
+                {{--*/  $model = $appHelper->getNameSpace().$value['url'] /*--}}
+             <li class="s-link {{ (Request::segment(2)==$value['url'])?'active':'' }}">
                                       <a  href="{{ url('panel/'.$value['url'].'/all') }}" class="{{ (Request::segment(2)==$value['url'])?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$value['display']}}}  </a>   <span class="badge pull-right">{!!$model::all()->count()!!}</span> <div class="items-bar"> <a href="{{ url('panel/'.$value['url'].'/edit') }}" class="ic-plus" title="Add" ></a> <a  title="List" class="ic-lines" href="{{ url('panel/'.$value['url'].'/all') }}" >  </a>  </div>        
                                   </li>
                                @endif
