@@ -25,7 +25,7 @@ class EditUrlTable extends Migration {
 	 */
 	public function down()
 	{	
-            Schema::drop('links');
+
 	}
 
 }
