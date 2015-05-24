@@ -9,7 +9,12 @@ class ProfileController extends Controller {
 
 	$admin = Admin::find(\Auth::user()->id);
 
-        return \View('panelViews::editProfile')->with('admin', $admin);
+        $demo = false;
+        if (\Config::get('panel.demo') == true) {
+		$demo = true;
+        }
+
+        return \View('panelViews::editProfile')->with('admin', $admin)->with('demo_status', $demo);
     }
 
     public function postEdit() {
