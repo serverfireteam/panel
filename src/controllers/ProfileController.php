@@ -19,11 +19,17 @@ class ProfileController extends Controller {
 
     public function postEdit() {
 
+        $demo = false;
+        if (\Config::get('panel.demo') == true) {
+		$demo = true;
+        }
+
         $admin  = Admin::find(\Auth::user()->id);
         $inputs = \Input::all();
         $admin->update($inputs);
         $admin->save();
-        return \View('panelViews::editProfile')->with(array('admin'   => $admin,
-                                                            'message' => \Lang::get('panel::fields.successfullEditProfile')));
+        return \View('panelViews::editProfile')->with(array('admin'   	  => $admin,
+                                                            'message'	  => \Lang::get('panel::fields.successfullEditProfile'),
+							    'demo_status' => $demo));
     }
 }
