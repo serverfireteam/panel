@@ -1,10 +1,10 @@
-#Serverfireteam Panel Package
+#LaravelPanel
 
 [![Total Downloads](https://poser.pugx.org/serverfireteam/panel/downloads.svg)](https://packagist.org/packages/serverfireteam/panel)
 [![Latest Stable Version](https://poser.pugx.org/serverfireteam/panel/v/stable.svg)](https://packagist.org/packages/serverfireteam/panel)
 [![License](https://poser.pugx.org/serverfireteam/panel/license.svg)](https://packagist.org/packages/serverfireteam/panel)
 
-**Serverfireteam/panel** is a modern Laravel Admin package. 
+**LaravelPanel** is a modern Laravel Admin package. 
 
 This package provides an easily configurable admin panel for Laravel 5 and Laravel 4.2 applications with a CRUD system, UI and more.
 
@@ -39,14 +39,6 @@ Note: if you face any problem in any of the steps you should report it at [githu
 
 2. Add our package to require section of composer 
 
-    Laravel 4 :    
-    ```json
-    {
-        "require": {
-            "serverfireteam/panel": "1.1.*"
-        },
-    }
-    ```
     Laravel 5 :
     ```json
     {
@@ -55,6 +47,16 @@ Note: if you face any problem in any of the steps you should report it at [githu
         },
     }
     ```
+    
+    Laravel 4 :    
+    ```json
+    {
+        "require": {
+            "serverfireteam/panel": "1.1.*"
+        },
+    }
+    ```
+
 
 And run the composer update command, the package and its dependencies will be installed.
 
@@ -83,19 +85,14 @@ And run the composer update command, the package and its dependencies will be in
 ## Learn to add CRUD 
 We have [WIKI](https://github.com/serverfireteam/panel/wiki) for how to do thing.
 
-#Contribution guidelines 
-Fork it, add the link of your forked repo to you composer.json, edit it and send it to us. 
 
 #Credits 
 [SB-admin](http://startbootstrap.com/template-overviews/sb-admin/) for admin template.
 A forked repo of [rapyd](http://rapyd.com) for CRUD system.
 
-
-
 ##RoadMap
 We are going to develop this package every day and new ideas are welcome.
-We have a [Trello](https://trello.com/b/RDZ6HdK9/framework) board for project, you can check it and send your feedbacks. 
-Follow us on twitter[@serverfireteam](http://twitter.com/serverfireteam) .
+
 
 Thank you for using our package 
 
