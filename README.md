@@ -82,8 +82,8 @@ And run the composer update command, the package and its dependencies will be in
     password : 12345
 
 
-## Learn to add CRUD 
-We have [WIKI](https://github.com/serverfireteam/panel/wiki) for how to do thing.
+## Documents    
+[laravelpanel.com/docs/master](http://laravelpanel.com/docs/master) 
 
 
 #Credits 
