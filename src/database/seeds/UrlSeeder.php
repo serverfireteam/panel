@@ -10,9 +10,9 @@ class UrlSeeder extends Seeder {
 
     public function run()
     {        
-        $link = Link::where('url', '=', 'Link')->take(1)->get();
+      /*  $link = Link::where('url', '=', 'Link')->take(1)->get();
         var_dump($link);
-        exit();
+        exit();*/
     }
 
 }
