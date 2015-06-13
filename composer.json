@@ -1,6 +1,6 @@
 {
     "name": "serverfireteam/panel",
-    "description": "This package provides an easily configurable admin panel for Laravel 5 applications",
+    "description": "Admin panel for Laravel 5 applications",
     "keywords": ["Laravel", "Panel", "Crud", "Nice Design","Admin Panel","CMS","administrator", "admin", "backend"],
     "license": "MIT",
     "authors": [
