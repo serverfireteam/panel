@@ -45,32 +45,6 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="{{asset("packages/serverfireteam/panel/js/bootstrap.min.js")}}"></script>
 
-    <!-- Metis Menu Plugin JavaScript -->
-    <script src="{{asset("packages/serverfireteam/panel/js/plugins/metisMenu/metisMenu.min.js")}}"></script>
-    <script type="text/javascript" src="{{asset("packages/serverfireteam/panel/js/plugins/tinymce/tinymce.min.js")}}" ></script>
-    <script type="text/javascript">
-        tinymce.init({
-            selector: "textarea",
-            menubar: false,
-        toolbar_items_size: 'small',
-         protect: [
-        /\<\/?(if|endif)\>/g, // Protect <if> & </endif>
-        /\<xsl\:[^>]+\>/g, // Protect <xsl:...>
-        /<\?php.*?\?>/g // Protect php code
-        ],
-       plugins: [
-                "sh4tinymce advlist autolink autosave link image lists charmap print preview hr anchor pagebreak spellchecker",
-                "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking",
-                "table contextmenu directionality emoticons template textcolor paste  textcolor "
-        ],
-        toolbar1: " newdocument fullpage |  bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | styleselect formatselect fontselect fontsizeselect | cut copy paste | searchreplace | bullist numlist | outdent indent blockquote | undo redo",
-        toolbar2: "sh4tinymce link unlink anchor image media code | inserttime preview | forecolor backcolor table | r removeformat | subscript superscript | charmap emoticons | print fullscreen | ltr rtl | spellchecker | visualchars visualblocks nonbreaking template pagebreak restoredraft",
-        image_advtab: true,
-        });
-    </script>
-
- 
-
     <!-- Custom Theme JavaScript -->
     <script src="{{asset("packages/serverfireteam/panel/js/sb-admin-2.js")}}"></script>
 
