@@ -6,7 +6,7 @@
 
 **LaravelPanel** is a modern Laravel Admin package. 
 
-This package provides an easily configurable admin panel for Laravel 5  applications with a CRUD system, UI and more.
+This package provides an easily configurable admin panel for Laravel 5.1 & 5.0  applications with a CRUD system, UI and more.
 
 ## Main features
 
@@ -31,25 +31,41 @@ Pass: 12345
 ##Installations 
 Note: if you face any problem in any of the steps you should report it at [github](https://github.com/serverfireteam/panel/issues/new)
 
-1. First you need to create a laravel 5  project.
+1. First you need to create a laravel  project.
 
 2. Add our package to require section of composer 
-
+    
+    laravel 5.0
     ```json
-    {
-        "require": {
-            "serverfireteam/panel": "1.2.*"
-        },
-    }
+    "require": {
+        ...
+        "serverfireteam/panel": "1.2.*"
+    },
+    ```
+    laravel 5.1
+    ```json
+    "require": {
+        ...
+        "serverfireteam/panel": "1.3.*"
+    },
     ```
 
 And run the composer update command, the package and its dependencies will be installed.
 
 3. Add the ServiceProvider of the package to the list of providers in the config/app.php file
 
+    laravel 5.0
     ```php
     'providers' => array(
+        ...
         'Serverfireteam\Panel\PanelServiceProvider'
+    )
+    ```
+    laravel 5.1
+    ```php
+    'providers' => array(
+        ...
+        Serverfireteam\Panel\PanelServiceProvider:class
     )
     ```
 
