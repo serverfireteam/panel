@@ -38,14 +38,12 @@ Note: if you face any problem in any of the steps you should report it at [githu
     laravel 5.0
     ```json
     "require": {
-        ...
         "serverfireteam/panel": "1.2.*"
     },
     ```
     laravel 5.1
     ```json
     "require": {
-        ...
         "serverfireteam/panel": "1.3.*"
     },
     ```
@@ -57,15 +55,13 @@ And run the composer update command, the package and its dependencies will be in
     laravel 5.0
     ```php
     'providers' => array(
-        ...
         'Serverfireteam\Panel\PanelServiceProvider'
     )
     ```
     laravel 5.1
     ```php
     'providers' => array(
-        ...
-        Serverfireteam\Panel\PanelServiceProvider:class
+        Serverfireteam\Panel\PanelServiceProvider::class
     )
     ```
 
