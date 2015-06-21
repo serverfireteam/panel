@@ -36,5 +36,9 @@ return array(
     'importDataSuccess' => 'Los Datos fueron importados exitosamente.',
     'importDataFailure' => 'La Importación de Datos Falló, por favor revisa la validez de los datos.',
     'successfullReset' => 'Tu Contraseña se Actualizo Exitosamente!',
-    'successfullEditProfile' => 'Tu perfil se actualizo exitosamente.'
+    'successfullEditProfile' => 'Tu perfil se actualizo exitosamente.',
+    'permissions' => 'Permisos',
+    'setPermissions' => 'Establecer Permisos',
+    'noLinkExists' => 'No Link is added to panel !',
+    'permissionDenied' => 'Permiso Denegado !'
 );

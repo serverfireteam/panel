@@ -36,5 +36,9 @@ return array(
     'importDataSuccess' => 'Տվյալները հաջողութեամբ Ներմուծվել են:',
     'importDataFailure' => 'Տվյալների ներմուծումը ձախողվեց, խնդրում ենք ստուգել տվյալների վավերացումը:',
     'successfullReset' => 'Ձեր գաղտնաբառը հաջողությամբ վերականգնվել է:',
-    'successfullEditProfile' => 'Ձեր անձնագիրը հաջողությամբ խմբագրվել է:'
+    'successfullEditProfile' => 'Ձեր անձնագիրը հաջողությամբ խմբագրվել է:',
+    'permissions' => 'Թույլտվությունները',
+    'setPermissions' => 'Սահմանել Թույտվությունները',
+    'noLinkExists' => 'No Link is added to panel !',
+    'permissionDenied' => 'Թույլտվությունը մերժված է !'
 );

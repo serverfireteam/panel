@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Serverfireteam\Panel\Role;
 
 class Admin extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
@@ -33,31 +34,30 @@ class Admin extends Model implements AuthenticatableContract, CanResetPasswordCo
     {
         return $this->password;
     }
-    
-    public function getRememberToken(){
+
+    public function getRememberToken() {
         return $this->remember_token;
     }
-    
-    public function  setRememberToken($value){
-         $this->remember_token =  $value;
+
+    public function  setRememberToken($value) {
+         $this->remember_token = $value;
     }
 
-    public function getReminderEmail(){  
+    public function getReminderEmail() {
         $email = \Input::only('email');
-        return $email['email'];            
+        return $email['email'];
     }
 
-
-    public function getRememberTokenName(){
+    public function getRememberTokenName() {
         return $this->remember_token_name;
     }
-        
-        protected $fillable = array('first_name', 'last_name', 'email', 'password');
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	protected $hidden = array('password', 'remember_token');
 
+    protected $fillable = array('first_name', 'last_name', 'email', 'password');
+
+    protected $hidden = array('password', 'remember_token');
+
+    public function Role()
+    {
+        return $this->belongsTo('Serverfireteam\Panel\Role');
+    }
 }

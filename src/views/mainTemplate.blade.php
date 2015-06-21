@@ -48,12 +48,11 @@ dashboard
                                   <a  href="{{ url('panel') }}" ><i class="fa fa-dashboard fa-fw"></i> {{ \Lang::get('panel::fields.dashboard') }}</a>
                               </li>
                               
-                              
-                               {{--*/ $links  = \Serverfireteam\Panel\Link::all(); /*--}}   
-                              
+                               {{--*/ $links = \Serverfireteam\Panel\libs\CheckPermission::getUserLinks(); /*--}}   
+
                                @foreach($links as $key => $value )
-                               
-                               @if ( in_array($value['url'], $urls))
+
+                               @if (in_array($value['url'], $urls))
                                 {{--*/ $model = "Serverfireteam\Panel\\".$value['url'] /*--}}
                                   <li >
                                       <a  href="{{ url('panel/'.$value['url'].'/all') }}" class=" s-link {{ (Request::segment(2)==$value['url'])?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$value['display']}}}  </a>   <span class="badge pull-right">{!!$model::all()->count()!!}</span> <div class="items-bar"> <a href="{{ url('panel/'.$value['url'].'/edit') }}" class="ic-plus" title="Add"></a> <a  title="List" class="ic-lines" href="{{ url('panel/'.$value['url'].'/all') }}">  </a>  </div>    
