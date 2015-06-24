@@ -8,7 +8,7 @@ class LogoutTest extends TestCase {
 	{
 		$this->visit('/panel/login')
 		     ->type('admin@change.me', 'email')
-		     ->type('oooooo', 'password')
+		     ->type('12345', 'password')
 		     ->press('Login')
 		     ->see('Dashboard')
 		     ->click('Log out')
