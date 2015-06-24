@@ -6,6 +6,8 @@ use Illuminate\Routing\Controller;
 
 class ExportImportController extends Controller {
 
+    protected $failed = false;
+
     public function export($entity, $fileType) {
 
         $appHelper = new libs\AppHelper();
@@ -47,20 +49,19 @@ class ExportImportController extends Controller {
 		$filePath = \Input::file('import_file')->getRealPath();
 	}
 
-	$failed	= false;
 	if ($filePath) {
 
-		\Excel::load($filePath, function($reader) use ($model, $columns, $key, $status, $notNullColumnNames, &$failed) {
-			$this->importDataToDB($reader, $model, $columns, $key, $status, $notNullColumnNames, $failed);
+		\Excel::load($filePath, function($reader) use ($model, $columns, $key, $status, $notNullColumnNames) {
+			$this->importDataToDB($reader, $model, $columns, $key, $status, $notNullColumnNames);
 		});
 	}
 
-	$importMessage = ($failed == true) ? \Lang::get('panel::fields.importDataFailure') : \Lang::get('panel::fields.importDataSuccess');
+	$importMessage = ($this->failed == true) ? \Lang::get('panel::fields.importDataFailure') : \Lang::get('panel::fields.importDataSuccess');
 
 	return \Redirect::to('panel/' . $entity . '/all')->with('import_message', $importMessage);
     }
 
-    public function importDataToDB($reader, $model, $columns, $key, $status, $notNullColumnNames, $failed) {
+    public function importDataToDB($reader, $model, $columns, $key, $status, $notNullColumnNames) {
 
 	$rows        = $reader->toArray();
 	$newData     = array();
@@ -70,13 +71,13 @@ class ExportImportController extends Controller {
 	foreach ($rows as $row) {
 		foreach ($notNullColumnNames as $notNullColumn) {
 			if (empty($row[$notNullColumn])) {
-				$failed = true;
+				$this->failed = true;
 				break;
 			}
 		}
 	}
 
-	if (!$failed) {
+	if (!$this->failed) {
 		if ($status == 1) {
 			$model->truncate();
 		}
