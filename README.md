@@ -31,7 +31,7 @@ Pass: 12345
 ##Installations 
 Note: if you face any problem in any of the steps you should report it at [github](https://github.com/serverfireteam/panel/issues/new)
 
-1. First you need to create a laravel  project.
+1. First you need to create a laravel project.
 
 2. Add our package to require section of composer 
     
