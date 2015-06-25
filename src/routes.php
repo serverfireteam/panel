@@ -1,6 +1,5 @@
 <?php
 
-use Serverfireteam\Panel\libs;
 use Serverfireteam\Panel\libs\CheckPermission;
 
 if (\Request::is('panel*'))
@@ -38,7 +37,7 @@ Route::group(array('prefix' => 'panel', 'before' => 'auth'), function()
                     $version =  $value['version'];
             }
         }
-        catch (Illuminate\Filesystem\FileNotFoundException $exception)
+        catch (\Illuminate\Filesystem\FileNotFoundException $exception)
         {
             \Log::warning("I can't found composer.lock for laravelpanel ");
         }
