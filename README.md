@@ -44,7 +44,7 @@ Note: if you face any problem in any of the steps you should report it at [githu
     laravel 5.1
     ```json
     "require": {
-        "serverfireteam/panel": "dev-master"
+        "serverfireteam/panel": "1.3.*"
     },
     ```
 
