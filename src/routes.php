@@ -1,20 +1,17 @@
 <?php
 
-use Serverfireteam\Panel\libs;
-
 if (\Request::is('panel*'))
 {
 	\Config::set('auth.model', 'Serverfireteam\Panel\Admin');
-    	\Route::filter('auth', function()
-    	{
+    \Route::filter('auth', function(){
        		if (\Auth::guest()) {
             		if (\Session::has('message')) {
-				$message = \Session::get('message');
+				        $message = \Session::get('message');
             		} else {
-				$message = \Lang::get('panel::fields.enterEmail');
+				        $message = \Lang::get('panel::fields.enterEmail');
             		}
             		return \Redirect::to('/panel/login')->with('message', $message)->with('mesType', 'message');
-		}
+		    }
 	});
 }
 
@@ -31,13 +28,14 @@ Route::group(array('prefix' => 'panel', 'before' => 'auth'), function()
                     $version =  $value['version'];
             }
         }
-        catch (\Illuminate\Filesystem\FileNotFoundException $exception)
+        catch (Exception $exception)
         {
             \Log::warning("I can't found composer.lock for laravelpanel ");
         }
 
         return View::make('panelViews::dashboard')->with('version', $version);
     });
+
     Route::any('/{entity}/export/{type}', array('uses' => 'Serverfireteam\Panel\ExportImportController@export'));
     Route::post('/{entity}/import', array('uses' => 'Serverfireteam\Panel\ExportImportController@import'));
     Route::any('/{entity}/{methods}', array('uses' => 'Serverfireteam\Panel\MainController@entityUrl'));
@@ -71,4 +69,5 @@ Route::post('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersCont
 
 
 Route::get('/panel/login',  array('uses' => 'Serverfireteam\Panel\AuthController@getLogin'));
+
 
