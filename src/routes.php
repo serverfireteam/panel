@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< HEAD
-use Serverfireteam\Panel\libs\CheckPermission;
-=======
 use Serverfireteam\Panel\libs;
->>>>>>> origin/master
 
 if (\Request::is('panel*'))
 {
@@ -42,9 +38,6 @@ Route::group(array('prefix' => 'panel', 'before' => 'auth'), function()
 
         return View::make('panelViews::dashboard')->with('version', $version);
     });
-
-	//Route::get('/createUser', array('uses' => 'Serverfireteam\Panel\UsersController@getCreateUser'));
-    //Route::post('/createUser', array('uses' => 'Serverfireteam\Panel\UsersController@postCreateUser'));
     Route::any('/{entity}/export/{type}', array('uses' => 'Serverfireteam\Panel\ExportImportController@export'));
     Route::post('/{entity}/import', array('uses' => 'Serverfireteam\Panel\ExportImportController@import'));
     Route::any('/{entity}/{methods}', array('uses' => 'Serverfireteam\Panel\MainController@entityUrl'));
@@ -79,14 +72,3 @@ Route::post('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersCont
 
 Route::get('/panel/login',  array('uses' => 'Serverfireteam\Panel\AuthController@getLogin'));
 
-
-/*
-bug with laravel 5
-App::error(function($exception, $code)
-{
-    switch ($code)
-    {
-        case 404:
-            return Response::view('panelViews::404', array(), 404);
-    }
-});*/
