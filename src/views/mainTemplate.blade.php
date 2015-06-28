@@ -48,7 +48,7 @@ dashboard
                                   <a  href="{{ url('panel') }}" ><i class="fa fa-dashboard fa-fw"></i> {{ \Lang::get('panel::fields.dashboard') }}</a>
                               </li>
                               
-                               {{--*/ $links = \Serverfireteam\Panel\libs\CheckPermission::getUserLinks(); /*--}}   
+-                              {{--*/ $links  = \Serverfireteam\Panel\Link::all(); /*--}}
 
                                @foreach($links as $key => $value )
 
@@ -78,7 +78,7 @@ dashboard
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-        <div class="powered-by"><a href="https://laravelpanel.com">Thank you for creating with LaravelPanel.</a></div> 
+        <div class="powered-by"><a href="https://laravelpanel.com">Thank you for using LaravelPanel.</a></div> 
         <div id="page-wrapper">
             
 
