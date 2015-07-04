@@ -36,7 +36,7 @@ class PanelCommand extends Command {
 	public function fire()
 	{
        
-            $this->info('            [ Wellcome to ServerFireTeam Panel Installations ]       ');
+            $this->info('            [ Welcome to ServerFireTeam Panel Installations ]       ');
 
             $this->call('vendor:publish');
 
