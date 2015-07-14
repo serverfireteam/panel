@@ -1,15 +1,17 @@
 <?php
 
-use Laracasts\TestDummy\Factory as TestDummy;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
 
 class LogoutTest extends TestCase {
 
 	public function test_logout()
 	{
 		$this->visit('/panel/login')
-		     ->submitForm('Login', ['email' => 'admin@change.me', 'password' => 'oooooo'])
-		     ->andSee('Dashboard')
+		     ->type('admin@change.me', 'email')
+		     ->type('12345', 'password')
+		     ->press('Login')
+		     ->see('Dashboard')
 		     ->click('Log out')
-		     ->onPage('/panel/login');
+		     ->seePageIs('/panel/login');
 	}
 }

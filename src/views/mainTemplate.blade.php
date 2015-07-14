@@ -78,7 +78,7 @@ dashboard
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-        <div class="powered-by"><a href="https://github.com/serverfireteam/panel">Powered By ServerFire Team</a></div> 
+        <div class="powered-by"><a href="https://laravelpanel.com">Thank you for using LaravelPanel.</a></div> 
         <div id="page-wrapper">
             
 
@@ -98,11 +98,6 @@ dashboard
                         </div>
                         <a href="{{url('panel/logout')}}" type="button" class="btn btn-default main-link">{{ Lang::get('panel::fields.logout') }}<span class="icon  ic-switch fl-right"></span></a>
                       </div>
-                    
-<!--                    <a href="{{url('panel/logout')}}" > logout <span class="icon  ic-cog"></span></a>
-                    <a href="#" > settings <span class="icon ic-switch"></span></a>-->
-                    
-                    
                 </div>
             </div>
             

@@ -1,6 +1,6 @@
 {
     "name": "serverfireteam/panel",
-    "description": "Admin panel for Laravel 5 applications",
+    "description": "Admin panel for Laravel 5.1 applications",
     "keywords": ["Laravel", "Panel", "Crud", "Nice Design","Admin Panel","CMS","administrator", "admin", "backend"],
     "license": "MIT",
     "authors": [
@@ -23,8 +23,8 @@
     ],
     "require": {
         "php": ">=5.4.0",        
-        "illuminate/support": "5.0.*",
-        "serverfireteam/rapyd-laravel" : "1.4.*",
+        "illuminate/support": "~5.1",
+        "serverfireteam/rapyd-laravel" : "1.5.*",
         "maatwebsite/excel": "~2.0.0"
     },
     "autoload": {

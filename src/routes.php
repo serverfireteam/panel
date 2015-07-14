@@ -1,6 +1,5 @@
 <?php
 
-use Serverfireteam\Panel\libs;
 use Serverfireteam\Panel\libs\CheckPermission;
 
 if (\Request::is('panel*'))
@@ -28,13 +27,21 @@ if (\Request::is('panel*'))
 Route::group(array('prefix' => 'panel', 'before' => 'auth'), function()
 {
 	// main page for the admin section (app/views/admin/dashboard.blade.php)
-	Route::get('/', function()
-    	{
-        	return View::make('panelViews::dashboard');
-    	});
+	Route::get('/', function() {
+	        $version = '';
+	        try {
+			$composer_lock = json_decode(File::get(base_path() . '/composer.lock'), true);
+		        foreach ($composer_lock['packages'] as $key => $value) {
+		        	if ($value['name'] == "serverfireteam/panel") {
+	                		$version = $value['version'];
+				}
+			}
+		} catch (Exception $exception) {
+			\Log::warning("I can't found composer.lock for laravelpanel ");
+		}
 
-	//Route::get('/createUser', array('uses' => 'Serverfireteam\Panel\UsersController@getCreateUser'));
-    	//Route::post('/createUser', array('uses' => 'Serverfireteam\Panel\UsersController@postCreateUser'));
+		return View::make('panelViews::dashboard')->with('version', $version);
+    	});
 
 	Route::group(array('before' => 'permission'), function()
 	{	
@@ -64,19 +71,8 @@ Route::post('/panel/reset', array('uses' => 'Serverfireteam\Panel\RemindersContr
 
 Route::get('/panel/reset', array('uses' => 'Serverfireteam\Panel\RemindersController@getReset'));
 
-Route::get('/panel/remind',  array('uses' => 'Serverfireteam\Panel\RemindersController@getRemind'));
+Route::get('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersController@getRemind'));
 
 Route::post('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersController@postRemind'));
 
-Route::get('/panel/login',  array('uses' => 'Serverfireteam\Panel\AuthController@getLogin'));
-
-/*
-bug with laravel 5
-App::error(function($exception, $code)
-{
-    switch ($code)
-    {
-        case 404:
-            return Response::view('panelViews::404', array(), 404);
-    }
-});*/
+Route::get('/panel/login', array('uses' => 'Serverfireteam\Panel\AuthController@getLogin'));

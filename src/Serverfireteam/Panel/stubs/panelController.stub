@@ -1,12 +1,14 @@
-<?php namespace {{namespace}};
+<?php 
 
-use {{rootNamespace}}Http\Requests;
-use {{rootNamespace}}Http\Controllers\Controller;
+namespace DummyNamespace;
+
+use DummyRootNamespaceHttp\Requests;
+use DummyRootNamespaceHttp\Controllers\Controller;
 use \Serverfireteam\Panel\CrudController;
 
 use Illuminate\Http\Request;
 
-class {{class}} extends CrudController{
+class DummyClass extends CrudController{
 
     public function all($entity){
         parent::all($entity); 

@@ -1,14 +1,24 @@
 <?php
 
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Foundation\Testing\DatabaseTransactions;
+
 class ProfileEditTest extends TestCase {
+
+	use DatabaseTransactions;
 
 	public function test_edit_profile()
 	{
 		$this->visit('/panel/login')
-		     ->submitForm('Login', ['email' => 'admin@change.me', 'password' => 'oooooo'])
-		     ->andSee('Dashboard')
+		     ->type('admin@change.me', 'email')
+		     ->type('12345', 'password')
+		     ->press('Login')
+		     ->see('Dashboard')
 		     ->click('Profile Edit')
-		     ->submitForm('Update Profile', ['first_name' => 'test name', 'last_name' => 'test last name', 'email' => 'test@test.com'])
-		     ->andSee('Your profile is edited successfully.');
+		     ->type('test name', 'first_name')
+		     ->type('test last name', 'last_name')
+		     ->type('test@test.com', 'email')
+		     ->press('Update Profile')
+		     ->see('Your profile is edited successfully.');
 	}
 }
