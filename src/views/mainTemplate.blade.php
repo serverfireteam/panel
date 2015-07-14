@@ -78,7 +78,7 @@ dashboard
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-        <div class="powered-by"><a href="https://laravelpanel.com">Thank you for using LaravelPanel.</a></div> 
+        <div class="powered-by"><a href="http://laravelpanel.com">Thank you for using LaravelPanel.</a></div> 
         <div id="page-wrapper">
             
 
