@@ -17,7 +17,7 @@
     <link media="all" type="text/css" rel="stylesheet" href="{{asset("packages/zofe/rapyd/assets/colorpicker/css/bootstrap-colorpicker.min.css")}}">
     <!--link media="all" type="text/css" rel="stylesheet" href="{{asset("packages/serverfireteam/rapyd-laravel/assets/colorpicker/css/bootstrap-colorpicker.min.css")}}" -->
 
-    <title>@yield('title')</title>
+    <title>{{$title}}</title>
     <!-- compiled styles -->
 
  
