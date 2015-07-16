@@ -48,7 +48,7 @@ dashboard
                                   <a  href="{{ url('panel') }}" ><i class="fa fa-dashboard fa-fw"></i> {{ \Lang::get('panel::fields.dashboard') }}</a>
                               </li>
                               
--                              {{--*/ $links  = \Serverfireteam\Panel\Link::all(); /*--}}
+                              {{--*/ $links  = \Serverfireteam\Panel\Link::all(); /*--}}
 
                                @foreach($links as $key => $value )
 
