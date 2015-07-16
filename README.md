@@ -79,6 +79,8 @@ And run the composer update command, the package and its dependencies will be in
 ## Documents    
 [laravelpanel.com/docs/master](http://laravelpanel.com/docs/master) 
 
+## Samples
+To get a sample code, please check the [Laravel Panel Demo](https://github.com/laravelpanel/demo)
 
 #Credits 
 [SB-admin](http://startbootstrap.com/template-overviews/sb-admin/) for admin template.
