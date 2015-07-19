@@ -27,7 +27,7 @@ class dashboard
 
 		        $dashboard[] = array(
                			'title'	      => $value['display'],
-               			'count'	      => $model::all()->count(),
+               			//'count'	      => $model::all()->count(),
 	               		'showListUrl' => 'panel/' . $modelName . '/all',
         	       		'addUrl'      => 'panel/' . $modelName . '/edit',
        			);
