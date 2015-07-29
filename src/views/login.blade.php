@@ -27,13 +27,13 @@ login
 					@if (\Config::get('panel.demo') == true)
 						<p><i>Demo Username: admin@change.me</i></p>
 					@endif
-                                        <input class="form-control" placeholder="UserName" name="email" type="text" autofocus>
+                                        <input class="form-control" placeholder="{{ \Lang::get('panel::fields.email') }}" name="email" type="text" autofocus>
                                     </div>
                                     <div class="form-group">
 					@if (\Config::get('panel.demo') == true)
 						<p><i>Demo Password: 12345</i></p>
 					@endif
-                                        <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                        <input class="form-control" placeholder="{{ \Lang::get('panel::fields.password') }}" name="password" type="password" value="">
                                     </div>
                                     <div class="checkbox">
                                         <label>

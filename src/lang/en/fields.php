@@ -20,6 +20,7 @@ return array(
     'updateProfile' => 'Update Profile',
     'currentPassword' => 'Current Password',
     'password' => 'Password',
+    'email'    => 'Email',
     'rePassword' => 'Re-Type Password',
     'resetPassword' => 'Reset Password',
     'ChangePassword' => 'Change Password',

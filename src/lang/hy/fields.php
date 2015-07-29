@@ -20,6 +20,7 @@ return array(
     'updateProfile' => 'Թարմացնել Անձնագիրը',
     'currentPassword' => 'Ընթացիկ Գաղտնաբառ',
     'password' => 'Գաղտնաբառ',
+    'email'    => 'փոստի հասցեն',
     'rePassword' => 'Կրկնել Գաղտնաբառը',
     'resetPassword' => 'Վերականգնել Գաղտնաբառը',
     'ChangePassword' => 'Վերականգնել Գաղտնաբառը',
