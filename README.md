@@ -11,6 +11,7 @@ This package provides an easily configurable admin panel for Laravel 5.1 & 5.0  
 ## Main features
 
 - **Crud**, With just few lines of code, you'll have Add, Edit, Delete and Search actions for your models.
+- **Imort and Export data** Every  crud you make it have import and export data from Excel  
 - **Clean Admin**, Based on bootstrap 3 and sb-admin-2 
 - **Dashboard**, It shows how many records you have in every model added in menu.
 - **Preconfigured**, It has default users and models you need.
