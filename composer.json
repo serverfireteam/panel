@@ -24,7 +24,7 @@
     "require": {
         "php": ">=5.4.0",        
         "illuminate/support": "~5.1",
-        "serverfireteam/rapyd-laravel" : "1.5.*",
+        "serverfireteam/rapyd-laravel" : "dev-rich_editor",
         "maatwebsite/excel": "~2.0.0",
 	"barryvdh/laravel-elfinder": "dev-master"
     },
