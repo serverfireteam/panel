@@ -74,14 +74,6 @@ class PanelServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/config/panel.php' => config_path('panel.php'),
         ]);
-
-	// Publish assets of elfinder
-	$this->commands("elfinder:publish");
-
-	\Barryvdh\Elfinder\Console\PublishCommand(base_path() . '/vendor/barryvdh/laravel-elfinder/config/elfinder.php', config_path('elfinder.php'));
-
-	\Barryvdh\Elfinder\Console\PublishCommand(base_path() . '/vendor/barryvdh/laravel-elfinder/resources/views',
-						  base_path('resources/views/vendor/elfinder'));
     }
 
     public function boot()

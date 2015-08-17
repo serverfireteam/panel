@@ -40,6 +40,14 @@
             "Serverfireteam\\Panel": "src/"
         }
     },
+    "scripts": {
+        "post-install-cmd": [
+            "php artisan elfinder:publish"
+        ],
+        "post-update-cmd": [
+            "php artisan elfinder:publish"
+        ]
+    },
     "minimum-stability": "dev"
     
 }
