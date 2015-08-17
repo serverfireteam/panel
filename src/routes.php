@@ -48,14 +48,11 @@ Route::group(array('prefix' => 'panel', 'before' => 'auth'), function()
     Route::post('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@postChangePassword'));
 });
 
-
 Route::post('/panel/login', array('uses' => 'Serverfireteam\Panel\AuthController@postLogin'));
 
 Route::get('/panel/password/reset/{token}', function ($token){
     return View::make('panelViews::passwordReset')->with('token', $token);
 });
-
-
 
 Route::get('/panel/logout', array('uses' => 'Serverfireteam\Panel\AuthController@doLogout'));
 
@@ -67,7 +64,9 @@ Route::get('/panel/remind',  array('uses' => 'Serverfireteam\Panel\RemindersCont
 
 Route::post('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersController@postRemind'));
 
-
 Route::get('/panel/login',  array('uses' => 'Serverfireteam\Panel\AuthController@getLogin'));
 
-
+Route::group(array('prefix' => 'elfinder', 'before' => 'auth'), function()
+{
+	Route::get('tinymce4/{input_id}', array('uses' => 'Barryvdh\Elfinder\ElfinderController@showPopup'));
+});
