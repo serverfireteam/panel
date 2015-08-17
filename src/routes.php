@@ -68,5 +68,5 @@ Route::get('/panel/login',  array('uses' => 'Serverfireteam\Panel\AuthController
 
 Route::group(array('prefix' => 'elfinder', 'before' => 'auth'), function()
 {
-	Route::get('tinymce4', array('uses' => 'Barryvdh\Elfinder\ElfinderController@showPopup'));
+	Route::get('tinymce4/{input_id}', array('uses' => 'Barryvdh\Elfinder\ElfinderController@showPopup'));
 });
