@@ -6,6 +6,7 @@ return array(
     'ProfileEdit' => 'Editar Perfil',
     'ResetPassword' => 'Cambiar Contraseña',
     'Add' => 'Agregar',
+    'edit' => 'Editar',
     'search' => 'Buscar',
     'reset' => 'Limpiar',
     'enterEmail' => 'Por Favor Ingrese Una Dirección de Email',
