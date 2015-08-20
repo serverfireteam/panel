@@ -7705,8 +7705,9 @@ body {
   float: right;
 }
 .top-icon-bar a.main-link .caret {
-  top: 8px;
+  top: 1px;
   position: relative;
+  margin-left: 25px;
 }
 .top-icon-bar a.main-link:hover {
   color: #fff;
@@ -7720,7 +7721,7 @@ body {
 }
 .top-icon-bar .icon {
   color: #555;
-  font-size: 18px;
+  font-size: 14px;
   cursor: pointer;
   transition: all ease 250ms;
 }
@@ -7833,6 +7834,17 @@ body {
     top: 25px;
     left: 8px;
   }
+}
+/** Logout Button **/
+a.btn.btn-default.main-link {
+  height: 32px;
+}
+a.btn.btn-default.main-link span.icon {
+  padding-left: 20px;
+}
+/** Settings Button **/
+a.btn.btn-default.dropdown-toggle.main-link {
+  padding-top: 7px;
 }
 /*
 To change this license header, choose License Headers in Project Properties.

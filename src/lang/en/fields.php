@@ -1,7 +1,7 @@
 <?php
 
 return array(
-    'settings' => 'Setting',
+    'settings' => 'Settings',
     'logout' => 'Log out',
     'ProfileEdit' => 'Profile Edit',
     'ResetPassword' => 'Reset Password',
