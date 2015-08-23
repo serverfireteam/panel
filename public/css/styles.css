@@ -7800,28 +7800,16 @@ body {
 /*-------------- zofe rapyd => crud --------------------*/
 .table a {
   text-decoration: none;
-  transition: all ease 250ms;
-}
-.table a:hover {
-  transform: scale(1.2, 1.2);
-  -webkit-transform: scale(1.2, 1.2);
 }
 .table .icomoon {
   font-size: 22px;
   text-decoration: none;
-  transition: all  ease 250ms;
-}
-.table tr {
-  transition: all ease  250ms;
 }
 .table tr:nth-child(even) {
   background: #f5f5f5;
 }
 .table tr:hover {
   border-color: #777;
-}
-.btn {
-  transition: all ease 250ms;
 }
 /* Smartphones (portrait) ----------- */
 /* @screen-xs  is Deprecated  as of v3.0.1 Bootstrap ----------- */
