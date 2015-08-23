@@ -15,6 +15,10 @@ class PanelServiceProvider extends ServiceProvider
 
     public function register()
     {
+        $this->publishes([
+            __DIR__.'/config/elfinder.php' => config_path('elfinder.php'),
+        ]);
+
         // register zofe\rapyd
         $this->app->register('Zofe\Rapyd\RapydServiceProvider');
 
