@@ -1,11 +1,12 @@
 <?php
 
 return array(
-    'settings' => 'Setting',
+    'settings' => 'Settings',
     'logout' => 'Log out',
     'ProfileEdit' => 'Profile Edit',
     'ResetPassword' => 'Reset Password',
     'Add' => 'ADD',
+    'edit' => 'Edit',
     'search' => 'Search',
     'reset' => 'Reset',
     'enterEmail' => 'Please Enter Email Address',

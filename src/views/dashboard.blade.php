@@ -18,10 +18,10 @@
                         <div class="panel ">
                             <div class="panel-heading">
                                 <div class="row">
-                                    <div class="col-xs-3 title">
+                                    <div class="col-xs-7 title">
                                         {{$box['title']}}
                                     </div>
-                                    <div class="col-xs-9 text-right">
+                                    <div class="col-xs-5 text-right">
                                         <div class="huge">{{$box['count']}}</div>
                                         <div></div>
 
