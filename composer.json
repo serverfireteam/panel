@@ -1,7 +1,7 @@
 {
     "name": "serverfireteam/panel",
     "description": "Admin panel for Laravel 5.1 applications",
-    "keywords": ["Laravel", "Panel", "Crud", "Nice Design","Admin Panel","CMS","administrator", "admin", "backend"],
+    "keywords": ["LaravelPanel","Laravel", "Panel", "Crud", "Admin Panel","CMS","administrator", "admin", "backend"],
     "license": "MIT",
     "authors": [
         {
