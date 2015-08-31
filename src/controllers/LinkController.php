@@ -1,21 +1,14 @@
 <?php
 
 namespace Serverfireteam\Panel;
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 use Serverfireteam\Panel\CrudController;
-/**
- * Description of PagePanel
- *
- * @author alireza
- */
-class LinkController extends CrudController{
-    
-    public function all($entity){
-        parent::all($entity); 
+
+class LinkController extends CrudController {
+
+    public function all($entity) {
+
+        parent::all($entity);
 
         $this->filter = \DataFilter::source(new Link());
         $this->filter->add('id', 'ID', 'text');
@@ -23,32 +16,38 @@ class LinkController extends CrudController{
         $this->filter->submit('search');
         $this->filter->reset('reset');
         $this->filter->build();
-                
+
         $this->grid = \DataGrid::source($this->filter);
-        $this->grid->add('id','ID', true)->style("width:100px");
-        $this->grid->add('display','Display');
-        $this->grid->add('url','Model');
+        $this->grid->add('id', 'ID', true)->style("width:100px");
+        $this->grid->add('display', 'Display');
+        $this->grid->add('url', 'Model');
+
         $this->addStylesToGrid();
+
         return $this->returnView();
     }
-    
-    public function  edit($entity){                        
-        
+
+    public function edit($entity) {
+
         parent::edit($entity);
 
         $this->edit = \DataEdit::source(new Link());
 
         Link::creating(function($link)
         {
-            //dd(__DIR__);
             $appHelper = new libs\AppHelper();
-            return ( class_exists( $appHelper->getNameSpace() . $link['url'] ));            
+            return ( class_exists( $appHelper->getNameSpace() . $link['url'] ));
         });
-        
-        $this->edit->label('Edit Admin');
+
+	$helpMessage = trans('rapyd::rapyd.links_help');
+
+        $this->edit->label('Edit Links');
         $this->edit->link("rapyd-demo/filter", "Articles", "TR")->back();
         $this->edit->add('display', 'Display', 'text');
         $this->edit->add('url', 'link', 'text');
+
+	$this->addHelperMessage($helpMessage);
+
         return $this->returnEditView();
     }
 }

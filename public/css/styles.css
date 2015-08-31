@@ -7834,6 +7834,9 @@ a.btn.btn-default.main-link span.icon {
 a.btn.btn-default.dropdown-toggle.main-link {
   padding-top: 7px;
 }
+.help-title {
+  margin-top: 0px;
+}
 /*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
