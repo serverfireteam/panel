@@ -22,6 +22,7 @@ This package provides an easily configurable admin panel for Laravel 5.1 & 5.0  
 - **Dashboard**, It shows how many records you have in every model added in menu.
 - **Preconfigured**, It has default users and models you need.
 - **Powerful**, It offers a Login section, Admin settings, forgot password and all other features you need for admin panel.
+- ** RTL support **
 
 ## Screen shot 
 
