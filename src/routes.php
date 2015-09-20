@@ -75,4 +75,9 @@ Route::get('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersContr
 
 Route::post('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersController@postRemind'));
 
-Route::get('/panel/login', array('uses' => 'Serverfireteam\Panel\AuthController@getLogin'));
+Route::get('/panel/login',  array('uses' => 'Serverfireteam\Panel\AuthController@getLogin'));
+
+Route::group(array('prefix' => 'elfinder', 'before' => 'auth'), function()
+{
+	Route::get('tinymce4/{input_id}', array('uses' => 'Barryvdh\Elfinder\ElfinderController@showPopup'));
+});

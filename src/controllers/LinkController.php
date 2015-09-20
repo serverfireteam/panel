@@ -38,11 +38,15 @@ class LinkController extends CrudController {
 		        return (class_exists($appHelper->getNameSpace() . $link['url']));
 	        });
 
-	        $this->edit->label('Edit Admin');
+		$helpMessage = trans('rapyd::rapyd.links_help');
+
+	        $this->edit->label('Edit Links');
 	        $this->edit->link("rapyd-demo/filter", "Articles", "TR")->back();
         	$this->edit->add('display', 'Display', 'text');
 	        $this->edit->add('url', 'Link', 'text');
 		$this->edit->add('pattern', 'Pattern', 'text');
+
+		$this->addHelperMessage($helpMessage);
 
         	return $this->returnEditView();
 	}

@@ -1,0 +1,46 @@
+.top-icon-bar {
+    text-align: left;
+}
+
+.dashboard .icon-bg {
+    right: 5px;
+    left: 0;
+}
+
+.top-icon-bar a.main-link .caret {
+    margin-left: 0;
+    margin-right: 25px;
+}
+
+.sidebar ul li.active {
+    border-left: none;
+    border-right: 7px solid #f26101;
+}
+
+#side-menu .badge {
+    float: left;
+    right: inherit;
+    left: 0;
+}
+
+a.btn.btn-default.main-link span.icon {
+    padding-left: 0;
+    padding-right: 15px;
+    float: left;
+}
+
+.top-icon-bar .dropdown-menu > li > a span {
+    padding: 0 5px;
+}
+
+.top-icon-bar .icon {
+    float: right;
+}
+
+a.btn.btn-default.main-link {
+    text-align: right;
+}
+
+.page-header {
+    margin: 34px 0 30px;
+}

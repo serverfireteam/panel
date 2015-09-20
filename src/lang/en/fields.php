@@ -1,11 +1,12 @@
 <?php
 
 return array(
-    'settings' => 'Setting',
+    'settings' => 'Settings',
     'logout' => 'Log out',
     'ProfileEdit' => 'Profile Edit',
     'ResetPassword' => 'Reset Password',
     'Add' => 'ADD',
+    'edit' => 'Edit',
     'search' => 'Search',
     'reset' => 'Reset',
     'enterEmail' => 'Please Enter Email Address',
@@ -20,6 +21,7 @@ return array(
     'updateProfile' => 'Update Profile',
     'currentPassword' => 'Current Password',
     'password' => 'Password',
+    'email'    => 'Email',
     'rePassword' => 'Re-Type Password',
     'resetPassword' => 'Reset Password',
     'ChangePassword' => 'Change Password',

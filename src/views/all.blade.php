@@ -4,9 +4,10 @@
 
 {!! $filter !!}
 
-<a href="{!! url('panel/'.$current_entity.'/export/excel') !!}" class="btn btn-primary">{!! \Lang::get('panel::fields.exportAsExcel') !!}</a>
+<br><br>
+<a href="{!! url('panel/'.$current_entity.'/export/excel') !!}" class="btn btn-info">{!! \Lang::get('panel::fields.exportAsExcel') !!}</a>
 
-<button class="btn btn-primary" data-toggle="modal" data-target="#import_modal">{!! \Lang::get('panel::fields.importData') !!}</button>
+<button class="btn btn-warning" data-toggle="modal" data-target="#import_modal">{!! \Lang::get('panel::fields.importData') !!}</button>
 
 <!-- Modal -->
 <div class="modal fade" id="import_modal" tabindex="-1" role="dialog" aria-labelledby="import_modal_label" aria-hidden="true">

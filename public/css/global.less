@@ -12,25 +12,26 @@ body{
 
 }
 
-    .powered-by
-    {
-        position:absolute;
-        bottom:5px;
-        width:210px;
+.powered-by
+{
+    position:absolute;
+    bottom:15px;
+    width:220px;
+    text-align: center;
+    right: 20px;
+    transition: all ease 250ms;
+    a{
         text-align: center;
-        transition: all ease 250ms;
-        a{
-            text-align: center;
-            color: rgba(255,255,255,.4);
-            width: 300px;
-        }
-        .col{color:#f26101}
-        &:hover{
-            transform:scale(1.1,1.1);
-            a{color: rgba(255,255,255,1);}
-            text-shadow: 0px 0px 5px rgba(255,255,255,.4);
-        }
+        color: rgba(0,0,0,.8);
+        width: 300px;
     }
+    .col{color:#f26101}
+    &:hover{
+        transform:scale(1.1,1.1);
+        a{color: rgba(0,0,0,1);}
+        text-shadow: 0px 0px 5px rgba(0,0,0,.4);
+    }
+}
 
 .panel{
     border-width: 1px;
@@ -47,8 +48,8 @@ body{
         }
     }
 }
-.panel .title{
-    font-size:35px;
+.panel .title {
+    font-size: 17px;
 }
 .panel .huge
 {
@@ -139,8 +140,9 @@ body{
         }
         .caret
         {
-            top: 8px;
+            top: 1px;
             position: relative;
+	    margin-left: 25px;
         }
         &:hover{
             span.fl-right{
@@ -155,7 +157,7 @@ body{
     }
 .icon{
     color:#555;
-    font-size: 18px;
+    font-size: 14px;
     cursor: pointer;
     transition: all ease 250ms;
     &:hover{
@@ -193,7 +195,7 @@ body{
 }
 #side-menu{
     overflow: hidden;
-    a{display: inline-block; max-width: 120px;}
+    a{display: inline-block; max-width: 160px;}
     a:first{display: block}
     .badge{
         float: right;
@@ -250,36 +252,17 @@ li:hover{
 {
     a{
         text-decoration: none;
-        transition:all ease 250ms;
-        &:hover{
-            transform: scale(1.2,1.2);
-            -webkit-transform: scale(1.2,1.2);
-        }
     }
     .icomoon
     {
         font-size: 22px;
         text-decoration: none;
-        transition:all  ease 250ms;
-        
-
-    }
-    tr{
-        transition:all ease  250ms;
     }
     tr:nth-child(even) {background: #f5f5f5}
     tr:hover{
         border-color:#777;
     }
 }
-
-.btn
-{
-   transition: all ease 250ms;
-}
-
-
-
 
  /* Smartphones (portrait) ----------- */
  /* @screen-xs  is Deprecated  as of v3.0.1 Bootstrap ----------- */
@@ -296,3 +279,19 @@ li:hover{
      }
  }
 
+/** Logout Button **/
+a.btn.btn-default.main-link {
+	height: 32px;
+	span.icon {
+		padding-left: 20px;
+	}
+}
+
+/** Settings Button **/
+a.btn.btn-default.dropdown-toggle.main-link {
+	padding-top : 7px;
+}
+
+.help-title {
+	margin-top: 0px;
+}

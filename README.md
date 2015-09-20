@@ -10,11 +10,19 @@ This package provides an easily configurable admin panel for Laravel 5.1 & 5.0  
 
 ## Main features
 
+
+- **Fully translatable**
 - **Crud**, With just few lines of code, you'll have Add, Edit, Delete and Search actions for your models.
+- **Column types**: text, select box, checkbox , text editor , datetime, image , autocomplete  , tag ,colorpicker 
+- **File manager ** power full file manager inside the text editor 
+- **Extension system** that allows you to create own custom column types
+- **Sorting, ordering, filters, pagination**
+- **Imort and Export data** Every  crud you make it have import and export data from Excel  
 - **Clean Admin**, Based on bootstrap 3 and sb-admin-2 
 - **Dashboard**, It shows how many records you have in every model added in menu.
 - **Preconfigured**, It has default users and models you need.
 - **Powerful**, It offers a Login section, Admin settings, forgot password and all other features you need for admin panel.
+- ** RTL support **
 
 ## Screen shot 
 
@@ -71,7 +79,7 @@ And run the composer update command, the package and its dependencies will be in
     php artisan panel:install
 
     ```
-5. Go to your domain.com/public/panel and you can login with the following username and password :
+5. Go to your domain.com/panel and you can login with the following username and password :
     user : admin@change.me
     password : 12345
 
@@ -79,6 +87,8 @@ And run the composer update command, the package and its dependencies will be in
 ## Documents    
 [laravelpanel.com/docs/master](http://laravelpanel.com/docs/master) 
 
+## Samples
+To get a sample code, please check the [Laravel Panel Demo](https://github.com/laravelpanel/demo)
 
 #Credits 
 [SB-admin](http://startbootstrap.com/template-overviews/sb-admin/) for admin template.

@@ -34,7 +34,7 @@ class MainController extends Controller {
         try{
             $controller = \App::make($controller_path);                
         }catch(\Exception $ex){
-            throw new \Exception('No Controller Has Been Set for This Model ');               
+            throw new \Exception("Can not found the Controller ( $controller_path ) ");               
         }
 
         if (!method_exists($controller, $methods)){                

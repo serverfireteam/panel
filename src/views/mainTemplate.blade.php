@@ -78,7 +78,7 @@ dashboard
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-        <div class="powered-by"><a href="https://laravelpanel.com">Thank you for using LaravelPanel.</a></div> 
+        <div class="powered-by"><a href="http://laravelpanel.com">Thank you for using LaravelPanel.</a></div> 
         <div id="page-wrapper">
             
 
@@ -89,14 +89,14 @@ dashboard
                         <div class="btn-group" role="group">
                             <a  type="button" class="btn btn-default dropdown-toggle main-link" data-toggle="dropdown" aria-expanded="false">
                                 {{ Lang::get('panel::fields.settings') }} 
-                                <span class="caret fl-right"></span>
+                                <span class="caret"></span>
                             </a>
                           <ul class="dropdown-menu" role="menu">
                             <li><a href="{{url('panel/edit')}}"><span class="icon  ic-users "></span>{{ Lang::get('panel::fields.ProfileEdit') }}</a></li>
-                            <li><a href="{{url('panel/changePassword')}}"><span class="icon ic-cog"></span>{{ Lang::get('panel::fields.ResetPassword') }}</a></li>
+                            <li><a href="{{url('panel/changePassword')}}"><span class="icon ic-cog"></span>{{ Lang::get('panel::fields.ChangePassword') }}</a></li>
                           </ul>
                         </div>
-                        <a href="{{url('panel/logout')}}" type="button" class="btn btn-default main-link">{{ Lang::get('panel::fields.logout') }}<span class="icon  ic-switch fl-right"></span></a>
+                        <a href="{{url('panel/logout')}}" type="button" class="btn btn-default main-link">{{ Lang::get('panel::fields.logout') }}<span class="icon  ic-switch"></span></a>
                       </div>
                 </div>
             </div>
@@ -109,4 +109,3 @@ dashboard
 
     </div>
 @stop
-
