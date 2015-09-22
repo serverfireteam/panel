@@ -1,7 +1,5 @@
 <?php
 
-use \Serverfireteam\Panel\libs\AppHelper;
-
 return array(
 
     /*
@@ -68,12 +66,12 @@ return array(
 
     'roots' => array(array('driver'        => 'LocalFileSystem',
 		           'path'          => 'files/',
-			   'accessControl' => 'access',
+			   'accessControl' => 'Serverfireteam\Panel\libs\AppHelper::access',
             		   'URL'           => config('app.url') . '/files',
 			   'uploadAllow'   => array('image/png', 'image/jpeg', 'image/pjpeg', 'image/gif'),
 			   'uploadDeny'    => array('all'),
 			   'uploadOrder'   => array('deny', 'allow'),
-			   'acceptedName'  => 'validName')),
+			   'acceptedName'  => 'Serverfireteam\Panel\libs\AppHelper::validName')),
 
 
     /*

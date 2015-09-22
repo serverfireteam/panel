@@ -11,7 +11,7 @@ This package provides an easily configurable admin panel for Laravel 5.1 & 5.0  
 ## Main features
 
 
-- **Fully translatable**
+- **Fully translatable** , have 7 languages
 - **Crud**, With just few lines of code, you'll have Add, Edit, Delete and Search actions for your models.
 - **Column types**: text, select box, checkbox , text editor , datetime, image , autocomplete  , tag ,colorpicker 
 - **File manager ** power full file manager inside the text editor 
