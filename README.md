@@ -24,12 +24,6 @@ This package provides an easily configurable admin panel for Laravel 5.1 & 5.0  
 - **Powerful**, It offers a Login section, Admin settings, forgot password and all other features you need for admin panel.
 - ** RTL support **
 
-## Screen shot 
-
-- This is a custom CRUD with few lines of code :
-![dashboard of panel](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-dashboard.jpg)
-![List of Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-crud.jpg)
-![Edit Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-crud-edit.jpg)
 
 ## Demo 
 You can check the [live demo here](http://demo.serverfire.net/panel) .
