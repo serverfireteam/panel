@@ -7701,8 +7701,9 @@ body {
   float: right;
 }
 .top-icon-bar a.main-link .caret {
-  top: 8px;
+  top: 1px;
   position: relative;
+  margin-left: 25px;
 }
 .top-icon-bar a.main-link:hover {
   color: #fff;
@@ -7716,12 +7717,16 @@ body {
 }
 .top-icon-bar .icon {
   color: #555;
-  font-size: 18px;
+  font-size: 14px;
   cursor: pointer;
   transition: all ease 250ms;
+  padding-left: 15px;
 }
 .top-icon-bar .icon:hover {
   text-decoration: none;
+}
+.top-icon-bar a.main-link:hover .icon {
+	color: #fff;
 }
 .top-icon-bar .dropdown-menu > li > a {
   vertical-align: top;
