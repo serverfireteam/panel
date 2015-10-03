@@ -7720,9 +7720,13 @@ body {
   font-size: 14px;
   cursor: pointer;
   transition: all ease 250ms;
+  padding-left: 15px;
 }
 .top-icon-bar .icon:hover {
   text-decoration: none;
+}
+.top-icon-bar a.main-link:hover .icon {
+	color: #fff;
 }
 .top-icon-bar .dropdown-menu > li > a {
   vertical-align: top;
