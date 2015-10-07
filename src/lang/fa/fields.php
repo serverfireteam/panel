@@ -4,7 +4,6 @@ return array(
     'settings' => 'تنظیمات',
     'logout' => 'خروج',
     'ProfileEdit' => 'ویرایش پروفایل',
-    'ResetPassword' => 'تعویض کلمه عبور',
     'Add' => 'ایجاد',
     'search' => 'جستجو',
     'reset' => 'تنظیم مجدد',

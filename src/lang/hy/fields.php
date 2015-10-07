@@ -4,7 +4,6 @@ return array(
     'settings' => 'Կարգավորումներ',
     'logout' => 'Ելք',
     'ProfileEdit' => 'Խմբագրել Անձնագիրը',
-    'ResetPassword' => 'Վերականգնել Գաղտնաբառը',
     'Add' => 'Ավելացնել',
     'edit' => 'Խմբագրել',
     'search' => 'Փնտրել',

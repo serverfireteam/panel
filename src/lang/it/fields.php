@@ -4,7 +4,6 @@ return array(
     'settings' => 'Settaggi',
     'logout' => 'Esci',
     'ProfileEdit' => 'Modifica il profilo',
-    'ResetPassword' => 'Resetta la Password',
     'Add' => 'Aggiungi',
     'edit' => 'Modifica',
     'search' => 'Ricerca',
