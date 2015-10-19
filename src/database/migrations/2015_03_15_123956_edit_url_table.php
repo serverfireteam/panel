@@ -12,7 +12,7 @@ class EditUrlTable extends Migration {
 	 */
 	public function up()
 	{
-            Schema::table('links', function($table)
+            Schema::table('sf_links', function($table)
             {
                 $table->boolean('main')->nullable();
             });

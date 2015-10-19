@@ -12,7 +12,7 @@ class CreateUrlTable extends Migration {
 	 */
 	public function up()
 	{
-            Schema::create('links', function($table)
+            Schema::create('sf_links', function($table)
              {
                      $table->increments('id');
                      $table->string('display');
@@ -35,7 +35,7 @@ class CreateUrlTable extends Migration {
 	 */
 	public function down()
 	{
-            Schema::drop('links');
+            Schema::drop('sf_links');
 	}
 
 }

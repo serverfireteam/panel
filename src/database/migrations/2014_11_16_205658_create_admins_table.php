@@ -13,7 +13,7 @@ class CreateAdminsTable extends Migration {
 	 */
 	public function up()
 	{
-        Schema::create('admins', function($table)
+        Schema::create('sf_admins', function($table)
 		{
 			$table->increments('id');
 			$table->string('email');
@@ -52,7 +52,7 @@ class CreateAdminsTable extends Migration {
 	 */
 	public function down()
 	{
-            Schema::drop('admins');
+            Schema::drop('sf_admins');
 	}
 
 }

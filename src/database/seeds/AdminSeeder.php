@@ -10,9 +10,9 @@ class AdminSeeder extends Seeder{
     
     public function run(){
         
-        DB::table('admins')->delete();
+        DB::table('sf_admins')->delete();
         
-        DB::table('admins')->insert(
+        DB::table('sf_admins')->insert(
               array('email'=>'admin@admin.com',
                    'password'=>'123')  
         );

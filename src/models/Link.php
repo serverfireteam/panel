@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Link extends Model {
     
-    protected $table = 'links';
+    protected $table = 'sf_links';
     
     public static function returnUrls(){
         $configs = Link::all();
