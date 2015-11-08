@@ -8,6 +8,12 @@
 
 This package provides an easily configurable admin panel for Laravel 5.1 & 5.0  applications with a CRUD system, UI and more.
 
+## Screen shot 
+- This is a custom CRUD with few lines of code :
+![dashboard of panel](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-dashboard.jpg)
+![List of Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-crud.jpg)
+![Edit Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-crud-edit.jpg)
+
 ## Main features
 
 
