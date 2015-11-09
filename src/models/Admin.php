@@ -15,7 +15,7 @@ class Admin extends Model implements AuthenticatableContract, CanResetPasswordCo
 	 *
 	 * @var string
 	 */
-	protected $table = 'admins';
+	protected $table = 'sf_admins';
         protected $remember_token_name      = 'remember_token';
 
 
