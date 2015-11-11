@@ -4,7 +4,6 @@ dashboard
 @stop
 @section('body')
 
-
 {{--*/     
      $urls = \Config::get('panel.panelControllers');
  /*--}}         
@@ -35,53 +34,58 @@ dashboard
                 
               </div>
 
-            
             <!-- /.navbar-top-links -->
 
             <div class="navbar-default sidebar " role="navigation">
                 <div class="sidebar-nav navbar-collapse collapse " id="bs-example-navbar-collapse-1">
                       <div class="grav center"><img src="http://www.gravatar.com/avatar/{{ md5( strtolower( trim( Auth::user()->email ) ) )}}?d=mm&s=128" ><a href="https://www.gravatar.com"><span> {{ \Lang::get('panel::fields.change') }}</span></a></div>
                       <div class="user-info">{{Auth::user()->first_name.' '.Auth::user()->last_name}}</div>
-                      <a class="visit-site" href="{{$app['url']->to('/')}}">{{ \Lang::get('panel::fields.visiteSite') }}  </a>
+                      <a class="visit-site" href="{{$app['url']->to('/')}}">{{ \Lang::get('panel::fields.visiteSite') }}</a>
                       <ul class="nav" id="side-menu">
-                              <li class="{{ (Request::url() === url('panel')) ? 'active' : '' }}">
-                                  <a  href="{{ url('panel') }}" ><i class="fa fa-dashboard fa-fw"></i> {{ \Lang::get('panel::fields.dashboard') }}</a>
-                              </li>
-                              
-                               {{--*/ $links = \Serverfireteam\Panel\libs\CheckPermission::getUserLinks(); /*--}}   
-
-                               @foreach($links as $key => $value )
-
-                               @if (in_array($value['url'], $urls))
-                                {{--*/ $model = "Serverfireteam\Panel\\".$value['url'] /*--}}
-                                  <li >
-                                      <a  href="{{ url('panel/'.$value['url'].'/all') }}" class=" s-link {{ (Request::segment(2)==$value['url'])?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$value['display']}}}  </a>   <span class="badge pull-right">{!!$model::all()->count()!!}</span> <div class="items-bar"> <a href="{{ url('panel/'.$value['url'].'/edit') }}" class="ic-plus" title="Add"></a> <a  title="List" class="ic-lines" href="{{ url('panel/'.$value['url'].'/all') }}">  </a>  </div>    
-                                           
-                                  </li>
-                               @else
-
-      			    {{--*/  $appHelper = new \Serverfireteam\Panel\libs\AppHelper(); /*--}}
-                                
-                {{--*/  $model = $appHelper->getNameSpace().$value['url'] /*--}}
-             <li class="s-link {{ (Request::segment(2)==$value['url'])?'active':'' }}">
-                                      <a  href="{{ url('panel/'.$value['url'].'/all') }}" class="{{ (Request::segment(2)==$value['url'])?'active':'' }}"><i class="fa fa-edit fa-fw"></i> {{{$value['display']}}}  </a>   <span class="badge pull-right">{!!$model::all()->count()!!}</span> <div class="items-bar"> <a href="{{ url('panel/'.$value['url'].'/edit') }}" class="ic-plus" title="Add" ></a> <a  title="List" class="ic-lines" href="{{ url('panel/'.$value['url'].'/all') }}" >  </a>  </div>        
-                                  </li>
-                               @endif
-                               @endforeach
-                      </ul>     
-                      
+                        <li class="{{ (Request::url() === url('panel')) ? 'active' : '' }}">
+                          <a  href="{{ url('panel') }}" ><i class="fa fa-dashboard fa-fw"></i> {{ \Lang::get('panel::fields.dashboard') }}</a>
                         </li>
-                    </ul>
+                        @if(is_array(\Serverfireteam\Panel\Link::returnUrls()))
+                          @foreach (Serverfireteam\Panel\libs\dashboard::create() as $box)
+
+                         @if (in_array($box['showListUrl'], $urls))
+                          {{--*/ $model = "Serverfireteam\Panel\\".$box['showListUrl'] /*--}}
+                            <li >
+                                <a href="{{ url($box['showListUrl']) }}" class=" s-link {{ (Request::segment(2)==$box['showListUrl'])?'active':'' }}">
+                                  <i class="fa fa-edit fa-fw"></i>{{{$box['title']}}}
+                                </a>
+                                <span class="badge pull-right">{!!$box['count']!!}</span>
+                                <div class="items-bar">
+                                  <a href="{{ url($box['addUrl']) }}" class="ic-plus" title="Add"></a>
+                                  <a title="List" class="ic-lines" href="{{ url($box['addUrl']) }}"></a>
+                                </div>
+                            </li>
+                         @else
+
+                          {{--*/  $appHelper = new \Serverfireteam\Panel\libs\AppHelper(); /*--}}             
+                          {{--*/  $model = $appHelper->getNameSpace().$box['title'] /*--}}
+
+                            <li class="s-link {{ (Request::segment(2)==$box['showListUrl'])?'active':'' }}">
+                                <a  href="{{ url($box['showListUrl']) }}" class="{{ (Request::segment(2)==$box['showListUrl'])?'active':'' }}">
+                                  <i class="fa fa-edit fa-fw"></i>{{{$box['title']}}}
+                                </a>
+                                <span class="badge pull-right">{!!$box['count']!!}</span>
+                                <div class="items-bar"> <a href="{{ url($box['addUrl']) }}" class="ic-plus" title="Add" ></a>
+                                  <a title="List" class="ic-lines" href="{{ url($box['showListUrl']) }}" ></a>
+                                </div>        
+                            </li>
+                         @endif
+                       @endforeach
+                     @endif
+                      </ul> 
                 </div>
-               
-             
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-        <div class="powered-by"><a href="http://laravelpanel.com">Thank you for using LaravelPanel.</a></div> 
-        <div id="page-wrapper">
-            
 
+        <div class="powered-by"><a href="http://laravelpanel.com">Thank you for using LaravelPanel.</a></div> 
+
+        <div id="page-wrapper">
             <!-- Menu Bar -->
             <div class="row">
                 <div class="col-xs-12 text-a top-icon-bar">
@@ -109,3 +113,4 @@ dashboard
 
     </div>
 @stop
+
