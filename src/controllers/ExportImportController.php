@@ -70,7 +70,7 @@ class ExportImportController extends Controller {
 	// Check validation of values
 	foreach ($rows as $row) {
 		foreach ($notNullColumnNames as $notNullColumn) {
-			if (empty($row[$notNullColumn])) {
+			if (!isset($row[$notNullColumn])) {
 				$this->failed = true;
 				break;
 			}
