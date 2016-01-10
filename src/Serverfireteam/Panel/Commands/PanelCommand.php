@@ -35,14 +35,13 @@ class PanelCommand extends Command {
 	 */
 	public function fire()
 	{
-            $this->info('        [ Welcome to ServerFireTeam Panel Installation ]       ');
-
-	    $this->call('elfinder:publish');
+       
+            $this->info('            [ Welcome to ServerFireTeam Panel Installation ]       ');
 
             $this->call('vendor:publish');
 
             $this->call('migrate', array('--path' => 'vendor/serverfireteam/panel/src/database/migrations'));
-
+            
             $this->call('db:seed', array('--class' => '\Serverfireteam\Panel\LinkSeeder'));
 	}
 

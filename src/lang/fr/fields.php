@@ -6,7 +6,6 @@ return array(
     'ProfileEdit' => 'Modifier mon profil',
     'ResetPassword' => 'Réinitialiser le mot de passe',
     'Add' => 'AJOUTER',
-    'edit' => 'Modifier',
     'search' => 'Rechercher',
     'reset' => 'Réinitialiser',
     'enterEmail' => 'Saisissez vos identifiants',
