@@ -22,9 +22,6 @@ class PanelServiceProvider extends ServiceProvider
         // register zofe\rapyd
         $this->app->register('Zofe\Rapyd\RapydServiceProvider');
 
-        // register html service provider
-        $this->app->register('Illuminate\Html\HtmlServiceProvider');
-
         // 'Maatwebsite\Excel\ExcelServiceProvider'
         $this->app->register('Maatwebsite\Excel\ExcelServiceProvider');
 
@@ -35,8 +32,8 @@ class PanelServiceProvider extends ServiceProvider
          * Create aliases for the dependency.
          */
         $loader = AliasLoader::getInstance();
-        $loader->alias('Form', 'Illuminate\Html\FormFacade');
-        $loader->alias('Html', 'Illuminate\Html\HtmlFacade');
+        $loader->alias('Form', 'Collective\Html\FormFacade');
+        $loader->alias('Html', 'Collective\Html\HtmlFacade');
         $loader->alias('Excel', 'Maatwebsite\Excel\Facades\Excel');
 
         $this->app['panel::install'] = $this->app->share(function()
