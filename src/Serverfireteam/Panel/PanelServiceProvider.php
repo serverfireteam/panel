@@ -25,9 +25,17 @@ class PanelServiceProvider extends ServiceProvider
         // 'Maatwebsite\Excel\ExcelServiceProvider'
         $this->app->register('Maatwebsite\Excel\ExcelServiceProvider');
 
-	// Barryvdh\Elfinder\ElfinderServiceProvider
-	$this->app->register('Barryvdh\Elfinder\ElfinderServiceProvider');
+    	// Barryvdh\Elfinder\ElfinderServiceProvider
+    	$this->app->register('Barryvdh\Elfinder\ElfinderServiceProvider');
 
+        $this->app['router']->middleware('PanelAuth', 'Serverfireteam\Panel\libs\AuthMiddleware');
+
+        // set config for Auth
+
+        \Config::set('auth.guards.panel',     ['driver'   => 'session','provider' => 'panel']);
+        \Config::set('auth.providers.panel',  ['driver'   => 'eloquent','model'   => \Serverfireteam\Panel\Admin::class]);
+        \Config::set('auth.passwords.panel',  ['provider' => 'panel','email'      => 'panelViews::resetPassword','table' => 'password_resets','expire' => 60]);
+        
         /*
          * Create aliases for the dependency.
          */
@@ -86,10 +94,11 @@ class PanelServiceProvider extends ServiceProvider
 
         include __DIR__."/../../routes.php";
 
-	$this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/panel/src/lang', 'panel');
+	    $this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/panel/src/lang', 'panel');
         $this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/rapyd-laravel/lang', 'rapyd');
 
         AliasLoader::getInstance()->alias('Serverfireteam', 'Serverfireteam\Panel\Serverfireteam');
+
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace Serverfireteam\Panel;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Input;
 
 class ExportImportController extends Controller {
 
@@ -42,11 +43,11 @@ class ExportImportController extends Controller {
 		}
 	}
 
-	$status = \Input::get('status');
+	$status = Input::get('status');
 
 	$filePath = null;
-	if (\Input::hasFile('import_file') && \Input::file('import_file')->isValid()) {
-		$filePath = \Input::file('import_file')->getRealPath();
+	if (Input::hasFile('import_file') && Input::file('import_file')->isValid()) {
+		$filePath = Input::file('import_file')->getRealPath();
 	}
 
 	if ($filePath) {

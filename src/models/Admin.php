@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Support\Facades\Input;
 
 class Admin extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
@@ -16,7 +17,7 @@ class Admin extends Model implements AuthenticatableContract, CanResetPasswordCo
 	 * @var string
 	 */
 	protected $table = 'admins';
-        protected $remember_token_name      = 'remember_token';
+    protected $remember_token_name      = 'remember_token';
 
 
     public function getAuthIdentifier()
@@ -43,7 +44,7 @@ class Admin extends Model implements AuthenticatableContract, CanResetPasswordCo
     }
 
     public function getReminderEmail(){  
-        $email = \Input::only('email');
+        $email = Input::only('email');
         return $email['email'];            
     }
 
@@ -52,7 +53,7 @@ class Admin extends Model implements AuthenticatableContract, CanResetPasswordCo
         return $this->remember_token_name;
     }
         
-        protected $fillable = array('first_name', 'last_name', 'email', 'password');
+    protected $fillable = array('first_name', 'last_name', 'email', 'password');
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *

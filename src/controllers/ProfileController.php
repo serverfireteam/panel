@@ -2,17 +2,18 @@
 namespace Serverfireteam\Panel;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Input;
 
 class ProfileController extends Controller {
 
     public function getEdit() {
 
-	$admin = Admin::find(\Auth::user()->id);
+	   $admin = Admin::find(\Auth::guard('panel')->user()->id);
 
-        $demo = false;
-        if (\Config::get('panel.demo') == true) {
-		$demo = true;
-        }
+       $demo = false;
+       if (\Config::get('panel.demo') == true) {
+	       $demo = true;
+       }
 
         return \View('panelViews::editProfile')->with('admin', $admin)->with('demo_status', $demo);
     }
@@ -24,8 +25,8 @@ class ProfileController extends Controller {
 		$demo = true;
         }
 
-        $admin  = Admin::find(\Auth::user()->id);
-        $inputs = \Input::all();
+        $admin  = Admin::find(\Auth::guard('panel')->user()->id);
+        $inputs = Input::all();
         $admin->update($inputs);
         $admin->save();
         return \View('panelViews::editProfile')->with(array('admin'   	  => $admin,

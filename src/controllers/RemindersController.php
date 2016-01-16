@@ -3,6 +3,7 @@ namespace Serverfireteam\Panel;
 
 use Illuminate\Contracts\Auth\PasswordBroker as PasswordBrokerContract;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Input;
 
 /*******
  * The RemindersControler handle the users Password reminding activities
@@ -36,21 +37,21 @@ class RemindersController extends Controller {
 	 */
 	public function postRemind()
 	{
-            \App::make('route');
-            \Config::set('auth.model', 		'Serverfireteam\Panel\Admin');
-            \Config::set('auth.password.email', 'panelViews::resetPassword');
+        \App::make('route');
 
-	    $response = \Password::sendResetLink(\Input::only('email'), function($message) {
-		$message->subject('Password Reminder');
+        \Config::set('auth.defaults.passwords', 'panel');
+
+	    $response = \Password::sendResetLink(Input::only('email'), function($message) {
+		  $message->subject('Password Reminder');
 	    });
 
-            switch ($response) {
-                    case PasswordBrokerContract::INVALID_USER:
-                            return \Redirect::back()->with('message', \Lang::get($response))->with('mesType', 'error');
+        switch ($response) {
+                case PasswordBrokerContract::INVALID_USER:
+                        return \Redirect::back()->with('message', \Lang::get($response))->with('mesType', 'error');
 
-                    case PasswordBrokerContract::RESET_LINK_SENT:
-                            return \Redirect::back()->with('message', \Lang::get($response))->with('mesType', 'info');
-            }
+                case PasswordBrokerContract::RESET_LINK_SENT:
+                        return \Redirect::back()->with('message', \Lang::get($response))->with('mesType', 'info');
+        }
 	}
 
 	/**
@@ -64,75 +65,73 @@ class RemindersController extends Controller {
         	return \View::make('panelViews::passwordReset');
 	}
 
-        public function postReset()
-        {
-		\Config::set('auth.model', 'Serverfireteam\Panel\Admin');
+    public function postReset()
+    {
 
-	        $credentials = \Input::only(
-		        'email', 'password', 'password_confirmation', 'token'
-	        );
+        $credentials = Input::only(
+            'email', 'password', 'password_confirmation', 'token'
+        );
+        \Config::set('auth.defaults.passwords', 'panel');
 
-	        $response = \Password::reset($credentials, function($user, $password) {
-			$user->password = \Hash::make($password);
-		        $user->save();
-	        });
+        $response = \Password::reset($credentials, function($user, $password) {
+            $user->password = \Hash::make($password);
+            $user->save();
+        });
 
-	        switch ($response) {
-			case PasswordBrokerContract::INVALID_PASSWORD:
-		                return \Redirect::back()->with('message', \Lang::get($response))->with('mesType','error');
-		        case PasswordBrokerContract::INVALID_TOKEN:
-		                return \Redirect::back()->with('message', \Lang::get($response))->with('mesType','error');
-	                case PasswordBrokerContract::INVALID_USER:
-		                return \Redirect::back()->with('message', \Lang::get($response))->with('mesType','error');
-		        case PasswordBrokerContract::PASSWORD_RESET:
-		                return \Redirect::to('/panel')->with('message', \Lang::get('panel::fields.successfullReset'))->with('mesType','info');
-	        }
+        switch ($response) {
+        case PasswordBrokerContract::INVALID_PASSWORD:
+                    return \Redirect::back()->with('message', \Lang::get($response))->with('mesType','error');
+            case PasswordBrokerContract::INVALID_TOKEN:
+                    return \Redirect::back()->with('message', \Lang::get($response))->with('mesType','error');
+                case PasswordBrokerContract::INVALID_USER:
+                    return \Redirect::back()->with('message', \Lang::get($response))->with('mesType','error');
+            case PasswordBrokerContract::PASSWORD_RESET:
+                    return \Redirect::to('/panel')->with('message', \Lang::get('panel::fields.successfullReset'))->with('mesType','info');
+        }
 	}
 
-        /********
-         * The function displays the password
-         * change view
-         ********/
+    /********
+     * The function displays the password
+     * change view
+     ********/
 	public function getChangePassword() {
 
-            $demo = false;
-            if (\Config::get('panel.demo') == true) {
-                    $demo = true;
-            }
+        $demo = false;
+        if (\Config::get('panel.demo') == true) {
+            $demo = true;
+        }
 
-            return \View::make('panelViews::passwordChange')->with('demo_status', $demo);
+        return \View::make('panelViews::passwordChange')->with('demo_status', $demo);
 	}
 
-         /********
-         * After User enter the new password 
-         * this function handles the resetting the
-         * the password
-         ********/
+     /********
+     * After User enter the new password 
+     * this function handles the resetting the
+     * the password
+     ********/
 	public function postChangePassword() {
 
-            \Config::set('auth.model', '\Serverfireteam\Panel\Admin');
+        $user 		 = Admin::find(\Auth::guard('panel')->user()->id);
+        $password 	 = Input::only('current_password');
+        $new_password    = Input::only('password');
+        $retype_password = Input::only('password_confirmation');
+        $user_password   = \Auth::guard('panel')->user()->password;
 
-            $user 		 = Admin::find(\Auth::user()->id);
-            $password 	 = \Input::only('current_password');
-            $new_password    = \Input::only('password');
-            $retype_password = \Input::only('password_confirmation');
-            $user_password   = \Auth::user()->password;
-
-            //Check to see if user enters current password correctly
-            if (\Hash::check($password['current_password'], $user_password)) {
-                if ($new_password['password'] == $retype_password['password_confirmation']) {
-                        $user->password = \Hash::make($new_password['password']);
-                        $user->save();
-                        return \Redirect::to('/panel/changePassword')->with('message', 'Successfully Changed Your Password!!');
-                } else {
-                        return \Redirect::to('/panel/changePassword')
-                                        ->with('message', 'Passwords not matched!!')
-                                        ->with('mesType', 'error');
-                }
+        //Check to see if user enters current password correctly
+        if (\Hash::check($password['current_password'], $user_password)) {
+            if ($new_password['password'] == $retype_password['password_confirmation']) {
+                    $user->password = \Hash::make($new_password['password']);
+                    $user->save();
+                    return \Redirect::to('/panel/changePassword')->with('message', 'Successfully Changed Your Password!!');
             } else {
-                return \Redirect::to('/panel/changePassword')
-                                     ->with('message', 'Password is not correct!!')
-                                     ->with('mesType', 'error');
+                    return \Redirect::to('/panel/changePassword')
+                                    ->with('message', 'Passwords not matched!!')
+                                    ->with('mesType', 'error');
             }
+        } else {
+            return \Redirect::to('/panel/changePassword')
+                                 ->with('message', 'Password is not correct!!')
+                                 ->with('mesType', 'error');
+        }
 	}
 }
