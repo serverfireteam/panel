@@ -66,19 +66,20 @@ Note: if you face any problem in any of the steps you should report it at [githu
 And run the composer update command, the package and its dependencies will be installed.
 
 3. Add the ServiceProvider of the package to the list of providers in the config/app.php file
-
-    laravel 5.0
-    ```php
-    'providers' => array(
-        'Serverfireteam\Panel\PanelServiceProvider'
-    )
-    ```
+    
     laravel 5.1 and laravel 5.2
     ```php
     'providers' => array(
         Serverfireteam\Panel\PanelServiceProvider::class
     )
     ```
+    laravel 5.0
+    ```php
+    'providers' => array(
+        'Serverfireteam\Panel\PanelServiceProvider'
+    )
+    ```
+
 
 4. Run the following command in order to publish configs, views and assets.  
 
