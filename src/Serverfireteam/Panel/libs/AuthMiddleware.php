@@ -16,8 +16,8 @@ class AuthMiddleware
      */
     public function handle($request, Closure $next)
     {
-        
-        if (is_null($request->user())) {
+
+        if (is_null(\Auth::guard('panel')->user())) {
             $message = session('message', Lang::get('panel::fields.enterEmail'));
 
             return redirect('/panel/login')
