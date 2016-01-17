@@ -43,10 +43,10 @@ Note: if you face any problem in any of the steps you should report it at [githu
 
 2. Add our package to require section of composer 
     
-    laravel 5.0
+    laravel 5.2
     ```json
     "require": {
-        "serverfireteam/panel": "1.2.*"
+        "serverfireteam/panel": "1.4.*"
     },
     ```
     laravel 5.1
@@ -55,6 +55,13 @@ Note: if you face any problem in any of the steps you should report it at [githu
         "serverfireteam/panel": "1.3.*"
     },
     ```
+    laravel 5.0
+    ```json
+    "require": {
+        "serverfireteam/panel": "1.2.*"
+    },
+    ```
+
 
 And run the composer update command, the package and its dependencies will be installed.
 
@@ -66,7 +73,7 @@ And run the composer update command, the package and its dependencies will be in
         'Serverfireteam\Panel\PanelServiceProvider'
     )
     ```
-    laravel 5.1
+    laravel 5.1 and laravel 5.2
     ```php
     'providers' => array(
         Serverfireteam\Panel\PanelServiceProvider::class
