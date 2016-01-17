@@ -36,6 +36,9 @@ You can check the [live demo here](http://demo.serverfire.net/panel) .
 User: admin@change.me
 Pass: 12345 
 
+## Read this tutorial
+[How to create an Image Gallery with managment system in 5 minutes](http://laravelpanel.com/docs/master/create-gallery)
+
 ##Installations 
 Note: if you face any problem in any of the steps you should report it at [github](https://github.com/serverfireteam/panel/issues/new)
 
