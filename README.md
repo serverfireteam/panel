@@ -36,76 +36,17 @@ You can check the [live demo here](http://demo.serverfire.net/panel) .
 User: admin@change.me
 Pass: 12345 
 
-## Read this tutorial
-[How to create an Image Gallery with managment system in 5 minutes](http://laravelpanel.com/docs/master/create-gallery)
-
-##Installations 
-Note: if you face any problem in any of the steps you should report it at [github](https://github.com/serverfireteam/panel/issues/new)
-
-1. First you need to create a laravel project.
-
-2. Add our package to require section of composer 
-    
-    laravel 5.2
-    ```json
-    "require": {
-        "serverfireteam/panel": "1.4.*"
-    },
-    ```
-    laravel 5.1
-    ```json
-    "require": {
-        "serverfireteam/panel": "1.3.*"
-    },
-    ```
-    laravel 5.0
-    ```json
-    "require": {
-        "serverfireteam/panel": "1.2.*"
-    },
-    ```
-
-
-And run the composer update command, the package and its dependencies will be installed.
-
-3. Add the ServiceProvider of the package to the list of providers in the config/app.php file
-    
-    laravel 5.1 and laravel 5.2
-    ```php
-    'providers' => array(
-        Serverfireteam\Panel\PanelServiceProvider::class
-    )
-    ```
-    laravel 5.0
-    ```php
-    'providers' => array(
-        'Serverfireteam\Panel\PanelServiceProvider'
-    )
-    ```
-
-
-4. Run the following command in order to publish configs, views and assets.  
-
-    ```bash
-    php artisan panel:install
-
-    ```
-5. Go to your domain.com/panel and you can login with the following username and password :
-    user : admin@change.me
-    password : 12345
-
+## Get started
+[Get started with laravelpanel](http://laravelpanel.com/docs/master/get-started)
 
 ## Documents    
 [laravelpanel.com/docs/master](http://laravelpanel.com/docs/master) 
 
-## Samples
+## Read this tutorial
+[How to create an Image Gallery with managment system in 5 minutes](http://laravelpanel.com/docs/master/create-gallery)
+
+
+## Samples code
 To get a sample code, please check the [Laravel Panel Demo](https://github.com/laravelpanel/demo)
 
-#Credits 
-[SB-admin](http://startbootstrap.com/template-overviews/sb-admin/) for admin template.
-A forked repo of [rapyd](http://rapyd.com) for CRUD system.
-
-
-We are going to develop this package every day and new ideas are welcome.
-Thank you for using our package 
-
+Do you need help with your laravel project ? [we can help you sent mail to : info@serverfire.net](mailto:info@serverfire.net) 
