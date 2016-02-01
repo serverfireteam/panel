@@ -4,37 +4,38 @@ namespace Serverfireteam\Panel;
 use Illuminate\Database\Eloquent\Model;
 
 class Link extends Model {
-    
+
     protected $table = 'links';
-    
+
+    static $cache = [];
+
     public static function returnUrls(){
-        $configs = Link::all();
-        $allUrls = array();
-        
-        foreach ( $configs as $config ){
-            $allUrls[] = $config['url'];                        
+
+        if(!isset(static::$cache['all_urls']) || $forceRefresh) {
+            $configs = Link::all(['url']);
+            static::$cache['all_urls'] =  $configs->pluck('url')->toArray();
         }
-        return $allUrls;
+
+        return static::$cache['all_urls'];
     }
-    
-    public static function getMainUrls(){
-        $configs = Link::where('main', '=', true)->get();
-        $mainUrls = array();
-        
-        foreach ( $configs as $config ){
-            $mainUrls[] = $config['url'];                        
+
+    public static function getMainUrls($forceRefresh = false){
+
+        if(!isset(static::$cache['main_urls']) || $forceRefresh) {
+            $configs = Link::where('main', '=', true)->get(['url']);
+            static::$cache['main_urls'] = $configs->pluck('url')->toArray();
         }
-        return $mainUrls;
+
+        return static::$cache['main_urls'];
     }
-    
-    //where('url', '=', 'Admin')->take(1)->get()
-    
+
+
     public function getAndSave($url, $display){
         $this->url = $url;
         $this->display = $display;
         $this->save();
     }
-       
+
 
     protected $fillable = array('url', 'display');
 
