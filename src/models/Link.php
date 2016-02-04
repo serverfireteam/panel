@@ -11,31 +11,31 @@ class Link extends Model {
 
     public static function allCached($forceRefresh = false)
     {
-        if(!isset(static::$cache['all']) || $forceRefresh) {
-            static::$cache['all'] = Link::all();
+        if (!isset(self::$cache['all']) || $forceRefresh) {
+            self::$cache['all'] = Link::all();
         }
 
-        return static::$cache['all'];
+        return self::$cache['all'];
     }
 
     public static function returnUrls($forceRefresh = false) {
 
-        if(!isset(static::$cache['all_urls']) || $forceRefresh) {
+        if (!isset(self::$cache['all_urls']) || $forceRefresh) {
             $configs = Link::allCached($forceRefresh);
-            static::$cache['all_urls'] =  $configs->pluck('url')->toArray();
+            self::$cache['all_urls'] =  $configs->pluck('url')->toArray();
         }
 
-        return static::$cache['all_urls'];
+        return self::$cache['all_urls'];
     }
 
     public static function getMainUrls($forceRefresh = false){
 
-        if(!isset(static::$cache['main_urls']) || $forceRefresh) {
+        if (!isset(self::$cache['main_urls']) || $forceRefresh) {
             $configs = Link::where('main', '=', true)->get(['url']);
-            static::$cache['main_urls'] = $configs->pluck('url')->toArray();
+            self::$cache['main_urls'] = $configs->pluck('url')->toArray();
         }
 
-        return static::$cache['main_urls'];
+        return self::$cache['main_urls'];
     }
 
 
