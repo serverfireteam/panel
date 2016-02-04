@@ -9,10 +9,19 @@ class Link extends Model {
 
     static $cache = [];
 
-    public static function returnUrls(){
+    public static function allCached($forceRefresh = false)
+    {
+        if(!isset(static::$cache['all']) || $forceRefresh) {
+            static::$cache['all'] = Link::all();
+        }
+
+        return static::$cache['all'];
+    }
+
+    public static function returnUrls($forceRefresh = false) {
 
         if(!isset(static::$cache['all_urls']) || $forceRefresh) {
-            $configs = Link::all(['url']);
+            $configs = Link::allCached($forceRefresh);
             static::$cache['all_urls'] =  $configs->pluck('url')->toArray();
         }
 

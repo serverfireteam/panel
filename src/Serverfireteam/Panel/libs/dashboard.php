@@ -3,37 +3,51 @@ namespace Serverfireteam\Panel\libs;
 
 
 class dashboard
-{    
-    
-    public static $urls; 
-    
+{
+
+    public static $dashboardItems;
+
+    public static $urls;
+
+    public static function getItems()
+    {
+        if(!self::$dashboardItems) {
+            self::$dashboardItems = self::create();
+        }
+
+        return self::$dashboardItems;
+    }
+
     public static function create()
     {
         self::$urls = \Config::get('panel.panelControllers');
-        
-        $config    = \Serverfireteam\Panel\Link::all();
+
+        $config    = \Serverfireteam\Panel\Link::allCached();
         $dashboard = array();
 
-        // Make Dashboard Items
-        foreach ($config as $key => $value) {                        
+        $appHelper = new AppHelper();
 
-	    $modelName = $value['url'];           
+        // Make Dashboard Items
+        foreach ($config as $value) {
+
+    	    $modelName = $value['url'];
+
             if ( in_array($modelName, self::$urls)) {
-               $model = "Serverfireteam\Panel\\".$modelName;
+               $model = "Serverfireteam\\Panel\\".$modelName;
             } else {
-               $appHelper = new AppHelper(); 
                $model = $appHelper->getNameSpace() . $modelName;
             }
 
             //if (class_exists($value)) {
             $dashboard[] = array(
+                'modelName' => $modelName,
                 'title'	  => $value['display'],
-                'count'	  => $model::all()->count(),
+                'count'	  => $model::count(),
                 'showListUrl' => 'panel/' . $modelName . '/all',
                 'addUrl'	  => 'panel/' . $modelName . '/edit',
-            );   
+            );
         }
 
-	return $dashboard;
+	   return $dashboard;
     }
 }
