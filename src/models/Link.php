@@ -4,37 +4,47 @@ namespace Serverfireteam\Panel;
 use Illuminate\Database\Eloquent\Model;
 
 class Link extends Model {
-    
+
     protected $table = 'links';
-    
-    public static function returnUrls(){
-        $configs = Link::all();
-        $allUrls = array();
-        
-        foreach ( $configs as $config ){
-            $allUrls[] = $config['url'];                        
+
+    static $cache = [];
+
+    public static function allCached($forceRefresh = false)
+    {
+        if (!isset(self::$cache['all']) || $forceRefresh) {
+            self::$cache['all'] = Link::all();
         }
-        return $allUrls;
+
+        return self::$cache['all'];
     }
-    
-    public static function getMainUrls(){
-        $configs = Link::where('main', '=', true)->get();
-        $mainUrls = array();
-        
-        foreach ( $configs as $config ){
-            $mainUrls[] = $config['url'];                        
+
+    public static function returnUrls($forceRefresh = false) {
+
+        if (!isset(self::$cache['all_urls']) || $forceRefresh) {
+            $configs = Link::allCached($forceRefresh);
+            self::$cache['all_urls'] =  $configs->pluck('url')->toArray();
         }
-        return $mainUrls;
+
+        return self::$cache['all_urls'];
     }
-    
-    //where('url', '=', 'Admin')->take(1)->get()
-    
+
+    public static function getMainUrls($forceRefresh = false){
+
+        if (!isset(self::$cache['main_urls']) || $forceRefresh) {
+            $configs = Link::where('main', '=', true)->get(['url']);
+            self::$cache['main_urls'] = $configs->pluck('url')->toArray();
+        }
+
+        return self::$cache['main_urls'];
+    }
+
+
     public function getAndSave($url, $display){
         $this->url = $url;
         $this->display = $display;
         $this->save();
     }
-       
+
 
     protected $fillable = array('url', 'display');
 

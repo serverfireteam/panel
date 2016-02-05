@@ -5,6 +5,8 @@ use Illuminate\Routing\Controller;
 
 class CrudController extends Controller
 {
+    const ID_COLUMN = 'id';
+
     public    $grid;
     public    $entity;
     public    $set;
@@ -47,17 +49,37 @@ class CrudController extends Controller
         $this->entity = $entity;
     }
 
-    public function addStylesToGrid($orderByColumn = 'id', $paginateCount = 10)
+    public function getEntityModel() {
+
+        $entity = $this->getEntity();
+
+        $appHelper = new libs\AppHelper;
+
+        if ( in_array($entity, Link::getMainUrls()) ) {
+            $modelClass = 'Serverfireteam\\Panel\\'.$entity;
+        } else {
+            $modelClass = $appHelper->getNameSpace().$this->getEntity();
+        }
+
+        return new $modelClass;
+    }
+
+    public function addStylesToGrid($orderByColumn = self::ID_COLUMN, $paginateCount = 10)
     {
         $this->grid->edit('edit', trans('panel::fields.edit'), 'show|modify|delete');
 
+
+        if ($orderByColumn === self::ID_COLUMN) {
+            $orderByColumn = $this->getEntityModel()->getKeyName();
+        }
+
         $this->grid->orderBy($orderByColumn, 'desc');
-        $this->grid->paginate($paginateCount);        
+        $this->grid->paginate($paginateCount);
     }
 
     public function addHelperMessage($message)
     {
-	$this->helper_message = $message;
+        $this->helper_message = $message;
     }
 
     public function returnView()
