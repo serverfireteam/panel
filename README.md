@@ -6,7 +6,7 @@
 
 **LaravelPanel** is a modern Laravel Admin package. 
 
-This package provides an easily configurable admin panel for Laravel 5.1 & 5.0  applications with a CRUD system, UI and more.
+This package provides an easily configurable admin panel for Laravel applications with a CRUD system, UI and more.
 
 ## Screen shot 
 - This is a custom CRUD with few lines of code :
