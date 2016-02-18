@@ -48,4 +48,11 @@ class Link extends Model {
 
     protected $fillable = array('url', 'display');
 
+
+// //get roles user
+//     public function role()
+//     {
+//         return $this->hasOne('Models\Role');
+//     }
+    
 }

@@ -11,7 +11,10 @@ return array(
        
     ),
     'panelControllers' => array(
-       'Admin', 'Link'  
+       'Admin',
+       'Permission',  
+       'Role',  
+       'Link'
     ),
     'logo'=>'packages/serverfireteam/panel/img/logo.png' // logo of Panel 
     
