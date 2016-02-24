@@ -15,14 +15,23 @@ class AppHelper {
     }
 
     public static function validName($name) {
-	return strpos($name, '.') !== 0;
+	   return strpos($name, '.') !== 0;
     }
 
     public static function access($attr, $path, $data, $volume) {
-	if (strpos(basename($path), '.') === 0) {
-	        return !($attr == 'read');
-	} else {
-	        return null;
-	}
+    	if (strpos(basename($path), '.') === 0) {
+    	        return !($attr == 'read');
+    	} else {
+    	        return null;
+    	}
+    }
+
+    public static function getModel($entity) {
+        if ( in_array($entity, \Serverfireteam\Panel\Link::getMainUrls()) ) {
+            $modelClass = 'Serverfireteam\\Panel\\'.$entity;
+        } else {
+            $modelClass = $this->getNameSpace() . \Config::get('panel.modelPath') .$entity;
+        }
+        return $modelClass;
     }
 }

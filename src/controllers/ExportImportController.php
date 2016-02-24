@@ -13,7 +13,7 @@ class ExportImportController extends Controller {
 
         $appHelper = new libs\AppHelper();
         
-	$className = $appHelper->getNameSpace() . $entity;
+	$className = $appHelper->getModel($entity);
 	$data      = $className::get();
 	if (strcmp($fileType, "excel") == 0) {
 		$excel = \App::make('Excel');
@@ -29,7 +29,7 @@ class ExportImportController extends Controller {
 
         $appHelper = new libs\AppHelper();
         
-	$className = $appHelper->getNameSpace() . $entity;
+	$className = $appHelper->getModel($entity);
 	$model     = new $className;
 	$table     = $model->getTable();
 	$columns   = \Schema::getColumnListing($table);

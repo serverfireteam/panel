@@ -13,8 +13,8 @@ return array(
     'panelControllers' => array(
        'Admin', 'Link'  
     ),
-    'logo'=>'packages/serverfireteam/panel/img/logo.png' // logo of Panel 
-    
+    'logo'=>'packages/serverfireteam/panel/img/logo.png', // logo of Panel 
+    'modelPath' => 'Models\\', // specific model path in the app folder
 );
     
     
