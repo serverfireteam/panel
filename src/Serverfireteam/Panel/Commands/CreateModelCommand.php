@@ -44,7 +44,12 @@ class CreateModelCommand extends GeneratorCommand {
 	 */
 	protected function getDefaultNamespace($rootNamespace)
 	{
-		return $rootNamespace;
+		if (!empty(\Config::get('panel.modelPath'))) {
+			return $rootNamespace . '\\' . \Config::get('panel.modelPath');
+		}
+		else {
+			return $rootNamespace;
+		}
 	}
 
 }

@@ -30,7 +30,13 @@ class AppHelper {
         if ( in_array($entity, \Serverfireteam\Panel\Link::getMainUrls()) ) {
             $modelClass = 'Serverfireteam\\Panel\\'.$entity;
         } else {
-            $modelClass = $this->getNameSpace() . \Config::get('panel.modelPath') .$entity;
+            if (!empty(\Config::get('panel.modelPath'))) {
+                $modelClass = $this->getNameSpace() . \Config::get('panel.modelPath') . '\\' . $entity;
+            }
+            else {
+                $modelClass = $this->getNameSpace() . $entity;
+            }
+            
         }
         return $modelClass;
     }
