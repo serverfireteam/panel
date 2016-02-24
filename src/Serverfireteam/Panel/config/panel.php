@@ -14,7 +14,7 @@ return array(
        'Admin', 'Link'  
     ),
     'logo'=>'packages/serverfireteam/panel/img/logo.png', // logo of Panel 
-    'modelPath' => 'Models\\', // specific model path in the app folder
+    'modelPath' => '', // specific model path in the app folder e.g. 'Models'
 );
     
     
