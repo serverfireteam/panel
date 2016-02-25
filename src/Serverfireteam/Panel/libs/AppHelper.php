@@ -26,7 +26,7 @@ class AppHelper {
     	}
     }
 
-    public static function getModel($entity) {
+    public function getModel($entity) {
         if ( in_array($entity, \Serverfireteam\Panel\Link::getMainUrls()) ) {
             $modelClass = 'Serverfireteam\\Panel\\'.$entity;
         } else {
