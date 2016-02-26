@@ -23,7 +23,7 @@ This package provides an easily configurable admin panel for Laravel application
 - **File manager ** power full file manager inside the text editor 
 - **Extension system** that allows you to create own custom column types
 - **Sorting, ordering, filters, pagination**
-- **Imort and Export data** Every  crud you make it have import and export data from Excel  
+- **Import and Export data** Every  crud you make it have import and export data from Excel  
 - **Clean Admin**, Based on bootstrap 3 and sb-admin-2 
 - **Dashboard**, It shows how many records you have in every model added in menu.
 - **Preconfigured**, It has default users and models you need.
