@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Input;
 class Admin extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
     use Authenticatable, CanResetPassword;
+    use HasRoles;
 	/**
 	 * The database table used by the model.
 	 *
@@ -40,19 +41,20 @@ class Admin extends Model implements AuthenticatableContract, CanResetPasswordCo
     }
     
     public function  setRememberToken($value){
-         $this->remember_token =  $value;
-    }
+     $this->remember_token =  $value;
+ }
 
-    public function getReminderEmail(){  
-        $email = Input::only('email');
-        return $email['email'];            
-    }
+ public function getReminderEmail(){  
+    $email = Input::only('email');
+    return $email['email'];            
+}
 
 
-    public function getRememberTokenName(){
-        return $this->remember_token_name;
-    }
-        
+public function getRememberTokenName(){
+    return $this->remember_token_name;
+}
+
+
     protected $fillable = array('first_name', 'last_name', 'email', 'password');
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -60,5 +62,8 @@ class Admin extends Model implements AuthenticatableContract, CanResetPasswordCo
 	 * @var array
 	 */
 	protected $hidden = array('password', 'remember_token');
+
+
+
 
 }

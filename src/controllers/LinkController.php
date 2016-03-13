@@ -12,7 +12,7 @@ class LinkController extends CrudController {
 
         $this->filter = \DataFilter::source(new Link());
         $this->filter->add('id', 'ID', 'text');
-        $this->filter->add('name', 'Name', 'text');
+        $this->filter->add('display', 'Display', 'text');
         $this->filter->submit('search');
         $this->filter->reset('reset');
         $this->filter->build();
@@ -39,14 +39,18 @@ class LinkController extends CrudController {
             return ( class_exists( $appHelper->getNameSpace() . $link['url'] ));
         });
 
-	$helpMessage = trans('rapyd::rapyd.links_help');
+        $helpMessage = \Lang::get('panel::fields.links_help');
 
         $this->edit->label('Edit Links');
         $this->edit->link("rapyd-demo/filter", "Articles", "TR")->back();
-        $this->edit->add('display', 'Display', 'text');
-        $this->edit->add('url', 'link', 'text');
+        $this->edit->add('display', 'Display', 'text')->rule('required');
+        $this->edit->add('url', 'link', 'text')->rule('required');
 
-	$this->addHelperMessage($helpMessage);
+        $this->edit->saved(function () use ($entity) {
+           $this->edit->message(\Lang::get('panel::fields.dataSavedSuccessfull'));
+            $this->edit->link('panel/Permission/all', \Lang::get('panel::fields.back'));
+        });
+        $this->addHelperMessage($helpMessage);
 
         return $this->returnEditView();
     }
