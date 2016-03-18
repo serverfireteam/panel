@@ -21,16 +21,10 @@
         "email": "hope2end@gmail.com"
         }
     ],
-    "repositories": [
-            {
-                "type": "vcs",
-                "url": "https://github.com/wtom/rapyd-laravel"
-            }
-        ],
     "require": {
         "php": ">=5.4.0",        
         "illuminate/support": "~5.1",
-        "serverfireteam/rapyd-laravel" : "dev-master",
+        "serverfireteam/rapyd-laravel" : "1.5.*",
         "maatwebsite/excel": "~2.0.0",
 	"barryvdh/laravel-elfinder": "0.3.*"
     },
