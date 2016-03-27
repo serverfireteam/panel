@@ -41,7 +41,7 @@ return array(
     'successfullEditProfile' => 'Your profile is edited successfully.',
     'permissionHelp' => 'Permissions work with urls, in order to using for ** http://Serverfire.net/panel/url/access ** , Url field should be : urlaccess  .',
     'roleHelp' => 'Role can have many permission.',
-    'links_help' => "The 'Edit Links' form is used for adding a link in the sidebar menu of panel. The value of 'Display' field specifies the label of the link to be displayed in the menu and the value of 'Link' field specifies the name of the model."
+    'links_help' => "The 'Edit Links' form is used for adding a link in the sidebar menu of panel. The value of 'Display' field specifies the label of the link to be displayed in the menu and the value of 'Link' field specifies the name of the model.",
     'dataSavedSuccessfull' => 'Awesome!, data saved, to save again with new data click on save.',
     
 
