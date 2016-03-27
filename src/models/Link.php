@@ -12,7 +12,7 @@ class Link extends Model {
     public static function allCached($forceRefresh = false)
     {
         if (!isset(self::$cache['all']) || $forceRefresh) {
-            self::$cache['all'] = Link::all();
+            self::$cache['all'] = Link::orderBy('main', 'desc')->orderBy('display')->get();
         }
 
         return self::$cache['all'];
