@@ -78,10 +78,7 @@ This can easily be achieved using the two separate LaravelPanel commands provide
 
 For example, creating a Post model and PostController.
 `panel:createmodel Models/Post` will create the model file *app/Models/Post* folder, namespaced to `App\Models\Post;` and 
-`panel:createcontroller Blog/PostController` will create file *app/Http/Controllers/Blog/PostController.php*, again with a correct namespace.
+`panel:createcontroller Blog/Post` will create file *app/Http/Controllers/Blog/PostController.php*, again with a correct namespace.
 
-If a **complete path** is supplied to the panel command (starting with /App), that will also be respected.
-So `panel:createmodel /App/Blog/Post` and `panel:createcontroller /App/Blog/PostController` will create both the model 
-and controller files in the *app/Blog/* folder.
 
 
