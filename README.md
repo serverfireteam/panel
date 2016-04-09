@@ -16,7 +16,7 @@ This package provides an easily configurable admin panel for Laravel application
 
 ## Main features
 
-
+- **Permission/Roles** Create groups , give them access and add users to it 
 - **Fully translatable** , 9 languages
 - **Crud**, With just few lines of code, you'll have Add, Edit, Delete and Search actions for your models.
 - **Column types**: text, select box, checkbox , text editor , datetime, image , autocomplete  , tag ,colorpicker 
