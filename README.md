@@ -47,3 +47,38 @@ Pass: 12345
 
 
 Do you need help with your laravel project ? [we can help you sent mail to : info@serverfire.net](mailto:info@serverfire.net) 
+
+
+## Panel Commands, files & namespaces
+The LaravelPanel package adds three new artisan commands. 
+These are `panel:crud`, `panel:createmodel`, and `panel:createcontroller`.
+
+The first command `panel:crud` is a useful combination of the other two commands, 
+and creates both a new model and a matching controller.
+The separate `panel:createmodel` and `panel:createcontroller` commands provide the flexibility to create 
+models and controllers in any location suited to the project structure.
+
+For all LaravelPanel commands, if the entity name (only) is supplied then LaravelPanel will use *default* locations 
+that match the base Laravel structure.
+For models, this is the *app* folder, and for controllers, the *app/Http/Controllers* folder
+
+###Examples###
+
+`$ php artisan panel:crud Foo` will create a new model class `Foo`, and also a matching controller class `FooController`.
+ The model file will be *app/Foo.php*. It  will be namespaced as `App\Foo`  and `class FOO extends Model;`
+ The controller file will be *app/Http/Controllers/FooController.php*, with a namespace of  `App\Http\Controllers`
+(Note: the model and the controller then need fleshing out with your code)
+
+###Alternative locations for Models and/or Controllers###
+The default locations for models and controllers may be just fine, especially for small projects!
+But with a large number of models it may be preferred to keep models and controllers 
+stored elsewhere to fit your project structure. 
+For example, keeping all models in an *app/Models* folder.
+This can easily be achieved using the two separate LaravelPanel commands provided.
+
+For example, creating a Post model and PostController.
+`panel:createmodel Models/Post` will create the model file *app/Models/Post* folder, namespaced to `App\Models\Post;` and 
+`panel:createcontroller Blog/Post` will create file *app/Http/Controllers/Blog/PostController.php*, again with a correct namespace.
+
+
+
