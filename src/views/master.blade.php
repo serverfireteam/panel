@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="{{asset('packages/serverfireteam/panel/favicon.ico')}}" type="image/x-icon">
     <link rel="icon" href="{{asset('packages/serverfireteam/panel/favicon.ico')}}" type="image/x-icon">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -20,7 +20,7 @@
     <title>{{isset($title) ? $title : 'Panel'}}</title>
     <!-- compiled styles -->
 
- 
+
     <link href="{{asset("packages/serverfireteam/panel/css/styles.css")}}" rel="stylesheet" type="text/css">
     <link href="{{asset("packages/serverfireteam/panel/font-icon/icomoon/style.css")}}" rel="stylesheet" type="text/css">
 
@@ -31,6 +31,10 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
+    @if (App::getLocale() == 'fa')
+      <link href="{{URL::asset('css/fonts/fonts.css')}}" rel="stylesheet">
+      <link href="{{URL::asset('css/fa-fonts.css')}}" rel="stylesheet">
+    @endif
 
     <!-- jQuery Version 1.11.0 -->
     <script src="{{asset("packages/serverfireteam/panel/js/jquery-1.11.0.js")}}"></script>
@@ -58,9 +62,9 @@
     <script src="{{asset("packages/zofe/rapyd/assets/colorpicker/js/bootstrap-colorpicker.min.js")}}"></script>
     <!--script src="{{asset("packages/serverfireteam/rapyd-laravel/assets/colorpicker/js/bootstrap-colorpicker.min.js")}}"></script-->
 
-    
-    {!! Rapyd::scripts() !!} 
-    
+
+    {!! Rapyd::scripts() !!}
+
 </body>
 
 </html>
