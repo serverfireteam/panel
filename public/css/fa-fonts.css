@@ -1,0 +1,15 @@
+html {
+    font-family: 'Vazir', 'Lato', sans-serif;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Vazir', 'Lato', sans-serif;
+}
+
+
+a p h1 h2 h3 h4 h5 span body html * {
+  font-family: 'Gandom', 'Vazir';
+}

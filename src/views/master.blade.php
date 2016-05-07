@@ -33,6 +33,7 @@
     <link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
     @if (App::getLocale() == 'fa')
       <link href="{{URL::asset('css/fonts/fonts.css')}}" rel="stylesheet">
+      <link href="{{URL::asset('css/fa-fonts.css')}}" rel="stylesheet">
     @endif
 
     <!-- jQuery Version 1.11.0 -->
