@@ -6,7 +6,9 @@
   text-align: left;
 }
 
-
+.sidebar ul li {
+  text-align: right;
+}
 
 
 @media (min-width: 768px) {
