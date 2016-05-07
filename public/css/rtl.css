@@ -1,5 +1,11 @@
 .powered-by {
   left: 20px;
+  right: inherit;
+}
+
+.sidebar ul li.active{
+  border-left: none;
+  border-right: 7px solid #f26101;
 }
 
 .top-icon-bar {
@@ -8,6 +14,10 @@
 
 .sidebar ul li {
   text-align: right;
+}
+
+#side-menu .badge {
+  left: 0px !IMPORTANT;
 }
 
 
