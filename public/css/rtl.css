@@ -1,6 +1,14 @@
 .powered-by {
   left: 20px;
 }
+
+.top-icon-bar {
+  text-align: left;
+}
+
+
+
+
 @media (min-width: 768px) {
   .sidebar {
     right: 0px;
