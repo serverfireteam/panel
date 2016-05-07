@@ -34,6 +34,7 @@
     @if (App::getLocale() == 'fa')
       <link href="{{URL::asset('css/fonts/fonts.css')}}" rel="stylesheet">
       <link href="{{URL::asset('css/fa-fonts.css')}}" rel="stylesheet">
+      <link href="{{URL::asset('css/rtl.css')}}" rel="stylesheet">
     @endif
 
     <!-- jQuery Version 1.11.0 -->
