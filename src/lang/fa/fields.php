@@ -17,6 +17,7 @@ return array(
     'FirstName' => 'نام',
     'LastName' => 'نام خانوادگی',
     'emailAddress' => 'آدرس ایمیل',
+    'thankYouNote' => 'از اینکه از لاراول پنل استفاده میکنید از شما متشکریم',
     'updateProfile' => 'ویرایش پروفایل',
     'currentPassword' => 'کلمه عبور قدیمی',
     'password' => 'کلمه عبور',
