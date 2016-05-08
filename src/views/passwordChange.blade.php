@@ -14,7 +14,7 @@
 	<div class="row">
 		<div class="col-xs-4">
 			<form action="{{ action('\Serverfireteam\Panel\RemindersController@postChangePassword') }}" method="POST">
-				<label>Email Address:</label> <input class="form-control" type="email" name="email"><br />
+				<label>{{ \Lang::get('panel::fields.emailAddress') }}</label> <input class="form-control" type="email" name="email"><br />
 				<label>{{ \Lang::get('panel::fields.currentPassword') }}</label>
 				<input class="form-control" type="password" name="current_password"><br />
 				<label>{{ \Lang::get('panel::fields.password') }}</label> <input  class="form-control" type="password" name="password"><br />
