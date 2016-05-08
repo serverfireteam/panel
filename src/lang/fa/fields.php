@@ -16,6 +16,7 @@ return array(
     'passwordNotCorrect' => 'نام کاربری یا کلمه عبور اشتباه می باشد',
     'FirstName' => 'نام',
     'LastName' => 'نام خانوادگی',
+    'emailAddress' => 'آدرس ایمیل',
     'updateProfile' => 'ویرایش پروفایل',
     'currentPassword' => 'کلمه عبور قدیمی',
     'password' => 'کلمه عبور',
