@@ -26,7 +26,7 @@
         {!! Form::text('last_name', $admin->last_name, array('class' => 'form-control')) !!}
         <br />
         <!-- email -->
-        {!! Form::label('email', 'Email') !!}
+        {!! Form::label('email', \Lang::get('panel::fields.email')) !!}
         {!! Form::email('email', $admin->email, array('class' => 'form-control')) !!}
         <br />
         {!! Form::submit(\Lang::get('panel::fields.updateProfile'), array('class' => 'btn btn-primary')) !!}
