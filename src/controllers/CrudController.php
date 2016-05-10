@@ -23,7 +23,7 @@ class CrudController extends Controller
         $this->route = $route;
         if($route = $route::current())
         {
-            $routeParamters = $route::current()->parameters();
+            $routeParamters = $route->parameters();
             if(isset($routeParamters['entity']))
                 $this->setEntity($routeParamters['entity']);
         }
