@@ -21,8 +21,12 @@ class CrudController extends Controller
         $route = \App::make('route');
         $this->lang = $lang;
         $this->route = $route;
-        $routeParamters = $route::current()->parameters();
-        $this->setEntity($routeParamters['entity']);
+        if($route = $route::current())
+        {
+            $routeParamters = $route::current()->parameters();
+            if(isset($routeParamters['entity']))
+                $this->setEntity($routeParamters['entity']);
+        }
     }
 
     /**
