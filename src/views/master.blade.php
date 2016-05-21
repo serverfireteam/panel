@@ -36,6 +36,8 @@
       <link href="{{URL::asset('css/fa-fonts.css')}}" rel="stylesheet">
       <link href="{{URL::asset('css/rtl.css')}}" rel="stylesheet">
     @endif
+    
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
     <!-- jQuery Version 1.11.0 -->
     <script src="{{asset("packages/serverfireteam/panel/js/jquery-1.11.0.js")}}"></script>
