@@ -46,4 +46,3 @@ Pass: 12345
 [How to create an Image Gallery with managment system in 5 minutes](http://laravelpanel.com/docs/master/create-gallery)
 
 
-Do you need help with your laravel project ? [we can help you sent mail to : info@serverfire.net](mailto:info@serverfire.net) 
