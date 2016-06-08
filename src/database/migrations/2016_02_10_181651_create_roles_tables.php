@@ -104,6 +104,14 @@ class CreateRolesTables extends Migration
      */
     public function down()
     {
-        //
+		Schema::table('admin_role', function ( $table ) {
+			$table->dropForeign(['role_id']);
+			$table->dropForeign(['admin_id']);
+		});
+
+		Schema::drop('admin_role');
+		Schema::drop('permission_role');
+		Schema::drop('permissions');
+		Schema::drop('roles');
     }
   }
