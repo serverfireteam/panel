@@ -1,6 +1,6 @@
 {
-    "name": "serverfireteam/panel",
-    "description": "Admin panel for Laravel 5.1 applications",
+    "name": "greenelf/panel",
+    "description": "Admin panel for Laravel 5.2 applications",
     "keywords": ["LaravelPanel","Laravel", "Panel", "Crud", "Admin Panel","CMS","administrator", "admin", "backend"],
     "license": "MIT",
     "authors": [
