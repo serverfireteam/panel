@@ -6,10 +6,7 @@
  * and open the template in the editor.
  */
 return array(
-    
-    'crudItems' => array(
-       
-    ),
+
     'panelControllers' => array(
        'Admin',
        'Permission',  
