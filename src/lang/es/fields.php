@@ -36,6 +36,6 @@ return array(
     'close' => 'Cerrar',
     'importDataSuccess' => 'Los datos fueron importados exitosamente',
     'importDataFailure' => 'La importación de datos falló, por favor revisa la validez de los datos',
-    'successfullReset' => '¡Tu contraseña se actualizo exitosamente!',
-    'successfullEditProfile' => 'Tu perfil se actualizo exitosamente'
+    'successfullReset' => '¡Tu contraseña se actualizó exitosamente!',
+    'successfullEditProfile' => 'Tu perfil se actualizó exitosamente'
 );
