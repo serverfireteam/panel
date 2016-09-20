@@ -39,14 +39,15 @@ class Link extends Model {
     }
 
 
-    public function getAndSave($url, $display){
+    public function getAndSave($url, $display, $show_menu = true){
         $this->url = $url;
         $this->display = $display;
+        $this->show_menu = $show_menu;
         $this->save();
     }
 
 
-    protected $fillable = array('url', 'display');
+    protected $fillable = array('url', 'display', 'show_menu');
 
 
 // //get roles user

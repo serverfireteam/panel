@@ -21,6 +21,9 @@ class LinkController extends CrudController {
         $this->grid->add('id', 'ID', true)->style("width:100px");
         $this->grid->add('display', 'Display');
         $this->grid->add('url', 'Model');
+        $this->grid->add('show_menu','Show in Menu')->cell( function( $value, $row) {
+            return ($value) ? "True" : "False";
+       });
 
         $this->addStylesToGrid();
 
@@ -45,6 +48,7 @@ class LinkController extends CrudController {
         $this->edit->link("rapyd-demo/filter", "Articles", "TR")->back();
         $this->edit->add('display', 'Display', 'text')->rule('required');
         $this->edit->add('url', 'link', 'text')->rule('required');
+        $this->edit->add('show_menu','Show in Menu','checkbox');
 
         $this->edit->saved(function () use ($entity) {
            $this->edit->message(\Lang::get('panel::fields.dataSavedSuccessfull'));

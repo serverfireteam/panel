@@ -21,12 +21,14 @@ class LinkSeeder extends Seeder {
             Serverfireteam\Panel\Link::create(array(
                 'display' => 'Links',
                 'url' =>  'Link',
-                'main' => true
+                'main' => true,
+                'show_menu' => true
             ));
              Serverfireteam\Panel\Link::create(array(
                 'display' => 'Admins',
                 'url' =>  'Admin',
-                'main' => true
+                'main' => true,
+                'show_menu' => true
             ));
         }        
     }
