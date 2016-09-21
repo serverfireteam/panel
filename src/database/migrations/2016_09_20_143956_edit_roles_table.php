@@ -13,7 +13,6 @@ class EditRolesTable extends Migration {
 	public function up()
 	{
             DB::table('links')
-            	->where('main', 1)
             	->update(['show_menu' => 1]);
 	}
 
