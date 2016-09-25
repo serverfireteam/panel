@@ -39,13 +39,17 @@ class dashboard
             }
 
             //if (class_exists($value)) {
-            $dashboard[] = array(
-                'modelName' => $modelName,
-                'title'	  => $value['display'],
-                'count'	  => $model::count(),
-                'showListUrl' => 'panel/' . $modelName . '/all',
-                'addUrl'	  => 'panel/' . $modelName . '/edit',
-            );
+            if($value['show_menu'])
+            {
+                $dashboard[] = array(
+                    'modelName' => $modelName,
+                    'title'   => $value['display'],
+                    'count'   => $model::count(),
+                    'showListUrl' => 'panel/' . $modelName . '/all',
+                    'addUrl'      => 'panel/' . $modelName . '/edit',
+                );
+            }
+            
         }
 
 	   return $dashboard;
