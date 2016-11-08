@@ -30,7 +30,7 @@ class dashboard
         // Make Dashboard Items
         foreach ($config as $value) {
 
-    	    $modelName = $value['url'];
+            $modelName = $value['url'];
 
             if ( in_array($modelName, self::$urls)) {
                $model = "Serverfireteam\\Panel\\".$modelName;
@@ -41,6 +41,11 @@ class dashboard
             //if (class_exists($value)) {
             if($value['show_menu'])
             {
+                $user = \Auth::guard('panel')->user();
+                if (! $user->hasRole('super'))
+                    if (! \Auth::guard('panel')->user()->hasPermission($modelName.'all'))
+                        continue;
+                    
                 $dashboard[] = array(
                     'modelName' => $modelName,
                     'title'   => $value['display'],
@@ -52,6 +57,6 @@ class dashboard
             
         }
 
-	   return $dashboard;
+       return $dashboard;
     }
 }
