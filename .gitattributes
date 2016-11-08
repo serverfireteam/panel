@@ -1,1 +1,3 @@
-public/css/styles.css   -diff  
+* text=auto
+*.css linguist-vendored
+*.scss linguist-vendored
