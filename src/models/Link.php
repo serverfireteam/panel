@@ -2,9 +2,10 @@
 namespace Serverfireteam\Panel;
 
 use Illuminate\Database\Eloquent\Model;
+use Serverfireteam\Panel\ObservantTrait;
 
 class Link extends Model {
-
+    use ObservantTrait;
     protected $table = 'links';
 
     static $cache = [];
