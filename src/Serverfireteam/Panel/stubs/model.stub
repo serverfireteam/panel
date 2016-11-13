@@ -3,9 +3,11 @@
 namespace DummyNamespace;
 
 use Illuminate\Database\Eloquent\Model;
+use Serverfireteam\Panel\ObservantTrait;
 
 class DummyClass extends Model {
-
+	use ObservantTrait;
+	
     protected $table = 'DummyClass';
 
 }
