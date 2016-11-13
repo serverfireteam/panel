@@ -67,6 +67,13 @@ class PanelServiceProvider extends ServiceProvider
          return new \Serverfireteam\Panel\Commands\CreateModelCommand($fileSystem);
      });
 
+        $this->app['panel::createobserver'] = $this->app->share(function()
+        {
+         $fileSystem = new Filesystem(); 
+
+         return new \Serverfireteam\Panel\Commands\CreateModelObserverCommand($fileSystem);
+     });
+
         $this->app['panel::createcontroller'] = $this->app->share(function()
         {
          $fileSystem = new Filesystem();
@@ -76,6 +83,8 @@ class PanelServiceProvider extends ServiceProvider
 
         $this->commands('panel::createmodel');
 
+        $this->commands('panel::createobserver');
+        
         $this->commands('panel::createcontroller');
 
         $this->commands('panel::install');

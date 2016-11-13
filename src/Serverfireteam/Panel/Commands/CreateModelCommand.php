@@ -35,6 +35,16 @@ class CreateModelCommand extends GeneratorCommand {
 	{
 		return base_path().'/vendor/serverfireteam/panel/src/Serverfireteam/Panel/stubs/model.stub';
 	}
+	/**
+	 * fire model and observer model class
+	 * @return void
+	 */
+	public function fire()
+	{
+		parent::fire();
+
+        $this->call('panel:createobserver', ['name' => $this->argument('name')]);
+	}
 
 	/**
 	 * Get the default namespace for the class.

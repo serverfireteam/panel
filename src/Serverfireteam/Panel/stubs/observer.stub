@@ -1,0 +1,118 @@
+<?php
+namespace App\Observers;
+
+use App\DummyClass;
+
+class DummyClassObserver
+{
+    
+    /**
+     * Listen to the DummyClass creating event.
+     *
+     * @param  DummyClass  $DummyClass
+     * @return void
+     */
+    public function creating(DummyClass $DummyClass)
+    {
+        //code...
+    }
+
+     /**
+     * Listen to the DummyClass created event.
+     *
+     * @param  DummyClass  $DummyClass
+     * @return void
+     */
+    public function created(DummyClass $DummyClass)
+    {
+        //code...
+    }
+
+    /**
+     * Listen to the DummyClass updating event.
+     *
+     * @param  DummyClass  $DummyClass
+     * @return void
+     */
+    public function updating(DummyClass $DummyClass)
+    {
+        //code...
+    }
+
+    /**
+     * Listen to the DummyClass updated event.
+     *
+     * @param  DummyClass  $DummyClass
+     * @return void
+     */
+    public function updated(DummyClass $DummyClass)
+    {
+        //code...
+    }
+
+    /**
+     * Listen to the DummyClass saving event.
+     *
+     * @param  DummyClass  $DummyClass
+     * @return void
+     */
+    public function saving(DummyClass $DummyClass)
+    {
+        //code...
+    }
+
+    /**
+     * Listen to the DummyClass saved event.
+     *
+     * @param  DummyClass  $DummyClass
+     * @return void
+     */
+    public function saved(DummyClass $DummyClass)
+    {
+        //code...
+    }
+
+    /**
+     * Listen to the DummyClass deleting event.
+     *
+     * @param  DummyClass  $DummyClass
+     * @return void
+     */
+    public function deleting(DummyClass $DummyClass)
+    {
+        //code...
+    }
+
+    /**
+     * Listen to the DummyClass deleted event.
+     *
+     * @param  DummyClass  $DummyClass
+     * @return void
+     */
+    public function deleted(DummyClass $DummyClass)
+    {
+        //code...
+    }
+
+    /**
+     * Listen to the DummyClass restoring event.
+     *
+     * @param  DummyClass  $DummyClass
+     * @return void
+     */
+    public function restoring(DummyClass $DummyClass)
+    {
+        //code...
+    }
+
+    /**
+     * Listen to the DummyClass restored event.
+     *
+     * @param  DummyClass  $DummyClass
+     * @return void
+     */
+    public function restored(DummyClass $DummyClass)
+    {
+        //code...
+    }
+}
