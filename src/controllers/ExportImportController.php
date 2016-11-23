@@ -72,8 +72,7 @@ class ExportImportController extends Controller {
 	foreach ($rows as $row) {
 		foreach ($notNullColumnNames as $notNullColumn) {
 			if (!isset($row[$notNullColumn])) {
-				$this->failed = true;
-				break;
+				unset($rows[$i]);
 			}
 		}
 	}
