@@ -32,7 +32,7 @@ class PermissionCheckMiddleware
         }else{
             if (key_exists(2 , $urlSegments)){
 
-                $PermissionToCheck = $urlSegments[1].$urlSegments[2];
+                $PermissionToCheck = '/' . $urlSegments[1] . '/' . $urlSegments[2];
 
                 if($admin->hasPermission($PermissionToCheck)){
 

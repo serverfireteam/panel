@@ -43,7 +43,7 @@ class dashboard
             {
                 $user = \Auth::guard('panel')->user();
                 if (! $user->hasRole('super'))
-                    if (! \Auth::guard('panel')->user()->hasPermission($modelName.'all'))
+                    if (! \Auth::guard('panel')->user()->hasPermission('/' . $modelName . '/all'))
                         continue;
                     
                 $dashboard[] = array(
