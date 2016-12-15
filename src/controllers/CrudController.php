@@ -59,11 +59,7 @@ class CrudController extends Controller
 
         $appHelper = new libs\AppHelper;
 
-        if ( in_array($entity, Link::getMainUrls()) ) {
-            $modelClass = 'Serverfireteam\\Panel\\'.$entity;
-        } else {
-            $modelClass = $appHelper->getNameSpace().$this->getEntity();
-        }
+        $modelClass = $appHelper->getModel($entity);
 
         return new $modelClass;
     }

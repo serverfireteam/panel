@@ -30,13 +30,15 @@ class dashboard
         // Make Dashboard Items
         foreach ($config as $value) {
 
-            $modelName = $value['url'];
-
+    	    $modelName = $value['url'];
+            /*
             if ( in_array($modelName, self::$urls)) {
                $model = "Serverfireteam\\Panel\\".$modelName;
             } else {
                $model = $appHelper->getNameSpace() . $modelName;
             }
+            */
+            $model = $appHelper->getModel($modelName);
 
             //if (class_exists($value)) {
             if($value['show_menu'])

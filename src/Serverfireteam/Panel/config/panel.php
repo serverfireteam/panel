@@ -13,8 +13,8 @@ return array(
        'Role',  
        'Link'
     ),
-    'logo'=>'packages/serverfireteam/panel/img/logo.png' // logo of Panel 
-    
+    'logo'=>'packages/serverfireteam/panel/img/logo.png', // logo of Panel 
+    'modelPath' => '', // specific model path in the app folder e.g. 'Models'
 );
     
     
