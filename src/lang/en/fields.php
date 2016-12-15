@@ -6,6 +6,7 @@ return array(
     'ProfileEdit' => 'Profile Edit',
     'Add' => 'ADD',
     'edit' => 'Edit',
+    'back' => 'Back',
     'search' => 'Search',
     'reset' => 'Reset',
     'enterEmail' => 'Please Enter Email Address',
@@ -17,6 +18,8 @@ return array(
     'passwordNotCorrect' => 'Either Password or username is not correct!!',
     'FirstName' => 'First Name',
     'LastName' => 'Last Name',
+    'emailAddress' => 'Email Address',
+    'thankYouNote' => 'Thank you for using LaravelPanel.',
     'updateProfile' => 'Update Profile',
     'currentPassword' => 'Current Password',
     'password' => 'Password',
@@ -37,5 +40,12 @@ return array(
     'importDataSuccess' => 'Data is imported successfully.',
     'importDataFailure' => 'Data import failed, please check the validation of data.',
     'successfullReset' => 'Your password has been reset successfully!',
-    'successfullEditProfile' => 'Your profile is edited successfully.'
+    'successfullEditProfile' => 'Your profile is edited successfully.',
+    'permissionHelp' => 'Permissions work with urls, in order to using for ** http://Serverfire.net/panel/url/access ** , Url field should be : urlaccess  .',
+    'roleHelp' => 'Role can have many permission.',
+    'links_help' => "The 'Edit Links' form is used for adding a link in the sidebar menu of panel. The value of 'Display' field specifies the label of the link to be displayed in the menu and the value of 'Link' field specifies the name of the model.",
+    'dataSavedSuccessfull' => 'Awesome!, data saved, to save again with new data click on save.',
+
+
+
 );

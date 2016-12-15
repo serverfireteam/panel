@@ -16,14 +16,14 @@ This package provides an easily configurable admin panel for Laravel application
 
 ## Main features
 
-
+- **Permission/Roles** Create groups , give them access and add users to it 
 - **Fully translatable** , 9 languages
 - **Crud**, With just few lines of code, you'll have Add, Edit, Delete and Search actions for your models.
 - **Column types**: text, select box, checkbox , text editor , datetime, image , autocomplete  , tag ,colorpicker 
 - **File manager ** power full file manager inside the text editor 
 - **Extension system** that allows you to create own custom column types
 - **Sorting, ordering, filters, pagination**
-- **Imort and Export data** Every  crud you make it have import and export data from Excel  
+- **Import and Export data** Every  crud you make it have import and export data from Excel  
 - **Clean Admin**, Based on bootstrap 3 and sb-admin-2 
 - **Dashboard**, It shows how many records you have in every model added in menu.
 - **Preconfigured**, It has default users and models you need.
@@ -46,4 +46,3 @@ Pass: 12345
 [How to create an Image Gallery with managment system in 5 minutes](http://laravelpanel.com/docs/master/create-gallery)
 
 
-Do you need help with your laravel project ? [we can help you sent mail to : info@serverfire.net](mailto:info@serverfire.net) 

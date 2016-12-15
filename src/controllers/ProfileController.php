@@ -29,8 +29,11 @@ class ProfileController extends Controller {
         $inputs = Input::all();
         $admin->update($inputs);
         $admin->save();
-        return \View('panelViews::editProfile')->with(array('admin'   	  => $admin,
-                                                            'message'	  => \Lang::get('panel::fields.successfullEditProfile'),
-							    'demo_status' => $demo));
+        return \View('panelViews::editProfile')->with(
+            array(
+                        'admin'   	  => $admin,
+                        'message'	  => \Lang::get('panel::fields.successfullEditProfile'),
+                        'demo_status'  => $demo)
+        );
     }
 }

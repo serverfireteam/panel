@@ -3,6 +3,7 @@
 Route::group(array('prefix' => 'panel', 'middleware' => ['web','PanelAuth']), function()
 {
 	// main page for the admin section (app/views/admin/dashboard.blade.php)
+
 	Route::get('/', function(){
 
 
@@ -23,13 +24,24 @@ Route::group(array('prefix' => 'panel', 'middleware' => ['web','PanelAuth']), fu
         return View::make('panelViews::dashboard')->with('version', $version);
     });
 
-    Route::any('/{entity}/export/{type}', array('uses' => 'Serverfireteam\Panel\ExportImportController@export'));
-    Route::post('/{entity}/import', array('uses' => 'Serverfireteam\Panel\ExportImportController@import'));
-    Route::any('/{entity}/{methods}', array('uses' => 'Serverfireteam\Panel\MainController@entityUrl'));
-    Route::post('/edit', array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));
-    Route::get('/edit', array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit'));
+/**
+ * Check Permission only on Model Controllers
+ */
+    Route::group(array('middleware' => ['PermissionPanel']), function()
+    {
+
+        Route::any('/{entity}/export/{type}', array('uses' => 'Serverfireteam\Panel\ExportImportController@export'));
+        Route::post('/{entity}/import', array('uses' => 'Serverfireteam\Panel\ExportImportController@import'));
+        Route::any('/{entity}/{methods}', array('uses' => 'Serverfireteam\Panel\MainController@entityUrl'));
+        Route::post('/edit', array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));
+        Route::get('/edit', array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit'));
+
+    });
 
 
+/**
+ * Admin userPassword change
+ */
     Route::get('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@getChangePassword'));
 
     Route::post('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@postChangePassword'));

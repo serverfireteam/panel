@@ -6,12 +6,12 @@
  * and open the template in the editor.
  */
 return array(
-    
-    'crudItems' => array(
-       
-    ),
+
     'panelControllers' => array(
-       'Admin', 'Link'  
+       'Admin',
+       'Permission',  
+       'Role',  
+       'Link'
     ),
     'logo'=>'packages/serverfireteam/panel/img/logo.png', // logo of Panel 
     'modelPath' => '', // specific model path in the app folder e.g. 'Models'

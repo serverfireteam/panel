@@ -21,8 +21,12 @@ class CrudController extends Controller
         $route = \App::make('route');
         $this->lang = $lang;
         $this->route = $route;
-        $routeParamters = $route::current()->parameters();
-        $this->setEntity($routeParamters['entity']);
+        if($route = $route::current())
+        {
+            $routeParamters = $route->parameters();
+            if(isset($routeParamters['entity']))
+                $this->setEntity($routeParamters['entity']);
+        }
     }
 
     /**
@@ -88,11 +92,11 @@ class CrudController extends Controller
             throw new \Exception('This url is not set yet!');
         } else {
             return \View::make('panelViews::all', array(
-             'grid' 	      => $this->grid,
-             'filter' 	      => $this->filter,
+             'grid'           => $this->grid,
+             'filter'         => $this->filter,
              'title'          => $this->entity ,
-	     'current_entity' => $this->entity,
-	     'import_message' => (\Session::has('import_message')) ? \Session::get('import_message') : ''
+             'current_entity' => $this->entity,
+             'import_message' => (\Session::has('import_message')) ? \Session::get('import_message') : ''
             ));
         }
     }

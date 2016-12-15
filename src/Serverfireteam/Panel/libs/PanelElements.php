@@ -7,6 +7,9 @@
 return array(
     
     'controllers' => array(
-       'Admin' , 'Link' 
+       'Admin' ,
+        'Link' ,
+        'Permission',
+        'Role'
     ),    
 );

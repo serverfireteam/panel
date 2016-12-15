@@ -1,0 +1,31 @@
+.powered-by {
+  left: 20px;
+  right: inherit;
+}
+
+.sidebar ul li.active{
+  border-left: none;
+  border-right: 7px solid #f26101;
+}
+
+.top-icon-bar {
+  text-align: left;
+}
+
+.sidebar ul li {
+  text-align: right;
+}
+
+#side-menu .badge {
+  left: 0px !IMPORTANT;
+}
+
+
+@media (min-width: 768px) {
+  .sidebar {
+    right: 0px;
+  }
+  #page-wrapper {
+    margin: 0px 210px 0px 0px;
+  }
+}

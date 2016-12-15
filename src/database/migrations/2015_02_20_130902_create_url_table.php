@@ -22,10 +22,12 @@ class CreateUrlTable extends Migration {
                      // support the indexes, other engines aren't affected.
                      $table->engine = 'InnoDB';                     
             });
-            Serverfireteam\Panel\Link::create(array(
+	
+	Serverfireteam\Panel\Link::create(array(
                 'display' => 'Links',
                 'url' =>  'Link'
             ));
+
 	}
 
 	/**

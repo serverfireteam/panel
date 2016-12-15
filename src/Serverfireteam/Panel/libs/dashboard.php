@@ -41,15 +41,24 @@ class dashboard
             $model = $appHelper->getModel($modelName);
 
             //if (class_exists($value)) {
-            $dashboard[] = array(
-                'modelName' => $modelName,
-                'title'	  => $value['display'],
-                'count'	  => $model::count(),
-                'showListUrl' => 'panel/' . $modelName . '/all',
-                'addUrl'	  => 'panel/' . $modelName . '/edit',
-            );
+            if($value['show_menu'])
+            {
+                $user = \Auth::guard('panel')->user();
+                if (! $user->hasRole('super'))
+                    if (! \Auth::guard('panel')->user()->hasPermission('/' . $modelName . '/all'))
+                        continue;
+                    
+                $dashboard[] = array(
+                    'modelName' => $modelName,
+                    'title'   => $value['display'],
+                    'count'   => $model::count(),
+                    'showListUrl' => 'panel/' . $modelName . '/all',
+                    'addUrl'      => 'panel/' . $modelName . '/edit',
+                );
+            }
+            
         }
 
-	   return $dashboard;
+       return $dashboard;
     }
 }
