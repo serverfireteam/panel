@@ -45,4 +45,6 @@ Pass: 12345
 ## Read this tutorial
 [How to create an Image Gallery with managment system in 5 minutes](http://laravelpanel.com/docs/master/create-gallery)
 
+Good news! We're currently available for remote and on-site consulting for small, large and enterprise teams. Please contact info@serverfire.net with your needs and let's work together!
+
 
