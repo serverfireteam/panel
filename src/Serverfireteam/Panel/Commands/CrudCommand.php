@@ -16,7 +16,7 @@ class CrudCommand extends Command {
 	 *
 	 * @var string the statement before installation starts
 	 */
-	protected $description = 'Installs  Panel  migrations, configs, views and assets.';
+	protected $description = 'Create new crud for you';
 
 	/**
 	 * Create a new command instance.
