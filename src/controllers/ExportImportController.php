@@ -69,7 +69,7 @@ class ExportImportController extends Controller {
 	$updatedData = array();
 
 	// Check validation of values
-	foreach ($rows as $row) {
+	foreach ($rows as $i => $row) {
 		foreach ($notNullColumnNames as $notNullColumn) {
 			if (!isset($row[$notNullColumn])) {
 				unset($rows[$i]);
