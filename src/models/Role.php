@@ -2,9 +2,7 @@
 
 namespace Serverfireteam\Panel;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Role extends Model
+class Role extends \App\Models\Users\Role
 {
     /**
      * A role may be given various permissions.

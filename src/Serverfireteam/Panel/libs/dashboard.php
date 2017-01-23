@@ -44,7 +44,7 @@ class dashboard
             if($value['show_menu'])
             {
                 $user = \Auth::guard('panel')->user();
-                if (! $user->hasRole('super'))
+                if (! $user->hasRole('Super-Admin'))
                     if (! \Auth::guard('panel')->user()->hasPermission('/' . $modelName . '/all'))
                         continue;
                     

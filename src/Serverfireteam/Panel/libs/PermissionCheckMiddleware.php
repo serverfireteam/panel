@@ -26,7 +26,7 @@ class PermissionCheckMiddleware
         
         $urlSegments   = $request->segments();
 
-        if ($admin->hasRole('super')){
+        if ($admin->hasRole('Super-Admin')){
 
             return $next($request);
         }else{
