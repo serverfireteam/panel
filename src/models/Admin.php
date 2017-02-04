@@ -3,15 +3,16 @@ namespace Serverfireteam\Panel;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Notifications\Notifiable;
 
 class Admin extends Model implements AuthenticatableContract, CanResetPasswordContract {
 
-    use Authenticatable, CanResetPassword;
+    use Authenticatable, AdminCanResetPassword;
     use HasRoles;
+    use Notifiable;
 	/**
 	 * The database table used by the model.
 	 *
