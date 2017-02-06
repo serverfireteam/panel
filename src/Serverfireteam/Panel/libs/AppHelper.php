@@ -8,7 +8,7 @@ namespace Serverfireteam\Panel\libs;
  */
 
 class AppHelper {
-    use \Illuminate\Console\AppNamespaceDetectorTrait;
+    use \Illuminate\Console\DetectsApplicationNamespace;
 
     public function getNameSpace(){
         return $this->getAppNamespace();

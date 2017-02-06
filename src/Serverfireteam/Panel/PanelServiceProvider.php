@@ -29,10 +29,10 @@ class PanelServiceProvider extends ServiceProvider
         $this->app->register('Barryvdh\Elfinder\ElfinderServiceProvider');
         
 
-        $this->app['router']->middleware('PanelAuth', 'Serverfireteam\Panel\libs\AuthMiddleware');
+        $this->app['router']->aliasMiddleware('PanelAuth', 'Serverfireteam\Panel\libs\AuthMiddleware');
         
         //middleware Permission
-        $this->app['router']->middleware(
+        $this->app['router']->aliasMiddleware(
             'PermissionPanel', 'Serverfireteam\Panel\libs\PermissionCheckMiddleware'
             );
 
@@ -50,31 +50,31 @@ class PanelServiceProvider extends ServiceProvider
         $loader->alias('Html', 'Collective\Html\HtmlFacade');
         $loader->alias('Excel', 'Maatwebsite\Excel\Facades\Excel');
 
-        $this->app['panel::install'] = $this->app->share(function()
+        $this->app->singleton('panel::install', function()
         {
             return new \Serverfireteam\Panel\Commands\PanelCommand();
         });
 
-        $this->app['panel::crud'] = $this->app->share(function()
+        $this->app->singleton('panel::crud', function()
         {
             return new \Serverfireteam\Panel\Commands\CrudCommand();
         });
 
-        $this->app['panel::createmodel'] = $this->app->share(function()
+        $this->app->singleton('panel::createmodel', function()
         {
          $fileSystem = new Filesystem(); 
 
          return new \Serverfireteam\Panel\Commands\CreateModelCommand($fileSystem);
      });
 
-        $this->app['panel::createobserver'] = $this->app->share(function()
+        $this->app->singleton('panel::createobserver', function()
         {
          $fileSystem = new Filesystem(); 
 
          return new \Serverfireteam\Panel\Commands\CreateModelObserverCommand($fileSystem);
      });
 
-        $this->app['panel::createcontroller'] = $this->app->share(function()
+        $this->app->singleton('panel::createcontroller', function()
         {
          $fileSystem = new Filesystem();
 
