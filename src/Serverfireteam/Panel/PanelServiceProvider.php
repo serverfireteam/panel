@@ -29,10 +29,10 @@ class PanelServiceProvider extends ServiceProvider
         $this->app->register('Barryvdh\Elfinder\ElfinderServiceProvider');
         
 
-        $this->app['router']->middleware('PanelAuth', 'Serverfireteam\Panel\libs\AuthMiddleware');
+        $this->app['router']->aliasMiddleware('PanelAuth', 'Serverfireteam\Panel\libs\AuthMiddleware');
         
         //middleware Permission
-        $this->app['router']->middleware(
+        $this->app['router']->aliasMiddleware(
             'PermissionPanel', 'Serverfireteam\Panel\libs\PermissionCheckMiddleware'
             );
 
