@@ -25,14 +25,33 @@ class CreateUrlTable extends Migration {
                      $table->engine = 'InnoDB';                     
             });
         
-            $link = Serverfireteam\Panel\Link::create(array(
+            $links = [
+                [
                     'display' => 'Links',
-                    'url' =>  'Link',
-                    'show_menu' => true
-                ));
-
-            $link->main = true;
-            $link->save();
+                    'url' =>  'Link'
+                ],
+            /*
+                [
+                    'display' => 'Roles',
+                    'url' => 'Role',
+                ],
+                [
+                    'display' => 'Permissions',
+                    'url' => 'Permission',
+                ],
+                [
+                    'display' => 'Users',
+                    'url' => 'User'
+                ]
+            */
+            ];
+            foreach ($links as $linkData) {
+                $link = new Serverfireteam\Panel\Link;
+                $link->fill($linkData);
+                $link->main = true;
+                $link->show_menu = true;
+                $link->save();
+            }
         }
 
         /**
