@@ -26,7 +26,8 @@
         "illuminate/support": "~5.1",
         "serverfireteam/rapyd-laravel" : "1.5.*",
         "maatwebsite/excel": "~2.0.0",
-	"barryvdh/laravel-elfinder": "0.3.*"
+	"barryvdh/laravel-elfinder": "0.3.*",
+        "spatie/laravel-permission": "dev-master"
     },
     "autoload": {
         "classmap": [

@@ -43,9 +43,9 @@ class dashboard
             //if (class_exists($value)) {
             if($value['show_menu'])
             {
-                $user = \Auth::guard('panel')->user();
-                if (! $user->hasRole('Super-Admin'))
-                    if (! \Auth::guard('panel')->user()->hasPermission('/' . $modelName . '/all'))
+                $user = \Auth::user();
+                if (! $user->hasRole('admin'))
+                    if (! \Auth::user()->hasPermissionTo('view /' . $modelName . '/all'))
                         continue;
                     
                 $dashboard[] = array(
