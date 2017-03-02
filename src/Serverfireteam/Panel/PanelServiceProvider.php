@@ -28,6 +28,11 @@ class PanelServiceProvider extends ServiceProvider
     	// Barryvdh\Elfinder\ElfinderServiceProvider
         $this->app->register('Barryvdh\Elfinder\ElfinderServiceProvider');
         
+        //middleware Permission
+        $this->app['router']->middleware(
+            'PermissionPanel', 'Serverfireteam\Panel\libs\PermissionCheckMiddleware'
+            );
+
 
         /*
          * Create aliases for the dependency.
