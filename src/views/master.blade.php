@@ -24,6 +24,8 @@
     <link href="{{asset("packages/serverfireteam/panel/css/styles.css")}}" rel="stylesheet" type="text/css">
     <link href="{{asset("packages/serverfireteam/panel/font-icon/icomoon/style.css")}}" rel="stylesheet" type="text/css">
 
+    {!! Rapyd::styles() !!}
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
