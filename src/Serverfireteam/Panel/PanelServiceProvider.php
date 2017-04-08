@@ -85,7 +85,7 @@ class PanelServiceProvider extends ServiceProvider
          return new \Serverfireteam\Panel\Commands\CreateControllerPanelCommand($fileSystem);
      });
 
-        $this->app->bind(LinkProvider::class, function () {
+        $this->app->singleton(LinkProvider::class, function () {
             return app(config('panel.links') ? ConfigLinkProvider::class : DbLinkProvider::class);
         });
 
