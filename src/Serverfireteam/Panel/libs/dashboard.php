@@ -15,6 +15,10 @@ class dashboard
      */
     public static $dashboardItems;
 
+    /**
+     * Either retrieve the dashboard items from cache or from the config/DB if they were not yet cached
+     * @return array
+     */
     public static function getItems ()
     {
         if (!self::$dashboardItems) {
