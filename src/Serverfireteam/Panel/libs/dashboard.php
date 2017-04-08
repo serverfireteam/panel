@@ -82,6 +82,10 @@ class dashboard
 
             // Use the links from config/panel.php
             return collect($config)->map(function ($spec, $label) {
+                if (is_int($label)) { // This is just a string without a key (short notation)
+                    $label = $spec;
+                    $spec  = null;
+                }
                 return [
                     'display'   => $label,
                     'url'       => data_get($spec, 'model', Str::singular($label)),
