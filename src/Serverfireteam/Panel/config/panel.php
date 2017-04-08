@@ -20,8 +20,8 @@ return array(
     // 'links' => [
     //     'Links'       => [ // use the display name as the key
     //         'model'     => 'Link', // model name, same as "url" in the database
-    //         'custom'    => false, // if true, use own controller and model, otherwise, use built-in from panel
-    //         'show_menu' => true,
+    //         'custom'    => false, // not "main"? defaults to true
+    //         'show_menu' => true, // defaults to true
     //     ],
     //     'Roles'       => [
     //         'model'     => 'Role',
@@ -36,6 +36,20 @@ return array(
     //     'Admins'      => [
     //         'model'     => 'Admin',
     //         'custom'    => false,
+    //         'show_menu' => true,
+    //     ],
+    // ],
+
+    // Example of short notation style:
+    // 'links' => [
+    //     'Customers'
+    // ],
+
+    // This is equivalent to
+    // 'links' => [
+    //     'Customers' => [
+    //         'model'     => 'Customer',
+    //         'custom'    => true,
     //         'show_menu' => true,
     //     ],
     // ],
