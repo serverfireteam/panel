@@ -7,8 +7,6 @@ class dashboard
 
     public static $dashboardItems;
 
-    public static $urls;
-
     public static function getItems()
     {
         if(!self::$dashboardItems) {
@@ -20,8 +18,6 @@ class dashboard
 
     public static function create()
     {
-        self::$urls = \Config::get('panel.panelControllers');
-
         $config    = \Serverfireteam\Panel\Link::allCached();
         $dashboard = array();
 
