@@ -12,8 +12,7 @@
             <!-- /.row -->
             <div class="row box-holder">
                 
-                @if(is_array(\Serverfireteam\Panel\Link::returnUrls()))
-                    @foreach (Serverfireteam\Panel\libs\dashboard::getItems() as $box)
+                @foreach (Serverfireteam\Panel\libs\dashboard::getItems() as $box)
                     <div class="col-lg-3 col-md-6">
                         <div class="panel ">
                             <div class="panel-heading">
@@ -37,8 +36,7 @@
                                 </div>
                         </div>
                     </div>
-                    @endforeach
-                @endif
+                @endforeach
 
 
             </div>

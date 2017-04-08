@@ -5,6 +5,7 @@ namespace Serverfireteam\Panel\libs;
 
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
+use Serverfireteam\Panel\LinkRepository;
 
 class dashboard
 {
@@ -45,12 +46,17 @@ class dashboard
     /**
      * Return the array of entity types (models / links)
      * to show CRUD interfaces for in the panel
-     * @param AppHelper $appHelper
+     *
+     * @param AppHelper      $appHelper
+     * @param LinkRepository $linkRepository
+     *
      * @return array
      */
-    public function create (AppHelper $appHelper)
+    public function create (AppHelper $appHelper, LinkRepository $linkRepository)
     {
-        return collect($this->getLinks())
+        // @TODO cache
+
+        return $linkRepository->all()
 
             ->filter(function ($link) {
                 return $this->showLink($link);
@@ -72,31 +78,5 @@ class dashboard
             })
 
             ->toArray();
-    }
-
-    /**
-     * Return the collection of links
-     * (either from the Link model in the database or from the panel config file)
-     * @return array|Collection
-     */
-    private function getLinks ()
-    {
-        if (($config = config('panel.links')) !== null) {
-
-            // Use the links from config/panel.php
-            return collect($config)->map(function ($spec, $label) {
-                if (is_int($label)) { // This is just a string without a key (short notation)
-                    $label = $spec;
-                    $spec  = null;
-                }
-                return [
-                    'display'   => $label,
-                    'url'       => data_get($spec, 'model', Str::singular($label)),
-                    'show_menu' => data_get($spec, 'show_menu', true),
-                    'main'      => !data_get($spec, 'custom', true),
-                ];
-            })->values();
-        } else
-            return \Serverfireteam\Panel\Link::allCached();
     }
 }

@@ -18,9 +18,7 @@ class MainController extends Controller {
 
         $appHelper = new libs\AppHelper(); 
 
-        $urls = Link::getMainUrls();
-
-        if ( in_array($entity, $urls)){
+        if ( \Links::isMain($entity)){
             $controller_path = 'Serverfireteam\Panel\\'.$entity.'Controller';
         } else {           
             $panel_path = \Config::get('panel.controllers');
