@@ -42,24 +42,6 @@ class LinkRepository
     }
 
     /**
-     * Get the "url" attributes of all the links
-     * @return array
-     */
-    public function getAllUrls ()
-    {
-        return $this->all()->pluck('url')->toArray();
-    }
-
-    /**
-     * Get the "url" attributes of all the links where "main" is true
-     * @return array
-     */
-    public function getMainUrls ()
-    {
-        return $this->main()->pluck('url')->toArray();
-    }
-
-    /**
      * Return whether the given URL (model name) exists amongst the "main" links
      * @param $url
      * @return bool
