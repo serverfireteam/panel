@@ -88,7 +88,7 @@ class dashboard
                     'show_menu' => data_get($spec, 'show_menu', true),
                     'main'      => !data_get($spec, 'custom', true),
                 ];
-            });
+            })->values();
         } else
             return \Serverfireteam\Panel\Link::allCached();
     }
