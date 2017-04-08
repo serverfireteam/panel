@@ -15,6 +15,30 @@ return array(
     ),
     'logo'=>'packages/serverfireteam/panel/img/logo.png', // logo of Panel 
     'modelPath' => '', // specific model path in the app folder e.g. 'Models'
+
+    // Uncomment the section below to use links specified here rather than in the DB table "links"
+    // 'links' => [
+    //     'Links'       => [ // use the display name as the key
+    //         'model'     => 'Link', // model name, same as "url" in the database
+    //         'custom'    => false, // if true, use own controller and model, otherwise, use built-in from panel
+    //         'show_menu' => true,
+    //     ],
+    //     'Roles'       => [
+    //         'model'     => 'Role',
+    //         'custom'    => false,
+    //         'show_menu' => true,
+    //     ],
+    //     'Permissions' => [
+    //         'model'     => 'Permission',
+    //         'custom'    => false,
+    //         'show_menu' => true,
+    //     ],
+    //     'Admins'      => [
+    //         'model'     => 'Admin',
+    //         'custom'    => false,
+    //         'show_menu' => true,
+    //     ],
+    // ],
 );
     
     
