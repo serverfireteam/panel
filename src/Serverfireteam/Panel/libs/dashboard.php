@@ -41,19 +41,17 @@ class dashboard
     /**
      * Return the array of entity types (models / links)
      * to show CRUD interfaces for in the panel
+     * @param AppHelper $appHelper
      * @return array
      */
-    public function create ()
+    public function create (AppHelper $appHelper)
     {
+        return collect($this->getLinks())
 
-        $links = $this->getLinks();
-
-        $appHelper = new AppHelper();
-
-        return collect($links)
             ->filter(function ($link) {
                 return $this->showLink($link);
             })
+
             ->map(function ($link) use ($appHelper) {
 
                 $modelName = $link['url'];
@@ -68,6 +66,7 @@ class dashboard
                     'addUrl'      => 'panel/' . $modelName . '/edit',
                 ];
             })
+
             ->toArray();
     }
 
