@@ -4,10 +4,14 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Translation;
+use Serverfireteam\Panel\Facades\LinksFacade;
 use Serverfireteam\Panel\libs;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation;
 use Serverfireteam\Panel\Commands;
+use Serverfireteam\Panel\Links\ConfigLinkProvider;
+use Serverfireteam\Panel\Links\DbLinkProvider;
+use Serverfireteam\Panel\Links\LinkProvider;
 
 class PanelServiceProvider extends ServiceProvider
 {
@@ -80,6 +84,12 @@ class PanelServiceProvider extends ServiceProvider
 
          return new \Serverfireteam\Panel\Commands\CreateControllerPanelCommand($fileSystem);
      });
+
+        $this->app->bind(LinkProvider::class, function () {
+            return app(config('panel.links') ? ConfigLinkProvider::class : DbLinkProvider::class);
+        });
+
+        $loader->alias('Links', LinksFacade::class);
 
         $this->commands('panel::createmodel');
 
