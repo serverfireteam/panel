@@ -1,6 +1,7 @@
 <?php namespace Serverfireteam\Panel\Commands;
 
 use Illuminate\Console\Command;
+use Serverfireteam\Panel\Link;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
@@ -42,9 +43,11 @@ class CrudCommand extends Command {
             
             $this->call('panel:createcontroller', ['name' => $crudName]);
             
-            $link = new \Serverfireteam\Panel\Link();
-            $link->getAndSave($crudName, $crudName . 's');
-            $link->save();
+            Link::create([
+                'url' => $crudName,
+                'display' => $crudName . 's',
+                'show_menu' => true,
+            ]);
             
             if ( !\Schema::hasTable($crudName) ){
                 $this->info('    The Table Corresponding to this Model does not exist in Database!!       ');

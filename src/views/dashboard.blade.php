@@ -12,8 +12,7 @@
             <!-- /.row -->
             <div class="row box-holder">
                 
-                @if(is_array(\Serverfireteam\Panel\Link::returnUrls()))
-                    @foreach (Serverfireteam\Panel\libs\dashboard::getItems() as $box)
+                @foreach (Serverfireteam\Panel\libs\dashboard::getItems() as $box)
                     <div class="col-lg-3 col-md-6">
                         <div class="panel ">
                             <div class="panel-heading">
@@ -37,8 +36,7 @@
                                 </div>
                         </div>
                     </div>
-                    @endforeach
-                @endif
+                @endforeach
 
 
             </div>
@@ -58,13 +56,15 @@
             $(this).find('.pull-right .add').addClass('panel-'+color[pointer]);
             pointer++;
         })
-        // check for update of laravelpanel 
+        @unless($version == 'dev-master')
+        // check for update of laravelpanel
         $.getJSON( "http://api.laravelpanel.com/checkupdate/{{ $version }}", function( data ) {
           if(data.needUpdate){
             $(".update a").text(data.text);
             $(".update").removeClass('hide');
           }
         })
+        @endunless
         
     })
 </script>
