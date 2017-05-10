@@ -37,13 +37,16 @@ class PanelCommand extends Command {
 	{
             $this->info('        [ Welcome to ServerFireTeam Panel Installation ]       ');
 
-	    $this->call('elfinder:publish');
+	    	$this->call('elfinder:publish');
 
             $this->call('vendor:publish', array('--provider' => '\Serverfireteam\Panel\PanelServiceProvider'));
 
             $this->call('migrate', array('--path' => 'vendor/serverfireteam/panel/src/database/migrations'));
 
             $this->call('db:seed', array('--class' => '\Serverfireteam\Panel\LinkSeeder'));
+
+            if (file_exists(base_path().config('panel.seed_path').'/LinksTableSeeder.php'))
+            	$this->call('db:seed', array('--class' => 'LinksTableSeeder'));
 	}
 
 	/**

@@ -85,6 +85,13 @@ class PanelServiceProvider extends ServiceProvider
          return new \Serverfireteam\Panel\Commands\CreateControllerPanelCommand($fileSystem);
      });
 
+        $this->app->singleton('panel::seedlink', function()
+        {
+         $fileSystem = new Filesystem();
+
+         return new \Serverfireteam\Panel\Commands\SeedLinkCommand($fileSystem);
+     });
+
         $this->app->singleton(LinkProvider::class, function () {
             return app(config('panel.links') ? ConfigLinkProvider::class : DbLinkProvider::class);
         });
@@ -100,6 +107,8 @@ class PanelServiceProvider extends ServiceProvider
         $this->commands('panel::install');
 
         $this->commands('panel::crud');
+        
+        $this->commands('panel::seedlink');
 
         $this->publishes([
             __DIR__ . '/../../../public' => public_path('packages/serverfireteam/panel')
