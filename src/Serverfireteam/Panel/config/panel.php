@@ -53,6 +53,7 @@ return array(
     //         'show_menu' => true,
     //     ],
     // ],
+    'seed_path' => '/database/seeds',
 );
     
     
