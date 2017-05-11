@@ -125,6 +125,7 @@ class PanelServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../../views' => base_path('resources/views/vendor/panelViews'),
             ]);
+        $this->publishMigrations();
 
         include __DIR__."/../../routes.php";
 
@@ -144,5 +145,17 @@ class PanelServiceProvider extends ServiceProvider
     public function provides()
     {
         return array();
+    }
+
+
+    private function publishMigrations()
+    {
+        $path = $this->getMigrationsPath();
+        $this->publishes([$path => database_path('migrations')], 'migrations');
+    }
+
+    private function getMigrationsPath()
+    {
+        return __DIR__ . '/../../database/migrations/';
     }
 }

@@ -46,7 +46,7 @@ class CrudCommand extends Command {
 
             Link::create([
                 'url' => $crudName,
-                'display' => $crudName . 's',
+                'display' => str_plural($crudName),
                 'show_menu' => true,
             ]);
 
