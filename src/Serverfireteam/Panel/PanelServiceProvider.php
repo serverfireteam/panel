@@ -85,6 +85,13 @@ class PanelServiceProvider extends ServiceProvider
          return new \Serverfireteam\Panel\Commands\CreateControllerPanelCommand($fileSystem);
      });
 
+        $this->app->singleton('panel::seedlink', function()
+        {
+         $fileSystem = new Filesystem();
+
+         return new \Serverfireteam\Panel\Commands\SeedLinkCommand($fileSystem);
+     });
+
         $this->app->singleton(LinkProvider::class, function () {
             return app(config('panel.links') ? ConfigLinkProvider::class : DbLinkProvider::class);
         });
@@ -100,6 +107,8 @@ class PanelServiceProvider extends ServiceProvider
         $this->commands('panel::install');
 
         $this->commands('panel::crud');
+        
+        $this->commands('panel::seedlink');
 
         $this->publishes([
             __DIR__ . '/../../../public' => public_path('packages/serverfireteam/panel')
@@ -116,6 +125,7 @@ class PanelServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../../views' => base_path('resources/views/vendor/panelViews'),
             ]);
+        $this->publishMigrations();
 
         include __DIR__."/../../routes.php";
 
@@ -135,5 +145,17 @@ class PanelServiceProvider extends ServiceProvider
     public function provides()
     {
         return array();
+    }
+
+
+    private function publishMigrations()
+    {
+        $path = $this->getMigrationsPath();
+        $this->publishes([$path => database_path('migrations')], 'migrations');
+    }
+
+    private function getMigrationsPath()
+    {
+        return __DIR__ . '/../../database/migrations/';
     }
 }

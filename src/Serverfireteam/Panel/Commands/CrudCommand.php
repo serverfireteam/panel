@@ -4,6 +4,7 @@ use Illuminate\Console\Command;
 use Serverfireteam\Panel\Link;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
+use Serverfireteam\Panel\libs\FileLoader;
 
 class CrudCommand extends Command {
 
@@ -42,13 +43,15 @@ class CrudCommand extends Command {
             $this->call('panel:createmodel', ['name' => $crudName]);
             
             $this->call('panel:createcontroller', ['name' => $crudName]);
-            
+
             Link::create([
                 'url' => $crudName,
-                'display' => $crudName . 's',
+                'display' => str_plural($crudName),
                 'show_menu' => true,
             ]);
-            
+
+			$this->call('panel:seedlink', ['tables' => 'links']);
+
             if ( !\Schema::hasTable($crudName) ){
                 $this->info('    The Table Corresponding to this Model does not exist in Database!!       ');
                 $this->info('                    Please Create this table         ');
