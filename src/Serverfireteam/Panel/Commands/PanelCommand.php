@@ -39,7 +39,7 @@ class PanelCommand extends Command {
 
 	    $this->call('elfinder:publish');
 
-            $this->call('vendor:publish', array('--provider' => '\Serverfireteam\Panel\PanelServiceProvider'));
+            $this->call('vendor:publish');
 
             $this->call('migrate', array('--path' => 'vendor/serverfireteam/panel/src/database/migrations'));
 
