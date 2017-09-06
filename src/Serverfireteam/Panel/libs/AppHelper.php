@@ -8,7 +8,7 @@ namespace Serverfireteam\Panel\libs;
  */
 
 class AppHelper {
-    use \Illuminate\Console\AppNamespaceDetectorTrait;
+    use \Illuminate\Console\DetectsApplicationNamespace;
 
     public function getNameSpace(){
         return $this->getAppNamespace();
@@ -26,8 +26,13 @@ class AppHelper {
     	}
     }
 
+    /**
+     * For the given entity name, the the corresponding Model's class
+     * @param string $entity
+     * @return string
+     */
     public function getModel($entity) {
-        if ( in_array($entity, \Serverfireteam\Panel\Link::getMainUrls()) ) {
+        if ( \Links::isMain($entity) ) {
             $modelClass = 'Serverfireteam\\Panel\\'.$entity;
         } else {
             if (!empty(\Config::get('panel.modelPath'))) {
@@ -36,7 +41,7 @@ class AppHelper {
             else {
                 $modelClass = $this->getNameSpace() . $entity;
             }
-            
+
         }
         return $modelClass;
     }

@@ -37,7 +37,7 @@ login
                                     </div>
                                     <div class="checkbox">
                                         <label>
-                                            <input name="remember" type="checkbox" value="Remember Me">
+                                            <input name="remember" type="checkbox" value="true">
                                             {{ \Lang::get('panel::fields.rememberMe') }}
                                         </label>
                                         <label class="pull-right">

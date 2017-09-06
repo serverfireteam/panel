@@ -4,10 +4,14 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\AliasLoader;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Translation;
+use Serverfireteam\Panel\Facades\LinksFacade;
 use Serverfireteam\Panel\libs;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation;
 use Serverfireteam\Panel\Commands;
+use Serverfireteam\Panel\Links\ConfigLinkProvider;
+use Serverfireteam\Panel\Links\DbLinkProvider;
+use Serverfireteam\Panel\Links\LinkProvider;
 
 class PanelServiceProvider extends ServiceProvider
 {
@@ -28,12 +32,21 @@ class PanelServiceProvider extends ServiceProvider
     	// Barryvdh\Elfinder\ElfinderServiceProvider
         $this->app->register('Barryvdh\Elfinder\ElfinderServiceProvider');
         
+        // Delegate auth
+	// $this->app['router']->middleware('PanelAuth', 'Serverfireteam\Panel\libs\AuthMiddleware');
+        
         //middleware Permission
         $this->app['router']->middleware(
             'PermissionPanel', 'Serverfireteam\Panel\libs\PermissionCheckMiddleware'
             );
+        // Delegate auth
 
+        // set config for Auth
 
+        // \Config::set('auth.guards.panel',     ['driver'   => 'session','provider' => 'panel']);
+        // \Config::set('auth.providers.panel',  ['driver'   => 'eloquent','model'   => \Serverfireteam\Panel\Admin::class]);
+        // \Config::set('auth.passwords.panel',  ['provider' => 'panel','email'      => 'panelViews::resetPassword','table' => 'password_resets','expire' => 60]);
+        
         /*
          * Create aliases for the dependency.
          */
@@ -42,36 +55,42 @@ class PanelServiceProvider extends ServiceProvider
         $loader->alias('Html', 'Collective\Html\HtmlFacade');
         $loader->alias('Excel', 'Maatwebsite\Excel\Facades\Excel');
 
-        $this->app['panel::install'] = $this->app->share(function()
+        $this->app->singleton('panel::install', function()
         {
             return new \Serverfireteam\Panel\Commands\PanelCommand();
         });
 
-        $this->app['panel::crud'] = $this->app->share(function()
+        $this->app->singleton('panel::crud', function()
         {
             return new \Serverfireteam\Panel\Commands\CrudCommand();
         });
 
-        $this->app['panel::createmodel'] = $this->app->share(function()
+        $this->app->singleton('panel::createmodel', function()
         {
          $fileSystem = new Filesystem(); 
 
          return new \Serverfireteam\Panel\Commands\CreateModelCommand($fileSystem);
      });
 
-        $this->app['panel::createobserver'] = $this->app->share(function()
+        $this->app->singleton('panel::createobserver', function()
         {
          $fileSystem = new Filesystem(); 
 
          return new \Serverfireteam\Panel\Commands\CreateModelObserverCommand($fileSystem);
      });
 
-        $this->app['panel::createcontroller'] = $this->app->share(function()
+        $this->app->singleton('panel::createcontroller', function()
         {
          $fileSystem = new Filesystem();
 
          return new \Serverfireteam\Panel\Commands\CreateControllerPanelCommand($fileSystem);
      });
+
+        $this->app->singleton(LinkProvider::class, function () {
+            return app(config('panel.links') ? ConfigLinkProvider::class : DbLinkProvider::class);
+        });
+
+        $loader->alias('Links', LinksFacade::class);
 
         $this->commands('panel::createmodel');
 
