@@ -39,9 +39,9 @@ class CreateModelCommand extends GeneratorCommand {
 	 * fire model and observer model class
 	 * @return void
 	 */
-	public function fire()
+	public function handle()
 	{
-		parent::fire();
+		parent::handle();
 
         $this->call('panel:createobserver', ['name' => $this->argument('name')]);
 	}

@@ -33,7 +33,7 @@ class PanelCommand extends Command {
 	 * Execute the console command.
 	 *
 	 */
-	public function fire()
+	public function handle()
 	{
             $this->info('        [ Welcome to ServerFireTeam Panel Installation ]       ');
 
