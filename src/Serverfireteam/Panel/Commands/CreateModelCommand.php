@@ -33,7 +33,7 @@ class CreateModelCommand extends GeneratorCommand {
 	 */
 	protected function getStub()
 	{
-		return base_path().'/vendor/serverfireteam/panel/src/Serverfireteam/Panel/stubs/model.stub';
+		return __DIR__.'/../stubs/model.stub';
 	}
 	/**
 	 * fire model and observer model class
