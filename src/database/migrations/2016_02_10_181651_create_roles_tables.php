@@ -62,7 +62,7 @@ class CreateRolesTables extends Migration
     	//seed database for admin and initiate super role
       DB::table('roles')->insert([
         'name' => 'super',
-        'label' => 'This goup has all permissions' ,
+        'label' => 'This group has all permissions' ,
 
         ]);
 
