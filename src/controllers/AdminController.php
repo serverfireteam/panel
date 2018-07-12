@@ -20,8 +20,7 @@ class AdminController extends CrudController{
 
         $this->filter = \DataFilter::source(Admin::with('roles'));
         $this->filter->add('id', 'ID', 'text');
-        $this->filter->add('firstname', 'First name', 'text');
-        $this->filter->add('last_name', 'Last Name', 'text');
+        $this->filter->add('name', 'Name', 'text');
         $this->filter->add('email', 'Email', 'text');
         $this->filter->submit('search');
         $this->filter->reset('reset');
@@ -29,7 +28,7 @@ class AdminController extends CrudController{
                 
         $this->grid = \DataGrid::source($this->filter);
         $this->grid->add('id','ID', true)->style("width:100px");
-        $this->grid->add('{{ $first_name }} {{ $last_name }}','Name');
+        $this->grid->add('{{ $name }}','Name');
         $this->grid->add('email','Email');
        $this->grid->add('{{ implode(", ", $roles->pluck("name")->all()) }}', 'Role');
 
@@ -52,8 +51,7 @@ class AdminController extends CrudController{
         $this->edit->label('Edit Admin');
         $this->edit->link("rapyd-demo/filter","Articles", "TR")->back();
         $this->edit->add('email','Email', 'text')->rule('required|min:5');
-        $this->edit->add('first_name', 'firstname', 'text');
-        $this->edit->add('last_name', 'lastname', 'text');
+        $this->edit->add('name', 'name', 'text');
         $this->edit->add('password', 'password', 'password')->rule('required');  
         $this->edit->add('roles','Roles','checkboxgroup')->options(Role::pluck('name', 'id')->all());
 

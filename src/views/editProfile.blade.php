@@ -19,11 +19,8 @@
          Form::model($admin, array( $admin->id))
         !!}
 
-        {!! Form::label('first_name', \Lang::get('panel::fields.FirstName')) !!}
-        {!! Form::text('first_name', $admin->first_name, array('class' => 'form-control')) !!}
-        <br />
-        {!! Form::label('last_name', \Lang::get('panel::fields.LastName')) !!}
-        {!! Form::text('last_name', $admin->last_name, array('class' => 'form-control')) !!}
+        {!! Form::label('name', \Lang::get('panel::fields.FirstName')) !!}
+        {!! Form::text('name', $admin->name, array('class' => 'form-control')) !!}
         <br />
         <!-- email -->
         {!! Form::label('email', \Lang::get('panel::fields.email')) !!}
