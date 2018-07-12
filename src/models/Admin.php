@@ -3,14 +3,14 @@ namespace Serverfireteam\Panel;
 
 use Illuminate\Auth\Authenticatable;
 use App\Models\Users\User;
-use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Notifications\Notifiable;
 
 class Admin extends User implements AuthenticatableContract, CanResetPasswordContract {
 
-    use CanResetPassword;
+    use AdminCanResetPassword;
     use HasRoles;
 
     protected static function boot()

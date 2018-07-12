@@ -51,9 +51,9 @@ class CreateModelObserverCommand extends GeneratorCommand {
 	 *
 	 * @return void
 	 */
-	public function fire()
+	public function handle()
 	{
-           	$name = $this->parseName($this->getNameInput());
+           	$name = $this->qualifyClass($this->getNameInput());
             
             if ($this->files->exists($path = $this->getPath($name . 'Observer')))
             {

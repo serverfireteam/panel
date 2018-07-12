@@ -60,9 +60,9 @@ class CreateControllerPanelCommand extends GeneratorCommand {
 	 *
 	 * @return void
 	 */
-	public function fire()
+	public function handle()
 	{
-            $name = $this->parseName($this->getNameInput()) . 'Controller';
+            $name = $this->qualifyClass($this->getNameInput()) . 'Controller';
 
             if ($this->files->exists($path = $this->getPath($name)))
             {
