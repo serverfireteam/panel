@@ -6,16 +6,18 @@
  * and open the template in the editor.
  */
 
+use Serverfireteam\Panel\Admin;
+
 class AdminSeeder extends Seeder{
     
     public function run(){
         
-        DB::table('admins')->delete();
+        Admin::delete();
         
-        DB::table('admins')->insert(
-              array('email'=>'admin@admin.com',
-                   'password'=>'123')  
-        );
+        Admin::create([
+            'email' => 'admin@change.me',
+            'password' => bcrypt('12345')
+        ]);
     }
     
 }
