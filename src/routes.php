@@ -1,6 +1,6 @@
 <?php
 
-Route::group(array('prefix' => 'panel', 'middleware' => ['web', 'role:,access_backend']), function()
+Route::group(array('prefix' => 'panel', 'middleware' => ['web', 'permission:access panel']), function()
 {
 	// main page for the admin section (app/views/admin/dashboard.blade.php)
 
@@ -67,7 +67,7 @@ Route::group(array('middleware' => ['web']), function()
     Route::get('/panel/login',  array('uses' => 'Serverfireteam\Panel\AuthController@getLogin'));
 });
 
-Route::group(array('prefix' => 'elfinder', 'middleware' => ['web', 'role:,access_backend']), function()
+Route::group(array('prefix' => 'elfinder', 'middleware' => ['web', 'permission:access panel']), function()
 {
 	Route::get('tinymce4/{input_id}', array('uses' => 'Barryvdh\Elfinder\ElfinderController@showPopup'));
 });

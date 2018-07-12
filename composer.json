@@ -39,6 +39,7 @@
         ],
         "psr-0": {
             "Serverfireteam\\Panel": "src/"
+            "Serverfireteam\\Panel\\Database\\Seeders": "src/database/seeds/"
         }
     },
     "minimum-stability": "dev"

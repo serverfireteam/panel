@@ -38,8 +38,20 @@ Pass: 12345
 
 
 ## Documents    
+
 https://github.com/laravelpanel/docs
 
+## Spatie Laravel Permissions
 
+If you do not already have users up and running, you will need to run `artisan make:auth` and
+`artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"`
+before migrating.
 
+You will need to add:
 
+    'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+    'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+
+to `app/Http/Kernel.php` in the `$routeMiddleware`, as well as `HasRole` to the User class.
+
+Run the AdminSeeder to create a user (default username and password!) and roles.
