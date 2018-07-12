@@ -36,15 +36,10 @@ You can check the [live demo here](http://demo.serverfire.net/panel) .
 User: admin@change.me
 Pass: 12345 
 
-## Get started
-[Get started with laravelpanel](http://laravelpanel.com/docs/master/get-started)
 
 ## Documents    
-[laravelpanel.com/docs/master](http://laravelpanel.com/docs/master) 
+https://github.com/laravelpanel/docs
 
-## Read this tutorial
-[How to create an Image Gallery with managment system in 5 minutes](http://laravelpanel.com/docs/master/create-gallery)
 
-Good news! We're currently available for remote and on-site consulting for small, large and enterprise teams. Please contact info@serverfire.net with your needs and let's work together!
 
 

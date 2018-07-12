@@ -51,7 +51,7 @@ class CreateModelObserverCommand extends GeneratorCommand {
 	 *
 	 * @return void
 	 */
-	public function fire()
+	public function handle()
 	{
            	$name = $this->qualifyClass($this->getNameInput());
             
