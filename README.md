@@ -54,7 +54,10 @@ As part of the usual spatie/laravel-permission installation, you will need to ad
 
 to `app/Http/Kernel.php` in the `$routeMiddleware`, as well as `HasRole` to the User class.
 
-Run the AdminSeeder to create a user (default username and password!) and roles.
-
 Note that this system expects a pre-configured spatie/laravel-permission and
 `App\User` class, with a `users` table.
+
+Run the AdminSeeder to create a super-user (default username and password!) and roles - this is essential,
+although you should change the email/password immediately afterwards:
+
+    artisan db:seed --class=Serverfireteam\\Panel\\Database\\Seeders\\AdminSeeder
