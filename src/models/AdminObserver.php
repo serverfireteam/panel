@@ -4,9 +4,9 @@ namespace Serverfireteam\Panel;
 
 class AdminObserver
 {
-    public function creating(Admin $admin)
+    public function created(Admin $admin)
     {
-        \Log::info('new admin');
         $admin->assignRole('admin');
+        $admin->save();
     }
 }

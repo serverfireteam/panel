@@ -42,7 +42,7 @@ class dashboard
         // $user = \Auth::guard('panel')->user();
         $user = \Auth::user();
                     
-        return $user->hasRole('super') || $user->hasPermission('/' . $link['url'] . '/all');
+        return $user->hasRole('admin') || $user->hasPermissionTo('view /' . $link['url'] . '/all');
     }
 
     /**

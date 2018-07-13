@@ -38,7 +38,7 @@
   	        "src/Serverfireteam/Panel/Commands"
         ],
         "psr-0": {
-            "Serverfireteam\\Panel": "src/"
+            "Serverfireteam\\Panel": "src/",
             "Serverfireteam\\Panel\\Database\\Seeders": "src/database/seeds/"
         }
     },

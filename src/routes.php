@@ -1,6 +1,6 @@
 <?php
 
-Route::group(array('prefix' => 'panel', 'middleware' => ['web', 'permission:access panel']), function()
+Route::group(array('prefix' => 'panel', 'middleware' => ['web', 'auth', 'permission:access panel']), function()
 {
 	// main page for the admin section (app/views/admin/dashboard.blade.php)
 
