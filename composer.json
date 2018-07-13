@@ -27,7 +27,7 @@
         "serverfireteam/rapyd-laravel" : "1.5.*",
         "maatwebsite/excel": "~2.1.0",
 	"barryvdh/laravel-elfinder": "0.3.*",
-        "spatie/laravel-permission": "dev-master"
+        "spatie/laravel-permission": "^2.7"
     },
     "autoload": {
         "classmap": [
