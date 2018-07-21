@@ -22,19 +22,19 @@ class PermissionCheckMiddleware
     public function handle($request, Closure $next)
     {   
 
-        $admin= Admin::find((\Auth::guard('panel')->user()->id));
+        $admin= Admin::find((\Auth::user()->id));
         
         $urlSegments   = $request->segments();
 
-        if ($admin->hasRole('super')){
+        if ($admin->hasRole('admin')){
 
             return $next($request);
         }else{
             if (key_exists(2 , $urlSegments)){
 
-                $PermissionToCheck = '/' . $urlSegments[1] . '/' . $urlSegments[2];
+                $PermissionToCheck = 'view /' . $urlSegments[1] . '/' . $urlSegments[2];
 
-                if($admin->hasPermission($PermissionToCheck)){
+                if($admin->hasPermissionTo($PermissionToCheck)){
 
                     return $next($request);
                 }else{
