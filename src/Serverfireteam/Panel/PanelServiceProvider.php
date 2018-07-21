@@ -32,19 +32,20 @@ class PanelServiceProvider extends ServiceProvider
     	// Barryvdh\Elfinder\ElfinderServiceProvider
         $this->app->register('Barryvdh\Elfinder\ElfinderServiceProvider');
         
-
-        $this->app['router']->aliasMiddleware('PanelAuth', 'Serverfireteam\Panel\libs\AuthMiddleware');
+        // Delegate auth
+	// $this->app['router']->middleware('PanelAuth', 'Serverfireteam\Panel\libs\AuthMiddleware');
         
         //middleware Permission
         $this->app['router']->aliasMiddleware(
             'PermissionPanel', 'Serverfireteam\Panel\libs\PermissionCheckMiddleware'
             );
+        // Delegate auth
 
         // set config for Auth
 
-        \Config::set('auth.guards.panel',     ['driver'   => 'session','provider' => 'panel']);
-        \Config::set('auth.providers.panel',  ['driver'   => 'eloquent','model'   => \Serverfireteam\Panel\Admin::class]);
-        \Config::set('auth.passwords.panel',  ['provider' => 'panel','email'      => 'panelViews::resetPassword','table' => 'password_resets','expire' => 60]);
+        // \Config::set('auth.guards.panel',     ['driver'   => 'session','provider' => 'panel']);
+        // \Config::set('auth.providers.panel',  ['driver'   => 'eloquent','model'   => \Serverfireteam\Panel\Admin::class]);
+        // \Config::set('auth.passwords.panel',  ['provider' => 'panel','email'      => 'panelViews::resetPassword','table' => 'password_resets','expire' => 60]);
         
         /*
          * Create aliases for the dependency.
