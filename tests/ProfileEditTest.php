@@ -15,8 +15,7 @@ class ProfileEditTest extends TestCase {
 		     ->press('Login')
 		     ->see('Dashboard')
 		     ->click('Profile Edit')
-		     ->type('test name', 'forename')
-		     ->type('test last name', 'surname')
+		     ->type('test name', 'name')
 		     ->type('test@test.com', 'email')
 		     ->press('Update Profile')
 		     ->see('Your profile is edited successfully.');

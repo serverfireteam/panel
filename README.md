@@ -38,8 +38,26 @@ Pass: 12345
 
 
 ## Documents    
+
 https://github.com/laravelpanel/docs
 
+## Spatie Laravel Permissions
 
+If you do not already have users functionality on your app, you can run `artisan make:auth` and
+`artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider" --tag="migrations"`
+before migrating.
 
+As part of the usual spatie/laravel-permission installation, you will need to add:
 
+    'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,
+    'permission' => \Spatie\Permission\Middlewares\PermissionMiddleware::class,
+
+to `app/Http/Kernel.php` in the `$routeMiddleware`, as well as `HasRole` to the User class.
+
+Note that this system expects a pre-configured spatie/laravel-permission and
+`App\User` class, with a `users` table.
+
+Run the AdminSeeder to create a super-user (default username and password!) and roles - this is essential,
+although you should change the email/password immediately afterwards:
+
+    artisan db:seed --class=Serverfireteam\\Panel\\Database\\Seeders\\AdminSeeder
