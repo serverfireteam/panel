@@ -2,7 +2,6 @@
 
 namespace Serverfireteam\Panel\libs;
 
-
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
 use Serverfireteam\Panel\LinkRepository;
@@ -20,7 +19,7 @@ class dashboard
      * Either retrieve the dashboard items from cache or from the config/DB if they were not yet cached
      * @return array
      */
-    public static function getItems ()
+    public static function getItems()
     {
         if (!self::$dashboardItems) {
             self::$dashboardItems = \App::call(self::class . '@create');
@@ -34,11 +33,13 @@ class dashboard
      * @param $link
      * @return bool
      */
-    private function showLink ($link)
+    private function showLink($link)
     {
-        if (!$link['show_menu']) return false;
+        if (!$link['show_menu']) {
+            return false;
+        }
 
-	// Delegate auth
+    // Delegate auth
         // $user = \Auth::guard('panel')->user();
         $user = \Auth::user();
                     
@@ -54,7 +55,7 @@ class dashboard
      *
      * @return array
      */
-    public function create (AppHelper $appHelper, LinkRepository $linkRepository)
+    public function create(AppHelper $appHelper, LinkRepository $linkRepository)
     {
         // @TODO cache
 

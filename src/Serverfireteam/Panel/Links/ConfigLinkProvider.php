@@ -17,7 +17,7 @@ class ConfigLinkProvider implements LinkProvider
     /**
      * @return Collection
      */
-    public function getAll ()
+    public function getAll()
     {
         // Use the links from config/panel.php
         $config = config('panel.links');
@@ -39,7 +39,7 @@ class ConfigLinkProvider implements LinkProvider
     /**
      * @return Collection
      */
-    public function getMain ()
+    public function getMain()
     {
         return $this->getAll()->filter(function ($link) {
             return $link['main'];

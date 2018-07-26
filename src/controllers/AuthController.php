@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Session as session;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
 
-class AuthController extends Controller {
+class AuthController extends Controller
+{
 
     /**
      * Display the password reminder view.
@@ -17,29 +18,31 @@ class AuthController extends Controller {
     {
 
         $userdata = array(
-                'email' 	=> Input::get('email'),
-                'password' 	=> Input::get('password')
+                'email'     => Input::get('email'),
+                'password'  => Input::get('password')
         );
         // attempt to do the login
         \Log::info(\Auth::attempt(['email' => 'admin@example.com', 'password' => 'test123']));
-        if (\Auth::attempt($userdata,filter_var(Input::get('remember'), FILTER_VALIDATE_BOOLEAN))) {
+        if (\Auth::attempt($userdata, filter_var(Input::get('remember'), FILTER_VALIDATE_BOOLEAN))) {
             return \Redirect::to('panel');
         } else {
-            // validation not successful, send back to form	
-            return \Redirect::to('panel/login')->with('message', \Lang::get('panel::fields.passwordNotCorrect') )->with('mesType','error');
+            // validation not successful, send back to form
+            return \Redirect::to('panel/login')->with('message', \Lang::get('panel::fields.passwordNotCorrect'))->with('mesType', 'error');
         }
     }
     
-    public function getLogin(){
+    public function getLogin()
+    {
         
         $message = (\Session::has('message') ? \Session::get('message') : \Lang::get('panel::fields.signIn'));
         $mesType = (\Session::has('mesType') ? \Session::get('mesType') : 'message');
         return \View::make('panelViews::login')->with('message', $message)->with('mesType', $mesType);
     }
     
-    public function doLogout(){
+    public function doLogout()
+    {
         
-        \Auth::logout();     
+        \Auth::logout();
         return \Redirect::to('panel/login');
     }
 }

@@ -7,13 +7,13 @@ class CrudController extends Controller
 {
     const ID_COLUMN = 'id';
 
-    public    $grid;
-    public    $entity;
-    public    $set;
-    public    $edit;
-    public    $filter;
+    public $grid;
+    public $entity;
+    public $set;
+    public $edit;
+    public $filter;
     protected $lang;
-    public    $helper_message;
+    public $helper_message;
 
     public function __construct(\Lang $lang)
     {
@@ -21,11 +21,11 @@ class CrudController extends Controller
         $route = \App::make('route');
         $this->lang = $lang;
         $this->route = $route;
-        if($route = $route::current())
-        {
+        if ($route = $route::current()) {
             $routeParamters = $route->parameters();
-            if(isset($routeParamters['entity']))
+            if (isset($routeParamters['entity'])) {
                 $this->setEntity($routeParamters['entity']);
+            }
         }
     }
 
@@ -42,18 +42,20 @@ class CrudController extends Controller
     */
     public function edit($entity)
     {
-
     }
 
-    public function getEntity() {
+    public function getEntity()
+    {
         return $this->entity;
     }
 
-    public function setEntity($entity) {
+    public function setEntity($entity)
+    {
         $this->entity = $entity;
     }
 
-    public function getEntityModel() {
+    public function getEntityModel()
+    {
 
         $entity = $this->getEntity();
 
@@ -87,7 +89,8 @@ class CrudController extends Controller
      * @param $url
      * @throws \Exception
      */
-    private function validateEntity($url) {
+    private function validateEntity($url)
+    {
         if (!\Links::all()->pluck('url')->contains($url)) {
             throw new \Exception('This url is not set yet!');
         }
@@ -108,12 +111,13 @@ class CrudController extends Controller
     public function returnEditView()
     {
         $this->validateEntity($this->entity);
-        return \View::make('panelViews::edit', array('title'		 => $this->entity,
-                                'edit' 		 => $this->edit,
+        return \View::make('panelViews::edit', array('title'         => $this->entity,
+                                'edit'       => $this->edit,
                         'helper_message' => $this->helper_message));
     }
 
-    public function finalizeFilter() {
+    public function finalizeFilter()
+    {
         $lang = \App::make('lang');
         $this->filter->submit($this->lang->get('panel::fields.search'));
         $this->filter->reset($this->lang->get('panel::fields.reset'));
