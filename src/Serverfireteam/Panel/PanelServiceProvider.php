@@ -29,16 +29,17 @@ class PanelServiceProvider extends ServiceProvider
         // 'Maatwebsite\Excel\ExcelServiceProvider'
         $this->app->register('Maatwebsite\Excel\ExcelServiceProvider');
 
-    	// Barryvdh\Elfinder\ElfinderServiceProvider
+        // Barryvdh\Elfinder\ElfinderServiceProvider
         $this->app->register('Barryvdh\Elfinder\ElfinderServiceProvider');
         
         // Delegate auth
-	// $this->app['router']->middleware('PanelAuth', 'Serverfireteam\Panel\libs\AuthMiddleware');
+    // $this->app['router']->middleware('PanelAuth', 'Serverfireteam\Panel\libs\AuthMiddleware');
         
         //middleware Permission
         $this->app['router']->aliasMiddleware(
-            'PermissionPanel', 'Serverfireteam\Panel\libs\PermissionCheckMiddleware'
-            );
+            'PermissionPanel',
+            'Serverfireteam\Panel\libs\PermissionCheckMiddleware'
+        );
         // Delegate auth
 
         // set config for Auth
@@ -55,36 +56,31 @@ class PanelServiceProvider extends ServiceProvider
         $loader->alias('Html', 'Collective\Html\HtmlFacade');
         $loader->alias('Excel', 'Maatwebsite\Excel\Facades\Excel');
 
-        $this->app->singleton('panel::install', function()
-        {
+        $this->app->singleton('panel::install', function () {
             return new \Serverfireteam\Panel\Commands\PanelCommand();
         });
 
-        $this->app->singleton('panel::crud', function()
-        {
+        $this->app->singleton('panel::crud', function () {
             return new \Serverfireteam\Panel\Commands\CrudCommand();
         });
 
-        $this->app->singleton('panel::createmodel', function()
-        {
-         $fileSystem = new Filesystem(); 
+        $this->app->singleton('panel::createmodel', function () {
+            $fileSystem = new Filesystem();
 
-         return new \Serverfireteam\Panel\Commands\CreateModelCommand($fileSystem);
-     });
+            return new \Serverfireteam\Panel\Commands\CreateModelCommand($fileSystem);
+        });
 
-        $this->app->singleton('panel::createobserver', function()
-        {
-         $fileSystem = new Filesystem(); 
+        $this->app->singleton('panel::createobserver', function () {
+            $fileSystem = new Filesystem();
 
-         return new \Serverfireteam\Panel\Commands\CreateModelObserverCommand($fileSystem);
-     });
+            return new \Serverfireteam\Panel\Commands\CreateModelObserverCommand($fileSystem);
+        });
 
-        $this->app->singleton('panel::createcontroller', function()
-        {
-         $fileSystem = new Filesystem();
+        $this->app->singleton('panel::createcontroller', function () {
+            $fileSystem = new Filesystem();
 
-         return new \Serverfireteam\Panel\Commands\CreateControllerPanelCommand($fileSystem);
-     });
+            return new \Serverfireteam\Panel\Commands\CreateControllerPanelCommand($fileSystem);
+        });
 
         $this->app->singleton(LinkProvider::class, function () {
             return app(config('panel.links') ? ConfigLinkProvider::class : DbLinkProvider::class);
@@ -124,8 +120,6 @@ class PanelServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/rapyd-laravel/lang', 'rapyd');
 
         AliasLoader::getInstance()->alias('Serverfireteam', 'Serverfireteam\Panel\Serverfireteam');
-
-
     }
 
     /**

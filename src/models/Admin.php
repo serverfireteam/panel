@@ -4,7 +4,8 @@ namespace Serverfireteam\Panel;
 use App\User;
 
 // Delegate auth
-class Admin extends User {
+class Admin extends User
+{
     protected $table = 'users';
 
     protected $guard_name = 'web';
