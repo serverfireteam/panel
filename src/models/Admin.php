@@ -6,9 +6,9 @@ use App\User;
 // Delegate auth
 class Admin extends User
 {
-    protected $table = 'users';
+    public $table = 'users';
 
-    protected $guard_name = 'web';
+    public $guard_name = 'web';
 
     public function getMorphClass()
     {
@@ -20,7 +20,7 @@ class Admin extends User
         return Str::snake(parent::class).'_'.$this->getKeyName();
     }
 
-    protected static function boot()
+    public static function boot()
     {
         parent::boot();
 

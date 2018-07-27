@@ -15,32 +15,40 @@ use Serverfireteam\Panel\Admin;
 
 class AdminSeeder extends Seeder
 {
-    
     public function run()
     {
-        $role = Role::firstOrCreate([
-            'name' => 'admin',
-            'guard_name' => 'web'
-        ]);
+        $role = Role::firstOrCreate(
+            [
+                'name' => config('panel.adminRole', 'admin'),
+                'guard_name' => 'web'
+            ]
+        );
 
-        $permission = Permission::firstOrCreate([
-            'name' => 'access panel',
-            'guard_name' => 'web'
-        ]);
+        $permission = Permission::firstOrCreate(
+            [
+                'name' => 'access panel',
+                'guard_name' => 'web'
+            ]
+        );
 
         if (! $role->hasPermissionTo('access panel')) {
             $role->givePermissionTo($permission);
         }
-        
-        $admin = Admin::firstOrNew([
-            'name' => 'Administrator',
-        ]);
-        if (! $admin->email) {
-            $admin->email = 'admin@change.me';
+
+        if ($this->command->confirm('Create or update a super-admin now?', true)) {
+            $adminEmail = $this->command->ask('Email: ', 'admin@change.me');
+            $admin = Admin::firstOrNew(
+                [
+                    'email' => $adminEmail,
+                ]
+            );
+            $admin->name = $this->command->ask('Name: ', $admin->name ?: 'Administrator');
+            if (! $admin->password) {
+                $admin->password = bcrypt(
+                    $this->command->secret(' Password: ', $admin->name ?: '12345')
+                );
+            }
+            $admin->save();
         }
-        if (! $admin->password) {
-            $admin->password = bcrypt('12345');
-        }
-        $admin->save();
     }
 }
