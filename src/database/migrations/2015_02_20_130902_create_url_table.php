@@ -24,34 +24,6 @@ class CreateUrlTable extends Migration
                  // support the indexes, other engines aren't affected.
                  $table->engine = 'InnoDB';
         });
-        
-        $links = [
-            [
-                'display' => 'Links',
-                'url' =>  'Link'
-            ],
-            /*
-            [
-                'display' => 'Roles',
-                'url' => 'Role',
-            ],
-            [
-                'display' => 'Permissions',
-                'url' => 'Permission',
-            ],
-            [
-                'display' => 'Users',
-                'url' => 'User'
-            ]
-            */
-        ];
-        foreach ($links as $linkData) {
-            $link = new Serverfireteam\Panel\Link;
-            $link->fill($linkData);
-            $link->main = true;
-            $link->show_menu = true;
-            $link->save();
-        }
     }
 
         /**
