@@ -2,7 +2,7 @@
 
 namespace Serverfireteam\Panel\Database\Seeders;
 
-/* 
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -13,9 +13,11 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Models\Permission;
 use Serverfireteam\Panel\Admin;
 
-class AdminSeeder extends Seeder{
+class AdminSeeder extends Seeder
+{
     
-    public function run(){
+    public function run()
+    {
         $role = Role::firstOrCreate([
             'name' => 'admin',
             'guard_name' => 'web'
@@ -41,5 +43,4 @@ class AdminSeeder extends Seeder{
         }
         $admin->save();
     }
-    
 }

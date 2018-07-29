@@ -7,7 +7,7 @@ use Serverfireteam\Panel\LinkRepository;
 
 class LinksFacade extends Facade
 {
-    protected static function getFacadeAccessor ()
+    protected static function getFacadeAccessor()
     {
         return LinkRepository::class;
     }

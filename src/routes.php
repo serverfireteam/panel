@@ -1,23 +1,20 @@
 <?php
 
-Route::group(array('prefix' => 'panel', 'middleware' => ['web', 'auth', 'permission:access panel']), function()
-{
-	// main page for the admin section (app/views/admin/dashboard.blade.php)
+Route::group(array('prefix' => 'panel', 'middleware' => ['web', 'auth', 'permission:access panel']), function () {
+    // main page for the admin section (app/views/admin/dashboard.blade.php)
 
-	Route::get('/', function(){
+    Route::get('/', function () {
 
 
         $version = '';
-        try
-        {
-            $composer_lock = json_decode(File::get(base_path().'/composer.lock'),true);
-            foreach($composer_lock['packages'] as $key=>$value){
-                if($value['name'] =="serverfireteam/panel")
+        try {
+            $composer_lock = json_decode(File::get(base_path().'/composer.lock'), true);
+            foreach ($composer_lock['packages'] as $key => $value) {
+                if ($value['name'] =="serverfireteam/panel") {
                     $version =  $value['version'];
+                }
             }
-        }
-        catch (Exception $exception)
-        {
+        } catch (Exception $exception) {
             \Log::warning("I can't found composer.lock for laravelpanel ");
         }
 
@@ -27,15 +24,13 @@ Route::group(array('prefix' => 'panel', 'middleware' => ['web', 'auth', 'permiss
 /**
  * Check Permission only on Model Controllers
  */
-    Route::group(array('middleware' => ['PermissionPanel']), function()
-    {
+    Route::group(array('middleware' => ['PermissionPanel']), function () {
 
         Route::any('/{entity}/export/{type}', array('uses' => 'Serverfireteam\Panel\ExportImportController@export'));
         Route::post('/{entity}/import', array('uses' => 'Serverfireteam\Panel\ExportImportController@import'));
         Route::any('/{entity}/{methods}', array('uses' => 'Serverfireteam\Panel\MainController@entityUrl'));
         Route::post('/edit', array('uses' => 'Serverfireteam\Panel\ProfileController@postEdit'));
         Route::get('/edit', array('uses' => 'Serverfireteam\Panel\ProfileController@getEdit'));
-
     });
 
 
@@ -46,11 +41,10 @@ Route::group(array('prefix' => 'panel', 'middleware' => ['web', 'auth', 'permiss
 
     Route::post('/changePassword', array('uses' => 'Serverfireteam\Panel\RemindersController@postChangePassword'));
 });
-Route::group(array('middleware' => ['web']), function()
-{
+Route::group(array('middleware' => ['web']), function () {
     Route::post('/panel/login', array('uses' => 'Serverfireteam\Panel\AuthController@postLogin'));
 
-    Route::get('/panel/password/reset/{token}', function ($token){
+    Route::get('/panel/password/reset/{token}', function ($token) {
         return View::make('panelViews::passwordReset')->with('token', $token);
     });
 
@@ -60,14 +54,13 @@ Route::group(array('middleware' => ['web']), function()
 
     Route::get('/panel/reset', array('uses' => 'Serverfireteam\Panel\RemindersController@getReset'));
 
-    Route::get('/panel/remind',  array('uses' => 'Serverfireteam\Panel\RemindersController@getRemind'));
+    Route::get('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersController@getRemind'));
 
     Route::post('/panel/remind', array('uses' => 'Serverfireteam\Panel\RemindersController@postRemind'));
 
-    Route::get('/panel/login',  array('uses' => 'Serverfireteam\Panel\AuthController@getLogin'));
+    Route::get('/panel/login', array('uses' => 'Serverfireteam\Panel\AuthController@getLogin'));
 });
 
-Route::group(array('prefix' => 'elfinder', 'middleware' => ['web', 'permission:access panel']), function()
-{
-	Route::get('tinymce4/{input_id}', array('uses' => 'Barryvdh\Elfinder\ElfinderController@showPopup'));
+Route::group(array('prefix' => 'elfinder', 'middleware' => ['web', 'permission:access panel']), function () {
+    Route::get('tinymce4/{input_id}', array('uses' => 'Barryvdh\Elfinder\ElfinderController@showPopup'));
 });

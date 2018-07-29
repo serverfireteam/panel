@@ -17,7 +17,7 @@ class LinkRepository
      * LinkRepository constructor.
      * @param LinkProvider $linkProvider
      */
-    public function __construct (LinkProvider $linkProvider)
+    public function __construct(LinkProvider $linkProvider)
     {
         $this->linkProvider = $linkProvider;
     }
@@ -25,7 +25,7 @@ class LinkRepository
     /**
      * @return Collection
      */
-    public function all ()
+    public function all()
     {
         // @TODO cache
         return $this->linkProvider->getAll();
@@ -35,7 +35,7 @@ class LinkRepository
      * Get all the links where "main" is true
      * @return Collection
      */
-    public function main ()
+    public function main()
     {
         // @TODO cache
         return $this->linkProvider->getMain();
@@ -46,7 +46,7 @@ class LinkRepository
      * @param $url
      * @return bool
      */
-    public function isMain ($url)
+    public function isMain($url)
     {
         return $this->main()->pluck('url')->contains($url);
     }

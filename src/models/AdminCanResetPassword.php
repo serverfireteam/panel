@@ -2,7 +2,6 @@
 
 namespace Serverfireteam\Panel;
 
-
 trait AdminCanResetPassword
 {
     /**

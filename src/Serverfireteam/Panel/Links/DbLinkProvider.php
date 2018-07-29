@@ -17,7 +17,7 @@ class DbLinkProvider implements LinkProvider
     /**
      * @return Collection
      */
-    public function getAll ()
+    public function getAll()
     {
         return Link::all();
     }
@@ -25,7 +25,7 @@ class DbLinkProvider implements LinkProvider
     /**
      * @return Collection
      */
-    public function getMain ()
+    public function getMain()
     {
         return Link::whereMain(true)->get();
     }

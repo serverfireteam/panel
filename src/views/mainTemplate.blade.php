@@ -46,9 +46,9 @@
                           </li>
 
                           @foreach($linkItems as $linkItem)
-                              <?php
+                                <?php
                                   $isActive = Request::segment(2) == $linkItem['modelName'];
-                              ?>
+                                ?>
                               <li class="s-link {{ $isActive ? 'active' : '' }}">
                                   <a  href="{{ url($linkItem['showListUrl']) }}" class="{{ $isActive ? 'active' : '' }}">
                                       <i class="fa fa-edit fa-fw"></i>
