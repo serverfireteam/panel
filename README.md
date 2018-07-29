@@ -31,11 +31,6 @@ This package provides an easily configurable admin panel for Laravel application
 - ** RTL support **
 
 
-## Demo 
-You can check the [live demo here](http://demo.serverfire.net/panel) .
-User: admin@change.me
-Pass: 12345 
-
 
 ## Documents    
 
