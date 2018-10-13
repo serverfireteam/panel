@@ -111,9 +111,14 @@ class CrudController extends Controller
     public function returnEditView()
     {
         $this->validateEntity($this->entity);
-        return \View::make('panelViews::edit', array('title'         => $this->entity,
-                                'edit'       => $this->edit,
-                        'helper_message' => $this->helper_message));
+        return $this->edit->view(
+            'panelViews::edit',
+            [
+                'title'          => $this->entity,
+                'edit'           => $this->edit,
+                'helper_message' => $this->helper_message
+            ]
+        );
     }
 
     public function finalizeFilter()
