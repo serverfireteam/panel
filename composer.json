@@ -22,11 +22,11 @@
         }
     ],
     "require": {
-        "php": "^7.1.3",        
-        "illuminate/support": "~5.7",
+        "php": ">=5.4.0",        
+        "illuminate/support": "~5.1",
         "serverfireteam/rapyd-laravel" : "1.5.*",
         "maatwebsite/excel": "~2.1.0",
-	"barryvdh/laravel-elfinder": "0.4.*"
+	"barryvdh/laravel-elfinder": "0.3*|0.4.*"
     },
     "autoload": {
         "classmap": [
