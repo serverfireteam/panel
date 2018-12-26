@@ -10,7 +10,6 @@ This package provides an easily configurable admin panel for Laravel application
 
 ## Screen shot 
 - This is a custom CRUD with few lines of code :
-![Gallery](http://laravelpanel.com/assets/img/create-gallery-2.png)
 ![dashboard of panel](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-dashboard.jpg)
 ![Edit Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-crud-edit.jpg)
 
@@ -31,19 +30,12 @@ This package provides an easily configurable admin panel for Laravel application
 - ** RTL support **
 
 
-## Demo 
-You can check the [live demo here](http://demo.serverfire.net/panel) .
-User: admin@change.me
-Pass: 12345 
 
-## Get started
-[Get started with laravelpanel](http://laravelpanel.com/docs/master/get-started)
 
-## Documents    
-[laravelpanel.com/docs/master](http://laravelpanel.com/docs/master) 
+## Document
+[Read the wiki here](https://github.com/serverfireteam/panel/wiki)
 
-## Read this tutorial
-[How to create an Image Gallery with managment system in 5 minutes](http://laravelpanel.com/docs/master/create-gallery)
+
 
 Good news! We're currently available for remote and on-site consulting for small, large and enterprise teams. Please contact info@serverfire.net with your needs and let's work together!
 
