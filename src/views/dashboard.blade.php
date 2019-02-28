@@ -48,10 +48,10 @@
 
 <script>
     $(function(){
-        var color = ['primary','green','orange','red','purple','green2','blue2','yellow'];
+        var color = ['primary', 'green', 'orange', 'red', 'purple', 'green2', 'blue2', 'yellow'];
         var pointer = 0;
         $('.panel').each(function(){
-            if(pointer > color.length) pointer = 0;
+            if(pointer >= color.length) pointer = 0;
             $(this).addClass('panel-'+color[pointer]);
             $(this).find('.pull-right .add').addClass('panel-'+color[pointer]);
             pointer++;
