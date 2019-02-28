@@ -20,7 +20,7 @@ class AdminController extends CrudController{
 
         $this->filter = \DataFilter::source(Admin::with('roles'));
         $this->filter->add('id', 'ID', 'text');
-        $this->filter->add('firstname', 'First name', 'text');
+        $this->filter->add('first_name', 'First name', 'text');
         $this->filter->add('last_name', 'Last Name', 'text');
         $this->filter->add('email', 'Email', 'text');
         $this->filter->submit('search');
