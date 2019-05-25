@@ -37,12 +37,19 @@ class PanelCommand extends Command {
 	{
         $this->info('        [ Welcome to ServerFireTeam Panel Installation ]       ');
 
-        $this->info('** start publishing elfinder assets');
+        $this->info('** publishing elfinder assets');
         $this->call('elfinder:publish');
 
-        $this->info('** start publishing panel assets');
+        $this->info('** publishing panel assets');
         $this->call('vendor:publish', [
-            '--tag' => 'public'
+            '--tag' => 'public',
+            '--quiet' => null
+            //'--force' => 1
+        ]);
+        $this->info('** publishing panel config');
+        $this->call('vendor:publish', [
+            '--tag' => 'config',
+            '--quiet' => null
             //'--force' => 1
         ]);
 

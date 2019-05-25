@@ -107,7 +107,8 @@ class PanelServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__.'/config/panel.php' => config_path('panel.php'),
-            ]);
+            __DIR__.'/config/elfinder.php' => config_path('elfinder.php'),
+            ], 'config');
     }
 
     public function boot()
