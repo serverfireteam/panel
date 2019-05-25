@@ -103,7 +103,7 @@ class PanelServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . '/../../../public' => public_path('packages/serverfireteam/panel')
-            ]);
+            ], 'public');
 
         $this->publishes([
             __DIR__.'/config/panel.php' => config_path('panel.php'),
