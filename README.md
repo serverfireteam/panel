@@ -8,10 +8,12 @@
 
 This package provides an easily configurable admin panel for Laravel applications with a CRUD system, UI and more.
 
-## Screen shot 
-- This is a custom CRUD with few lines of code :
-![dashboard of panel](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-dashboard.jpg)
-![Edit Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-crud-edit.jpg)
+## Table of Contents
+* [Main features](#main-features)
+* [Screen shots](#screen-shot)
+* [Document](#document)
+
+
 
 ## Main features
 
@@ -29,6 +31,11 @@ This package provides an easily configurable admin panel for Laravel application
 - **Powerful**, It offers a Login section, Admin settings, forgot password and all other features you need for admin panel.
 - ** RTL support **
 
+
+## Screen shot 
+- This is a custom CRUD with few lines of code :
+![dashboard of panel](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-dashboard.jpg)
+![Edit Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-crud-edit.jpg)
 
 
 
