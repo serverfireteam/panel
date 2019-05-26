@@ -119,7 +119,7 @@ class PanelServiceProvider extends ServiceProvider
 
         include __DIR__."/../../routes.php";
 
-        $this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/panel/src/lang', 'panel');
+        $this->loadTranslationsFrom(__DIR__.'/../../lang', 'panel');
         $this->loadTranslationsFrom(base_path() . '/vendor/serverfireteam/rapyd-laravel/lang', 'rapyd');
 
         AliasLoader::getInstance()->alias('Serverfireteam', 'Serverfireteam\Panel\Serverfireteam');
