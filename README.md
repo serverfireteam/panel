@@ -8,10 +8,13 @@
 
 This package provides an easily configurable admin panel for Laravel applications with a CRUD system, UI and more.
 
-## Screen shot 
-- This is a custom CRUD with few lines of code :
-![dashboard of panel](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-dashboard.jpg)
-![Edit Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-crud-edit.jpg)
+## Table of Contents
+* [Main features](#main-features)
+* [Screen shots](#screen-shot)
+* [Document](#document)
+* [Installation](#Installation)
+
+
 
 ## Main features
 
@@ -30,10 +33,51 @@ This package provides an easily configurable admin panel for Laravel application
 - ** RTL support **
 
 
+## Screen shot 
+- This is a custom CRUD with few lines of code :
+![dashboard of panel](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-dashboard.jpg)
+![Edit Pages](https://raw.githubusercontent.com/serverfireteam/panel/master/public/img/serverfire-panel-crud-edit.jpg)
+
 
 
 ## Document
 [Read the wiki here](https://github.com/serverfireteam/panel/wiki)
+
+
+## Installation
+First you need to create a laravel 5.8 project.
+
+Add LaravelPanel with runing this code in CMD
+    
+    composer require serverfireteam/panel
+
+Or Add the package to require section of composer And run the composer update command, the package and its dependencies will be installed.
+
+    {
+        "require": {
+            "serverfireteam/panel": "1.9.*"
+        },
+    }
+
+
+
+Add the ServiceProvider of the package to the list of providers in the config/app.php file
+
+    'providers' => array(
+        Serverfireteam\Panel\PanelServiceProvider::class
+    )
+
+Run the following command in order to publish configs, views and assets.
+
+    php artisan panel:install
+
+Go to your domain.com/panel and you can login with the following username and password :
+
+    username: admin@change.me
+    password: 12345
+
+
+[for more details read the wiki here](https://github.com/serverfireteam/panel/wiki)
 
 
 

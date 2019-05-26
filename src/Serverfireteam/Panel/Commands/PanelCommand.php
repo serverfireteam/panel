@@ -35,15 +35,33 @@ class PanelCommand extends Command {
 	 */
 	public function handle()
 	{
-            $this->info('        [ Welcome to ServerFireTeam Panel Installation ]       ');
+        $this->info('        [ Welcome to ServerFireTeam Panel Installation ]       ');
 
-	    $this->call('elfinder:publish');
+        $this->info('** publishing elfinder assets');
+        $this->call('elfinder:publish');
 
-            $this->call('vendor:publish');
+        $this->info('** publishing panel assets');
+        $this->call('vendor:publish', [
+            '--tag' => 'public',
+            '--quiet' => null
+            //'--force' => 1
+        ]);
+        $this->info('** publishing panel config');
+        $this->call('vendor:publish', [
+            '--tag' => 'config',
+            '--quiet' => null
+            //'--force' => 1
+        ]);
+        $this->info('** publishing panel views');
+        $this->call('vendor:publish', [
+            '--tag' => 'views',
+            '--quiet' => null
+            //'--force' => 1
+        ]);
 
-            $this->call('migrate', array('--path' => 'vendor/serverfireteam/panel/src/database/migrations'));
+        $this->call('migrate', array('--path' => 'vendor/serverfireteam/panel/src/database/migrations'));
 
-            $this->call('db:seed', array('--class' => '\Serverfireteam\Panel\LinkSeeder'));
+        $this->call('db:seed', array('--class' => '\Serverfireteam\Panel\LinkSeeder'));
 	}
 
 	/**
@@ -65,5 +83,36 @@ class PanelCommand extends Command {
 	{
 		return [];
 	}
+
+    /**
+     * Copy specific directories to destination
+     * @param $destination
+     * @return bool
+     * @throws \ReflectionException
+     */
+    protected function copyFiles($destination)
+    {
+        $result = true;
+        $directories = array('public');
+        $root_path = $this->getRootPath();
+        foreach($directories as $dir){
+            $path = $root_path.'/'.$dir;
+            $success = $this->files->copyDirectory($path, $destination);
+            $result = $success && $result;
+        }
+        return $result;
+    }
+
+    /**
+     * Find the root path from the vendor dir.
+     * @return bool|string
+     * @throws \ReflectionException
+     */
+    protected function getRootPath()
+    {
+        $reflector = new \ReflectionClass('serverfireteam_panel');
+        $path = realpath(dirname($reflector->getFileName()) . '/..');
+        return $path;
+    }
 
 }
