@@ -36,7 +36,7 @@ class CreateControllerPanelCommand extends GeneratorCommand {
                     return __DIR__.'/stubs/controller.plain.stub';
             }
 
-            return base_path().'/vendor/serverfireteam/panel/src/Serverfireteam/Panel/stubs/panelController.stub';
+            return __DIR__.'/../stubs/panelController.stub';
 	}
 
 	/**
