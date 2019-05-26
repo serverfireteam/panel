@@ -116,7 +116,7 @@ class PanelServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../../views', 'panelViews');
         $this->publishes([
             __DIR__.'/../../views' => base_path('resources/views/vendor/panelViews'),
-            ]);
+            ], 'views');
 
         include __DIR__."/../../routes.php";
 

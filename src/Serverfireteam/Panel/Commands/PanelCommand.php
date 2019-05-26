@@ -52,6 +52,12 @@ class PanelCommand extends Command {
             '--quiet' => null
             //'--force' => 1
         ]);
+        $this->info('** publishing panel views');
+        $this->call('vendor:publish', [
+            '--tag' => 'views',
+            '--quiet' => null
+            //'--force' => 1
+        ]);
 
         $this->call('migrate', array('--path' => 'vendor/serverfireteam/panel/src/database/migrations'));
 
