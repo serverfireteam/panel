@@ -19,7 +19,7 @@ class Permission extends Model
     	return $this->belongsToMany(Role::class);
     }
 
-    public function getAndSave($url, $label){
+    public function getAndSave($name, $label){
     	$this->name = $name;
     	$this->label = $label;
     	$this->save();
