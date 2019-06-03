@@ -33,8 +33,12 @@ class Link extends Model {
         }
         return self::$cache['main_urls'];
     }
-    public function addNewLink($url, $label, $visibility) // getAndSave(
+    public function addNewLink($url, $label, $visibility, $checkExistence = false) // getAndSave(
     {
+        if ($checkExistence && $this->isLinkExist($url, $label))
+        {
+            return;
+        }
         $this->url = $url;
         $this->display = $label;
         $this->show_menu = $visibility;
