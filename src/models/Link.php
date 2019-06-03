@@ -20,7 +20,7 @@ class Link extends Model {
     public static function getUrls($forceRefresh = false) // returnUrls(
     {
         if (!isset(self::$cache['all_urls']) || $forceRefresh) {
-            $configs = Link::allCached($forceRefresh);
+            $configs = Link::getAllLinks($forceRefresh);
             self::$cache['all_urls'] =  $configs->pluck('url')->toArray();
         }
         return self::$cache['all_urls'];
