@@ -71,7 +71,7 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-        <div class="powered-by"><a href="http://laravelpanel.com">{{ \Lang::get('panel::fields.thankYouNote') }}</a></div>
+        <div class="powered-by"><a href="https://github.com/serverfireteam/panel">{{ \Lang::get('panel::fields.thankYouNote') }}</a></div>
         <div id="page-wrapper">
 
 
