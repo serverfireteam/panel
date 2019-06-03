@@ -40,4 +40,22 @@ class Link extends Model {
         $this->show_menu = $visibility;
         $this->save();
     }
+
+    /**
+     * check given url and display label if they added before
+     * @param $url
+     * @param $label
+     * @return bool
+     */
+    public function isLinkExist($url, $label)
+    {
+        //if you call exists() against a non existent record then it gives error: Call to a member function exists() on null
+        //Link::where('url', '=', $url)->exists()
+        $linkCount = Link::where('url', '=', $url)->where('display', '=', $label)->count(); //->first(); if ($link === null)
+        if ($linkCount <= 0) {
+            // link doesn't exist
+            return false;
+        }
+        return true;
+    }
 }
