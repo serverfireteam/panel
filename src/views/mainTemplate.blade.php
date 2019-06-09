@@ -37,7 +37,7 @@
 
             <div class="navbar-default sidebar " role="navigation">
                 <div class="sidebar-nav navbar-collapse collapse " id="bs-example-navbar-collapse-1">
-                      <div class="grav center"><img src="//www.gravatar.com/avatar/{{ md5( strtolower( trim( Auth::guard('panel')->user()->email ) ) )}}?d=mm&s=128" ><a href="https://www.gravatar.com"><span> {{ \Lang::get('panel::fields.change') }}</span></a></div>
+                      <div class="grav center"><img src="//www.gravatar.com/avatar/{{ md5( strtolower( trim( Auth::guard('panel')->user()->email ) ) )}}?d=mm&s=128" ><a href="{{url('panel/edit')}}"><span> {{ \Lang::get('panel::fields.change') }}</span></a></div>
                       <div class="user-info">{{Auth::guard('panel')->user()->first_name.' '.Auth::guard('panel')->user()->last_name}}</div>
                       <a class="visit-site" href="{{$app['url']->to('/')}}">{{ \Lang::get('panel::fields.visiteSite') }}  </a>
                       <ul class="nav" id="side-menu">
@@ -71,7 +71,7 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-        <div class="powered-by"><a href="http://laravelpanel.com">{{ \Lang::get('panel::fields.thankYouNote') }}</a></div>
+        <div class="powered-by"><a href="https://github.com/serverfireteam/panel">{{ \Lang::get('panel::fields.thankYouNote') }}</a></div>
         <div id="page-wrapper">
 
 

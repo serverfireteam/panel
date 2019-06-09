@@ -13,7 +13,7 @@ class DummyClass extends CrudController{
     public function all($entity){
         parent::all($entity); 
 
-        /** Simple code of  filter and grid part , List of all fields here : http://laravelpanel.com/docs/master/crud-fields
+        /** Simple code of  filter and grid part , List of all fields here : https://github.com/serverfireteam/panel/wiki/CRUD-Fields
 
 
 			$this->filter = \DataFilter::source(new \App\Category);
@@ -36,7 +36,7 @@ class DummyClass extends CrudController{
         
         parent::edit($entity);
 
-        /* Simple code of  edit part , List of all fields here : http://laravelpanel.com/docs/master/crud-fields
+        /* Simple code of  edit part , List of all fields here : https://github.com/serverfireteam/panel/wiki/CRUD-Fields
 	
 			$this->edit = \DataEdit::source(new \App\Category());
 
