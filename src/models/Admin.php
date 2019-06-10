@@ -100,6 +100,15 @@ class Admin extends Model implements AuthenticatableContract, CanResetPasswordCo
     }
 
     /**
+     * get admin picture from extradata column
+     * @return mixed
+     */
+    public function getAdminPicture(){
+        $extdata = $this->scopeGetExtraDataObj();
+        return $extdata->picture;
+    }
+
+    /**
      * find admin by primary key id
      * @param $admin_id
      * @return mixed
@@ -137,6 +146,15 @@ class Admin extends Model implements AuthenticatableContract, CanResetPasswordCo
     }
 
     /**
+     * Scope a query to get extradata as json object
+     * @param $query
+     * @return mixed
+     */
+    public function scopeGetExtraDataObj($query){
+        return json_decode($query->extradata);
+    }
+
+    /**
      * Scope a query to get admin by a $key and search in $value.
      * @param $query
      * @param $key
@@ -151,7 +169,7 @@ class Admin extends Model implements AuthenticatableContract, CanResetPasswordCo
     }
 
 
-    protected $fillable = array('first_name', 'last_name', 'email', 'password');
+    protected $fillable = array('first_name', 'last_name', 'email', 'password', 'extradata');
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
