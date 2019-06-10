@@ -88,12 +88,12 @@ class Admin extends Model implements AuthenticatableContract, CanResetPasswordCo
 
     /**
      * add or update admin's picture.
-     * @param $pic_base64_encoded
+     * @param $path_or_pic_base64_encoded
      */
-    public function updateAdminPicture($pic_base64_encoded){
+    public function updateAdminPicture($path_or_pic_base64_encoded){
         //use forceFill() which will bypass the mass assignment check to perform update on any JSON path,
         // if path is not there, it will be created and if it’s present it will be updated accordingly.
-        $this->forceFill(['extradata->picture' => $pic_base64_encoded]);
+        $this->forceFill(['extradata->picture' => $path_or_pic_base64_encoded]);
 
         # Save the changes
         $this->update();
@@ -104,7 +104,7 @@ class Admin extends Model implements AuthenticatableContract, CanResetPasswordCo
      * @return mixed
      */
     public function getAdminPicture(){
-        $extdata = $this->scopeGetExtraDataObj();
+        $extdata = $this->getExtraDataObj();
         return $extdata->picture;
     }
 
@@ -146,12 +146,11 @@ class Admin extends Model implements AuthenticatableContract, CanResetPasswordCo
     }
 
     /**
-     * Scope a query to get extradata as json object
-     * @param $query
+     * get extradata as json object
      * @return mixed
      */
-    public function scopeGetExtraDataObj($query){
-        return json_decode($query->extradata);
+    public function getExtraDataObj(){
+        return json_decode($this->extradata);
     }
 
     /**
