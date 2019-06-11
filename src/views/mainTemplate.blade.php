@@ -37,7 +37,14 @@
 
             <div class="navbar-default sidebar " role="navigation">
                 <div class="sidebar-nav navbar-collapse collapse " id="bs-example-navbar-collapse-1">
-                      <div class="grav center"><img src="//www.gravatar.com/avatar/{{ md5( strtolower( trim( Auth::guard('panel')->user()->email ) ) )}}?d=mm&s=128" ><a href="{{url('panel/edit')}}"><span> {{ \Lang::get('panel::fields.change') }}</span></a></div>
+                    <div class="grav center">
+                        @if (!empty(Auth::guard('panel')->user()->getAdminPicture()))
+                            <img src="{{ asset(Auth::guard('panel')->user()->getAdminPicture()) }}" />
+                        @else
+                            <img src="//www.gravatar.com/avatar/{{ md5( strtolower( trim( Auth::guard('panel')->user()->email ) ) )}}?d=mm&s=128" />
+                        @endif
+                        <a href="{{url('panel/edit')}}"><span> {{ \Lang::get('panel::fields.change') }}</span></a>
+                    </div>
                       <div class="user-info">{{Auth::guard('panel')->user()->first_name.' '.Auth::guard('panel')->user()->last_name}}</div>
                       <a class="visit-site" href="{{$app['url']->to('/')}}">{{ \Lang::get('panel::fields.visiteSite') }}  </a>
                       <ul class="nav" id="side-menu">

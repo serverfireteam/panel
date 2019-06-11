@@ -88,15 +88,24 @@ class Admin extends Model implements AuthenticatableContract, CanResetPasswordCo
 
     /**
      * add or update admin's picture.
-     * @param $pic_base64_encoded
+     * @param $path_or_pic_base64_encoded
      */
-    public function updateAdminPicture($pic_base64_encoded){
+    public function updateAdminPicture($path_or_pic_base64_encoded){
         //use forceFill() which will bypass the mass assignment check to perform update on any JSON path,
         // if path is not there, it will be created and if it’s present it will be updated accordingly.
-        $this->forceFill(['extradata->picture' => $pic_base64_encoded]);
+        $this->forceFill(['extradata->picture' => $path_or_pic_base64_encoded]);
 
         # Save the changes
         $this->update();
+    }
+
+    /**
+     * get admin picture from extradata column
+     * @return mixed
+     */
+    public function getAdminPicture(){
+        $extdata = $this->getExtraDataObj();
+        return $extdata->picture;
     }
 
     /**
@@ -137,6 +146,14 @@ class Admin extends Model implements AuthenticatableContract, CanResetPasswordCo
     }
 
     /**
+     * get extradata as json object
+     * @return mixed
+     */
+    public function getExtraDataObj(){
+        return json_decode($this->extradata);
+    }
+
+    /**
      * Scope a query to get admin by a $key and search in $value.
      * @param $query
      * @param $key
@@ -151,7 +168,7 @@ class Admin extends Model implements AuthenticatableContract, CanResetPasswordCo
     }
 
 
-    protected $fillable = array('first_name', 'last_name', 'email', 'password');
+    protected $fillable = array('first_name', 'last_name', 'email', 'password', 'extradata');
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
