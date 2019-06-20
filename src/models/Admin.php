@@ -105,6 +105,7 @@ class Admin extends Model implements AuthenticatableContract, CanResetPasswordCo
      */
     public function getAdminPicture(){
         $extdata = $this->getExtraDataObj();
+        if (is_null($extdata)) return null;
         return $extdata->picture;
     }
 
