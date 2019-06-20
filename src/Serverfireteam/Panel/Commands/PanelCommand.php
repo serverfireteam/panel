@@ -42,19 +42,19 @@ class PanelCommand extends Command {
 
         $this->info('** publishing panel assets');
         $this->call('vendor:publish', [
-            '--tag' => 'public',
+            '--tag' => 'panelpublic',
             '--quiet' => null
             //'--force' => 1
         ]);
         $this->info('** publishing panel config');
         $this->call('vendor:publish', [
-            '--tag' => 'config',
+            '--tag' => 'panelconfig',
             '--quiet' => null
             //'--force' => 1
         ]);
         $this->info('** publishing panel views');
         $this->call('vendor:publish', [
-            '--tag' => 'views',
+            '--tag' => 'panelviews',
             '--quiet' => null
             //'--force' => 1
         ]);

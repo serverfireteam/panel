@@ -103,12 +103,12 @@ class PanelServiceProvider extends ServiceProvider
 
         $this->publishes([
             __DIR__ . '/../../../public' => public_path('packages/serverfireteam/panel')
-            ], 'public');
+            ], 'panelpublic');
 
         $this->publishes([
             __DIR__.'/config/panel.php' => config_path('panel.php'),
             __DIR__.'/config/elfinder.php' => config_path('elfinder.php'),
-            ], 'config');
+            ], 'panelconfig');
     }
 
     public function boot()
@@ -116,7 +116,7 @@ class PanelServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/../../views', 'panelViews');
         $this->publishes([
             __DIR__.'/../../views' => base_path('resources/views/vendor/panelViews'),
-            ], 'views');
+            ], 'panelviews');
 
         include __DIR__."/../../routes.php";
 
