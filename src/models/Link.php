@@ -1,6 +1,7 @@
 <?php
 namespace Serverfireteam\Panel;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Link extends Model {
@@ -33,16 +34,31 @@ class Link extends Model {
         }
         return self::$cache['main_urls'];
     }
+
+    /**
+     * insert new link. this function don't need to use save()
+     * @param $url
+     * @param $label
+     * @param $visibility
+     * @param bool $checkExistence
+     */
     public function addNewLink($url, $label, $visibility, $checkExistence = false) // getAndSave(
     {
         if ($checkExistence && $this->isLinkExist($url, $label))
         {
             return;
         }
-        $this->url = $url;
-        $this->display = $label;
-        $this->show_menu = $visibility;
-        $this->save();
+        $now = Carbon::now()->toDateTimeString();
+        $data = array(
+            array(
+                'url'=>$url,
+                'display'=>$label,
+                'show_menu'=>$visibility,
+                'created_at'=> $now,
+                'updated_at'=> $now
+            )
+        );
+        Link::insert($data);
     }
 
     /**
