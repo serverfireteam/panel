@@ -3,6 +3,7 @@
 use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
+use Illuminate\Support\Facades\File;
 
 class PanelCommand extends Command {
 
@@ -62,6 +63,12 @@ class PanelCommand extends Command {
         $this->call('migrate', array('--path' => 'vendor/serverfireteam/panel/src/database/migrations'));
 
         $this->call('db:seed', array('--class' => '\Serverfireteam\Panel\LinkSeeder'));
+
+        //will use for elfinder package
+        $path = public_path().'/files/';
+        if(!File::isDirectory($path)){
+            File::makeDirectory($path, 0775, true, true);
+        }
 	}
 
 	/**
