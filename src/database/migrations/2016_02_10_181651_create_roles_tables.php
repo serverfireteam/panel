@@ -17,6 +17,7 @@ class CreateRolesTables extends Migration
         $table->string('name');
         $table->string('label')->nullable();
         $table->timestamps();
+        $table->engine = 'InnoDB';
       });
 
       Schema::create('permissions', function (Blueprint $table) {
@@ -24,11 +25,13 @@ class CreateRolesTables extends Migration
         $table->string('name');
         $table->string('label')->nullable();
         $table->timestamps();
+        $table->engine = 'InnoDB';
       });
 
       Schema::create('permission_role', function (Blueprint $table) {
         $table->integer('permission_id')->unsigned();
         $table->integer('role_id')->unsigned();
+        $table->engine = 'InnoDB';
 
         $table->foreign('permission_id')
         ->references('id')
@@ -46,6 +49,7 @@ class CreateRolesTables extends Migration
       Schema::create('admin_role', function (Blueprint $table) {
         $table->integer('role_id')->unsigned();
         $table->integer('admin_id')->unsigned();
+        $table->engine = 'InnoDB';
 
         $table->foreign('role_id')
         ->references('id')
