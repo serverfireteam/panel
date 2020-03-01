@@ -62,15 +62,18 @@ class EntityImport implements OnEachRow, WithHeadingRow
         $newData     = array();
         $updatedData = array();
 
+        $hasNotNULL = false;
+        //check not NULL columns
         foreach ($this->notNullColumnNames as $notNullColumn) {
+            //if there is not the column in the row
             if (!isset($row[$notNullColumn])) {
-                unset($row);
+                $hasNotNULL = true;
             }
         }
 
         if (!empty($row[$this->key])) {
             $exists = $this->model->where($this->key, '=', $row[$this->key])->count();
-            if (!$exists) {
+            if (!$exists && !$hasNotNULL) {
                 $values = array();
                 foreach ($this->columns as $col) {
                     if ($col != $this->key && array_key_exists($col, $row)) {
@@ -96,9 +99,11 @@ class EntityImport implements OnEachRow, WithHeadingRow
         // update available data
         if (!empty($updatedData)) {
             foreach ($updatedData as $data) {
-                $keyValue = $data[$this->key];
+                $keyValue = (int)$data[$this->key];
                 unset($data[$this->key]);
-                $this->model->where($this->key, $keyValue)->update($data);
+                try{
+                    $this->model->where($this->key, $keyValue)->update($data);
+                }catch (\Exception $e){}
             }
         }
     }
