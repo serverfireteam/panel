@@ -4,62 +4,56 @@ namespace Serverfireteam\Panel;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ExportImportController extends Controller {
 
     protected $failed = false;
 
     public function export($entity, $fileType) {
-
-        $appHelper = new libs\AppHelper();
-        
-	$className = $appHelper->getModel($entity);
-	$data      = $className::get();
-	if (strcmp($fileType, "excel") == 0) {
-		$excel = \App::make('Excel');
-		\Excel::create($entity, function($excel) use ($data) {
-			$excel->sheet('Sheet1', function($sheet) use ($data) {
-				$sheet->fromModel($data);
-			});
-		})->export('xls');
-	}
+        if (strcmp($fileType, "excel") == 0) {
+            $export = new EntityExport($entity);
+            return Excel::download($export, $entity.'.xlsx');
+        }
+        return \Redirect::to('panel/' . $entity . '/all')->with('export_message', "File type is not excel");
     }
 
     public function import($entity) {
 
         $appHelper = new libs\AppHelper();
         
-	$className = $appHelper->getModel($entity);
-	$model     = new $className;
-	$table     = $model->getTable();
-	$columns   = \Schema::getColumnListing($table);
-	$key	   = $model->getKeyName();
+	    $className = $appHelper->getModel($entity);
+	    $model     = new $className;
+        $tablePrefix = \DB::getTablePrefix();
+        $table     = $tablePrefix.$model->getTable();
+	    $columns   = \Schema::getColumnListing($table);
+	    $key	   = $model->getKeyName();
 
-	$notNullColumnNames = array();
-	$notNullColumnsList = \DB::select(\DB::raw("SHOW COLUMNS FROM `" . $table . "` where `Null` = 'no'"));
-	if (!empty($notNullColumnsList)) {
-		foreach ($notNullColumnsList as $notNullColumn) {
-			$notNullColumnNames[] = $notNullColumn->Field;
-		}
-	}
+        $notNullColumnNames = array();
+        $notNullColumnsList = \DB::select(\DB::raw("SHOW COLUMNS FROM `" . $table . "` where `Null` = 'no'"));
+        if (!empty($notNullColumnsList)) {
+            foreach ($notNullColumnsList as $notNullColumn) {
+                $notNullColumnNames[] = $notNullColumn->Field;
+            }
+        }
 
-	$status = Input::get('status');
+        $status = Input::get('status');
 
-	$filePath = null;
-	if (Input::hasFile('import_file') && Input::file('import_file')->isValid()) {
-		$filePath = Input::file('import_file')->getRealPath();
-	}
+        $filePath = null;
+        if (Input::hasFile('import_file') && Input::file('import_file')->isValid()) {
+            $filePath = Input::file('import_file')->getRealPath();
+        }
 
-	if ($filePath) {
+        if ($filePath) {
 
-		\Excel::load($filePath, function($reader) use ($model, $columns, $key, $status, $notNullColumnNames) {
-			$this->importDataToDB($reader, $model, $columns, $key, $status, $notNullColumnNames);
-		});
-	}
+            \Excel::load($filePath, function($reader) use ($model, $columns, $key, $status, $notNullColumnNames) {
+                $this->importDataToDB($reader, $model, $columns, $key, $status, $notNullColumnNames);
+            });
+        }
 
-	$importMessage = ($this->failed == true) ? \Lang::get('panel::fields.importDataFailure') : \Lang::get('panel::fields.importDataSuccess');
+        $importMessage = ($this->failed == true) ? \Lang::get('panel::fields.importDataFailure') : \Lang::get('panel::fields.importDataSuccess');
 
-	return \Redirect::to('panel/' . $entity . '/all')->with('import_message', $importMessage);
+        return \Redirect::to('panel/' . $entity . '/all')->with('import_message', $importMessage);
     }
 
     public function importDataToDB($reader, $model, $columns, $key, $status, $notNullColumnNames) {
