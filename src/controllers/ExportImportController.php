@@ -20,23 +20,6 @@ class ExportImportController extends Controller {
 
     public function import($entity) {
 
-        $appHelper = new libs\AppHelper();
-        
-	    $className = $appHelper->getModel($entity);
-	    $model     = new $className;
-        $tablePrefix = \DB::getTablePrefix();
-        $table     = $tablePrefix.$model->getTable();
-	    $columns   = \Schema::getColumnListing($table);
-	    $key	   = $model->getKeyName();
-
-        $notNullColumnNames = array();
-        $notNullColumnsList = \DB::select(\DB::raw("SHOW COLUMNS FROM `" . $table . "` where `Null` = 'no'"));
-        if (!empty($notNullColumnsList)) {
-            foreach ($notNullColumnsList as $notNullColumn) {
-                $notNullColumnNames[] = $notNullColumn->Field;
-            }
-        }
-
         $status = Input::get('status');
 
         $filePath = null;
@@ -44,11 +27,10 @@ class ExportImportController extends Controller {
             $filePath = Input::file('import_file')->getRealPath();
         }
 
-        if ($filePath) {
-
-            \Excel::load($filePath, function($reader) use ($model, $columns, $key, $status, $notNullColumnNames) {
-                $this->importDataToDB($reader, $model, $columns, $key, $status, $notNullColumnNames);
-            });
+        if ($filePath)
+        {
+            $import = new EntityImport($entity, $status);
+            Excel::import($import, $filePath);
         }
 
         $importMessage = ($this->failed == true) ? \Lang::get('panel::fields.importDataFailure') : \Lang::get('panel::fields.importDataSuccess');
