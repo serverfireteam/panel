@@ -4,25 +4,18 @@ namespace Serverfireteam\Panel;
 
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ExportImportController extends Controller {
 
     protected $failed = false;
 
     public function export($entity, $fileType) {
-
-        $appHelper = new libs\AppHelper();
-        
-	$className = $appHelper->getModel($entity);
-	$data      = $className::get();
-	if (strcmp($fileType, "excel") == 0) {
-		$excel = \App::make('Excel');
-		\Excel::create($entity, function($excel) use ($data) {
-			$excel->sheet('Sheet1', function($sheet) use ($data) {
-				$sheet->fromModel($data);
-			});
-		})->export('xls');
-	}
+        if (strcmp($fileType, "excel") == 0) {
+            $export = new EntityExport($entity);
+            return Excel::download($export, $entity.'.xlsx');
+        }
+        return \Redirect::to('panel/' . $entity . '/all')->with('export_message', "File type is not excel");
     }
 
     public function import($entity) {
