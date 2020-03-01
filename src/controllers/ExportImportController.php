@@ -24,7 +24,8 @@ class ExportImportController extends Controller {
 
         $filePath = null;
         if (Input::hasFile('import_file') && Input::file('import_file')->isValid()) {
-            $filePath = Input::file('import_file')->getRealPath();
+            $pathTemp = Input::file('import_file')->store('temp');
+            $filePath = storage_path('app').'/'.$pathTemp;
         }
 
         if ($filePath)
