@@ -5,20 +5,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "siavash",
-            "email": "siavash@serverfire.net"
-        },
-        {
         "name": "Alireza Aboutalebi",
         "email": "ali@serverfire.net"
-        },
-        {
-        "name": "Hamid Reza Salimian ",
-        "email": "hamid@salimian.me"
-        },
-        {
-        "name": "Alenoosh Baghoomian",
-        "email": "hope2end@gmail.com"
         }
     ],
     "require": {
