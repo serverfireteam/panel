@@ -2,9 +2,11 @@
 
 namespace Serverfireteam\Panel;
 
+//use http\Env\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Request;
 
 class ExportImportController extends Controller {
 
@@ -24,7 +26,7 @@ class ExportImportController extends Controller {
 
         $filePath = null;
         if (Input::hasFile('import_file') && Input::file('import_file')->isValid()) {
-            $pathTemp = Input::file('import_file')->store('temp');
+            $pathTemp = Request::file('import_file')->store('temp');
             $filePath = storage_path('app').'/'.$pathTemp;
         }
 
