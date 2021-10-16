@@ -12,7 +12,7 @@
     "require": {
         "php": ">=7.3",
         "illuminate/support": ">=5.8",
-        "zofe/rapyd" : "dev-master",
+        "zofe/rapyd" : ">=8.0.0",
         "maatwebsite/excel": "^3.1.30",
 	    "barryvdh/laravel-elfinder": ">=0.4.7"
     },
@@ -31,12 +31,6 @@
             "Database\\Seeders\\": "database/seeders/"
         }
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url":  "../rapyd-laravel-master/rapyd-laravel"
-        }
-    ],
     "minimum-stability": "dev"
     
 }
