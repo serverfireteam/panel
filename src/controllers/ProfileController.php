@@ -1,9 +1,12 @@
 <?php
 namespace Serverfireteam\Panel;
 
+//use http\Env\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Str;
 
 class ProfileController extends Controller {
 
@@ -37,7 +40,7 @@ class ProfileController extends Controller {
         }
 
         $admin  = Admin::find(\Auth::guard('panel')->user()->id);
-        $inputs = Input::all();
+        $inputs = Request::all();
         request()->validate([
             'picture' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -46,7 +49,7 @@ class ProfileController extends Controller {
             // Get image file
             $image = request()->file('picture');
             // Make a image name based on user name and current timestamp
-            $name = str_slug(request()->input('first_name')).'_'.str_slug(request()->input('last_name')).'_'.time();
+            $name = Str::slug(request()->input('first_name')).'_'.Str::slug(request()->input('last_name')).'_'.time();
             // Define folder path
             $folder = '/uploads/panel_avatars/';
             // Make a file path where image will be stored [ folder path + file name + file extension]
