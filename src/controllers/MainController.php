@@ -11,6 +11,8 @@ use \Serverfireteam\Panel\libs\PanelElements;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Str;
+
 
 class MainController extends Controller {
 
@@ -19,7 +21,7 @@ class MainController extends Controller {
         $uri = Request::path();
         // Get route collection
         $routes = collect(Route::getRoutes()->getRoutes())->reduce(function ($carry = [], $route) {
-            starts_with($route->uri(), 'panel/{entity}') ?: $carry[] = $route;
+            Str::startsWith($route->uri(), 'panel/{entity}') ?: $carry[] = $route;
 
             return  $carry;
         });
