@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": ">=7.3",
+        "php": ">=7.0|>=7.3",
         "illuminate/support": ">=5.8",
         "zofe/rapyd" : "^0.6|^7.0|^8.0.",
         "maatwebsite/excel": "^3.1.30",
