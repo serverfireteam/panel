@@ -29,10 +29,9 @@ class MainController extends Controller {
             // If we find a match, take the user there.
             foreach ($routes as $route){
                 if ($uri == $route->uri()){
-                    $controller_path = $route->getAction()['controller'];
-                    $controller_action = explode('@',$controller_path);
-                    $controller = \App::make($controller_action[0]);
-                    return $controller->callAction($controller_action[1], array());
+                    $controller_detail = $route->getAction()['uses'];
+                    $controller = \App::make( $controller_detail[0]);
+                    return $controller->callAction($controller_detail[1], array());
                     break;
                 }
             }
