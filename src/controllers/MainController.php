@@ -38,7 +38,7 @@ class MainController extends Controller {
                         $controller_path = $route->getAction()['controller'];
                         $controller_action = explode('@', $controller_path);
                         $controller = \App::make($controller_action[0]);
-                        return $controller->callAction($controller_action[1], array());
+                        return $controller->callAction($controller_action[1],array($entity));
                     }
 
                 }
