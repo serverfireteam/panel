@@ -3,7 +3,7 @@ namespace Serverfireteam\Panel;
 
 use Illuminate\Contracts\Auth\PasswordBroker as PasswordBrokerContract;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 
 /*******
  * The RemindersControler handle the users Password reminding activities
@@ -41,7 +41,7 @@ class RemindersController extends Controller {
 
         \Config::set('auth.defaults.passwords', 'panel');
 
-	    $response = \Password::sendResetLink(Input::only('email'), function($message) {
+	    $response = \Password::sendResetLink(Request::only('email'), function($message) {
 		  $message->subject('Password Reminder');
 	    });
 
@@ -68,7 +68,7 @@ class RemindersController extends Controller {
     public function postReset()
     {
 
-        $credentials = Input::only(
+        $credentials = Request::only(
             'email', 'password', 'password_confirmation', 'token'
         );
         \Config::set('auth.defaults.passwords', 'panel');
@@ -112,9 +112,9 @@ class RemindersController extends Controller {
 	public function postChangePassword() {
 
         $user 		 = Admin::find(\Auth::guard('panel')->user()->id);
-        $password 	 = Input::only('current_password');
-        $new_password    = Input::only('password');
-        $retype_password = Input::only('password_confirmation');
+        $password 	 = Request::only('current_password');
+        $new_password    = Request::only('password');
+        $retype_password = Request::only('password_confirmation');
         $user_password   = \Auth::guard('panel')->user()->password;
 
         //Check to see if user enters current password correctly

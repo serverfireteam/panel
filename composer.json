@@ -10,11 +10,11 @@
         }
     ],
     "require": {
-        "php": ">=7.1.3",
-        "illuminate/support": "5.5.*|5.6.*|5.7.*|5.8.*",
-        "serverfireteam/rapyd-laravel" : "1.5.*",
-        "maatwebsite/excel": "~3.1.13",
-	"barryvdh/laravel-elfinder": "0.4.*"
+        "php": ">=7.3",
+        "illuminate/support": "^8.12",
+        "zofe/rapyd" : "^8.0.",
+        "maatwebsite/excel": "^3.1.30",
+	    "barryvdh/laravel-elfinder": "^0.4.7"
     },
     "autoload": {
         "classmap": [
@@ -22,10 +22,13 @@
             "src/views",
             "src/models",
             "src/database/migrations",
-  	        "src/Serverfireteam/Panel/Commands"
+  	     "src/Serverfireteam/Panel/Commands"
         ],
         "psr-0": {
-            "Serverfireteam\\Panel": "src/"
+            "Serverfireteam\\Panel": "src/",
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/"
         }
     },
     "minimum-stability": "dev"

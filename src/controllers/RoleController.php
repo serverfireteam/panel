@@ -44,7 +44,7 @@ class RoleController extends CrudController {
 		$this->edit->add('permissions','Permissions','checkboxgroup')->options(Permission::pluck('name', 'id')->all());
 		$this->edit->saved(function () use ($entity) {
 			$this->edit->message(\Lang::get('panel::fields.dataSavedSuccessfull'));
-			$this->edit->link('panel/Permission/all', \Lang::get('panel::fields.back'));
+			$this->edit->link('panel/Role/all', \Lang::get('panel::fields.back'));
 		});
 
 

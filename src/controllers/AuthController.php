@@ -4,7 +4,7 @@ namespace Serverfireteam\Panel;
 
 use Illuminate\Support\Facades\Session as session;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 
 class AuthController extends Controller {
 
@@ -17,12 +17,12 @@ class AuthController extends Controller {
     {
 
         $userdata = array(
-                'email' 	=> Input::get('email'),
-                'password' 	=> Input::get('password')
+                'email' 	=> Request::get('email'),
+                'password' 	=> Request::get('password')
         );
         // attempt to do the login
-        if (\Auth::guard('panel')->attempt($userdata,filter_var(Input::get('remember'), FILTER_VALIDATE_BOOLEAN))) {
-            return \Redirect::to('panel');
+        if (\Auth::guard('panel')->attempt($userdata,filter_var(Request::get('remember'), FILTER_VALIDATE_BOOLEAN))) {
+                 return \Redirect::to('panel');
         } else {
             // validation not successful, send back to form	
             return \Redirect::to('panel/login')->with('message', \Lang::get('panel::fields.passwordNotCorrect') )->with('mesType','error');

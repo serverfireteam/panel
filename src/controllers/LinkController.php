@@ -52,7 +52,7 @@ class LinkController extends CrudController {
 
         $this->edit->saved(function () use ($entity) {
            $this->edit->message(\Lang::get('panel::fields.dataSavedSuccessfull'));
-            $this->edit->link('panel/Permission/all', \Lang::get('panel::fields.back'));
+            $this->edit->link('panel/Link/all', \Lang::get('panel::fields.back'));
         });
         $this->addHelperMessage($helpMessage);
 

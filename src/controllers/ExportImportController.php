@@ -3,7 +3,7 @@
 namespace Serverfireteam\Panel;
 
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ExportImportController extends Controller {
@@ -18,13 +18,13 @@ class ExportImportController extends Controller {
         return \Redirect::to('panel/' . $entity . '/all')->with('export_message', "File type is not excel");
     }
 
-    public function import($entity) {
+    public function import(Request $request, $entity) {
 
-        $status = Input::get('status');
+        $status = $request->get('status');
 
         $filePath = null;
-        if (Input::hasFile('import_file') && Input::file('import_file')->isValid()) {
-            $pathTemp = Input::file('import_file')->store('temp');
+        if ($request->hasFile('import_file') && $request->file('import_file')->isValid()) {
+            $pathTemp = $request->file('import_file')->store('temp');
             $filePath = storage_path('app').'/'.$pathTemp;
         }
 
