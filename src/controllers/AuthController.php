@@ -4,7 +4,6 @@ namespace Serverfireteam\Panel;
 
 use Illuminate\Support\Facades\Session as session;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Request;
 
 class AuthController extends Controller {

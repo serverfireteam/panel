@@ -3,7 +3,6 @@ namespace Serverfireteam\Panel;
 
 //use http\Env\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;

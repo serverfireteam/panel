@@ -3,7 +3,7 @@
 namespace Serverfireteam\Panel;
 
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ExportImportController extends Controller {
@@ -20,11 +20,11 @@ class ExportImportController extends Controller {
 
     public function import($entity) {
 
-        $status = Input::get('status');
+        $status = Request::get('status');
 
         $filePath = null;
-        if (Input::hasFile('import_file') && Input::file('import_file')->isValid()) {
-            $pathTemp = Input::file('import_file')->store('temp');
+        if (Request::hasFile('import_file') && Request::file('import_file')->isValid()) {
+            $pathTemp = Request::file('import_file')->store('temp');
             $filePath = storage_path('app').'/'.$pathTemp;
         }
 
